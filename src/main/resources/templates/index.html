@@ -7,18 +7,22 @@
 	<link rel="stylesheet" href="/css/login.css">
 </head>
 
-<body>
+<body ng-app="login">
 
-<div class="login">
+<div ng-controller="loginController" class="login">
 	<h1>Login</h1>
 	<form method="post">
-		<input type="text" name="u" placeholder="用户名" required="required" />
-		<input type="password" name="p" placeholder="密码" required="required" />
-		<button  class="btn btn-primary btn-block btn-large">登录</button>
+		<input type="text" ng-bind="name" name="u" placeholder="用户名" required="required" />
+		<input type="password" ng-bind="password" name="p" placeholder="密码" required="required" />
+		<button  ng-click="login()" class="btn btn-primary btn-block btn-large">登录</button>
 	</form>
 </div>
 
 
 
 </body>
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="/js/angular/angular.js"></script>
+<script src="/js/loginController.js"></script>
+<
 </html>
