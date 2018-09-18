@@ -4,16 +4,16 @@ import com.deepdraw.deepsearch.dao.AreaDao;
 import com.deepdraw.deepsearch.entity.Area;
 import com.deepdraw.deepsearch.service.AreaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
+@Component
 public class AreaServiceImpl implements AreaService {
-    @Qualifier("areaDao")
-    @Autowired private AreaDao areaDao;
+
+    @Autowired
+    private AreaDao areaDao;
 
 
     @Transactional(value="mysqlTransactionManager")

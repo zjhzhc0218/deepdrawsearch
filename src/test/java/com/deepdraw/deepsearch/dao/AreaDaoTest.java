@@ -1,6 +1,7 @@
 package com.deepdraw.deepsearch.dao;
 
 import com.deepdraw.deepsearch.entity.Area;
+import com.deepdraw.deepsearch.service.AreaService;
 import com.deepdraw.deepsearch.service.impl.AreaServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest
 public class AreaDaoTest {
     @Autowired
-    private AreaServiceImpl areaService;
+    private AreaService areaService;
 
     @Test
     public void queryArea() {
