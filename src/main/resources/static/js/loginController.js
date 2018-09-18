@@ -18,7 +18,6 @@ var app=angular.module('login',[])
             }else {
                 alert('填写信息有误');
             }
-
         }
     }])
 
