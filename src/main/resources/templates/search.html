@@ -9,19 +9,9 @@
 
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link href="/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/font/font-awesome.css">
     <!-- CSS样式 -->
     <style type="text/css">
-        .bs-docs-home
-        {
-            background-color: #1B31B1;
-            /*background-image: url(line.png);*/
-        }
-        #line-chart {
-            height:300px;
-            width:800px;
-            margin: 0px auto;
-            margin-top: 1em;
-        }
         .brand { font-family: georgia, serif; }
         .brand .first {
             color: #373731;
@@ -67,11 +57,11 @@
                 <ul class="nav pull-right">
                     <li id="fat-menu" class="dropdown">
                         <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-user"></i> 登陆人员1
+                            <i class="icon-user"></i> {{username}}
                             <i class="icon-caret-down"></i>
                         </a>
 
-                        <ul class="dropdown-menu">
+                        <ul   class="dropdown-menu">
                             <li><a tabindex="-1" href="#">设置</a></li>
                             <li class="divider"></li>
                             <li><a tabindex="-1" href="sign-in.html">注销</a></li>
@@ -164,7 +154,7 @@
 <!--内容-结束-->
 
 <!--尾部-开始-->
-<div class="footer" style="background:#777777; width:100%; padding-bottom:20px; margin-top:30px;">
+<div class="footer" style="background:#777777; width:100%; padding-bottom:20px; margin-top:72px;">
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
@@ -185,6 +175,7 @@
 <!--尾部-结束-->
 </body>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="/js/angular/angular.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="/js/searchController.js"></script>
 </html>
