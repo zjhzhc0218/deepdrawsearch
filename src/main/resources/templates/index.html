@@ -9,13 +9,11 @@
 
 <body ng-app="login">
 
-<div ng-controller="loginController" class="login">
+<div ng-controller="loginController" class="login" ng-init="name='12345678910'">
 	<h1>Login</h1>
-	<form method="post">
-		<input type="text" ng-bind="name" name="u" placeholder="用户名" required="required" />
-		<input type="password" ng-bind="password" name="p" placeholder="密码" required="required" />
+		<input type="text" ng-bind="name" ng-model="name" name="u" placeholder="用户名" required="required" />
+		<input type="password" ng-bind="password" ng-model="password"  name="p" placeholder="密码" required="required" />
 		<button  ng-click="login()" class="btn btn-primary btn-block btn-large">登录</button>
-	</form>
 </div>
 
 
