@@ -15,7 +15,8 @@ var app=angular.module('login',[])
                         'password':$scope.password
                 }
                 }).success(function (data) {
-                    alert("成功了"+data);
+                    console.log(data);
+                    alert(data.data);
                 }).error(function (data) {
                     alert("失败了");
                 });
