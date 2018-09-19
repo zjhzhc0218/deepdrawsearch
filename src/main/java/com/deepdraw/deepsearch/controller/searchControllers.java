@@ -1,50 +1,46 @@
 package com.deepdraw.deepsearch.controller;
 
-import org.python.util.PythonInterpreter;
+import com.deepdraw.deepsearch.util.JavaToPython;
+import com.deepdraw.deepsearch.util.JsonUtil;
+import com.deepdraw.deepsearch.util.ResultUtil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
 
 @RestController
 public class searchControllers {
 
 
+    /**
+     * 调用python返回违禁词数据
+     * @param request
+     * @param response
+     * @return
+     */
     @GetMapping(value="/getSearchWjc")
-    public Object  findOneUser(HttpServletRequest request,HttpServletResponse response) throws FileNotFoundException {
-        String word = (String) request.getParameter("searchWords");
-
-
-        PythonInterpreter interpreter = new PythonInterpreter();
-        Process proc = null;
-        try {
-            Runtime.getRuntime().exec("cmd /c [your command]");
-            Runtime.getRuntime().exec("C:\\Users\\hc\\Desktop\\hc.py");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            proc.waitFor();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        //interpreter.execfile("C:\\Users\\hc\\Documents\\Tencent Files\\136680555\\FileRecv\\saas\\hc.py");
-        //interpreter.exec("print(sorted(a));");  //此处python语句是3.x版本的语法
-
-
-        //PythonInterpreter interpreter = new PythonInterpreter();
-
-        //PyFunction func = (PyFunction) interpreter.get("input",
-        //        PyFunction.class);
-        //
-        //PyObject pyobj = func.__call__(new PyString(word));
-        //System.out.println("anwser = " + pyobj.toString());
-
-        return null;
+    public String  findOneUser(HttpServletRequest request,HttpServletResponse response){
+        String word =  request.getParameter("searchWords");
+        String[]  args = new String[] { "python", "C:/Users/hc/Desktop/saas/text2.py", word };
+        return JsonUtil.object2Json(ResultUtil.success(JavaToPython.getPython(args)));
     }
 
+    /**
+     * 调用python返回信誉数据
+     * @param request
+     * @param response
+     * @return
+     */
+    @GetMapping(value="/getSearchXinyu")
+    public String  getSearchXinyu(HttpServletRequest request,HttpServletResponse response){
+        String word =  request.getParameter("searchWords");
+        String[]  args = new String[] { "python", "C:/Users/hc/Desktop/saas/text3.py", word};
+        String result = JavaToPython.getPython(args);
+        if (result.equals("001"))
+            return JsonUtil.object2Json(ResultUtil.error(1,"'该号不存在，请检测是否输入有误'"));
+        return JsonUtil.object2Json(ResultUtil.success(result));
+    }
 
 
 }
