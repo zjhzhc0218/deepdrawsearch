@@ -1,6 +1,8 @@
 package com.deepdraw.deepsearch.dao;
 
 import com.deepdraw.deepsearch.entity.Area;
+import com.deepdraw.deepsearch.service.AreaService;
+import com.deepdraw.deepsearch.service.impl.AreaServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +17,11 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest
 public class AreaDaoTest {
     @Autowired
-    private AreaDao areaDao;
+    private AreaService areaService;
 
     @Test
     public void queryArea() {
-        List<Area> areas = areaDao.queryArea();
+        List<Area> areas = areaService.queryArea();
         System.out.print(areas.toString());
         assertEquals(2, areas.size());
     }
