@@ -19,6 +19,12 @@
             font-weight: bold;
             font-size: 30px;
         }
+        .error{
+            color:red;
+        }
+        .result-context span {
+            font-size: 30px;
+        }
 
     </style>
 
@@ -82,7 +88,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li style="width: 150px;" class="active" ><a href="#paimin"  role="tab" data-toggle="tab"><strong>淘宝排名</strong></a></li>
-                <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#yinsi"  role="tab" data-toggle="tab"><strong>隐私</strong></a></li>
+                <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#yinsi"  role="tab" data-toggle="tab"><strong>隐私查询</strong></a></li>
+                <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#xinyu"  role="tab" data-toggle="tab"><strong>信誉查询</strong></a></li>
                 <li style="width: 150px;"><a href="#weijin"  role="tab" data-toggle="tab"><strong>违禁词</strong></a></li>
             </ul>
         </div>
@@ -105,6 +112,52 @@
 
 
     </div>
+    <!--信誉-->
+    <div role="tabpanel" class="tab-pane" id="xinyu">
+
+        <div style="width: 100%;height: 100%" class="Container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <dl>
+                        <dt style="font-size: 20px">
+                            淘宝信用查询
+                        </dt>
+                        <dd style="font-size: 15px">
+                            请在输入框内输入淘宝帐号，并点击查询
+                            1、注册时间小于30天的，被认定为小号/新号，有可能是骗子，应当谨慎交易，免得赚几块钱换来一个中差评。
+                            2、淘一兔可以查询买家中差评数量以及中差评信息，如果该用户的比例超过一定的比例，则有可能是中差评师，要十分注意了。
+                            3、经常刷的小号，当信用点数超过20点(常购物的买家大号除外)，有可能这个号被淘宝列入黑名单，他再拍的东西有可能会被认为虚假交易，再刷会有降权风险。
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="context" >
+                <textarea style="width: 763px;height: 149px;border-radius:5px " ng-model="xinYu.searchWordsXy"  placeholder="请输入淘宝账号，然后点击 &quot;检测一下&quot; 按钮" class="ng-pristine ng-valid ng-empty ng-touched"></textarea>
+            </div>
+            <div style="margin-top: 30px" class="button-container text-left">
+                <button class="btn btn-success" ng-click="searchXinyu()" ng-disabled="xinYu.working">检测一下</button>
+            </div></br>
+            <!--结果-->
+            <div class="result"  style="width:85%;height:350px;">
+                <div class="noViolation " ng-show="xinYu.hasNoViolation == true" style="color: red;font-size: 30px">
+                    该号不存在，请检测是否输入有误!
+                </div>
+                <div class="result-context" ng-show="xinYu.examedContext != null" >
+                    <table class="table table-bordered table-hover" style="  display: block;width:51%;height: 95%;overflow-y: scroll;">
+                        <tbody>
+                        <tr ng-repeat="d in xinYu.examedContext ">
+                            <td ng-bind="d.name">
+                            </td>
+                            <td ng-bind="d.value">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
         <!--违禁-->
     <div role="tabpanel" class="tab-pane" id="weijin">
 
@@ -123,30 +176,29 @@
                 </div>
             </div>
             <div class="context" >
-                <textarea style="width: 763px;height: 149px;border-radius:5px " ng-model="searchWords"  placeholder="粘贴你的广告、文案到此处，然后点击 &quot;检测一下&quot; 按钮" class="ng-pristine ng-valid ng-empty ng-touched"></textarea>
+                <textarea style="width: 763px;height: 149px;border-radius:5px " ng-model="searchWordsWjc"  placeholder="粘贴你的广告、文案到此处，然后点击 &quot;检测一下&quot; 按钮" class="ng-pristine ng-valid ng-empty ng-touched"></textarea>
             </div>
             <div style="margin-top: 30px" class="button-container text-left">
                 <button class="btn btn-success" ng-click="searchWjc()" ng-disabled="app.working">检测一下</button>
-
             </div></br>
             <!--结果-->
-            <div class="result ng-hide" style="width:85%;height:350px;">
-                <!--<div class="filters" ng-hide="app.hasNoViolation">-->
-                    <!--<switcher class="styled ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty" ng-model="style1" ng-disabled="isDisabled" ng-change="app.hideErrorsDetail = !app.hideErrorsDetail" true-label="" false-label="隐藏原因"><div class="switcher" ng-class="{active:shadowModel,disabled:disabled}"><span class="switcher-label false ng-binding" ng-bind-html="trustedHtml(falseLabel)" ng-click="set(false)">隐藏原因</span><label class="switcher-line"><input type="checkbox" ng-model="shadowModel" ng-disabled="disabled" ng-change="onChange()" class="ng-pristine ng-untouched ng-valid ng-empty"></label><span class="switcher-label true ng-binding" ng-bind-html="trustedHtml(trueLabel)" ng-click="set(true)"></span></div></switcher>-->
-
-                    <!--<switcher class="styled ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty" ng-model="style2" ng-disabled="isDisabled" ng-change="app.hideErrors = !app.hideErrors" true-label="" false-label="隐藏敏感词"><div class="switcher" ng-class="{active:shadowModel,disabled:disabled}"><span class="switcher-label false ng-binding" ng-bind-html="trustedHtml(falseLabel)" ng-click="set(false)">隐藏敏感词</span><label class="switcher-line"><input type="checkbox" ng-model="shadowModel" ng-disabled="disabled" ng-change="onChange()" class="ng-pristine ng-untouched ng-valid ng-empty"></label><span class="switcher-label true ng-binding" ng-bind-html="trustedHtml(trueLabel)" ng-click="set(true)"></span></div></switcher>-->
-                <!--</div>-->
-
-                <!--<div class="noViolation ng-hide" ng-show="">-->
-                    <!--恭喜你，没有发现任何禁用词／敏感词！-->
-                <!--</div>-->
-                <!--<div class="result-context" bind-html-compile="examedContext"></div>-->
+            <div class="result"  style="width:85%;height:350px;">
+                <div class="noViolation " ng-show="app.hasNoViolation == true" style="color: green;font-size: 30px">
+                    恭喜你，没有发现任何禁用词／敏感词！
+                </div>
+                <div class="result-context" ng-show="app.hasNoViolation == false" style="width:80%;height:300px;" ng-bind-html="app.examedContext | to_trusted"></div>
             </div>
         </div>
-
-
-
     </div>
+
+
+
+
+
+
+
+
+
 
 
     </div>
