@@ -30,7 +30,7 @@
 
 </head>
 
-<body ng-controller="searchController">
+<body ng-controller="searchController" style="overflow: hidden">
 <!--顶部-开始-->
 <div style=" background:#EBEBEB; width:100%; height:80px; line-height:80px;">
     <!--<div class="container">
@@ -87,10 +87,11 @@
     <div class="container">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li style="width: 150px;" class="active" ><a href="#paimin"  role="tab" data-toggle="tab"><strong>淘宝排名</strong></a></li>
-                <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#yinsi"  role="tab" data-toggle="tab"><strong>隐私查询</strong></a></li>
+                <li style="width: 150px;" class="active" ><a style="text-align:center;font-size: 10px" href="#paimin"  role="tab" data-toggle="tab"><strong>淘宝排名</strong></a></li>
+                <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#reci"  role="tab" data-toggle="tab"><strong>热词查询</strong></a></li>
+                <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#jiangquan"  role="tab" data-toggle="tab"><strong>降权查询</strong></a></li>
                 <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#xinyu"  role="tab" data-toggle="tab"><strong>信誉查询</strong></a></li>
-                <li style="width: 150px;"><a href="#weijin"  role="tab" data-toggle="tab"><strong>违禁词</strong></a></li>
+                <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#weijin"  role="tab" data-toggle="tab"><strong>违禁词</strong></a></li>
             </ul>
         </div>
     </div>
@@ -98,23 +99,146 @@
 <!--导航-结束-->
 
 <!--内容-开始-->
-<div style="width: 80%;height: 75%" class="container">
+<div style="width: 90%;height: 75%" class="container">
     <div class="tab-content">
-       <!--排名-->
+    <!--排名-->
     <div role="tabpanel" class="tab-pane active" id="paimin">
+        <div style="width: 100%;height: 100%" class="Container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <dl>
+                        <dt style="font-size: 20px">
+                            宝贝排名查询
+                        </dt>
+                        <dd style="font-size: 15px">
+
+                        </dd>
+                        <dd style="font-size: 15px">
+                            <span style="color: red">注意：宝贝排名只提供参考，非淘宝官方数据</span>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="row clearfix" >
+                <div class="col-md-12 column form-inline " style="font-size: 20px">
+                    <label class="font-14">关键字：</label>
+                    <input type="text" class="form-control" style="width: 263px;border-radius:5px ;margin-left: 119px;" ng-model="bbPaiMing.keyWords"/>
+                </div></br>
+                <div class="col-md-12 column form-inline " style="font-size: 20px;top:10px">
+                    <label class="font-14">宝贝ID或者宝贝链接：</label>
+                    <input type="text" class="form-control" style="width: 263px;border-radius:5px " ng-model="bbPaiMing.tbaoId"/>
+                </div>
+            </div>
+            <div style="margin-top: 30px" class="button-container text-left">
+                <button class="btn btn-success" ng-click="searchPaiming()" ng-disabled="bbPaiMing.working">检测一下</button>
+            </div></br>
+            <!--结果-->
+            <div class="result"  style="width:85%;height:350px;">
+                <div class="noViolation " ng-show="bbPaiMing.msg != null" style="color: red;font-size: 30px" ng-bind="bbPaiMing.msg">
+                </div>
+                <div class="result-context" ng-show="bbPaiMing.examedContext != null" >
+                    <table class="table table-hover" style="  display: block;width:100%;height: 95%;overflow-y: hidden;">
+                        <thead>
+                        <tr>
+                            <td style="width: 60px;text-align: center"><label>图片链接</label></td>
+                            <td style="width: 80px;text-align: center"><label>标题</label></td>
+                            <td style="width: 228px;text-align: center"><label>宝贝坐标</label></td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="data in bbPaiMing.examedContext " >
+                            <td ng-repeat="(x,y) in data ">
+                                <img ng-if="x == 'pic'" ng-src="{{y}}">
+                                <span style="font-size: 22px" ng-if="x == 'title'">{{y}}</span>
+                                <span style="font-size: 22px;color: green" ng-if="x == 'zoom'">{{y}}</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!--20万热词-->
+    <div role="tabpanel" class="tab-pane active" id="reci">
 
 
 
 
     </div>
-        <!--隐私-->
-    <div role="tabpanel" class="tab-pane" id="yinsi">
-
+    <!--降权-->
+    <div role="tabpanel" class="tab-pane" id="jiangquan">
+        <div style="width: 100%;height: 100%" class="Container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <dl>
+                        <dt style="font-size: 20px">
+                            店铺宝贝隐形降权查询
+                        </dt>
+                        <dd style="font-size: 15px">
+                            隐形降权是在线检测宝贝是否被淘宝网隐形降权的分析工具，帮助卖家了解自己宝贝是否被降权。
+                        </dd>
+                        <dd style="font-size: 15px">
+                            <span style="color: red">注意：宝贝隐形降权只提供参考，非淘宝官方数据</span>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="row clearfix" >
+                <div class="col-md-12 column form-inline " style="font-size: 20px">
+                    <label class="font-14">旺旺ID：</label>
+                    <input type="text" class="form-control" style="width: 263px;border-radius:5px " ng-model="jiangquan.searchWordsJq"/>
+                </div></br>
+                <div class="col-md-12 column form-inline " style="font-size: 20px;top:10px">
+                    <label class="font-14">选择类型：</label>
+                    <label>
+                        <input type="radio" ng-value=0 ng-model="jiangquan.isNormal" name="normal">正常
+                    </label>
+                    <label>
+                        <input type="radio" ng-value=1 ng-model="jiangquan.isNormal" name="normal" >异常
+                    </label>
+                </div>
+            </div>
+            <div style="margin-top: 30px" class="button-container text-left">
+                <button class="btn btn-success" ng-click="searchJiangQuan()" ng-disabled="jiangquan.working">检测一下</button>
+            </div></br>
+            <!--结果-->
+            <div class="result"  style="width:85%;height:350px;">
+                <div class="noViolation " ng-show="jiangquan.msg != null" style="color: red;font-size: 30px">
+                    {{jiangquan.msg}}
+                </div>
+                <div class="result-context" ng-show="jiangquan.examedContext != null" >
+                    <table class="table table-hover" style="  display: block;width:100%;height: 95%;overflow-y: scroll;">
+                        <thead>
+                            <tr style="width:100%">
+                                <td style="width: 30px;text-align: center"><label>评价数量</label></td>
+                                <td style="width: 40px;text-align: center"><label>内容</label></td>
+                                <td style="width: 80px;text-align: center"><label>权重差值</label></td>
+                                <td style="width: 50px;text-align: center"><label>图片</label></td>
+                                <td style="width: 200px;text-align: center"><label>评估结果</label></td>
+                                <td style="width: 60px;text-align: center"><label>淘宝链接</label></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="data in jiangquan.examedContext " >
+                            <td ng-repeat="(x,y) in data ">
+                                <img ng-if="x == 'pic'" ng-src="{{y}}">
+                                <span style="font-size: 22px" ng-if="x != 'pic'&& x != 'tbao'">{{y}}</span>
+                                <a ng-if="x == 'tbao'"  href="{{y}}"  target="_blank" style="text-decoration:none">{{y}}</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
     </div>
     <!--信誉-->
     <div role="tabpanel" class="tab-pane" id="xinyu">
-
         <div style="width: 100%;height: 100%" class="Container">
             <div class="row clearfix">
                 <div class="col-md-12 column">
@@ -124,8 +248,14 @@
                         </dt>
                         <dd style="font-size: 15px">
                             请在输入框内输入淘宝帐号，并点击查询
+                        </dd>
+                        <dd style="font-size: 15px">
                             1、注册时间小于30天的，被认定为小号/新号，有可能是骗子，应当谨慎交易，免得赚几块钱换来一个中差评。
+                        </dd>
+                        <dd style="font-size: 15px">
                             2、淘一兔可以查询买家中差评数量以及中差评信息，如果该用户的比例超过一定的比例，则有可能是中差评师，要十分注意了。
+                        </dd>
+                        <dd style="font-size: 15px">
                             3、经常刷的小号，当信用点数超过20点(常购物的买家大号除外)，有可能这个号被淘宝列入黑名单，他再拍的东西有可能会被认为虚假交易，再刷会有降权风险。
                         </dd>
                     </dl>
@@ -158,7 +288,7 @@
         </div>
     </div>
 
-        <!--违禁-->
+    <!--违禁-->
     <div role="tabpanel" class="tab-pane" id="weijin">
 
         <div style="width: 100%;height: 100%" class="Container">
@@ -206,7 +336,7 @@
 <!--内容-结束-->
 
 <!--尾部-开始-->
-<div class="footer" style="background:#777777; width:100%; padding-bottom:20px; margin-top:72px;">
+<div class="footer" style="background:#777777; width:100%; padding-bottom:20px; margin-top: 23px;">
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
