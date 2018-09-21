@@ -5,10 +5,11 @@ package com.deepdraw.deepsearch.serviceImpl;/**
 import com.deepdraw.deepsearch.dao.ZywDao;
 import com.deepdraw.deepsearch.entity.Zyw;
 import com.deepdraw.deepsearch.service.ZywService;
-import jnr.ffi.annotations.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author
@@ -21,12 +22,16 @@ public class ZywServiceImpl implements ZywService{
     private ZywDao zywDao;
 
     @Override
-    public String selectZyw(String name, String password) {
+    public Map<String,Object> selectZyw(String name, String password) {
+        Map<String,Object> map =   new HashMap<>();
         Zyw zyw = zywDao.selectZywForname(name, password);
         if(zyw==null){
-            return "查询失败，没有该用户啊";
+            map.put("message","查询失败，没有该用户啊");
+            return map;
         }else{
-            return "运气不错，查有此人";
+            map.put("message","运气不错，查有此人");
+            map.put("user",zyw);
+            return map;
         }
     }
 
@@ -51,7 +56,7 @@ public class ZywServiceImpl implements ZywService{
         }else{
             try {
             /*进行账号密码的修改*/
-            zywSelect.setLastIp(zyw.getLastIp());
+            zywSelect.setPassword(passwordAgain);
             Integer y =  zywDao.updateZyw(zywSelect);
             if(y!=0){
                 return "您的密码修改成功";}else{

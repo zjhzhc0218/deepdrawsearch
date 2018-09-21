@@ -2,7 +2,6 @@ var app=angular.module('sign',[]);
 app.controller('signController',['$scope','$http', function ($scope,$http) {
     $scope.name = null;
     $scope.password = null;
-    ${Session["user"]};
 
     //登陆
     $scope.sign = function () {
@@ -32,7 +31,7 @@ app.controller('signController',['$scope','$http', function ($scope,$http) {
         location.href = url;
     }
 
-    //跳转到注册页面
+    //跳转到修改密码页面
     $scope.forgot = function () {
         var url='http://127.0.0.1:8080/forgotpassword';
         location.href = url;

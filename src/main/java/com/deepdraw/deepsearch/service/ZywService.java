@@ -6,6 +6,8 @@ import com.deepdraw.deepsearch.entity.Zyw;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 /**
  * @author
  * @create 2018-09-18 17:34
@@ -13,7 +15,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface ZywService {
 
-    String selectZyw(String name,String password);
+    Map<String,Object> selectZyw(String name, String password);
 
     String addZyw(Zyw zyw);
 

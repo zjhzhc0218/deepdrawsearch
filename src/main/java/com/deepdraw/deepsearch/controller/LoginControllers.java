@@ -1,6 +1,7 @@
 package com.deepdraw.deepsearch.controller;
 
 import com.deepdraw.deepsearch.entity.Zyw;
+import com.deepdraw.deepsearch.handler.ContextHolder;
 import com.deepdraw.deepsearch.service.AreaService;
 import com.deepdraw.deepsearch.service.ZywService;
 import com.deepdraw.deepsearch.util.JsonUtil;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Map;
 
 @RestController
 public class LoginControllers {
@@ -25,6 +27,7 @@ public class LoginControllers {
 
     @Autowired
     private ZywService zywService;
+
 
     /**
      * 登陆页
@@ -51,17 +54,17 @@ public class LoginControllers {
         return mv;
     }
 
-    /**
-     * 登陆页2
-     * @param mv
-     * @return
-     */
-    @RequestMapping("/luyou")
-    public ModelAndView luyou(ModelAndView mv) {
-        //mv.addObject("name", "测试1");
-        mv.setViewName("luyou");
-        return mv;
-    }
+//    /**
+//     * 登陆页2
+//     * @param mv
+//     * @return
+//     */
+//    @RequestMapping("/luyou")
+//    public ModelAndView luyou(ModelAndView mv) {
+//        //mv.addObject("name", "测试1");
+//        mv.setViewName("luyou");
+//        return mv;
+//    }
 
 
     /**
@@ -105,16 +108,23 @@ public class LoginControllers {
      * * @param password
      * * @return*/
     @RequestMapping("/passwordToLogin")
-    public String passwordToLogin(HttpServletRequest request, String name, String password) throws IOException {
+    public String passwordToLogin(HttpServletRequest request, String name, String password,HttpSession session) throws IOException {
         String ip = NetWorkUtil.getIpAddress(request).toString();
         System.out.println("当前的ip地址是"+ip);
 
-         String messge = zywService.selectZyw(name, password);
+        Map<String,Object> map = zywService.selectZyw(name, password);
         // mv.addObject("now", DateFormat.getDateTimeInstance().format(new Date()));
         // mv.setViewName("index");
-        System.out.println(JsonUtil.object2Json(ResultUtil.success(messge)));
+        session=request.getSession();
+        session.setMaxInactiveInterval(300);
+        session.setAttribute("user",map.get("user"));
         System.out.println("123");
-         return JsonUtil.object2Json(ResultUtil.success(messge));
+        System.out.println(JsonUtil.object2Json(ResultUtil.success(map.get("message"))));
+        Zyw zyw = ContextHolder.getSessionUser();
+        session.setAttribute("username",zyw.getName());
+        System.out.println(zyw);
+        System.out.println("123");
+         return JsonUtil.object2Json(ResultUtil.success(map.get("message")));
     }
 
     /*** 注册信息处理
@@ -154,6 +164,8 @@ public class LoginControllers {
         // System.out.println("进入测试了吗");
         String ip = NetWorkUtil.getIpAddress(request).toString();
         System.out.println("当前的ip地址是"+ip);
+
+        Zyw zywN = ContextHolder.getSessionUser();
 
         Zyw zyw = new Zyw();
         zyw.setLastIp(ip);
