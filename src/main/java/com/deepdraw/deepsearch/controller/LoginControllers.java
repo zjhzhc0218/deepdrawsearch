@@ -106,8 +106,6 @@ public class LoginControllers {
      * * @return*/
     @RequestMapping("/passwordToLogin")
     public String passwordToLogin(HttpServletRequest request, String name, String password) throws IOException {
-        //mv.addObject("name", "测试1");
-        // System.out.println("进入测试了吗");
         String ip = NetWorkUtil.getIpAddress(request).toString();
         System.out.println("当前的ip地址是"+ip);
 
