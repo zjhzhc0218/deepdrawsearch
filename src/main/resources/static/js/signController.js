@@ -2,7 +2,6 @@ var app=angular.module('sign',['Encrypt']);
 app.controller('signController',['$scope','$http', 'Md5','Base64','Sha1', function ($scope,$http,Md5,Base64,Sha1) {
     $scope.name = null;
     $scope.password = null;
-
     
     //登陆
     $scope.sign = function () {
