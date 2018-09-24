@@ -48,6 +48,7 @@
 </body>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="/js/angular/angular.js"></script>
+<script src="/js/angular/encrypt.js"></script>
 <script src="/js/forgotpasswordController.js"></script>
 
 </html>

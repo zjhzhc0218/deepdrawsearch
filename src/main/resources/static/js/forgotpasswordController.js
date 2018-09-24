@@ -1,10 +1,10 @@
-var app=angular.module('signup',[]);
-        app.controller('signupController',['$scope','$http', function ($scope,$http) {
+var app=angular.module('signup',['Encrypt']);
+        app.controller('signupController',['$scope','$http', 'Md5','Base64','Sha1', function ($scope,$http,Md5,Base64,Sha1) {
             $scope.name = null;
             $scope.password = null;
             $scope.passwordAgain1 = null;
 
-            //登陆
+            //修改密码
             $scope.forgot = function () {
                 if ($scope.name != null && $scope.password !=null && $scope.passwordAgain1 == $scope.passwordAgain2){
                     console.log('ok');
@@ -13,8 +13,8 @@ var app=angular.module('signup',[]);
                         url:'http://127.0.0.1:8080/forgot',
                         params:{
                             'name':$scope.name,
-                            'password':$scope.password,
-                            'passwordagain':$scope.passwordAgain1
+                            'password':Md5.hex_md5($scope.password),
+                            'passwordagain':Md5.hex_md5($scope.passwordAgain1)
                         }
                     }).success(function (data) {
                         console.log(data);
