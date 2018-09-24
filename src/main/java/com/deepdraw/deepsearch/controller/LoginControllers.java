@@ -4,10 +4,7 @@ import com.deepdraw.deepsearch.entity.Zyw;
 import com.deepdraw.deepsearch.handler.ContextHolder;
 import com.deepdraw.deepsearch.service.AreaService;
 import com.deepdraw.deepsearch.service.ZywService;
-import com.deepdraw.deepsearch.util.JsonUtil;
-import com.deepdraw.deepsearch.util.NetWorkUtil;
-import com.deepdraw.deepsearch.util.ResultMsg;
-import com.deepdraw.deepsearch.util.ResultUtil;
+import com.deepdraw.deepsearch.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -112,7 +109,7 @@ public class LoginControllers {
         String ip = NetWorkUtil.getIpAddress(request).toString();
         System.out.println("当前的ip地址是"+ip);
 
-        Map<String,Object> map = zywService.selectZyw(name, password);
+        Map<String,Object> map = zywService.selectZyw(name, MD5Util.inputPassToFormPass(password));
         // mv.addObject("now", DateFormat.getDateTimeInstance().format(new Date()));
         // mv.setViewName("index");
         session=request.getSession();
@@ -141,7 +138,7 @@ public class LoginControllers {
         Zyw zyw = new Zyw();
         zyw.setLastIp(ip);
         zyw.setName(name);
-        zyw.setPassword(password);
+        zyw.setPassword(MD5Util.inputPassToFormPass(password));
          session=request.getSession();
         session.setMaxInactiveInterval(30);
         session.setAttribute("user",zyw);
@@ -170,9 +167,9 @@ public class LoginControllers {
         Zyw zyw = new Zyw();
         zyw.setLastIp(ip);
         zyw.setName(name);
-        zyw.setPassword(password);
+        zyw.setPassword(MD5Util.inputPassToFormPass(password));
 
-        String messge = zywService.updateZyw(zyw, passwordagain);
+        String messge = zywService.updateZyw(zyw, MD5Util.inputPassToFormPass(passwordagain));
         // mv.addObject("now", DateFormat.getDateTimeInstance().format(new Date()));
         // mv.setViewName("index");
         System.out.println(JsonUtil.object2Json(ResultUtil.success(messge)));
