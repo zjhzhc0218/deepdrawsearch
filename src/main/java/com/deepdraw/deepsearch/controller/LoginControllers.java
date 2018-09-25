@@ -176,4 +176,13 @@ public class LoginControllers {
         System.out.println("123");
         return JsonUtil.object2Json(ResultUtil.success(messge));
     }
+
+
+    /** 获取后台对应的用户信息
+     * * @return*/
+    @RequestMapping("/getSessionUser")
+    public Object getSessionUser(HttpServletRequest request) throws IOException {
+        Zyw zywN = ContextHolder.getSessionUser();
+        return JsonUtil.object2Json(ResultUtil.success(zywN));
+    }
 }
