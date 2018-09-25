@@ -1,7 +1,9 @@
-var app=angular.module('signup',[]);
-        app.controller('signupController',['$scope','$http', function ($scope,$http) {
+var app=angular.module('signup',['Encrypt']);
+        app.controller('signupController',['$scope','$http', 'Md5','Base64','Sha1' ,function ($scope,$http,Md5,Base64,Sha1) {
             $scope.name = null;
             $scope.password = null;
+
+
 
 
             //生成验证码
@@ -27,7 +29,7 @@ var app=angular.module('signup',[]);
                         url:'http://127.0.0.1:8080/registered',
                         params:{
                             'name':$scope.name,
-                            'password':$scope.password
+                            'password':Md5.hex_md5($scope.password)
                         }
                     }).success(function (data) {
                         console.log(data);
