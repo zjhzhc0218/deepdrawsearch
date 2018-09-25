@@ -1,5 +1,6 @@
 package com.deepdraw.deepsearch.controller;
 
+import com.deepdraw.deepsearch.entity.SHUser;
 import com.deepdraw.deepsearch.entity.Zyw;
 import com.deepdraw.deepsearch.handler.ContextHolder;
 import com.deepdraw.deepsearch.service.AreaService;
@@ -45,6 +46,8 @@ public class LoginControllers {
     @RequestMapping("/searchIndex")
     public ModelAndView searchIndex(ModelAndView mv) {
         //mv.addObject("name", "测试1");
+        SHUser shUser = ContextHolder.getSessionSHUser();
+        mv.addObject("user",shUser);
         mv.setViewName("search");
         return mv;
     }
