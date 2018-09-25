@@ -2,7 +2,6 @@ var app=angular.module('login',[]);
         app.controller('loginController',['$scope','$http', function ($scope,$http) {
             $scope.name = null;
             $scope.password = null;
-            ${Session["user"]};
             //登陆
             $scope.login = function () {
                 if ($scope.name != null && $scope.password !=null){
@@ -15,9 +14,16 @@ var app=angular.module('login',[]);
                             'password':$scope.password
                         }
                     }).success(function (data) {
+
                         console.log(data);
                         alert()
                         alert(data.data);
+                        // var url='http://localhost:8080/searchIndex';
+                        $http({
+                            method:'GET',
+                            url:'http://127.0.0.1:8080/searchIndex'
+                        })
+                        // location.href = url;
                     }).error(function (data) {
                         alert("失败了");
                     });

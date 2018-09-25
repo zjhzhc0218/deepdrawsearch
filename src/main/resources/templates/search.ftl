@@ -74,7 +74,7 @@
                         </ul>
                     </li>
                 </ul>
-                <a style="text-decoration:none" class="brand" href="index.html"><span class="first">卖家在线查询</span></a>
+                <a style="text-decoration:none" class="brand" href="index.ftl"><span class="first">卖家在线查询</span></a>
                 <!--<a class="brand" href="#"> <h3 style="text-align: center"><strong>卖家在线查询</strong></h3></a>-->
             </div>
         </div>
@@ -163,11 +163,8 @@
 
     </div>
     <!--20万热词-->
-    <div role="tabpanel" class="tab-pane active" id="reci">
-
-
-
-
+    <div role="tabpanel" class="tab-pane " id="reci" >
+        <#include "//reci.ftl">
     </div>
     <!--降权-->
     <div role="tabpanel" class="tab-pane" id="jiangquan">
@@ -355,9 +352,18 @@
     </div>
 </div>
 <!--尾部-结束-->
+<#assign user="呵呵呵" />
+<#if Session["user"]?exists>
+    ${Session["user"]}
+</#if>
 </body>
+
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="/js/angular/angular.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="/js/searchController.js"></script>
+<script type="text/javascript">
+        var user =' ${Session["user"]}';
+
+</script>
 </html>

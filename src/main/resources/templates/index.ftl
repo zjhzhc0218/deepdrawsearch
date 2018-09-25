@@ -35,9 +35,8 @@
 		<button  ng-click="registered()" class="btn btn-primary btn-block btn-large">注册</button>
 </div>
 
-
-
 </body>
+
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="/js/angular/angular.js"></script>
 <script src="/js/loginController.js"></script>
