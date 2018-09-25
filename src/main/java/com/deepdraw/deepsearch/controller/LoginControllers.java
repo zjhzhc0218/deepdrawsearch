@@ -19,8 +19,6 @@ import java.util.Map;
 @RestController
 public class LoginControllers {
 
-    @Autowired
-    private AreaService areaService;
 
     @Autowired
     private ZywService zywService;

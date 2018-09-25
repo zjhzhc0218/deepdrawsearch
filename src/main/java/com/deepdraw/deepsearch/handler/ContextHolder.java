@@ -2,6 +2,7 @@ package com.deepdraw.deepsearch.handler;/**
  * Created by hasee on 2018/9/21.
  */
 
+import com.deepdraw.deepsearch.entity.SHUser;
 import com.deepdraw.deepsearch.entity.Zyw;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -45,6 +46,16 @@ public class ContextHolder {
     public static final Zyw getSessionUser() {
         HttpSession session = ContextHolder.getSession();
         Zyw u = (Zyw) session.getAttribute("user");
+        return u;
+    }
+
+    /**
+     * 获取当前shenhui_user登录用户
+     * @return
+     */
+    public static final SHUser getSessionSHUser() {
+        HttpSession session = ContextHolder.getSession();
+        SHUser u = (SHUser) session.getAttribute("shUser");
         return u;
     }
 

@@ -26,10 +26,12 @@ var app=angular.module('signup',['Encrypt']);
                     console.log('ok');
                     $http({
                         method:'GET',
-                        url:'http://127.0.0.1:8080/registered',
+                        // url:'http://127.0.0.1:8080/registered',
+                        url:'http://127.0.0.1:8080/login/userRegistered',
                         params:{
-                            'name':$scope.name,
-                            'password':Md5.hex_md5($scope.password)
+                            // 'name':$scope.name,
+                            'id':$scope.name,
+                            'password':$scope.password
                         }
                     }).success(function (data) {
                         console.log(data);

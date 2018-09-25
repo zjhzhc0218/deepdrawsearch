@@ -10,11 +10,13 @@ var app=angular.module('signup',['Encrypt']);
                     console.log('ok');
                     $http({
                         method:'GET',
-                        url:'http://127.0.0.1:8080/forgot',
+                        // url:'http://127.0.0.1:8080/forgot',
+                        url:'http://127.0.0.1:8080/login/userForgot',
                         params:{
-                            'name':$scope.name,
-                            'password':Md5.hex_md5($scope.password),
-                            'passwordagain':Md5.hex_md5($scope.passwordAgain1)
+                            // 'name':$scope.name,
+                            'id':$scope.name,
+                            'password':$scope.password,
+                            'passwordagain':$scope.passwordAgain1
                         }
                     }).success(function (data) {
                         console.log(data);
