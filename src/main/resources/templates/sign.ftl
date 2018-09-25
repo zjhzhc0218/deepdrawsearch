@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>sign</title>
-	<link rel="stylesheet" href="/css/normalize.css">
-	<link rel="stylesheet" href="/css/login.css">
+	<link rel="stylesheet" href="/deepsearch/css/normalize.css">
+	<link rel="stylesheet" href="/deepsearch/css/login.css">
 </head>
 
 <body ng-app="sign">
@@ -34,8 +34,8 @@
 
 </body>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="/js/angular/angular.js"></script>
-<script src="/js/angular/encrypt.js"></script>
-<script src="/js/signController.js"></script>
+<script src="/deepsearch/js/angular/angular.js"></script>
+<script src="/deepsearch/js/angular/encrypt.js"></script>
+<script src="/deepsearch/js/signController.js"></script>
 
 </html>

@@ -5,7 +5,7 @@ var app=angular.module('search',[])
      * 登陆信息
      * @type {string}
      */
-    $scope.username =user ;
+    $scope.username = angular.fromJson(user);
 
     //########################违禁词###############################//
     $scope.searchWordsWjc = null;//查询
@@ -25,7 +25,7 @@ var app=angular.module('search',[])
             $scope.app.working = true;
             $http({
                 method:'get',
-                url:'/getSearchWjc', params:{"searchWords": $scope.searchWordsWjc},
+                url:'/deepsearch/getSearchWjc', params:{"searchWords": $scope.searchWordsWjc},
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 transformRequest: function ( data ) {
                     var str = '';
@@ -85,7 +85,7 @@ var app=angular.module('search',[])
          $scope.xinYu.working = true;
          $http({
              method:'get',
-             url:'/getSearchXinyu', params:{"searchWords": $scope.xinYu.searchWordsXy},
+             url:'/deepsearch/getSearchXinyu', params:{"searchWords": $scope.xinYu.searchWordsXy},
              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
              transformRequest: function ( data ) {
                  var str = '';
@@ -142,7 +142,7 @@ var app=angular.module('search',[])
         $scope.jiangquan.working = true;
         $http({
             method:'get',
-            url:'/getSearchJiangQuan', params:{"searchWords": $scope.jiangquan.searchWordsJq,"isNormal":$scope.jiangquan.isNormal},
+            url:'/deepsearch/getSearchJiangQuan', params:{"searchWords": $scope.jiangquan.searchWordsJq,"isNormal":$scope.jiangquan.isNormal},
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             transformRequest: function ( data ) {
                 var str = '';
@@ -193,7 +193,7 @@ var app=angular.module('search',[])
             },180000);
          $http({
                     method: 'get',
-                    url: '/getSearchPaiming',
+                    url: '/deepsearch/getSearchPaiming',
                     params: {"keyWords": $scope.bbPaiMing.keyWords, "tbaoId": $scope.bbPaiMing.tbaoId},
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     transformRequest: function (data) {

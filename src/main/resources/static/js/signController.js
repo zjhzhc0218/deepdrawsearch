@@ -9,8 +9,8 @@ app.controller('signController',['$scope','$http', 'Md5','Base64','Sha1', functi
             console.log('ok');
             $http({
                 method:'GET',
-                // url:'http://127.0.0.1:8080/passwordToLogin',
-                url:'http://127.0.0.1:8080/login/userLogin',
+                // url:'/deepsearch/passwordToLogin',
+                url:'/deepsearch/login/userLogin',
                 params:{
                     // 'name':$scope.name,
                     'id':$scope.name,
@@ -20,7 +20,7 @@ app.controller('signController',['$scope','$http', 'Md5','Base64','Sha1', functi
                 console.log(data);
             //     $http({
             //         method: 'GET',
-            //         url: 'http://127.0.0.1:8080/getSessionUser'
+            //         url: '/deepsearch/getSessionUser'
             //     }).success(function (data) {
             //         console.log(data);
             //         alert(data.data.name);
@@ -28,7 +28,7 @@ app.controller('signController',['$scope','$http', 'Md5','Base64','Sha1', functi
             //         alert("获取失败了");
             // });
 
-                var url='http://127.0.0.1:8080/searchIndex';
+                var url='/deepsearch/searchIndex';
                 location.href = url;
                 alert(data.data);
             }).error(function (data) {
@@ -41,13 +41,13 @@ app.controller('signController',['$scope','$http', 'Md5','Base64','Sha1', functi
 
     //跳转到注册页面
     $scope.openSignup = function () {
-        var url='http://127.0.0.1:8080/signup';
+        var url='/deepsearch/signup';
         location.href = url;
     }
 
     //跳转到修改密码页面
     $scope.forgot = function () {
-        var url='http://127.0.0.1:8080/forgotpassword';
+        var url='/deepsearch/forgotpassword';
         location.href = url;
     }
 

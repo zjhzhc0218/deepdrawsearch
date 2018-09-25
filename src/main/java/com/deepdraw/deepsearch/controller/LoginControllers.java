@@ -6,6 +6,7 @@ import com.deepdraw.deepsearch.handler.ContextHolder;
 import com.deepdraw.deepsearch.service.AreaService;
 import com.deepdraw.deepsearch.service.ZywService;
 import com.deepdraw.deepsearch.util.*;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,7 +48,7 @@ public class LoginControllers {
     public ModelAndView searchIndex(ModelAndView mv) {
         //mv.addObject("name", "测试1");
         SHUser shUser = ContextHolder.getSessionSHUser();
-        mv.addObject("user",shUser);
+        mv.addObject("user",JsonUtil.object2Json(shUser));
         mv.setViewName("search");
         return mv;
     }

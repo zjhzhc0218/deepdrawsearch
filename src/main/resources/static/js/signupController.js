@@ -26,8 +26,8 @@ var app=angular.module('signup',['Encrypt']);
                     console.log('ok');
                     $http({
                         method:'GET',
-                        // url:'http://127.0.0.1:8080/registered',
-                        url:'http://127.0.0.1:8080/login/userRegistered',
+                        // url:'/deepsearch/registered',
+                        url:'/deepsearch/login/userRegistered',
                         params:{
                             // 'name':$scope.name,
                             'id':$scope.name,
@@ -46,7 +46,7 @@ var app=angular.module('signup',['Encrypt']);
 
             //跳转到登录页面
             $scope.openSign = function () {
-                var url='http://127.0.0.1:8080/sign';
+                var url='/deepsearch/sign';
                 location.href = url;
             }
 

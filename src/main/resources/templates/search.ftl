@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link href="/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="/css/font/font-awesome.css">
+    <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/deepsearch/css/font/font-awesome.css">
     <!-- CSS样式 -->
     <style type="text/css">
         .brand { font-family: georgia, serif; }
@@ -63,7 +63,7 @@
                 <ul class="nav pull-right">
                     <li id="fat-menu" class="dropdown">
                         <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-user"></i> {{username}}
+                            <i class="icon-user"></i> {{username.nickname}}
                             <i class="icon-caret-down"></i>
                         </a>
 
@@ -352,18 +352,14 @@
     </div>
 </div>
 <!--尾部-结束-->
-<#assign user="呵呵呵" />
-<#if Session["user"]?exists>
-    ${Session["user"]}
-</#if>
 </body>
 
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="/js/angular/angular.js"></script>
+<script src="/deepsearch/js/angular/angular.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="/js/searchController.js"></script>
+<script src="/deepsearch/js/searchController.js"></script>
 <script type="text/javascript">
-        var user =' ${Session["user"]}';
+        var user ='${user}';
 
 </script>
 </html>

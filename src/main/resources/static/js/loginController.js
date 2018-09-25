@@ -8,7 +8,7 @@ var app=angular.module('login',[]);
                     console.log('ok');
                     $http({
                         method:'GET',
-                        url:'http://127.0.0.1:8080/passwordToLogin',
+                        url:'/deepsearch/passwordToLogin',
                         params:{
                             'name':$scope.name,
                             'password':$scope.password
@@ -21,7 +21,7 @@ var app=angular.module('login',[]);
                         // var url='http://localhost:8080/searchIndex';
                         $http({
                             method:'GET',
-                            url:'http://127.0.0.1:8080/searchIndex'
+                            url:'/deepsearch/searchIndex'
                         })
                         // location.href = url;
                     }).error(function (data) {
@@ -52,7 +52,7 @@ var app=angular.module('login',[]);
                     console.log('ok');
                     $http({
                         method:'GET',
-                        url:'http://127.0.0.1:8080/registered',
+                        url:'/deepsearch/registered',
                         params:{
                             'name':$scope.name,
                             'password':$scope.password
