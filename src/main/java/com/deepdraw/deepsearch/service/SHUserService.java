@@ -5,6 +5,7 @@ package com.deepdraw.deepsearch.service;/**
 import com.deepdraw.deepsearch.entity.SHUser;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +27,7 @@ public interface SHUserService {
      * @param id
      * @return
      */
-    Map<String,Object> selectUser(String id, String password);
+    Map<String,Object> selectUser(Long id, String password);
 
     /**
      * 新增用户
@@ -41,4 +42,15 @@ public interface SHUserService {
      * @return
      */
     String updateUser(SHUser user,String passwordAgain);
+
+
+
+    /**
+     * 统计某个时间段的用户注册数据，当天，几天内，某个时间段都按照这个接口来实现
+     * @param type 类型(1.前端传起始时间跟截止时间，2.当天，3.当周，4.当月，5.当年)
+     * @param timeStart 起始时间
+     * @param timeEnd 截止时间
+     * @return
+     */
+    Integer selectUserByTime(Integer type, Date timeStart, Date timeEnd);
 }

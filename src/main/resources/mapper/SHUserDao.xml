@@ -6,14 +6,21 @@
 
 
     <select id="selectUser" resultType="com.deepdraw.deepsearch.entity.SHUser">
-        SELECT  id,nickname,password,salt,head,register_date,last_login_date,login_count
+        SELECT  id,nickname,password,salt,head,register_date,last_login_date,login_count,grade,ban
         FROM shenhui_user
     </select>
 
     <select id="selectUserById" resultType="com.deepdraw.deepsearch.entity.SHUser">
-        SELECT  id,nickname,password,salt,head,register_date,last_login_date,login_count
+    SELECT  id,nickname,password,salt,head,register_date,last_login_date,login_count,grade,ban
+    FROM shenhui_user
+    WHERE id = #{id}
+  </select>
+
+    <select id="selectUserByTime" resultType="Integer">
+        SELECT  count(id)
         FROM shenhui_user
-        WHERE id = #{id}
+        WHERE register_date &gt; #{timeStart}
+        AND register_date &lt; #{timeEnd}
     </select>
 
     <insert id="addUser" parameterType="com.deepdraw.deepsearch.entity.SHUser">
@@ -25,7 +32,9 @@
     head,
     register_date,
     last_login_date,
-    login_count
+    login_count,
+    grade,
+    ban
     )VALUE (
     #{id},
     #{nickname},
@@ -34,6 +43,8 @@
     #{head},
     now(),
     now(),
+    1,
+    2,
     1
     )
 </insert>
@@ -48,6 +59,12 @@
             <if test = "head!=null">
                 head = #{head},
             </if>
+        <if test = "grade!=null">
+            grade = #{grade},
+        </if>
+        <if test = "ban!=null">
+            ban = #{ban},
+        </if>
             last_login_date =  now(),
             login_count = login_count+1
         WHERE id = #{id}

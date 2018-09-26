@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.deepdraw.deepsearch.dao.FunctionUsingDao">
+
+
+    <select id="selectFT" resultType="com.deepdraw.deepsearch.entity.FunctionUsing">
+        SELECT  id,module，userId，usingTime
+        FROM function_using
+    </select>
+
+    <select id="selectFTByuserId" resultType="com.deepdraw.deepsearch.entity.FunctionUsing">
+        SELECT  id,module，userId，usingTime
+        FROM function_using
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectUserByTime" resultType="Integer">
+        SELECT  count(id)
+        FROM function_using
+        WHERE usingTime &gt; #{timeStart}
+        AND usingTime &lt; #{timeEnd}
+        <if test = "module!=null">
+            module = #{module}
+        </if>
+        <if test = "userId!=null">
+            userId = #{userId}
+        </if>
+    </select>
+
+    <insert id="addFT" parameterType="com.deepdraw.deepsearch.entity.FunctionUsing">
+    INSERT INTO function_using(
+    module,
+    userId,
+    usingTime
+    )VALUE (
+    #{module},
+    #{userId},
+    now()
+    )
+</insert>
+
+
+
+</mapper>
