@@ -217,6 +217,7 @@
                                 <td style="width: 40px;text-align: center"><label>内容</label></td>
                                 <td style="width: 80px;text-align: center"><label>权重差值</label></td>
                                 <td style="width: 50px;text-align: center"><label>图片</label></td>
+                                <#--<td style="width: 50px;text-align: center"><label>价格</label></td>-->
                                 <td style="width: 200px;text-align: center"><label>评估结果</label></td>
                                 <td style="width: 60px;text-align: center"><label>淘宝链接</label></td>
                             </tr>

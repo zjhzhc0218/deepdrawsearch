@@ -131,12 +131,12 @@ var app=angular.module('search',[])
                 }
                 $scope.xinYu.examedContext = list;
             }
-             $("#wjcrs").mLoading('hide');
+             $("#xyrs").mLoading('hide');
              $scope.xinYu.working = false;
          },function errorCallback(info) {
              // alert("失败了");
              $scope.xinYu.working = false;
-             $("#wjcrs").mLoading('hide');
+             $("#xyrs").mLoading('hide');
          })
      }
      //########################信誉查询###############################//
