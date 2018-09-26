@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
  * 查询控制器
  */
 @RestController
-public class searchControllers {
+public class SearchControllers {
 
     @Value("${python.path}")
     private String pythonPath;

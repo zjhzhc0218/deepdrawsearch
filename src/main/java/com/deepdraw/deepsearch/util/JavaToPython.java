@@ -17,7 +17,8 @@ public class JavaToPython {
                 InputStreamReader isr;
                 BufferedReader in;
                 //设置编码方式，否则输出中文时容易乱码
-                isr = new InputStreamReader(proc.getInputStream(), "GBK");
+                isr = new InputStreamReader(proc.getInputStream(), "UTF-8");
+
                 in = new BufferedReader(isr);
                 String line;
                 while ((line = in.readLine()) != null) {
@@ -33,6 +34,7 @@ public class JavaToPython {
                 e.printStackTrace();
                 return JsonUtil.object2Json(ResultUtil.error(-1,"查询出错"));
             }
+
             //String words = newStr.replace(".", "#");
             return newStr;
         }

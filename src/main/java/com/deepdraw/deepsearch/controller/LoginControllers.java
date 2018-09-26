@@ -21,10 +21,8 @@ import java.util.Map;
 @RestController
 public class LoginControllers {
 
-
     @Autowired
     private ZywService zywService;
-
 
     /**
      * 登陆页
@@ -37,7 +35,6 @@ public class LoginControllers {
         mv.setViewName("index");
         return mv;
     }
-
 
     /**
      * 主界面
@@ -64,7 +61,6 @@ public class LoginControllers {
 //        mv.setViewName("luyou");
 //        return mv;
 //    }
-
 
     /**
      * 登陆
@@ -179,12 +175,12 @@ public class LoginControllers {
         return JsonUtil.object2Json(ResultUtil.success(messge));
     }
 
-
     /** 获取后台对应的用户信息
      * * @return*/
     @RequestMapping("/getSessionUser")
-    public Object getSessionUser(HttpServletRequest request) throws IOException {
+    public String getSessionUser(HttpServletRequest request) throws IOException {
         Zyw zywN = ContextHolder.getSessionUser();
         return JsonUtil.object2Json(ResultUtil.success(zywN));
     }
+
 }

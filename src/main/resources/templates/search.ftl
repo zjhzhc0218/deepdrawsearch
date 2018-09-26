@@ -270,7 +270,7 @@
                     该号不存在，请检测是否输入有误!
                 </div>
                 <div class="result-context" ng-show="xinYu.examedContext != null" >
-                    <table class="table table-bordered table-hover" style="  display: block;width:51%;height: 95%;overflow-y: scroll;">
+                    <table class="table table-bordered table-hover" style="  display: block;width:51%;height: 59%;overflow-y: scroll;">
                         <tbody>
                         <tr ng-repeat="d in xinYu.examedContext ">
                             <td ng-bind="d.name">
