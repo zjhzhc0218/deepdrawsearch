@@ -70,7 +70,7 @@
                         </a>
 
                         <ul   class="dropdown-menu">
-                            <#--<li><a tabindex="-1" href="#">设置</a></li>-->
+                            <li><a tabindex="-1" href="#">设置</a></li>
                             <li class="divider"></li>
                             <li><a tabindex="-1" ng-click="signLogin()">注销</a></li>
                         </ul>
