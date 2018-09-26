@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="/deepsearch/css/login.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
+
 </head>
 <style type="text/css">
     body {
@@ -45,14 +46,24 @@
                         </div>-->
                         <div class="row" style="margin-top: 5px;margin-bottom: 5px">
                             <div class=" col-md-8">
-                                <input type="text" class="js5-authCode" value=""  style="width: 394px" id="js5-authCode" ng-model="showAuthCode"  disabled="disabled" ></input>
+                                <input type="text" class="js5-authCode" value=""  style="width: 394px;font-size: 18px;text-align: center"  ng-model="showAuthCode"  disabled="disabled" ></input>
                             </div>
                             <div class="col-md-4">
                                 <button type="submit" class="btn btn-primary" style=" width: 181px; height: 41px;" ng-click="changeVerify()">获取</button>
                             </div>
                         </div>
+                        <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                            <div class=" col-md-8">
+                                <input type="text" placeholder="请输入邀请码" class="js5-form3-input"  ng-model="signCode"   ng-model="signCode">
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary" style=" width: 181px; height: 41px;" ng-mouseenter="down()" ng-mouseleave="over()">请扫二维码获取邀请码</button>
+                            </div>
+                        </div>
 
-
+                        <div id="codeUrl" style="width: 200px;height: 200px;background-color: white;left: 636px;top: 301px;border-radius:3px;width: 200px;position: absolute; height: 200px;display: none">
+                            <img  style="width: 198px;height:198px;"src="/deepsearch/img/codeImg.png">
+                        </div>
                         <button  ng-click="registered()" class="btn btn-primary btn-block btn-large">注册</button>
                         <button  ng-click="openSign()" class="btn btn-primary btn-block btn-large">登录账号</button>
                     </div>
@@ -70,7 +81,7 @@
 </body>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="/deepsearch/js/angular/angular.js"></script>
+<script src="/deepsearch/js/angular/jquery.qrcode.min.js"></script>
 <script src="/deepsearch/js/angular/encrypt.js"></script>
 <script src="/deepsearch/js/signupController.js"></script>
-
 </html>

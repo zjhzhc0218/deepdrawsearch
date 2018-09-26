@@ -8,6 +8,7 @@ import com.deepdraw.deepsearch.service.ZywService;
 import com.deepdraw.deepsearch.util.*;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,17 +25,8 @@ public class LoginControllers {
     @Autowired
     private ZywService zywService;
 
-    /**
-     * 登陆页
-     * @param mv
-     * @return
-     */
-    @RequestMapping("/login")
-    public ModelAndView toDemo(ModelAndView mv) {
-        //mv.addObject("name", "测试1");
-        mv.setViewName("index");
-        return mv;
-    }
+    @Value("sign.url.cod")
+    private String code;
 
     /**
      * 主界面
@@ -45,22 +37,14 @@ public class LoginControllers {
     public ModelAndView searchIndex(ModelAndView mv) {
         //mv.addObject("name", "测试1");
         SHUser shUser = ContextHolder.getSessionSHUser();
+        if (shUser == null) {
+            mv.setViewName("sign");
+            return mv;
+        }
         mv.addObject("user",JsonUtil.object2Json(shUser));
         mv.setViewName("search");
         return mv;
     }
-
-//    /**
-//     * 登陆页2
-//     * @param mv
-//     * @return
-//     */
-//    @RequestMapping("/luyou")
-//    public ModelAndView luyou(ModelAndView mv) {
-//        //mv.addObject("name", "测试1");
-//        mv.setViewName("luyou");
-//        return mv;
-//    }
 
     /**
      * 登陆

@@ -192,10 +192,10 @@
                 <div class="col-md-12 column form-inline " style="font-size: 20px;top:10px">
                     <label class="font-14">选择类型：</label>
                     <label>
-                        <input type="radio" ng-value=0 ng-model="jiangquan.isNormal" name="normal">正常
+                        <input type="radio" ng-value=0 ng-model="jiangquan.isNormal" name="normal">异常
                     </label>
                     <label>
-                        <input type="radio" ng-value=1 ng-model="jiangquan.isNormal" name="normal" >异常
+                        <input type="radio" ng-value=1 ng-model="jiangquan.isNormal" name="normal" >正常
                     </label>
                 </div>
             </div>
@@ -250,7 +250,7 @@
                             1、注册时间小于30天的，被认定为小号/新号，有可能是骗子，应当谨慎交易，免得赚几块钱换来一个中差评。
                         </dd>
                         <dd style="font-size: 15px">
-                            2、淘一兔可以查询买家中差评数量以及中差评信息，如果该用户的比例超过一定的比例，则有可能是中差评师，要十分注意了。
+                            2、可以查询买家中差评数量以及中差评信息，如果该用户的比例超过一定的比例，则有可能是中差评师，要十分注意了。
                         </dd>
                         <dd style="font-size: 15px">
                             3、经常刷的小号，当信用点数超过20点(常购物的买家大号除外)，有可能这个号被淘宝列入黑名单，他再拍的东西有可能会被认为虚假交易，再刷会有降权风险。

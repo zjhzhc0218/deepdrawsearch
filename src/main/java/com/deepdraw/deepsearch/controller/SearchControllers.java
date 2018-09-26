@@ -73,6 +73,8 @@ public class SearchControllers {
         String result = JavaToPython.getPython(args);
         if (result!=null && result.equals("003"))
             return JsonUtil.object2Json(ResultUtil.error(1,"您查询的宝贝不存在"));
+        if (result!=null && result.equals("004"))
+            return JsonUtil.object2Json(ResultUtil.error(1,"服务器异常，请重试"));
         return JsonUtil.object2Json(ResultUtil.success(result));
     }
 
