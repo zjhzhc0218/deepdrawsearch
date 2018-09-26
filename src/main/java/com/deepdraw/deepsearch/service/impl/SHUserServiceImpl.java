@@ -3,11 +3,14 @@ package com.deepdraw.deepsearch.service.impl;
 import com.deepdraw.deepsearch.dao.SHUserDao;
 import com.deepdraw.deepsearch.entity.SHUser;
 import com.deepdraw.deepsearch.service.SHUserService;
+import com.deepdraw.deepsearch.util.DateUtils;
 import com.deepdraw.deepsearch.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +28,7 @@ public class SHUserServiceImpl implements SHUserService {
     }
 
     @Override
-    public Map<String, Object> selectUser(String id , String password) {
+    public Map<String, Object> selectUser(Long id , String password) {
 
         Map<String,Object> map =   new HashMap<>();
         SHUser shUser = shUserDao.selectUserById(id);
@@ -33,8 +36,14 @@ public class SHUserServiceImpl implements SHUserService {
             map.put("message","查询失败，没有该用户");
             return map;
         }else {
+            if(shUser.getBan()==0){
+                map.put("message","抱歉，该用户已经被禁止登录了，请联系客服");
+                return map;
+            }
             String passwords = MD5Util.inputPassToDbPass(password,shUser.getSalt());
             if (passwords.equals(shUser.getPassword())) {
+//                修改登录时间跟登录次数
+                Integer y =  shUserDao.updateUser(shUser);
                 map.put("message","查询成功，返回客户信息");
                 map.put("shUser",shUser);
                 return map;
@@ -91,6 +100,39 @@ public class SHUserServiceImpl implements SHUserService {
                 return "修改失败，请从新校验对应的密码是否正确";
             }
         }
+    }
+
+    @Override
+    public Integer selectUserByTime(Integer type, Date timeStart, Date timeEnd) {
+        Integer count = 0;
+        switch(type){
+//            1表示前端传值，自己传起始时间跟截止时间
+            case 1:
+                count = shUserDao.selectUserByTime(timeStart,timeEnd);
+                break;
+//                2.表示当天的
+            case 2:
+                Timestamp timeStartD = new java.sql.Timestamp(DateUtils.getDayBegin().getTime());
+                Timestamp timeEndD = new java.sql.Timestamp(DateUtils.getDayEnd().getTime());
+                count = shUserDao.selectUserByTime(timeStartD,timeEndD);;break;
+//                3.表示当周的
+            case 3:
+                Timestamp timeStartW = new java.sql.Timestamp(DateUtils.getBeginDayOfWeek().getTime());
+                Timestamp timeEndW = new java.sql.Timestamp(DateUtils.getEndDayOfWeek().getTime());
+                count = shUserDao.selectUserByTime(timeStartW,timeEndW);;break;
+//                4.表示当月的
+            case 4:
+                Timestamp timeStartM = new java.sql.Timestamp(DateUtils.getBeginDayOfMonth().getTime());
+                Timestamp timeEndM = new java.sql.Timestamp(DateUtils.getEndDayOfMonth().getTime());
+                count = shUserDao.selectUserByTime(timeStartM,timeEndM);;break;
+//                5.表示当年的
+            case 5:
+                Timestamp timeStartY = new java.sql.Timestamp(DateUtils.getBeginDayOfYear().getTime());
+                Timestamp timeEndY = new java.sql.Timestamp(DateUtils.getEndDayOfYear().getTime());
+                count = shUserDao.selectUserByTime(timeStartY,timeEndY);;break;
+
+        }
+        return count;
     }
 
 

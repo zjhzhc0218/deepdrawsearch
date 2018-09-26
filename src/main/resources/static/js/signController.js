@@ -3,6 +3,7 @@ app.controller('signController',['$scope','$http', 'Md5','Base64','Sha1', functi
     $scope.name = null;
     $scope.password = null;
 
+    
     //登陆
     $scope.sign = function () {
         if ($scope.name != null && $scope.password !=null){

@@ -6,6 +6,7 @@ import com.deepdraw.deepsearch.entity.SHUser;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ public interface SHUserDao {
      * @param id
      * @return
      */
-    SHUser selectUserById(@Param("id") String id);
+    SHUser selectUserById(@Param("id") Long id);
 
     /**
      * 新增用户
@@ -41,5 +42,13 @@ public interface SHUserDao {
      * @return
      */
     Integer updateUser(SHUser user);
+
+    /**
+     * 统计某个时间段的用户注册数据，当天，几天内，某个时间段都按照这个接口来实现
+     * @param timeStart
+     * @param timeEnd
+     * @return
+     */
+    Integer selectUserByTime(@Param("timeStart") Date timeStart, @Param("timeEnd") Date timeEnd);
 
 }

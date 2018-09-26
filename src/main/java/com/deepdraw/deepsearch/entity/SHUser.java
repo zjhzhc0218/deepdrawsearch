@@ -2,6 +2,8 @@ package com.deepdraw.deepsearch.entity;/**
  * Created by hasee on 2018/9/25.
  */
 
+import jnr.ffi.annotations.In;
+
 import java.sql.Date;
 
 /**
@@ -11,7 +13,7 @@ import java.sql.Date;
  **/
 public class SHUser {
 
-    private String id;
+    private Long id;
     private String nickname;
     private String password;
     private String salt;
@@ -20,11 +22,14 @@ public class SHUser {
     private Date lastLoginDate;
     private Integer loginCount;
 
-    public String getId() {
+    private Integer grade;
+    private Integer ban;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -82,5 +87,21 @@ public class SHUser {
 
     public void setLoginCount(Integer loginCount) {
         this.loginCount = loginCount;
+    }
+
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
+    }
+
+    public Integer getBan() {
+        return ban;
+    }
+
+    public void setBan(Integer ban) {
+        this.ban = ban;
     }
 }

@@ -1,13 +1,12 @@
 package com.deepdraw.deepsearch.controller;
 
 import com.deepdraw.deepsearch.entity.SHUser;
-import com.deepdraw.deepsearch.entity.Zyw;
 import com.deepdraw.deepsearch.handler.ContextHolder;
+import com.deepdraw.deepsearch.service.FunctionUsingService;
 import com.deepdraw.deepsearch.service.SHUserService;
 import com.deepdraw.deepsearch.util.*;
 import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.Map;
 
 @Controller
@@ -26,6 +26,9 @@ public class LoginUserControllers {
     @Autowired
     private SHUserService shUserService;
 
+    @Autowired
+    private FunctionUsingService functionUsingService;
+
 
     /*** 登录信息处理
      * * @param name
@@ -33,7 +36,7 @@ public class LoginUserControllers {
      * * @return*/
     @RequestMapping("/userLogin")
     @ResponseBody
-    public String passwordToLogin(HttpServletRequest request, String id, String password,HttpSession session) throws IOException {
+    public String passwordToLogin(HttpServletRequest request, Long id, String password,HttpSession session) throws IOException {
         String ip = NetWorkUtil.getIpAddress(request).toString();
         System.out.println("当前的ip地址是"+ip);
 
@@ -42,6 +45,14 @@ public class LoginUserControllers {
             session=request.getSession();
             session.setMaxInactiveInterval(1800);
             session.setAttribute("shUser",map.get("shUser"));
+            /*获取当天的时间*/
+            Integer q1 = shUserService.selectUserByTime(2,null,null);
+            Integer q2 = shUserService.selectUserByTime(3,null,null);
+            Integer q3 = shUserService.selectUserByTime(4,null,null);
+            Integer q4 = shUserService.selectUserByTime(5,null,null);
+
+//            Integer module = 1;
+//            functionUsingService.addFT(module);
         }
 
         System.out.println(JsonUtil.object2Json(ResultUtil.success(map.get("message"))));
@@ -54,7 +65,9 @@ public class LoginUserControllers {
      * * @return*/
     @RequestMapping("/userRegistered")
     @ResponseBody
-    public String registered(HttpServletRequest request, String id, String password) throws IOException {
+    public String registered(HttpServletRequest request, Long id, String password) throws IOException {
+        /*测试后台进程的速度 返回值是对应的当前时间到某个时间的过去的毫秒*/
+        Long timeStart =  System.currentTimeMillis();
         String ip = NetWorkUtil.getIpAddress(request).toString();
         System.out.println("当前的ip地址是"+ip);
 
@@ -83,7 +96,7 @@ public class LoginUserControllers {
      * * @return*/
     @RequestMapping("/userForgot")
     @ResponseBody
-    public String forgot(HttpServletRequest request, String id, String password,String passwordagain) throws IOException {
+    public String forgot(HttpServletRequest request, Long id, String password,String passwordagain) throws IOException {
         String ip = NetWorkUtil.getIpAddress(request).toString();
         System.out.println("当前的ip地址是"+ip);
 
@@ -106,5 +119,14 @@ public class LoginUserControllers {
     public Object getSessionUser(HttpServletRequest request) throws IOException {
         SHUser shUser = ContextHolder.getSessionSHUser();
         return JsonUtil.object2Json(ResultUtil.success(shUser));
+    }
+
+    /** 注销用户
+     * * @return*/
+    @RequestMapping("/removeSession")
+    public Object removeSession(HttpServletRequest request,HttpSession session) throws IOException {
+        session=request.getSession();
+        session.removeAttribute("shUser");
+        return JsonUtil.object2Json(ResultUtil.success(null));
     }
 }
