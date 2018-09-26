@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
     <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/deepsearch/css/font/font-awesome.css">
     <!-- CSS样式 -->
@@ -68,9 +69,9 @@
                         </a>
 
                         <ul   class="dropdown-menu">
-                            <li><a tabindex="-1" href="#">设置</a></li>
+                            <#--<li><a tabindex="-1" href="#">设置</a></li>-->
                             <li class="divider"></li>
-                            <li><a tabindex="-1" href="sign-in.html">注销</a></li>
+                            <li><a tabindex="-1" ng-click="signLogin()">注销</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -356,6 +357,7 @@
 
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="/deepsearch/js/angular/angular.js"></script>
+<script src="/deepsearch/js/spop/spop.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="/deepsearch/js/searchController.js"></script>
 <script type="text/javascript">

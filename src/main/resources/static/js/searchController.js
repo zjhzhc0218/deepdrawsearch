@@ -7,6 +7,11 @@ var app=angular.module('search',[])
      */
     $scope.username = angular.fromJson(user);
 
+    //注销
+    $scope.signLogin = function() {
+        var url='/deepsearch/sign';
+        location.href = url;
+    };
     //########################违禁词###############################//
     $scope.searchWordsWjc = null;//查询
     $scope.app = {
@@ -19,7 +24,10 @@ var app=angular.module('search',[])
     };
     $scope.searchWjc = function () {
             if( $scope.searchWordsWjc == null) {
-                alert("请输入查询字符");
+                spop({template: '<strong>请输入查询字符!</strong>',
+                    autoclose: 3000,
+                    style:'error'
+                });
                 return;
             }
             $scope.app.working = true;
@@ -77,7 +85,10 @@ var app=angular.module('search',[])
 
      $scope.searchXinyu = function () {
          if( $scope.xinYu.searchWordsXy == null) {
-             alert("请输入查询字符");
+             spop({template: '<strong>请输入查询字符!</strong>',
+                 autoclose: 3000,
+                 style:'error'
+             });
              return;
          }
          $scope.xinYu.examedContext = null;
@@ -134,7 +145,10 @@ var app=angular.module('search',[])
      //查询
     $scope.searchJiangQuan = function () {
         if( $scope.jiangquan.searchWordsJq == null) {
-            alert("请输入查询字符");
+            spop({template: '<strong>请输入查询字符!</strong>',
+                autoclose: 3000,
+                style:'error'
+            });
             return;
         }
         $scope.jiangquan.msg = null;
@@ -180,7 +194,10 @@ var app=angular.module('search',[])
         //查询
         $scope.searchPaiming = function () {
             if ($scope.bbPaiMing.keyWords == null || $scope.bbPaiMing.tbaoId == null) {
-                alert("请输入查询字符");
+                spop({template: '<strong>请输入查询字符!</strong>',
+                    autoclose: 3000,
+                    style:'error'
+                });
                 return;
             }
             $scope.bbPaiMing.msg = null;

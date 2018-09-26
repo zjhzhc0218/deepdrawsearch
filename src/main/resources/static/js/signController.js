@@ -35,7 +35,10 @@ app.controller('signController',['$scope','$http', 'Md5','Base64','Sha1', functi
                 alert("失败了");
             });
         }else {
-            alert('填写信息有误');
+            spop({template: '<strong>填写信息有误!</strong>',
+                autoclose: 3000,
+                style:'error'
+               });
         }
     }
 

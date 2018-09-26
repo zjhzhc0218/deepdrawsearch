@@ -5,6 +5,7 @@
 	<title>sign</title>
 	<link rel="stylesheet" href="/deepsearch/css/normalize.css">
 	<link rel="stylesheet" href="/deepsearch/css/login.css">
+    <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
 </head>
@@ -55,6 +56,7 @@
 </body>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="/deepsearch/js/angular/angular.js"></script>
+<script src="/deepsearch/js/spop/spop.js"></script>
 <script src="/deepsearch/js/angular/encrypt.js"></script>
 <script src="/deepsearch/js/signController.js"></script>
 
