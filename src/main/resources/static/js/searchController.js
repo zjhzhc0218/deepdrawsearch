@@ -30,6 +30,9 @@ var app=angular.module('search',[])
                 });
                 return;
             }
+            $("#wjcrs").mLoading({
+                text:"查询中"
+            });
             $scope.app.working = true;
             $http({
                 method:'get',
@@ -64,11 +67,13 @@ var app=angular.module('search',[])
                     $scope.app.examedContext =  worss;
                     console.log(worss);
                     $scope.app.working = false;
+                    $("#wjcrs").mLoading("hide");
                     // $scope.$apply();
                     // resultWjc.contextWords;
                 }
             },function errorCallback(info) {
                 $scope.app.working = false;
+                $("#wjcrs").mLoading("hide");
                 // alert("失败了");
             })
         }
@@ -91,6 +96,9 @@ var app=angular.module('search',[])
              });
              return;
          }
+         $("#xyrs").mLoading({
+             text:"查询中"
+         });
          $scope.xinYu.examedContext = null;
          $scope.xinYu.hasNoViolation = false;
          $scope.xinYu.working = true;
@@ -123,10 +131,12 @@ var app=angular.module('search',[])
                 }
                 $scope.xinYu.examedContext = list;
             }
+             $("#wjcrs").mLoading('hide');
              $scope.xinYu.working = false;
          },function errorCallback(info) {
              // alert("失败了");
              $scope.xinYu.working = false;
+             $("#wjcrs").mLoading('hide');
          })
      }
      //########################信誉查询###############################//
@@ -151,6 +161,9 @@ var app=angular.module('search',[])
             });
             return;
         }
+        $("#jqrs").mLoading({
+            text:"查询中"
+        });
         $scope.jiangquan.msg = null;
         $scope.jiangquan.examedContext = null;
         $scope.jiangquan.working = true;
@@ -172,10 +185,12 @@ var app=angular.module('search',[])
                 var result = info.data.data;
                 $scope.jiangquan.examedContext = angular.fromJson(result.replace(/'/g, '"'));
             }
+            $("#jqrs").mLoading("hide");
             $scope.jiangquan.working = false;
         },function errorCallback(info) {
             // alert("失败了");
             $scope.jiangquan.working = false;
+            $("#jqrs").mLoading("hide");
         })
     };
 
@@ -200,6 +215,9 @@ var app=angular.module('search',[])
                 });
                 return;
             }
+            $("#pmrs").mLoading({
+                text:"查询中"
+            });
             $scope.bbPaiMing.msg = null;
             $scope.bbPaiMing.examedContext = null;
             $scope.bbPaiMing.working = true;
@@ -228,12 +246,14 @@ var app=angular.module('search',[])
                     var result = info.data.data;
                     $scope.bbPaiMing.examedContext = angular.fromJson(result.replace(/'/g, '"'));
                 }
+                $("#pmrs").mLoading("hide");
                 $scope.bbPaiMing.working = false;
-                clearTimeout($scope.ad_oneTimeout);
-            }, function errorCallback(info) {
-                // alert("失败了");
-                $scope.bbPaiMing.working = false;
-                clearTimeout($scope.ad_oneTimeout);
+             clearTimeout($scope.ad_oneTimeout);
+         }, function errorCallback(info) {
+             // alert("失败了");
+             $scope.bbPaiMing.working = false;
+             $("#pmrs").mLoading("hide");
+             clearTimeout($scope.ad_oneTimeout);
             })
         }
 
@@ -247,7 +267,23 @@ var app=angular.module('search',[])
 
      //########################热词查询###############################//
 
-
+           var  loading = function (name) {
+                /*$("#aaaaass").loading({
+                    loadingWidth:240,
+                    title:'请稍等!',
+                    name:name,
+                    discription:'正在查询',
+                    direction:'column',
+                    type:'origin',
+                    // originBg:'#71EA71',
+                    originDivWidth:40,
+                    originDivHeight:40,
+                    originWidth:6,
+                    originHeight:6,
+                    smallLoading:false,
+                    loadingMaskBg:'rgba(0,0,0,0.2)'
+                });*/
+            }
 
 
 

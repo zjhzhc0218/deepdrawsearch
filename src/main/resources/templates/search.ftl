@@ -6,11 +6,12 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <!--  -->
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-
+    <link rel="stylesheet" href="/deepsearch/css/loading/jquery.mloading.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
     <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/deepsearch/css/font/font-awesome.css">
+
     <!-- CSS样式 -->
     <style type="text/css">
         .brand { font-family: georgia, serif; }
@@ -134,7 +135,7 @@
                 <button class="btn btn-success" ng-click="searchPaiming()" ng-disabled="bbPaiMing.working">检测一下</button>
             </div></br>
             <!--结果-->
-            <div class="result"  style="width:85%;height:350px;">
+            <div class="result " id="pmrs" style="width:85%;height:350px;">
                 <div class="noViolation " ng-show="bbPaiMing.msg != null" style="color: red;font-size: 30px" ng-bind="bbPaiMing.msg">
                 </div>
                 <div class="result-context" ng-show="bbPaiMing.examedContext != null" >
@@ -204,7 +205,7 @@
                 <button class="btn btn-success" ng-click="searchJiangQuan()" ng-disabled="jiangquan.working">检测一下</button>
             </div></br>
             <!--结果-->
-            <div class="result"  style="width:85%;height:350px;">
+            <div class="result " id="jqrs" style="width:85%;height:350px;">
                 <div class="noViolation " ng-show="jiangquan.msg != null" style="color: red;font-size: 30px">
                     {{jiangquan.msg}}
                 </div>
@@ -266,7 +267,7 @@
                 <button class="btn btn-success" ng-click="searchXinyu()" ng-disabled="xinYu.working">检测一下</button>
             </div></br>
             <!--结果-->
-            <div class="result"  style="width:85%;height:350px;">
+            <div class="result " id="xyrs"  style="width:85%;height:350px;">
                 <div class="noViolation " ng-show="xinYu.hasNoViolation == true" style="color: red;font-size: 30px">
                     该号不存在，请检测是否输入有误!
                 </div>
@@ -310,7 +311,7 @@
                 <button class="btn btn-success" ng-click="searchWjc()" ng-disabled="app.working">检测一下</button>
             </div></br>
             <!--结果-->
-            <div class="result"  style="width:85%;height:350px;">
+            <div class="result "  id="wjcrs" style="width:85%;height:350px;">
                 <div class="noViolation " ng-show="app.hasNoViolation == true" style="color: green;font-size: 30px">
                     恭喜你，没有发现任何禁用词／敏感词！
                 </div>
@@ -358,6 +359,7 @@
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="/deepsearch/js/angular/angular.js"></script>
 <script src="/deepsearch/js/spop/spop.js"></script>
+<script src="/deepsearch/js/loading/jquery.mloading.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="/deepsearch/js/searchController.js"></script>
 <script type="text/javascript">
