@@ -1,5 +1,8 @@
 package com.deepdraw.deepsearch.util;
 
+/**
+ * hc
+ */
 public class ResultUtil {
 
 

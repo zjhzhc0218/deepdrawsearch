@@ -2,7 +2,9 @@ package com.deepdraw.deepsearch.service.impl;
 
 import com.deepdraw.deepsearch.dao.SHUserDao;
 import com.deepdraw.deepsearch.entity.SHUser;
+import com.deepdraw.deepsearch.exception.GlobalException;
 import com.deepdraw.deepsearch.service.SHUserService;
+import com.deepdraw.deepsearch.util.CodeMsg;
 import com.deepdraw.deepsearch.util.DateUtils;
 import com.deepdraw.deepsearch.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,12 +35,10 @@ public class SHUserServiceImpl implements SHUserService {
         Map<String,Object> map =   new HashMap<>();
         SHUser shUser = shUserDao.selectUserById(id);
         if(shUser==null){
-            map.put("message","查询失败，没有该用户");
-            return map;
+            throw new GlobalException(CodeMsg.USER_NULL_ERROR);
         }else {
             if(shUser.getBan()==0){
-                map.put("message","抱歉，该用户已经被禁止登录了，请联系客服");
-                return map;
+                throw new GlobalException(CodeMsg.USER_BAN_ERROR);
             }
             String passwords = MD5Util.inputPassToDbPass(password,shUser.getSalt());
             if (passwords.equals(shUser.getPassword())) {
@@ -48,8 +48,7 @@ public class SHUserServiceImpl implements SHUserService {
                 map.put("shUser",shUser);
                 return map;
             }else{
-                map.put("message","查询失败，密码错误");
-                return map;
+                throw new GlobalException(CodeMsg.USER_PASSWORD_ERROR);
             }
         }
     }
@@ -69,8 +68,7 @@ public class SHUserServiceImpl implements SHUserService {
                 return message;
             }
         }else{
-            String message = "很遗憾注册失败，手机用户已经被注册了";
-            return message;
+            throw new GlobalException(CodeMsg.USER_ADD_ERROR);
         }
     }
 
@@ -80,7 +78,7 @@ public class SHUserServiceImpl implements SHUserService {
 
         SHUser shUser = shUserDao.selectUserById(user.getId());
         if(shUser==null){
-            return "修改失败，请从新校验对应的账号是否已经注册";
+            throw new GlobalException(CodeMsg.USER_CHANGE_NULL_ERROR);
         }else {
             if (user.getPassword().equals(shUser.getPassword())) {
                 try {
@@ -90,14 +88,14 @@ public class SHUserServiceImpl implements SHUserService {
                     Integer y =  shUserDao.updateUser(shUser);
                     if(y!=0){
                         return "您的密码修改成功";}else{
-                        return "您的密码修改失败，可能信息被删除了";
+                        throw new GlobalException(CodeMsg.USER_CHANGE_DELETE_ERROR);
                     }
                 }catch(Throwable throwable){
                     String message = "很遗憾密码修改失败，请重新进行修改处理";
                     return message;
                 }
             }else{
-                return "修改失败，请从新校验对应的密码是否正确";
+                throw new GlobalException(CodeMsg.USER_CHANGE_PASSWORD_ERROR);
             }
         }
     }

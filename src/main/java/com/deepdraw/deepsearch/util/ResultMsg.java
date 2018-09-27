@@ -1,5 +1,9 @@
 package com.deepdraw.deepsearch.util;
 
+/**
+ * hc
+ * @param <T>
+ */
 public class ResultMsg<T>{
     /*错误码*/
     private Integer code;

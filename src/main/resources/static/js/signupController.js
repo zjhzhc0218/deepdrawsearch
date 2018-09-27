@@ -75,7 +75,6 @@ app.controller('signupController', ['$scope', '$http', 'Md5', 'Base64', 'Sha1', 
         }
 
 
-
         if ($scope.writeCode == $scope.showAuthCode ) {
             console.log('ok');
             $http({
@@ -85,13 +84,28 @@ app.controller('signupController', ['$scope', '$http', 'Md5', 'Base64', 'Sha1', 
                 params: {
                     // 'name':$scope.name,
                     'id': $scope.name,
-                    'password': $scope.password
+                    'password': $scope.password,
+                    'signCode':$scope.signCode
                 }
             }).success(function (data) {
                 console.log(data);
+                if(data.code!=0){
+                    spop({template: '<strong>' +data.msg+
+                    '</strong>',
+                        autoclose: 3000,
+                        style:'error'
+                    });
+                    return;
+                }
+
                 alert(data.data);
             }).error(function (data) {
-                alert("失败了");
+                spop({template: '<strong>' +data.msg+
+                '</strong>',
+                    autoclose: 3000,
+                    style:'error'
+                });
+                return;
             });
         } else {
             spop({template: '<strong>验证码输入错误，注意大小写，请重新输入!</strong>',

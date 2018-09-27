@@ -1,12 +1,14 @@
 package com.deepdraw.deepsearch.controller;
 
 import com.deepdraw.deepsearch.entity.SHUser;
+import com.deepdraw.deepsearch.exception.GlobalException;
 import com.deepdraw.deepsearch.handler.ContextHolder;
 import com.deepdraw.deepsearch.service.FunctionUsingService;
 import com.deepdraw.deepsearch.service.SHUserService;
 import com.deepdraw.deepsearch.util.*;
 import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,6 +30,9 @@ public class LoginUserControllers {
 
     @Autowired
     private FunctionUsingService functionUsingService;
+
+    @Value("${sign.url.code}")
+    private String signCodeNew;
 
 
     /*** 登录信息处理
@@ -65,9 +70,23 @@ public class LoginUserControllers {
      * * @return*/
     @RequestMapping("/userRegistered")
     @ResponseBody
-    public String registered(HttpServletRequest request, Long id, String password) throws IOException {
+    public String registered(HttpServletRequest request, Long id, String password,String signCode) throws IOException {
         /*测试后台进程的速度 返回值是对应的当前时间到某个时间的过去的毫秒*/
         Long timeStart =  System.currentTimeMillis();
+
+        System.out.println(signCodeNew);
+        System.out.println(signCode);
+        if(signCode==null){
+            String messge = "没有邀请码，请输入邀请码";
+            return JsonUtil.object2Json(ResultUtil.error(1,messge));
+        }
+        if(!signCodeNew.equals(signCode)){
+            String messge = "邀请码输入错误，请重新通过微信二维码获取";
+            return JsonUtil.object2Json(ResultUtil.error(1,messge));
+        }
+
+
+
         String ip = NetWorkUtil.getIpAddress(request).toString();
         System.out.println("当前的ip地址是"+ip);
 
@@ -83,11 +102,11 @@ public class LoginUserControllers {
         shUser.setHead(null);
 
 
-        String messge = shUserService.addUser(shUser);
+        String messge =  shUserService.addUser(shUser);
 
         System.out.println(JsonUtil.object2Json(ResultUtil.success(messge)));
 
-        return JsonUtil.object2Json(ResultUtil.success(messge));
+         return JsonUtil.object2Json(ResultUtil.success(messge));
     }
 
     /*** 修改密码处理

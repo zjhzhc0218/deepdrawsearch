@@ -2,7 +2,6 @@ var app=angular.module('sign',['Encrypt']);
 app.controller('signController',['$scope','$http', 'Md5','Base64','Sha1', function ($scope,$http,Md5,Base64,Sha1) {
     $scope.name = null;
     $scope.password = null;
-
     
     //登陆
     $scope.sign = function () {
@@ -30,10 +29,15 @@ app.controller('signController',['$scope','$http', 'Md5','Base64','Sha1', functi
             // });
 
                 var url='/deepsearch/searchIndex';
+                // var url='/deepsearch/changeName';
                 location.href = url;
                 alert(data.data);
             }).error(function (data) {
-                alert("失败了");
+                spop({template: '<strong>' +data.msg+
+                '</strong>',
+                    autoclose: 3000,
+                    style:'error'
+                });
             });
         }else {
             spop({template: '<strong>填写信息有误!</strong>',

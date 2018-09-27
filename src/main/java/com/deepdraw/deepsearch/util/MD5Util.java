@@ -4,6 +4,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  * 前端进行一次明文编译（定死的），后端这里进行第二次明文编译（自己控制）
+ * @author  zyw
  */
 public class MD5Util {
 	
