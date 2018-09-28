@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -131,6 +132,15 @@ public class LoginUserControllers {
         return JsonUtil.object2Json(ResultUtil.success(messge));
     }
 
+    /** 获取后台所有的用户信息
+     * * @return*/
+    @RequestMapping("/getUsers")
+    @ResponseBody
+    public Object getUsers(HttpServletRequest request) throws IOException {
+        List<SHUser> shUser = shUserService.selectUser();
+        System.out.println("123456");
+        return JsonUtil.object2Json(ResultUtil.success(shUser));
+    }
 
     /** 获取后台对应的用户信息
      * * @return*/
