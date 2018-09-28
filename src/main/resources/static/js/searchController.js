@@ -218,30 +218,31 @@ var app=angular.module('search',[])
         msg : null,
         examedContext : null
     };
-        //查询
-        $scope.searchPaiming = function () {
-            if ($scope.username == null){
-                $('#myModal').modal('show');
-                return;
-            }
-            if ($scope.bbPaiMing.keyWords == null || $scope.bbPaiMing.tbaoId == null) {
-                spop({template: '<strong>请输入查询字符!</strong>',
-                    autoclose: 3000,
-                    style:'error'
-                });
-                return;
-            }
-            $("#pmrs").mLoading({
-                text:"查询中"
+    //查询
+    $scope.searchPaiming = function () {
+        if ($scope.username == null){
+            $('#freeSearch').modal('show');
+            return;
+        }
+        if ($scope.bbPaiMing.keyWords == null || $scope.bbPaiMing.tbaoId == null) {
+            spop({template: '<strong>请输入查询字符!</strong>',
+                autoclose: 3000,
+                style:'error'
             });
-            $scope.bbPaiMing.msg = null;
-            $scope.bbPaiMing.examedContext = null;
-            $scope.bbPaiMing.working = true;
-            $scope.ad_oneTimeout=setTimeout(function(){
-                $scope.bbPaiMing.msg = "查询超时！请重新查询";
-                $scope.bbPaiMing.working = false;
-                $scope.$apply();
-            },180000);
+            return;
+        }
+        $("#pmrs").mLoading({
+            text:"查询中"
+        });
+        $scope.bbPaiMing.msg = null;
+        $scope.bbPaiMing.examedContext = null;
+        $scope.bbPaiMing.working = true;
+        $scope.ad_oneTimeout=setTimeout(function(){
+            $scope.bbPaiMing.msg = "查询超时！请重新查询";
+            $scope.bbPaiMing.working = false;
+            $("#pmrs").mLoading("hide");
+            $scope.$apply();
+        },180000);
          $http({
                     method: 'get',
                     url: '/deepsearch/getSearchPaiming',
@@ -273,6 +274,58 @@ var app=angular.module('search',[])
             })
         }
 
+    //查询
+    $scope.freeSearchPaim = function () {
+
+        if ($scope.bbPaiMing.keyWords == null || $scope.bbPaiMing.tbaoId == null) {
+            spop({template: '<strong>请输入查询字符!</strong>',
+                autoclose: 3000,
+                style:'error'
+            });
+            return;
+        }
+        $("#pmrs").mLoading({
+            text:"查询中"
+        });
+        $scope.bbPaiMing.msg = null;
+        $scope.bbPaiMing.examedContext = null;
+        $scope.bbPaiMing.working = true;
+        $scope.ad_oneTimeout=setTimeout(function(){
+            $scope.bbPaiMing.msg = "查询超时！请重新查询";
+            $scope.bbPaiMing.working = false;
+            $("#pmrs").mLoading("hide");
+            $scope.$apply();
+        },180000);
+        $http({
+                method: 'get',
+                url: '/deepsearch/getFreeSearchPaiming',
+                params: {"keyWords": $scope.bbPaiMing.keyWords, "tbaoId": $scope.bbPaiMing.tbaoId},
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                transformRequest: function (data) {
+                    var str = '';
+                    for (var i in data) {
+                        str += i + '=' + data[i] + '&';
+                    }
+                }
+            }
+        ).then(function successCallback(info) {
+            if (info.data.code == 1) {
+                // alert(info.data.msg);
+                $scope.bbPaiMing.msg = info.data.msg;
+            } else if (info.data.code == 0) {
+                var result = info.data.data;
+                $scope.bbPaiMing.examedContext = angular.fromJson(result.replace(/'/g, '"'));
+            }
+            $("#pmrs").mLoading("hide");
+            $scope.bbPaiMing.working = false;
+            clearTimeout($scope.ad_oneTimeout);
+        }, function errorCallback(info) {
+            // alert("失败了");
+            $scope.bbPaiMing.working = false;
+            $("#pmrs").mLoading("hide");
+            clearTimeout($scope.ad_oneTimeout);
+        })
+    }
      //########################宝贝排名查询###############################//
 
      //########################热词查询###############################//

@@ -1,6 +1,8 @@
 package com.deepdraw.deepsearch.controller;
 
+import com.deepdraw.deepsearch.exception.GlobalException;
 import com.deepdraw.deepsearch.service.FunctionUsingService;
+import com.deepdraw.deepsearch.util.CodeMsg;
 import com.deepdraw.deepsearch.util.JavaToPython;
 import com.deepdraw.deepsearch.util.JsonUtil;
 import com.deepdraw.deepsearch.util.ResultUtil;
@@ -46,6 +48,8 @@ public class SearchControllers {
         String word =  request.getParameter("searchWords");
         String[]  args = new String[] { "python", pythonPath+"/text3.py", word};
         String result = JavaToPython.getPython(args);
+        if (result == null)
+            throw new GlobalException(CodeMsg.SERVER_ERROR);
         functionUsingService.addFT(3);
         if (result!=null && result.equals("001"))
             return JsonUtil.object2Json(ResultUtil.error(1,"该号不存在，请检测是否输入有误"));
@@ -63,6 +67,8 @@ public class SearchControllers {
         String isNormal = request.getParameter("isNormal");
         String[]  args = new String[] { "python", pythonPath+"/text1.py", word,isNormal};
         String result = JavaToPython.getPython(args);
+        if (result == null)
+            throw new GlobalException(CodeMsg.SERVER_ERROR);
         functionUsingService.addFT(5);
         if (result!=null && result.equals("002"))
             return JsonUtil.object2Json(ResultUtil.error(1,"没有获取到此用户的宝贝信息！请稍后重试，谢谢！"));
@@ -80,9 +86,31 @@ public class SearchControllers {
         String tbaoId = request.getParameter("tbaoId");
         String[]  args = new String[] { "python", pythonPath+"/text4_bRanking.py", keyWords,tbaoId};
         String result = JavaToPython.getPython(args);
+        if (result == null)
+            throw new GlobalException(CodeMsg.SERVER_ERROR);
         functionUsingService.addFT(1);
         if (result!=null && result.equals("003"))
             return JsonUtil.object2Json(ResultUtil.error(1,"您查询的宝贝不存在"));
+        if (result!=null && result.equals("004"))
+            return JsonUtil.object2Json(ResultUtil.error(1,"服务器异常，请重试"));
+        return JsonUtil.object2Json(ResultUtil.success(result));
+    }
+
+    /**
+     * 调用python返回排名数据（免费）
+     * @param request
+     * @return
+     */
+    @GetMapping(value="/getFreeSearchPaiming")
+    public String  getFreeSearchPaiming(HttpServletRequest request){
+        String keyWords =  request.getParameter("keyWords");
+        String tbaoId = request.getParameter("tbaoId");
+        String[]  args = new String[] { "python", pythonPath+"/text4_bRanking_query.py", keyWords,tbaoId};
+        String result = JavaToPython.getPython(args);
+        if (result == null)
+            throw new GlobalException(CodeMsg.SERVER_ERROR);
+        if (result!=null && result.equals("003"))
+            return JsonUtil.object2Json(ResultUtil.error(1,"亲！前十页没有您的宝贝..."));
         if (result!=null && result.equals("004"))
             return JsonUtil.object2Json(ResultUtil.error(1,"服务器异常，请重试"));
         return JsonUtil.object2Json(ResultUtil.success(result));

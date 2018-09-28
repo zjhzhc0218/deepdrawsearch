@@ -74,7 +74,7 @@
                         <ul  ng-if="username!=null" class="dropdown-menu">
                             <li><a tabindex="-1" href="#">设置</a></li>
                             <li class="divider"></li>
-                            <li><a tabindex="-1" ng-click="signLogin()">注销</a></li>
+                            <li><a tabindex="-1" href="#" ng-click="signLogin()">注销</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -375,6 +375,25 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="freeSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel" style="color: red;font-size: 25px">提醒</h4>
+                </div>
+                <div class="modal-body">
+                    <label style="font-size: 20px ;text-align: center">无线端临时限制查询10页
+                        因服务器处理能力有限，登陆后才可查询100页</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="signLogin()">注册/登陆</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="freeSearchPaim()">查询10页</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!--尾部-结束-->
 
