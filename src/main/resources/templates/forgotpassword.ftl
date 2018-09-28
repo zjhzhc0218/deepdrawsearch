@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="/deepsearch/css/normalize.css">
 	<link rel="stylesheet" href="/deepsearch/css/login.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
     <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
 </head>
 <style type="text/css">
@@ -22,33 +23,16 @@
             </div>
             <div class="col-md-4" style="margin-top: 9%;text-align: center;color: #e3e2e2;">
                 <h1>注册</h1>
-                <input type="text" ng-model="name" name="u" placeholder="用户名" required="required"
-                       pattern="^[0-9]{1,11}$"/>
-                <div ng-messages="signup.name.$error">
-                    <div ng-message="required">用户名必须填写.</div>
-                    <div ng-message="md-maxlength">手机号码11位</div>
-                    <div ng-message="pattern">用户名是手机号码，应全部由数字组成.</div>
-                </div>
-                <input type="password" ng-model="password" name="p" placeholder="原密码" required="required"
-                       pattern="^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{8,25}$"/>
-                <div ng-messages="signup.password.$error">
-                    <div ng-message="required">原密码必须填写.</div>
-                    <div ng-message="pattern">密码长是8-25个字符，必须包含数字、字母、特殊字符其中的两种</div>
-                </div>
+                <input type="text" ng-model="name" name="u" placeholder="用户名" required="required"/>
 
-                <input type="password" ng-model="passwordAgain1" name="p" placeholder="新密码" required="required"
-                       pattern="^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{8,25}$"/>
-                <div ng-messages="signup.passwordAgain1.$error">
-                    <div ng-message="required">新密码必须填写.</div>
-                    <div ng-message="pattern">密码长是8-25个字符，必须包含数字、字母、特殊字符其中的两种</div>
-                </div>
+                <input type="password" ng-model="password" name="p" placeholder="原密码" required="required"/>
 
-                <input type="password" ng-model="passwordAgain2" name="p" placeholder="再次输入密码" required="required"
-                       pattern="^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{8,25}$"/>
-                <div ng-messages="signup.passwordAgain2.$error">
-                    <div ng-message="required">新密码第二次必须填写.</div>
-                    <div ng-message="pattern">密码长是8-25个字符，必须包含数字、字母、特殊字符其中的两种</div>
-                </div>
+
+                <input type="password" ng-model="passwordAgain1" name="p" placeholder="新密码" required="required"/>
+
+
+                <input type="password" ng-model="passwordAgain2" name="p" placeholder="再次输入密码" required="required"/>
+
 
                 <button  ng-click="forgot()" class="btn btn-primary btn-block btn-large">修改密码</button>
                 <button  ng-click="openSign()" class="btn btn-primary btn-block btn-large">返回登录界面</button>
@@ -63,6 +47,7 @@
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="/deepsearch/js/angular/angular.js"></script>
 <script src="/deepsearch/js/angular/encrypt.js"></script>
+<script src="/deepsearch/js/spop/spop.js"></script>
 <script src="/deepsearch/js/forgotpasswordController.js"></script>
 
 </html>

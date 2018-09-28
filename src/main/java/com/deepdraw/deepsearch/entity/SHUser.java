@@ -4,7 +4,7 @@ package com.deepdraw.deepsearch.entity;/**
 
 import jnr.ffi.annotations.In;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * 基本用户的表 数据库对应表名shenhui_user
