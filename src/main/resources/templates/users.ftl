@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="/deepsearch/css/login.css">
         <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
         <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-        <#--<link rel="stylesheet" href="http://www.jq22.com/demo/angular201707111100/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="http://www.jq22.com/demo/angular201707111100/css/bootstrap.min.css">
 
 
 
@@ -22,10 +22,6 @@
 
     <body ng-app="app" ng-controller="ctrl">
     <div class="panel">
-
-
-
-
         <div class="row req form-inline">
             <div class="col-md-8 col-md-offset-4 solid_top form-group">
                 <div class="pull-right">
@@ -57,7 +53,8 @@
                 <td>{{data.ban}}</td>
                 <td>
                     <button  ng-click="" class="btn btn-primary btn-block btn-large">禁止登录</button>
-                    <button  ng-click="" class="btn btn-primary btn-block btn-large">一键还原</button>
+                    <button  ng-click="" class="btn btn-primary btn-block btn-large">恢复登录</button>
+                    <button  ng-click="" class="btn btn-primary btn-block btn-large">一键还原初始密码</button>
 
                 </td>
             </tr>
@@ -96,7 +93,7 @@
     <script src="/deepsearch/js/angular/angular.js"></script>
     <script src="/deepsearch/js/spop/spop.js"></script>
     <script src="http://www.jq22.com/jquery/angular-1.4.6.js"></script>
-    <#--<script type="text/javascript" src="http://www.jq22.com/demo/angular201707111100/js/ui-bootstrap-tpls.min.js"></script>-->
+    <script type="text/javascript" src="http://www.jq22.com/demo/angular201707111100/js/ui-bootstrap-tpls.min.js"></script>
 
     <script src="https://cdn.bootcss.com/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
 

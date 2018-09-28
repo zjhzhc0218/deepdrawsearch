@@ -5,6 +5,8 @@ import com.deepdraw.deepsearch.handler.ContextHolder;
 import com.deepdraw.deepsearch.service.FunctionUsingService;
 import com.deepdraw.deepsearch.service.SHUserService;
 import com.deepdraw.deepsearch.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -14,13 +16,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 @Controller
 @RequestMapping("/login")
 public class LoginUserControllers {
 
+    private final static Logger logger = LoggerFactory.getLogger(LoginUserControllers.class);
 
     @Autowired
     private SHUserService shUserService;
@@ -47,11 +55,11 @@ public class LoginUserControllers {
             session=request.getSession();
             session.setMaxInactiveInterval(14400);
             session.setAttribute("shUser",map.get("shUser"));
-            /*获取当天的时间*/
-            Integer q1 = shUserService.selectUserByTime(2,null,null);
-            Integer q2 = shUserService.selectUserByTime(3,null,null);
-            Integer q3 = shUserService.selectUserByTime(4,null,null);
-            Integer q4 = shUserService.selectUserByTime(5,null,null);
+//            /*获取当天的时间*/
+//            Integer q1 = shUserService.selectUserByTime(2,null,null);
+//            Integer q2 = shUserService.selectUserByTime(3,null,null);
+//            Integer q3 = shUserService.selectUserByTime(4,null,null);
+//            Integer q4 = shUserService.selectUserByTime(5,null,null);
 
 //            Integer module = 1;
 //            functionUsingService.addFT(module);
@@ -132,10 +140,27 @@ public class LoginUserControllers {
      * * @return*/
     @RequestMapping("/getUsers")
     @ResponseBody
-    public Object getUsers(HttpServletRequest request) throws IOException {
-        List<SHUser> shUser = shUserService.selectUser();
-        System.out.println("123456");
-        return JsonUtil.object2Json(ResultUtil.success(shUser));
+
+    public Object getUsers(HttpServletRequest request, Long id,Integer type, String timeStart,String timeEnd) throws IOException {
+        logger.info("id="+id+",timeStart="+timeStart+",timeEnd="+timeEnd);
+        String message = "";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date timeStartN = null;
+        Date timeEndN = null;
+        try {
+             timeStartN = sdf.parse(timeStart);
+             timeEndN = sdf.parse(timeEnd);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        if(timeStartN!=null &&timeEndN!=null ){
+            type = 1;}
+        Map<String,Object> maps = new HashMap<>();
+        List<SHUser> shUser = shUserService.selectUserByTime(id, type, timeStartN, timeEndN);
+        maps.put("User",shUser);
+        message = "本次查询，总共查询到"+shUser.size()+"条记录";
+        maps.put("count",message);
+        return JsonUtil.object2Json(ResultUtil.success(maps));
     }
 
     /** 获取后台对应的用户信息

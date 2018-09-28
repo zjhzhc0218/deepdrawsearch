@@ -1,7 +1,6 @@
 var pageApp = angular.module("app",['ui.bootstrap']);
 pageApp.controller("ctrl",function($scope, $http){
-
-
+    $scope.go = 1 ;
     $http({
         method: 'GET',
         url: '/deepsearch/login/getUsers',
