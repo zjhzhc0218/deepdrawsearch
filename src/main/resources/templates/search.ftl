@@ -17,7 +17,7 @@
         .brand { font-family: georgia, serif; }
         .brand .first {
             color: #373731;
-            font-style: italic;
+            /*font-style: italic;*/
             font-weight: bold;
             font-size: 30px;
         }
@@ -65,11 +65,13 @@
                 <ul class="nav pull-right">
                     <li id="fat-menu" class="dropdown">
                         <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-user"></i> {{username.nickname}}
+                            <i class="icon-user"></i>
+                            <span ng-if="username!=null" ng-bind="username.id"></span>
+                            <span ng-if="username==null" ng-click="signLogin()">请登陆</span>
                             <i class="icon-caret-down"></i>
                         </a>
 
-                        <ul   class="dropdown-menu">
+                        <ul  ng-if="username!=null" class="dropdown-menu">
                             <li><a tabindex="-1" href="#">设置</a></li>
                             <li class="divider"></li>
                             <li><a tabindex="-1" ng-click="signLogin()">注销</a></li>
@@ -90,7 +92,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li style="width: 150px;" class="active" ><a style="text-align:center;font-size: 10px" href="#paimin"  role="tab" data-toggle="tab"><strong>淘宝排名</strong></a></li>
-                <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#reci"  role="tab" data-toggle="tab"><strong>热词查询</strong></a></li>
+                <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#reci"  role="tab" data-toggle="tab" ng-click="searchLogin()"><strong>热词下载</strong></a></li>
                 <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#jiangquan"  role="tab" data-toggle="tab"><strong>降权查询</strong></a></li>
                 <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#xinyu"  role="tab" data-toggle="tab"><strong>信誉查询</strong></a></li>
                 <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#weijin"  role="tab" data-toggle="tab"><strong>违禁词</strong></a></li>
@@ -165,7 +167,7 @@
 
     </div>
     <!--20万热词-->
-    <div role="tabpanel" class="tab-pane " id="reci" >
+    <div ng-if="username!=null" role="tabpanel" class="tab-pane " id="reci" >
         <#include "//reci.ftl">
     </div>
     <!--降权-->
@@ -353,8 +355,30 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">提示</h4>
+                </div>
+                <div class="modal-body">
+                    <label style="font-size: 25px ;color: red;text-align: center">请登陆后进行查询！</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" ng-click="signLogin()">注册/登陆</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <!--尾部-结束-->
+
+
 </body>
 
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
@@ -364,7 +388,7 @@
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="/deepsearch/js/searchController.js"></script>
 <script type="text/javascript">
-        var user ='${user}';
+    user = '${user!}';
 
 </script>
 </html>

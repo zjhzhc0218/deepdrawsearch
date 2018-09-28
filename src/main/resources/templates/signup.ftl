@@ -23,7 +23,7 @@
                         <div class="col-md-4" >
                         </div>
                         <div class="col-md-4" style="margin-top: 9%;" >
-                    <div  class="signup " style="text-align: center">
+                    <div  class="signup " style="text-align: center;color: #e3e2e2;">
                         <h1>注册</h1>
                         <input type="text" ng-model="name" name="u" placeholder="手机号" required="required"/>
                         <input type="password" ng-model="password" name="p" placeholder="密码" required="required"/>

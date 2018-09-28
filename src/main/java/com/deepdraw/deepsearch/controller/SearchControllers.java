@@ -88,4 +88,13 @@ public class SearchControllers {
         return JsonUtil.object2Json(ResultUtil.success(result));
     }
 
+    /**
+     * 记入热词操作数
+     */
+    @GetMapping(value="/setReciRecord")
+    public void  setReciRecord(){
+          functionUsingService.addFT(4);
+    }
+
+
 }

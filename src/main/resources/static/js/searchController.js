@@ -5,13 +5,12 @@ var app=angular.module('search',[])
      * 登陆信息
      * @type {string}
      */
-    $scope.username = angular.fromJson(user);
+    $scope.username = null;
+    if (user != '') {
+        $scope.username = angular.fromJson(user);
+    }
 
-    //注销
-    $scope.signLogin = function() {
-        var url='/deepsearch/sign';
-        location.href = url;
-    };
+
     //########################违禁词###############################//
     $scope.searchWordsWjc = null;//查询
     $scope.app = {
@@ -23,59 +22,64 @@ var app=angular.module('search',[])
         examedContext : null
     };
     $scope.searchWjc = function () {
-            if( $scope.searchWordsWjc == null) {
-                spop({template: '<strong>请输入查询字符!</strong>',
-                    autoclose: 3000,
-                    style:'error'
-                });
-                return;
-            }
-            $("#wjcrs").mLoading({
-                text:"查询中"
+
+        if ($scope.username == null){
+            $('#myModal').modal('show');
+            return;
+        }
+        if( $scope.searchWordsWjc == null) {
+            spop({template: '<strong>请输入查询字符!</strong>',
+                autoclose: 3000,
+                style:'error'
             });
-            $scope.app.working = true;
-            $http({
-                method:'get',
-                url:'/deepsearch/getSearchWjc', params:{"searchWords": $scope.searchWordsWjc},
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                transformRequest: function ( data ) {
-                    var str = '';
-                    for( var i in data ) {
-                        str += i + '=' + data[i] + '&';
-                    }
-                }}
-            ).then(function successCallback(info) {
-                if(info.data.data) {
-                    var resultWjc = info.data.data;
-                    var index = resultWjc.lastIndexOf(':');
-                    //第一个
-                    if(resultWjc.substr(index+2,1) =='T') {
-                        $scope.app.hasAbsolutedWord = true;
-                    }else {
-                        $scope.app.hasAbsolutedWord = false;
-                    }
-                    //第二个
-                    var index2 = resultWjc.substr(0,resultWjc.lastIndexOf(':')-1).lastIndexOf(':');
-                    if (resultWjc.substr(index2+2,1) == 'T') {
-                        $scope.app.hasNoViolation = true;
-                    }else {
-                        $scope.app.hasNoViolation = false;
-                    }
-                    //第三个
-                    var index3 = resultWjc.substr(resultWjc.indexOf(':')+3);
-                    var worss = index3.substring(0,index3.indexOf('\', \'hasNoViolation'));
-                    $scope.app.examedContext =  worss;
-                    console.log(worss);
-                    $scope.app.working = false;
-                    $("#wjcrs").mLoading("hide");
-                    // $scope.$apply();
-                    // resultWjc.contextWords;
+            return;
+        }
+        $("#wjcrs").mLoading({
+            text:"查询中"
+        });
+        $scope.app.working = true;
+        $http({
+            method:'get',
+            url:'/deepsearch/getSearchWjc', params:{"searchWords": $scope.searchWordsWjc},
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            transformRequest: function ( data ) {
+                var str = '';
+                for( var i in data ) {
+                    str += i + '=' + data[i] + '&';
                 }
-            },function errorCallback(info) {
+            }}
+        ).then(function successCallback(info) {
+            if(info.data.data) {
+                var resultWjc = info.data.data;
+                var index = resultWjc.lastIndexOf(':');
+                //第一个
+                if(resultWjc.substr(index+2,1) =='T') {
+                    $scope.app.hasAbsolutedWord = true;
+                }else {
+                    $scope.app.hasAbsolutedWord = false;
+                }
+                //第二个
+                var index2 = resultWjc.substr(0,resultWjc.lastIndexOf(':')-1).lastIndexOf(':');
+                if (resultWjc.substr(index2+2,1) == 'T') {
+                    $scope.app.hasNoViolation = true;
+                }else {
+                    $scope.app.hasNoViolation = false;
+                }
+                //第三个
+                var index3 = resultWjc.substr(resultWjc.indexOf(':')+3);
+                var worss = index3.substring(0,index3.indexOf('\', \'hasNoViolation'));
+                $scope.app.examedContext =  worss;
+                console.log(worss);
                 $scope.app.working = false;
                 $("#wjcrs").mLoading("hide");
-                // alert("失败了");
-            })
+                // $scope.$apply();
+                // resultWjc.contextWords;
+            }
+        },function errorCallback(info) {
+            $scope.app.working = false;
+            $("#wjcrs").mLoading("hide");
+            // alert("失败了");
+        })
         }
     //########################违禁词###############################//
 
@@ -89,6 +93,10 @@ var app=angular.module('search',[])
      };
 
      $scope.searchXinyu = function () {
+         if ($scope.username == null){
+             $('#myModal').modal('show');
+             return;
+         }
          if( $scope.xinYu.searchWordsXy == null) {
              spop({template: '<strong>请输入查询字符!</strong>',
                  autoclose: 3000,
@@ -154,6 +162,10 @@ var app=angular.module('search',[])
 
      //查询
     $scope.searchJiangQuan = function () {
+        if ($scope.username == null){
+            $('#myModal').modal('show');
+            return;
+        }
         if( $scope.jiangquan.searchWordsJq == null) {
             spop({template: '<strong>请输入查询字符!</strong>',
                 autoclose: 3000,
@@ -208,6 +220,10 @@ var app=angular.module('search',[])
     };
         //查询
         $scope.searchPaiming = function () {
+            if ($scope.username == null){
+                $('#myModal').modal('show');
+                return;
+            }
             if ($scope.bbPaiMing.keyWords == null || $scope.bbPaiMing.tbaoId == null) {
                 spop({template: '<strong>请输入查询字符!</strong>',
                     autoclose: 3000,
@@ -265,31 +281,51 @@ var app=angular.module('search',[])
             $('#'+id).toggle();
     };
 
-     //########################热词查询###############################//
-
-           var  loading = function (name) {
-                /*$("#aaaaass").loading({
-                    loadingWidth:240,
-                    title:'请稍等!',
-                    name:name,
-                    discription:'正在查询',
-                    direction:'column',
-                    type:'origin',
-                    // originBg:'#71EA71',
-                    originDivWidth:40,
-                    originDivHeight:40,
-                    originWidth:6,
-                    originHeight:6,
-                    smallLoading:false,
-                    loadingMaskBg:'rgba(0,0,0,0.2)'
-                });*/
+    $scope.reciRecord = function() {
+        $http({
+                method: 'get',
+                url: '/deepsearch/setReciRecord',
+                params: {},
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                transformRequest: function (data) {
+                    var str = '';
+                    for (var i in data) {
+                        str += i + '=' + data[i] + '&';
+                    }
+                }
             }
+        )
+    }
 
+     //########################热词查询###############################//
+    $scope.searchLogin = function () {
+        if ($scope.username == null){
+            $('#myModal').modal('show');
+            return;
+        }
+    }
 
+    //注销
+    $scope.signLogin = function() {
+        if($scope.username) {
+            $http({
+                    method: 'post',
+                    url: '/deepsearch/removeSession',
+                    params: {},
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    transformRequest: function (data) {
+                        var str = '';
+                        for (var i in data) {
+                            str += i + '=' + data[i] + '&';
+                        }
+                    }
+                }
+            )
+        }
+        var url='/deepsearch/sign';
+        location.href = url;
 
-
-
-
+    };
 
 
 

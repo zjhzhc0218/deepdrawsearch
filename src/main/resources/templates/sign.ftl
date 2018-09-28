@@ -23,7 +23,7 @@
         <div class="row"  >
             <div class="col-md-4" >
             </div>
-            <div class="col-md-4"  style="margin-top: 9%;text-align: center">
+            <div class="col-md-4"  style="margin-top: 9%;text-align: center;color: #e3e2e2;">
 				<h1>sign/登录</h1>
 				<input type="text" ng-model="name" name="u" placeholder="用户名" required="required"
 					   pattern="^[0-9]{1,11}$"/>
