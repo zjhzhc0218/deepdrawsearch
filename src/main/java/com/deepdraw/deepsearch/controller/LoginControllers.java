@@ -95,9 +95,6 @@ public class LoginControllers {
         return mv;
     }
 
-
-
-
     /** 注销用户
      * * @return*/
     @RequestMapping("/removeSession")
@@ -106,4 +103,12 @@ public class LoginControllers {
         session=request.getSession();
         session.removeAttribute("shUser");
     }
+
+    @RequestMapping("/adminPage")
+    public ModelAndView adminPage(ModelAndView mv) {
+        //mv.addObject("name", "测试1");
+        mv.setViewName("adminPage");
+        return mv;
+    }
+
 }
