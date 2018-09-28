@@ -118,8 +118,8 @@ public class LoginUserControllers {
     @ResponseBody
     public String forgot(HttpServletRequest request, Long id, String password,String passwordagain) throws IOException {
         String ip = NetWorkUtil.getIpAddress(request).toString();
-        System.out.println("当前的ip地址是"+ip);
-
+        //System.out.println("当前的ip地址是"+ip);
+        logger.info("当前的ip地址是"+ip);
         Map<String,Object> map = shUserService.selectUser(id, password);
         String messge = "";
         if(map.get("shUser")!=null){
@@ -145,17 +145,9 @@ public class LoginUserControllers {
     /** 获取后台对应的用户信息
      * * @return*/
     @RequestMapping("/getSessionUser")
-    public Object getSessionUser(HttpServletRequest request) throws IOException {
+    public String getSessionUser(HttpServletRequest request) throws IOException {
         SHUser shUser = ContextHolder.getSessionSHUser();
         return JsonUtil.object2Json(ResultUtil.success(shUser));
     }
 
-    /** 注销用户
-     * * @return*/
-    @RequestMapping("/removeSession")
-    public Object removeSession(HttpServletRequest request,HttpSession session) throws IOException {
-        session=request.getSession();
-        session.removeAttribute("shUser");
-        return JsonUtil.object2Json(ResultUtil.success(null));
-    }
 }

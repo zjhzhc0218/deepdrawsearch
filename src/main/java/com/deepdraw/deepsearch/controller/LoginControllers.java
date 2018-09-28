@@ -98,4 +98,12 @@ public class LoginControllers {
 
 
 
+    /** 注销用户
+     * * @return*/
+    @RequestMapping("/removeSession")
+    public void removeSession(HttpServletRequest request,HttpSession session)  {
+        System.out.print(11111);
+        session=request.getSession();
+        session.removeAttribute("shUser");
+    }
 }

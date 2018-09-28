@@ -10,7 +10,7 @@
         <tbody>
         <tr>
             <td>2018年9月4日</td>
-            <td><a target="_blank" href="https://pan.baidu.com/s/1wiAjb8yjjUX8XiSLnPLS7Q">下载</a></td>
+            <td><a target="_blank" ng-click="reciRecord()" href="https://pan.baidu.com/s/1wiAjb8yjjUX8XiSLnPLS7Q">下载</a></td>
             <td><a target="_blank" href="https://pan.baidu.com/s/1cFTLISOD05OZ5ueCgocCJg">下载</a></td>
             <td><a target="_blank" href="https://pan.baidu.com/s/12mMEjzNm4g22c0U9zX2DHw">下载</a></td>
         </tr>
