@@ -1,23 +1,19 @@
 package com.deepdraw.deepsearch.controller;
 
 import com.deepdraw.deepsearch.entity.SHUser;
-import com.deepdraw.deepsearch.exception.GlobalException;
 import com.deepdraw.deepsearch.handler.ContextHolder;
 import com.deepdraw.deepsearch.service.FunctionUsingService;
 import com.deepdraw.deepsearch.service.SHUserService;
 import com.deepdraw.deepsearch.util.*;
-import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
@@ -28,7 +24,7 @@ public class LoginUserControllers {
 
     @Autowired
     private SHUserService shUserService;
-
+    //
     @Autowired
     private FunctionUsingService functionUsingService;
 
@@ -49,7 +45,7 @@ public class LoginUserControllers {
         Map<String,Object> map = shUserService.selectUser(id, password);
         if(map.get("shUser")!=null){
             session=request.getSession();
-            session.setMaxInactiveInterval(1800);
+            session.setMaxInactiveInterval(14400);
             session.setAttribute("shUser",map.get("shUser"));
             /*获取当天的时间*/
             Integer q1 = shUserService.selectUserByTime(2,null,null);
@@ -119,7 +115,7 @@ public class LoginUserControllers {
     public String forgot(HttpServletRequest request, Long id, String password,String passwordagain) throws IOException {
         String ip = NetWorkUtil.getIpAddress(request).toString();
         //System.out.println("当前的ip地址是"+ip);
-        logger.info("当前的ip地址是"+ip);
+        //logger.info("当前的ip地址是"+ip);
         Map<String,Object> map = shUserService.selectUser(id, password);
         String messge = "";
         if(map.get("shUser")!=null){
