@@ -3,6 +3,7 @@ app.controller('signController',['$scope','$http', 'Md5','Base64','Sha1', functi
     $scope.name = null;
     $scope.password = null;
 
+    
     //登陆
     $scope.sign = function () {
 
@@ -54,7 +55,15 @@ app.controller('signController',['$scope','$http', 'Md5','Base64','Sha1', functi
                 }
             }).success(function (data) {
                 console.log(data);
-
+                if(data.code !=0) {
+                    spop({
+                        template: '<strong>' + data.msg +
+                        '</strong>',
+                        autoclose: 3000,
+                        style: 'error'
+                    });
+                    return;
+                }
                 var url='/deepsearch/searchIndex';
                 // var url='/deepsearch/changeName';
                 location.href = url;
