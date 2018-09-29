@@ -24,11 +24,18 @@ public interface FunctionUsingDao {
     List<FunctionUsing> selectFT();
 
     /**
-     * 通过模块使用去查询对应数据 (用用户去查询对应的使用记录)
-     * @param userId
+     * 查找某一模块使用表是否有数据
      * @return
      */
-    List<FunctionUsing> selectFTByuserId(@Param("userId") Long userId);
+    List<FunctionUsing> selectFTByModule(@Param("module") Integer module);
+
+    /**
+     * 通过模块使用去查询对应数据 (用用户去查询对应的使用记录)
+     * @param userId 用户id
+     * @param module 模块
+     * @return
+     */
+    List<FunctionUsing> selectFTByuserId(@Param("userId") Long userId,@Param("module") Integer module);
 
     /**
      * 新增用户模块使用
@@ -42,6 +49,14 @@ public interface FunctionUsingDao {
      * @param timeEnd 截止时间
      * @return
      */
-    Integer selectFTByTime(@Param("timeStart") Date timeStart, @Param("timeEnd") Date timeEnd);
+    /**
+     * 统计某个时间段的用户模块使用数据，当天，几天内，某个时间段都按照这个接口来实现
+     * @param userId 用户id
+     * @param module 用户使用的模块
+     * @param timeStart 起始时间
+     * @param timeEnd 结束时间
+     * @return
+     */
+    List<FunctionUsing> selectFTByTime(@Param("userId") Long userId,@Param("module") Integer module,@Param("timeStart") Date timeStart, @Param("timeEnd") Date timeEnd);
 
 }

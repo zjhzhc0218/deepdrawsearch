@@ -34,7 +34,7 @@ public class SHUserServiceImpl implements SHUserService {
         if(shUser==null){
             throw new GlobalException(CodeMsg.USER_NULL_ERROR);
         }else {
-            if(shUser.getBan()==0){
+            if(shUser.getBan()==2){
                 throw new GlobalException(CodeMsg.USER_BAN_ERROR);
             }
             String passwords = MD5Util.inputPassToDbPass(password,shUser.getSalt());
@@ -145,6 +145,30 @@ public class SHUserServiceImpl implements SHUserService {
                  break;
         }
         return shUserList;
+    }
+
+    @Override
+    public String banChange(Long id, Integer type) {
+        String message = "";
+            Integer y = shUserDao.banChange(id,type);
+        if(y!=0){
+            message = "用户登录权限修改成功";
+        }else{
+            throw new GlobalException(CodeMsg.USER_CHANGE_BAN_ERROR);
+        }
+        return message;
+    }
+
+    @Override
+    public String resetpassword(Long id, String password, String salt) {
+        String message = "";
+        Integer y = shUserDao.resetpassword(id, password, salt);
+        if(y!=0){
+            message = id+"用户密码初始化成功";
+            }else{
+            throw new GlobalException(CodeMsg.USER_RESET_PASSWORD_ERROR);
+        }
+        return message;
     }
 
 

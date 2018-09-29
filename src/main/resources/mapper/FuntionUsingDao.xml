@@ -6,26 +6,35 @@
 
 
     <select id="selectFT" resultType="com.deepdraw.deepsearch.entity.FunctionUsing">
-        SELECT  id,module，userId，usingTime
+       SELECT id,module,userId,usingTime
+       FROM function_using
+    </select>
+
+    <select id="selectFTByModule" resultType="com.deepdraw.deepsearch.entity.FunctionUsing">
+        SELECT  id,module,userId,usingTime
         FROM function_using
+        WHERE module = #{module}
     </select>
 
     <select id="selectFTByuserId" resultType="com.deepdraw.deepsearch.entity.FunctionUsing">
-        SELECT  id,module，userId，usingTime
+        SELECT  id,module,userId,usingTime
         FROM function_using
-        WHERE id = #{id}
+        WHERE userId = #{id}
+        <if test = "module!=null">
+        AND module = #{module}
+        </if>
     </select>
 
     <select id="selectUserByTime" resultType="Integer">
-        SELECT  count(id)
+        SELECT id,module,userId,usingTime
         FROM function_using
         WHERE usingTime &gt; #{timeStart}
         AND usingTime &lt; #{timeEnd}
         <if test = "module!=null">
-            module = #{module}
+        AND    module = #{module}
         </if>
         <if test = "userId!=null">
-            userId = #{userId}
+        AND    userId = #{userId}
         </if>
     </select>
 

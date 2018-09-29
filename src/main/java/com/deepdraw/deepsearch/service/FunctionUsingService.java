@@ -7,6 +7,7 @@ import com.deepdraw.deepsearch.entity.SHUser;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -36,5 +37,15 @@ public interface FunctionUsingService {
      * @return 返回对应用户的id
      */
     String addFT(Integer module);
+
+    /**
+     * 统计某个时间段的用户注册数据，当天，几天内，某个时间段都按照这个接口来实现
+     * @param type 类型(1.前端传起始时间跟截止时间，2.当天，3.当周，4.当月，5.当年)
+     *  @param module 对应模块
+     * @param timeStart 起始时间
+     * @param timeEnd 截止时间
+     * @return
+     */
+    List<FunctionUsing> selectFTByTime(Long id, Integer type,Integer module , Date timeStart, Date timeEnd);
 
 }

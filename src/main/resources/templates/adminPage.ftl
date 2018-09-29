@@ -130,9 +130,9 @@
                                 <td>{{data.grade}}</td>
                                 <td>{{data.ban}}</td>
                                 <td>
-                                    <button  ng-click="" class="btn btn-primary btn-block btn-large">禁止登录</button>
-                                    <button  ng-click="" class="btn btn-primary btn-block btn-large">恢复登录</button>
-                                    <button  ng-click="" class="btn btn-primary btn-block btn-large">一键还原初始密码</button>
+                                    <button  ng-click="banJ(data.id)" class="btn btn-primary btn-block btn-large">禁止登录</button>
+                                    <button  ng-click="banH(data.id)" class="btn btn-primary btn-block btn-large">恢复登录</button>
+                                    <button  ng-click="resetpassword(data.id)" class="btn btn-primary btn-block btn-large">一键还原初始密码</button>
 
                                 </td>
                             </tr>
@@ -174,8 +174,52 @@
             </div>
         </div>
 
-        <div  role="tabpanel" class="tab-pane " id="cishu" style="border: 1px solid black" >
-        <p>2333</p>
+        <div  role="tabpanel" class="tab-pane " id="cishu"  >
+            <div style="width: 100%;height: 100%" class="Container">
+                <div class="row clearfix">
+                    <div class="col-md-12 column form-inline" style="font-size: 20px">
+                        <label class="font-7">用户手机：</label>
+                        <input type="number" class="" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="id" name="id" placeholder="查询用户的手机号" required="required"/>
+                    </div>
+                    <div class="col-md-12 column form-inline" style="font-size: 20px">
+                        <label class="font-7">查询模块：</label>
+                        <select ng-model="module"  style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" >
+                            <option value="">模块不限制</option>
+                            <option value="1">排名</option>
+                            <option value="2">违禁词</option>
+                            <option value="3">信誉</option>
+                            <option value="4">热词</option>
+                            <option value="5">降权</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 column form-inline" style="font-size: 20px">
+                        <label class="font-7">查询期限：</label>
+                        <select ng-model="type"  style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" >
+                            <option value="99">时间不限制</option>
+                            <option value="2">当天</option>
+                            <option value="3">当周</option>
+                            <option value="4">当月</option>
+                            <option value="5">当年</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 column form-inline " style="font-size: 20px">
+                        <label class="font-7">开始时间：</label>
+                        <input type="text" class="Wdate form-control" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="time.startTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" onchange="" "/>
+                    </div></br>
+                    <div class="col-md-12 column form-inline " style="font-size: 20px">
+                        <label class="font-7">结束时间：</label>
+                        <input type="text" class="Wdate form-control" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="time.endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  onchange=""  "/>
+                    </div></br>
+                    <button  ng-click="selectFT()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;">查询</button>
+
+
+                </div>
+
+                <!--结果-->
+                <div class="result " id="" style="width:85%;height:350px;">
+
+                </div>
+            </div>
     </div>
 
     </div>

@@ -52,9 +52,9 @@
                 <td>{{data.grade}}</td>
                 <td>{{data.ban}}</td>
                 <td>
-                    <button  ng-click="" class="btn btn-primary btn-block btn-large">禁止登录</button>
-                    <button  ng-click="" class="btn btn-primary btn-block btn-large">恢复登录</button>
-                    <button  ng-click="" class="btn btn-primary btn-block btn-large">一键还原初始密码</button>
+                    <button  ng-click="banJ(data.id)" class="btn btn-primary btn-block btn-large">禁止登录</button>
+                    <button  ng-click="banH(data.id)" class="btn btn-primary btn-block btn-large">恢复登录</button>
+                    <button  ng-click="resetpassword(data.id)" class="btn btn-primary btn-block btn-large">一键还原初始密码</button>
 
                 </td>
             </tr>

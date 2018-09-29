@@ -53,4 +53,21 @@ public interface SHUserService {
      * @return
      */
     List<SHUser> selectUserByTime(Long id,Integer type, Date timeStart, Date timeEnd);
+
+    /**
+     * 修改用户登录是否禁用或者恢复启用
+     * @param id 用户id
+     * @param type（1表示启用 2表示禁用）
+     * @return
+     */
+    String banChange( Long id, Integer type);
+
+    /**
+     * 一键重置用户密码，初始密码为123456，并且分配自动生成的salt值
+     * @param id 用户名
+     * @param password 用户密码
+     * @param salt 用户生成的salt值
+     * @return
+     */
+    String resetpassword( Long id, String password, String salt);
 }

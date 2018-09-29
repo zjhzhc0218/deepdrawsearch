@@ -27,42 +27,28 @@ public class UserControllers {
     @Autowired
     private SHUserService shUserService;
 
-    /** 获取后台所有的用户信息
-     * * @return*/
-    @RequestMapping("/getUsers")
-    @ResponseBody
-    public Object getUsers(HttpServletRequest request) throws IOException {
-        List<SHUser> shUser = shUserService.selectUser();
-        System.out.println("123456");
-        return JsonUtil.object2Json(ResultUtil.success(shUser));
-    }
-
-    /** 获取后台对应的用户信息
-     * * @return*/
-    @RequestMapping("/getSessionUser")
-    public String getSessionUser(HttpServletRequest request) throws IOException {
-        SHUser shUser = ContextHolder.getSessionSHUser();
-        return JsonUtil.object2Json(ResultUtil.success(shUser));
-    }
 
 //    禁止登录 恢复登录
     /** 获取后台对应的用户信息
      * * @return*/
     @RequestMapping("/ban")
+    @ResponseBody
     public String ban(HttpServletRequest request,Long id ,Integer type) throws IOException {
         String message =  "";
-//        传入用户手机号，以及跟禁用还是恢复 登录 判断
+//        传入用户手机号，以及跟禁用还是恢复 登录
+        message = shUserService.banChange(id, type);
         return JsonUtil.object2Json(ResultUtil.success(message));
     }
 
-//    后台一键还原密码 （密码为123456）
+//    后台一键还原密码 （密码为123456abc）
     @RequestMapping("/passwordReduction")
+    @ResponseBody
     public String passwordReduction(HttpServletRequest request,Long id ) throws IOException {
         String message =  "";
         String salt = SixNumberRadom.getSixNumberRadom();
-        String passwords = MD5Util.inputPassToDbPass("123456",salt);
-
+        String passwords = MD5Util.inputPassToDbPass("123456abc",salt);
 //        传入用户手机号，以及跟禁用还是恢复 登录 判断
+        message = shUserService.resetpassword(id,passwords,salt);
     return JsonUtil.object2Json(ResultUtil.success(message));
 }
 

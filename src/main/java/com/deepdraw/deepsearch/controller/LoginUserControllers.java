@@ -147,14 +147,22 @@ public class LoginUserControllers {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date timeStartN = null;
         Date timeEndN = null;
-        try {
-             timeStartN = sdf.parse(timeStart);
-             timeEndN = sdf.parse(timeEnd);
-        } catch (ParseException e) {
-            e.printStackTrace();
+        if(timeStartN==null && timeEndN==null){
+            if(type==null){
+                type=99;
+            }
         }
-        if(timeStartN!=null &&timeEndN!=null ){
-            type = 1;}
+        if(timeStart!=null &&timeEnd!=null ){
+            if(timeStart.length()!=0 && timeEnd.length()!=0) {
+                type = 1;
+                try {
+                    timeStartN = sdf.parse(timeStart);
+                    timeEndN = sdf.parse(timeEnd);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
         Map<String,Object> maps = new HashMap<>();
         List<SHUser> shUser = shUserService.selectUserByTime(id, type, timeStartN, timeEndN);
         maps.put("User",shUser);

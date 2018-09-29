@@ -19,6 +19,8 @@ public class CodeMsg {
 	public static CodeMsg USER_CHANGE_NULL_ERROR = new CodeMsg(500216, "修改失败，请从新校验对应的账号是否已经注册");
 	public static CodeMsg USER_CHANGE_DELETE_ERROR = new CodeMsg(500217, "您的密码修改失败，可能信息被删除了");
 	public static CodeMsg USER_CHANGE_PASSWORD_ERROR = new CodeMsg(500218, "修改失败，请从新校验对应的原密码是否正确");
+	public static CodeMsg USER_CHANGE_BAN_ERROR = new CodeMsg(500219, "用户登录状态修改失败");
+	public static CodeMsg USER_RESET_PASSWORD_ERROR = new CodeMsg(500220, "用户重置密码失败");
 
 
 

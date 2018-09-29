@@ -73,4 +73,17 @@
         WHERE id = #{id}
     </update>
 
+    <update id="banChange" parameterType="com.deepdraw.deepsearch.entity.SHUser">
+        UPDATE shenhui_user SET
+            ban = #{type}
+        WHERE id = #{id}
+    </update>
+
+    <update id="resetpassword" >
+        UPDATE shenhui_user SET
+            password = #{password},
+            salt = #{salt}
+        WHERE id = #{id}
+    </update>
+
 </mapper>

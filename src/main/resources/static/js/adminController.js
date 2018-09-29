@@ -2,13 +2,96 @@ var app=angular.module('app',['ui.bootstrap']);
 app.controller('adminController',['$scope','$http','$sce', function ($scope,$http,$sce) {
 
         /*表单内容显示*/
-            $scope.go = 1 ;
+        $scope.go = 1 ;
         $scope.id = null;
         $scope.type = 99;
+
+        $scope.banJ = function (id) {
+            $http({
+                method: 'GET',
+                url: '/deepsearch/User/ban',
+                params: {
+                    'id': id,
+                    'type':2
+                }
+            }).success(function (data) {
+                spop({
+                    template: '<strong>' + data.data +
+                    '</strong>',
+                    autoclose: 3000,
+                    style: 'success'
+                });
+                $scope.id = id;
+                $scope.select();
+            }).error(function (data) {
+                spop({
+                    template: '<strong>' + data.data +
+                    '</strong>',
+                    autoclose: 3000,
+                    style: 'error'
+                });
+            })
+        }
+        $scope.banH = function (id) {
+            $http({
+                method: 'GET',
+                url: '/deepsearch/User/ban',
+                params: {
+                    'id': id,
+                    'type':1
+                }
+            }).success(function (data) {
+                spop({
+                    template: '<strong>' + data.data +
+                    '</strong>',
+                    autoclose: 3000,
+                    style: 'success'
+                });
+                $scope.id = id;
+                $scope.select();
+            }).error(function (data) {
+                spop({
+                    template: '<strong>' + data.data +
+                    '</strong>',
+                    autoclose: 3000,
+                    style: 'error'
+                });
+            })
+        }
+        $scope.resetpassword = function (id) {
+            $http({
+                method: 'GET',
+                url: '/deepsearch/User/passwordReduction',
+                params: {
+                    'id': id
+                }
+            }).success(function (data) {
+                spop({
+                    template: '<strong>' + data.data +
+                    '</strong>',
+                    autoclose: 3000,
+                    style: 'success'
+                });
+                $scope.id = id;
+                $scope.select();
+            }).error(function (data) {
+                spop({
+                    template: '<strong>' + data.data +
+                    '</strong>',
+                    autoclose: 3000,
+                    style: 'error'
+                });
+            })
+        }
+
         $scope.select = function () {
-
-            console.log($scope.time.startTime+"----"+$scope.time.endTime);
-
+            if($scope.time.startTime > $scope.time.endTime){
+                spop({template: '<strong>起始时间不可以超过结束时间，请检查后重新输入时间</strong>',
+                    autoclose: 3000,
+                    style:'error'
+                });
+                return;
+            }
             $http({
                 method: 'GET',
                 url: '/deepsearch/login/getUsers',
@@ -79,6 +162,38 @@ app.controller('adminController',['$scope','$http','$sce', function ($scope,$htt
         'endTime' :null,
         'startTime' :null
     }
+
+    $scope.selectFT  = function () {
+      if($scope.time.startTime > $scope.time.endTime) {
+          spop({
+              template: '<strong>起始时间不可以超过结束时间，请检查后重新输入时间</strong>',
+              autoclose: 3000,
+              style: 'error'
+          });
+          return;
+      }
+        $http({
+            method: 'GET',
+            url: '/deepsearch/functionUsing/getFT',
+            params: {
+                // 'name':$scope.name,
+                'id': $scope.id,
+                'module':$scope.module,
+                'type': $scope.type,
+                'timeStart': $scope.time.startTime,
+                'timeEnd': $scope.time.endTime
+
+            }
+        }).success(function (data) {
+            console.log(data.data);
+            spop({template: '<strong>' +data.data.count +
+            '</strong>',
+                autoclose: 3000,
+                style:'success'
+                });
+            });
+
+        }
 
     $scope.look = function(){
             alert($scope.adStyle)
