@@ -270,7 +270,7 @@
                 <button class="btn btn-success" ng-click="searchXinyu()" ng-disabled="xinYu.working">检测一下</button>
             </div></br>
             <!--结果-->
-            <div class="result " id="xyrs"  style="width:85%;height:350px;">
+            <div class="result " id="xyrs"  style="width:85%;height:270px;">
                 <div class="noViolation " ng-show="xinYu.hasNoViolation == true" style="color: red;font-size: 30px">
                     该号不存在，请检测是否输入有误!
                 </div>
@@ -314,7 +314,7 @@
                 <button class="btn btn-success" ng-click="searchWjc()" ng-disabled="app.working">检测一下</button>
             </div></br>
             <!--结果-->
-            <div class="result "  id="wjcrs" style="width:85%;height:350px;">
+            <div class="result "  id="wjcrs" style="width:85%;height:310px;">
                 <div class="noViolation " ng-show="app.hasNoViolation == true" style="color: green;font-size: 30px">
                     恭喜你，没有发现任何禁用词／敏感词！
                 </div>
@@ -364,7 +364,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">提示</h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="text-align: center">
                     <label style="font-size: 25px ;color: red;text-align: center">请登陆后进行查询！</label>
                 </div>
                 <div class="modal-footer">
@@ -383,9 +383,9 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel" style="color: red;font-size: 25px">提醒</h4>
                 </div>
-                <div class="modal-body">
-                    <label style="font-size: 20px ;text-align: center">无线端临时限制查询10页
-                        因服务器处理能力有限，登陆后才可查询100页</label>
+                <div class="modal-body" style="text-align: center;">
+                    <label style="font-size: 20px ;text-align: center">因服务器处理能力有限，无线端临时限制查询10页</label>
+                    <label style="font-size: 20px ;text-align: center">登陆后才可查询100页</label>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" ng-click="signLogin()">注册/登陆</button>
