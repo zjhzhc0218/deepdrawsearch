@@ -50,21 +50,14 @@ public class LoginUserControllers {
         String ip = NetWorkUtil.getIpAddress(request).toString();
         System.out.println("当前的ip地址是"+ip);
 
+//        return JsonUtil.object2Json(ResultUtil.error(2,"OJBK"));
         Map<String,Object> map = shUserService.selectUser(id, password);
         if(map.get("shUser")!=null){
             session=request.getSession();
             session.setMaxInactiveInterval(14400);
             session.setAttribute("shUser",map.get("shUser"));
-//            /*获取当天的时间*/
-//            Integer q1 = shUserService.selectUserByTime(2,null,null);
-//            Integer q2 = shUserService.selectUserByTime(3,null,null);
-//            Integer q3 = shUserService.selectUserByTime(4,null,null);
-//            Integer q4 = shUserService.selectUserByTime(5,null,null);
 
-//            Integer module = 1;
-//            functionUsingService.addFT(module);
         }
-
         System.out.println(JsonUtil.object2Json(ResultUtil.success(map.get("message"))));
          return JsonUtil.object2Json(ResultUtil.success(map.get("message")));
     }

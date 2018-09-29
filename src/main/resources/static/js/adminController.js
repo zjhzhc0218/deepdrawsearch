@@ -157,10 +157,12 @@ app.controller('adminController',['$scope','$http','$sce', function ($scope,$htt
             };
         }
 
-
+        var yDate = new Date();
+        yDate.setDate(yDate.getDate()-1);
     $scope.time = {
-        'endTime' :null,
-        'startTime' :null
+
+        'endTime' : new Date().toLocaleTimeString(),
+        'startTime' : (yDate).toLocaleTimeString()
     }
 
     $scope.selectFT  = function () {
