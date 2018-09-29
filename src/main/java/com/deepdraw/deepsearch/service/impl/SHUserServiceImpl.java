@@ -11,11 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
+import java.util.*;
 import java.sql.Timestamp;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Component
 public class SHUserServiceImpl implements SHUserService {
@@ -108,40 +105,46 @@ public class SHUserServiceImpl implements SHUserService {
      * @return
      */
     @Override
-    public Integer selectUserByTime(Integer type, Date timeStart, Date timeEnd) {
-        Integer count = 0;
+    public List<SHUser> selectUserByTime(Long id,Integer type, Date timeStart, Date timeEnd) {
+        List<SHUser> shUserList = new ArrayList<>();
         switch(type){
 //            1表示前端传值，自己传起始时间跟截止时间
             case 1:
-                count = shUserDao.selectUserByTime(timeStart,timeEnd);
+                shUserList = shUserDao.selectUserByTime(id,timeStart,timeEnd);
                 break;
 //                2.表示当天的
             case 2:
                 Timestamp timeStartD = new java.sql.Timestamp(DateUtils.getDayBegin().getTime());
                 Timestamp timeEndD = new java.sql.Timestamp(DateUtils.getDayEnd().getTime());
-                count = shUserDao.selectUserByTime(timeStartD,timeEndD);
+                shUserList = shUserDao.selectUserByTime(id,timeStartD,timeEndD);
                 break;
 //                3.表示当周的
             case 3:
                 Timestamp timeStartW = new java.sql.Timestamp(DateUtils.getBeginDayOfWeek().getTime());
                 Timestamp timeEndW = new java.sql.Timestamp(DateUtils.getEndDayOfWeek().getTime());
-                count = shUserDao.selectUserByTime(timeStartW,timeEndW);
+                shUserList = shUserDao.selectUserByTime(id,timeStartW,timeEndW);
                 break;
 //                4.表示当月的
             case 4:
                 Timestamp timeStartM = new java.sql.Timestamp(DateUtils.getBeginDayOfMonth().getTime());
                 Timestamp timeEndM = new java.sql.Timestamp(DateUtils.getEndDayOfMonth().getTime());
-                count = shUserDao.selectUserByTime(timeStartM,timeEndM);
+                shUserList = shUserDao.selectUserByTime(id,timeStartM,timeEndM);
                 break;
 //                5.表示当年的
             case 5:
                 Timestamp timeStartY = new java.sql.Timestamp(DateUtils.getBeginDayOfYear().getTime());
                 Timestamp timeEndY = new java.sql.Timestamp(DateUtils.getEndDayOfYear().getTime());
-                count = shUserDao.selectUserByTime(timeStartY,timeEndY);
+                shUserList = shUserDao.selectUserByTime(id,timeStartY,timeEndY);
                 break;
-            default: break;
+            default:
+                if(id==null){
+                    shUserList =  shUserDao.selectUser();
+                }else{
+                    shUserList.add(shUserDao.selectUserById(id));
+                }
+                 break;
         }
-        return count;
+        return shUserList;
     }
 
 

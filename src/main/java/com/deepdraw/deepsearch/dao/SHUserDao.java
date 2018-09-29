@@ -45,10 +45,13 @@ public interface SHUserDao {
 
     /**
      * 统计某个时间段的用户注册数据，当天，几天内，某个时间段都按照这个接口来实现
+     * 该接口跟查询用户信息合并，所以返回值为一个list，传入值做改变
+     * @param id
      * @param timeStart
      * @param timeEnd
      * @return
      */
-    Integer selectUserByTime(@Param("timeStart") Date timeStart, @Param("timeEnd") Date timeEnd);
+    List<SHUser> selectUserByTime(@Param("id") Long id,@Param("timeStart") Date timeStart, @Param("timeEnd") Date timeEnd);
+
 
 }

@@ -3,6 +3,7 @@ package com.deepdraw.deepsearch.entity;/**
  */
 
 import jnr.ffi.annotations.In;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -18,7 +19,10 @@ public class SHUser {
     private String password;
     private String salt;
     private String head;
+
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date registerDate;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date lastLoginDate;
     private Integer loginCount;
 

@@ -16,11 +16,14 @@
     WHERE id = #{id}
   </select>
 
-    <select id="selectUserByTime" resultType="Integer">
-        SELECT  count(id)
+    <select id="selectUserByTime" resultType="com.deepdraw.deepsearch.entity.SHUser">
+        SELECT  id,nickname,password,salt,head,register_date,last_login_date,login_count,grade,ban
         FROM shenhui_user
         WHERE register_date &gt; #{timeStart}
         AND register_date &lt; #{timeEnd}
+        <if test = "id!=null">
+            id = #{id},
+        </if>
     </select>
 
     <insert id="addUser" parameterType="com.deepdraw.deepsearch.entity.SHUser">

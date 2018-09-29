@@ -4,6 +4,8 @@
     <title>首页</title>
     <!-- 设置文档编码 -->
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <#--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--  -->
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <link rel="stylesheet" href="/deepsearch/css/loading/jquery.mloading.css">
@@ -12,6 +14,11 @@
     <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/deepsearch/css/font/font-awesome.css">
     <script  type="text/javascript" src="/deepsearch/js/My97DatePicker/WdatePicker.js"></script>
+
+    <!-- 下面是表单的格式 -->
+    <link rel="stylesheet" href="/deepsearch/css/normalize.css">
+    <#--<link rel="stylesheet" href="http://www.jq22.com/demo/angular201707111100/css/bootstrap.min.css">-->
+
 
     <!-- CSS样式 -->
     <style type="text/css">
@@ -54,7 +61,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li style="width: 150px;" class="active" ><a style="text-align:center;font-size: 10px" href="#renyuan"  role="tab" data-toggle="tab"><strong>人员</strong></a></li>
-                <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#cishu"  role="tab" data-toggle="tab" ng-click="searchLogin()"><strong>使用次数</strong></a></li>
+                <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#cishu"  role="tab" data-toggle="tab" ><strong>使用次数</strong></a></li>
             </ul>
         </div>
     </div>
@@ -62,24 +69,25 @@
 <!--导航-结束-->
 
 <!--内容-开始-->
-<div style="width: 90%;height: 75%" class="container">
+<div style=" overflow-y: auto;width: 90%;height: 75%" class="container">
     <div class="tab-content">
-        <!--排名-->
-        <div role="tabpanel" class="tab-pane active" id="renyuan">
+        <!--用户信息-->
+        <div role="tabpanel" class="tab-pane active" id="renyuan" >
             <div style="width: 100%;height: 100%" class="Container">
                 <div class="row clearfix">
-                    <div class="col-md-12 column">
-                        <dl>
-                            <dt style="font-size: 20px">
-                                人员
-                            </dt>
-                            <dd style="font-size: 15px">
-
-                            </dd>
-                            <dd style="font-size: 15px">
-                                <span style="color: red">注意：</span>
-                            </dd>
-                        </dl>
+                    <div class="col-md-12 column form-inline" style="font-size: 20px">
+                            <label class="font-7">用户手机：</label>
+                            <input type="number" class="" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="id" name="id" placeholder="查询用户的手机号" required="required"/>
+                    </div>
+                    <div class="col-md-12 column form-inline" style="font-size: 20px">
+                        <label class="font-7">查询期限：</label>
+                        <select ng-model="type"  style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" >
+                            <option value="99">时间不限制</option>
+                            <option value="2">当天</option>
+                            <option value="3">当周</option>
+                            <option value="4">当月</option>
+                            <option value="5">当年</option>
+                        </select>
                     </div>
                     <div class="col-md-12 column form-inline " style="font-size: 20px">
                         <label class="font-7">开始时间：</label>
@@ -89,8 +97,74 @@
                         <label class="font-7">结束时间：</label>
                         <input type="text" class="Wdate form-control" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="time.endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  onchange=""  "/>
                     </div></br>
+                    <button  ng-click="select()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;">查询</button>
 
-                    <button class="btn" ng-click="check()">确定 </button>
+                    <div class="panel">
+                        <div class="row req form-inline">
+                            <div class="col-md-8 col-md-offset-4 solid_top form-group">
+                                <div class="pull-right">
+                                    <label>展示条数:
+                                        <select  class="form-control" ng-change="change(selectedLimit)" ng-model="selectedLimit" ng-options="value.limit for value in values"></select>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <td>用户手机</td>
+                                <td>注册时间</td>
+                                <td>最后登录时间</td>
+                                <td>登录次数</td>
+                                <td>用户权限</td>
+                                <td>是否禁用</td>
+                                <td>操作</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr  ng-repeat="data in datas">
+                                <td>{{data.id}}</td>
+                                <td>{{data.registerDate|date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                                <td>{{data.lastLoginDate|date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                                <td>{{data.loginCount}}</td>
+                                <td>{{data.grade}}</td>
+                                <td>{{data.ban}}</td>
+                                <td>
+                                    <button  ng-click="" class="btn btn-primary btn-block btn-large">禁止登录</button>
+                                    <button  ng-click="" class="btn btn-primary btn-block btn-large">恢复登录</button>
+                                    <button  ng-click="" class="btn btn-primary btn-block btn-large">一键还原初始密码</button>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row form-inline">
+                        <div class="col-md-8">
+                            <uib-pagination
+                                    total-items="page.totalCount"
+                                    ng-model="page.pageNo"
+                                    max-size="5"
+                                    class="samplePage pagination"
+                                    boundary-links="true"
+                                    force-ellipses="false"
+                                    first-text="首页"
+                                    last-text="末页"
+                                    previous-text="上一页"
+                                    next-text="下一页"
+                                    items-per-page="page.limit"
+                                    ng-change="pageChanged()"
+                                    boundary-link-numbers="true"
+                            >
+                            </uib-pagination>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" style="width:100px;margin:25px 0" name="" ng-model="go" />
+                            <a class="btn btn-primary btn-sm" ng-click="setPage(go)">跳转</a>
+                        </div>
+                    </div>
+
+
                 </div>
 
                 <!--结果-->
@@ -98,14 +172,11 @@
 
                 </div>
             </div>
-
-        </div>
-        <div ng-if="" role="tabpanel" class="tab-pane " id="cishu" >
-
         </div>
 
-
-
+        <div  role="tabpanel" class="tab-pane " id="cishu" style="border: 1px solid black" >
+        <p>2333</p>
+    </div>
 
     </div>
 </div>
@@ -161,7 +232,14 @@
 <script src="/deepsearch/js/spop/spop.js"></script>
 <script src="/deepsearch/js/loading/jquery.mloading.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<!-- 表单引入的 -->
+<#--<script src="http://www.jq22.com/jquery/angular-1.4.6.js"></script>-->
+<#--<script type="text/javascript" src="http://www.jq22.com/demo/angular201707111100/js/ui-bootstrap-tpls.min.js"></script>-->
+<script src="https://cdn.bootcss.com/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+
 <script type="text/javascript">
 
-</script>
+
+
+</html>
 </html>

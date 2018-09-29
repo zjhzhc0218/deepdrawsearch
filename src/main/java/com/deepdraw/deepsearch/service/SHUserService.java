@@ -52,5 +52,5 @@ public interface SHUserService {
      * @param timeEnd 截止时间
      * @return
      */
-    Integer selectUserByTime(Integer type, Date timeStart, Date timeEnd);
+    List<SHUser> selectUserByTime(Long id,Integer type, Date timeStart, Date timeEnd);
 }
