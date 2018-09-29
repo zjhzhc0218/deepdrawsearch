@@ -38,10 +38,10 @@ public class LoginControllers {
         //mv.addObject("name", "测试1");
         SHUser shUser = ContextHolder.getSessionSHUser();
         if (shUser == null) {
-            mv.setViewName("sign");
-            return mv;
+            mv.addObject("user",null);
+        }else {
+            mv.addObject("user",JsonUtil.object2Json(shUser));
         }
-        mv.addObject("user",JsonUtil.object2Json(shUser));
         mv.setViewName("search");
         return mv;
     }
