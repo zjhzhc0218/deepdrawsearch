@@ -68,22 +68,30 @@ public class LoginUserControllers {
      * * @return*/
     @RequestMapping("/userRegistered")
     @ResponseBody
-    public String registered(HttpServletRequest request, Long id, String password,String signCode) throws IOException {
+    public String registered(HttpServletRequest request, Long id, String password,String mobileCode,String signCode,HttpSession session) throws IOException {
         /*测试后台进程的速度 返回值是对应的当前时间到某个时间的过去的毫秒*/
         Long timeStart =  System.currentTimeMillis();
 
         System.out.println(signCodeNew);
         System.out.println(signCode);
-        if(signCode==null){
-            String messge = "没有邀请码，请输入邀请码";
-            return JsonUtil.object2Json(ResultUtil.error(1,messge));
-        }
+//        if(signCode==null){
+//            String messge = "没有邀请码，请输入邀请码";
+//            return JsonUtil.object2Json(ResultUtil.error(1,messge));
+//        }
         if(!signCodeNew.equals(signCode)){
             String messge = "邀请码输入错误，请重新通过微信二维码获取";
             return JsonUtil.object2Json(ResultUtil.error(1,messge));
         }
 
-
+        if(session.getAttribute("mobileNum") == null){
+            String messge = "请先点击获取手机验证码";
+            return JsonUtil.object2Json(ResultUtil.error(1,messge));
+        }
+        String mobileNum = session.getAttribute("mobileNum").toString();
+        if(!mobileNum.equals(mobileCode)){
+            String messge = "手机验证码输入错误，请重新获取手机验证码";
+            return JsonUtil.object2Json(ResultUtil.error(1,messge));
+        }
 
         String ip = NetWorkUtil.getIpAddress(request).toString();
         System.out.println("当前的ip地址是"+ip);

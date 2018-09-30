@@ -11,18 +11,64 @@ app.controller('signupController', ['$scope', '$http', 'Md5', 'Base64', 'Sha1', 
     }
 
 
-    //生成验证码
+    // //生成验证码
+    // $scope.changeVerify = function () {//定义了一个点击事件，获取验证码
+    //     var authCode = "";
+    //     var authCodeLength = 4;//取几个随机数字
+    //     var randomArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'w', 'z'];
+    //     for (var i = 0; i < authCodeLength; i++) {
+    //         var index = Math.floor(Math.random() * 62);//随机取一位数
+    //         authCode += randomArray[index];//取四位数，并+相连
+    //     }
+    //     $scope.showAuthCode = authCode;//赋值
+    //     console.log($scope.showAuthCode);
+    // };
+
+    //生成手机验证码
     $scope.changeVerify = function () {//定义了一个点击事件，获取验证码
-        var authCode = "";
-        var authCodeLength = 4;//取几个随机数字
-        var randomArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'w', 'z'];
-        for (var i = 0; i < authCodeLength; i++) {
-            var index = Math.floor(Math.random() * 62);//随机取一位数
-            authCode += randomArray[index];//取四位数，并+相连
+        if ($scope.name == null) {
+            spop({
+                template: '<strong>请输入手机号!</strong>',
+                autoclose: 3000,
+                style: 'error'
+            });
+            return;
         }
-        $scope.showAuthCode = authCode;//赋值
-        console.log($scope.showAuthCode);
-    };
+        $http({
+            method: 'GET',
+            url: '/deepsearch/mobile/getMobile',
+            params: {
+                'PhoneNumbers': $scope.name
+            }
+        }).success(function (data) {
+            console.log(data);
+            if(data.code!=0){
+                spop({template: '<strong>' +data.msg+
+                '</strong>',
+                    autoclose: 3000,
+                    style:'error'
+                });
+                return;
+            }else{
+                spop({template: '<strong>' +data.data+
+                '</strong>',
+                    autoclose: 3000,
+                    style:'success'
+                });
+                return;
+            }
+        }).error(function (data) {
+            console.log(data);
+            if(data.code!=0){
+                spop({template: '<strong>' +data.msg+
+                '</strong>',
+                    autoclose: 3000,
+                    style:'error'
+                });
+                return;
+            }
+        })
+    }
 
 
     //注册
@@ -66,16 +112,45 @@ app.controller('signupController', ['$scope', '$http', 'Md5', 'Base64', 'Sha1', 
             return;
         }
 
-        if($scope.writeCode == null){
-            spop({template: '<strong>请输入验证码!</strong>',
+        if($scope.passwordAgain == null){
+            spop({template: '<strong>请输入密码!</strong>',
+                autoclose: 3000,
+                style:'error'
+            });
+            return;
+        }
+        if(!passwordreg.test($scope.passwordAgain)){
+            spop({template: '<strong>再次输入密码密码长是8-25个字符，必须包含数字、字母、特殊字符其中的两种</strong>',
                 autoclose: 3000,
                 style:'error'
             });
             return;
         }
 
+        if($scope.password != $scope.passwordAgain){
+            spop({template: '<strong>二次输入的密码不一样</strong>',
+                autoclose: 3000,
+                style:'error'
+            });
+            return;
+        }
 
-        if ($scope.writeCode == $scope.showAuthCode ) {
+        if($scope.showAuthCode == null){
+            spop({template: '<strong>请输入手机验证码!</strong>',
+                autoclose: 3000,
+                style:'error'
+            });
+            return;
+        }
+
+        if($scope.signCode == null){
+            spop({template: '<strong>请输入邀请码!</strong>',
+                autoclose: 3000,
+                style:'error'
+            });
+            return;
+        }
+
             console.log('ok');
             $http({
                 method: 'GET',
@@ -85,10 +160,10 @@ app.controller('signupController', ['$scope', '$http', 'Md5', 'Base64', 'Sha1', 
                     // 'name':$scope.name,
                     'id': $scope.name,
                     'password': $scope.password,
+                    'mobileCode':$scope.showAuthCode,
                     'signCode':$scope.signCode
                 }
             }).success(function (data) {
-                console.log(data);
                 if(data.code!=0){
                     spop({template: '<strong>' +data.msg+
                     '</strong>',
@@ -97,8 +172,8 @@ app.controller('signupController', ['$scope', '$http', 'Md5', 'Base64', 'Sha1', 
                     });
                     return;
                 }
-
-                alert(data.data);
+                var url = '/deepsearch/sign';
+                location.href = url;
             }).error(function (data) {
                 spop({template: '<strong>' +data.msg+
                 '</strong>',
@@ -107,13 +182,7 @@ app.controller('signupController', ['$scope', '$http', 'Md5', 'Base64', 'Sha1', 
                 });
                 return;
             });
-        } else {
-            spop({template: '<strong>验证码输入错误，注意大小写，请重新输入!</strong>',
-                autoclose: 3000,
-                style:'error'
-            });
-            return;
-        }
+
     }
 
     //跳转到登录页面
@@ -158,5 +227,7 @@ app.controller('signupController', ['$scope', '$http', 'Md5', 'Base64', 'Sha1', 
     init();*/
 
 
-}]);
+}
+
+]);
 

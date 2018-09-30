@@ -34,7 +34,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--声明spring boot内嵌tomcat的作用范围  在运行时不起作用-->
+        <!--声明spring boot内嵌tomcat的作用范围  在运行时不起作用 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
@@ -79,6 +79,20 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.6</version>
         </dependency>
+
+        <!--用于短信验证 注：如提示报错，先升级基础包版，无法解决可联系技术支持-->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+            <version>4.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
