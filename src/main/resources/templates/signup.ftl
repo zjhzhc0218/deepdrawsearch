@@ -29,7 +29,7 @@
                         <input type="password" ng-model="password" name="p" placeholder="密码" required="required"/>
 
 
-                        <input type="text" placeholder="区分大小写" class="js5-form3-input" id="js5-form3-input" ng-model="writeCode"  maxlength="6" ng-keyup="mykey($event)">
+                        <#--<input type="text" placeholder="区分大小写" class="js5-form3-input" id="js5-form3-input" ng-model="writeCode"  maxlength="6" ng-keyup="mykey($event)">-->
                         <#--<div class="form-group" style="width: 400px">
                             <input type="text"  class="js5-authCode" value=""  style="width: 200px" id="js5-authCode" ng-model="showAuthCode"  disabled="disabled" >
                             <!--disabled="disabled"禁止验证码框文字被选中&ndash;&gt;
@@ -37,7 +37,7 @@
                         </div>-->
                         <div class="row" style="margin-top: 5px;margin-bottom: 5px">
                             <div class=" col-md-8">
-                                <input type="text" class="js5-authCode" value=""  style="width: 99%;font-size: 18px;text-align: center"  ng-model="showAuthCode"  disabled="disabled" ></input>
+                                <input type="text" placeholder="获取手机验证码"  class="js5-form3-input" value=""    ng-model="showAuthCode"  disabled="disabled" ></input>
                             </div>
                             <div class="col-md-4">
                                 <button type="submit" class="btn btn-primary" style=" width: 98%; height: 41px;" ng-click="changeVerify()">获取</button>

@@ -32,7 +32,7 @@
 
 
 				<button  ng-click="sign()" class="btn btn-primary btn-block btn-large">登录</button>
-				<button  ng-click="forgot()" class="btn btn-primary btn-block btn-large">忘记密码</button>
+				<button  ng-click="forgot()" class="btn btn-primary btn-block btn-large">修改密码</button>
 				<button  ng-click="openSignup()" class="btn btn-primary btn-block btn-large">Create an account/注册账号</button>
 			</div>
         </div>

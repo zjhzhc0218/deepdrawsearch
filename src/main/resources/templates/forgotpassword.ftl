@@ -2,7 +2,7 @@
 <html >
 <head>
 	<meta charset="UTF-8">
-	<title>sign</title>
+	<title>修改密码</title>
 	<link rel="stylesheet" href="/deepsearch/css/normalize.css">
 	<link rel="stylesheet" href="/deepsearch/css/login.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -22,7 +22,7 @@
             <div class="col-md-4" >
             </div>
             <div class="col-md-4" style="margin-top: 9%;text-align: center;color: #e3e2e2;">
-                <h1>找回密码</h1>
+                <h1>根据原密码修改密码</h1>
                 <input type="text" ng-model="name" name="u" placeholder="用户名" required="required"/>
 
                 <input type="password" ng-model="password" name="p" placeholder="原密码" required="required"/>
