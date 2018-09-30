@@ -9,6 +9,24 @@
         </tr></thead>
         <tbody>
         <tr>
+            <td>2018年9月26日</td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1lR54OJ6gSTA9U7pmeg0NHQ">下载</a></td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1t6biuyTQzYMkgCT4_07igA">下载</a></td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1FXYCBlUMyWEm0_SrSUKZSg">下载</a></td>
+        </tr>
+        <tr>
+            <td>2018年9月18日</td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1-lN5yF2awLTz7e_f8X7LsA">下载</a></td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1gb_LSydZ7oycntdD10bz7w">下载</a></td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1qeuJiAdL_KtngedC0AjRAw">下载</a></td>
+        </tr>
+        <tr>
+            <td>2018年9月11日</td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1DXMZYqaUYncNHqePvNMtLw">下载</a></td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1xXlBS18_1rIF0e22xDlUIQ">下载</a></td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1kfSWBUFuW-7UlA6B6sRc8w">下载</a></td>
+        </tr>
+        <tr>
             <td>2018年9月4日</td>
             <td><a target="_blank" ng-click="reciRecord()" href="https://pan.baidu.com/s/1wiAjb8yjjUX8XiSLnPLS7Q">下载</a></td>
             <td><a target="_blank" href="https://pan.baidu.com/s/1cFTLISOD05OZ5ueCgocCJg">下载</a></td>
