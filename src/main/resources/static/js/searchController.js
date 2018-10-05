@@ -21,6 +21,11 @@ var app=angular.module('search',[])
         hasAbsolutedWord : false,
         examedContext : null
     };
+    var appvm = $scope.app.vm = {};
+        appvm.value = 0;
+        appvm.style = 'progress-bar-info';
+        appvm.showLabel = true;
+        appvm.striped = true;
     $scope.searchWjc = function () {
 
         if ($scope.username == null){
@@ -34,9 +39,20 @@ var app=angular.module('search',[])
             });
             return;
         }
-        $("#wjcrs").mLoading({
+      /*  $("#wjcrs").mLoading({
             text:"查询中"
-        });
+        });*/
+        appvm.value = 0;
+        var interval = setInterval(function(){
+            appvm.value++;
+            $scope.$apply();
+            if (appvm.value == 100) {
+                $scope.app.msg = "查询超时！请重新查询";
+                $scope.app.working = false;
+                $scope.$apply();
+                clearInterval(interval);
+            }
+        }, 90);
         $scope.app.working = true;
         $http({
             method:'get',
@@ -71,13 +87,17 @@ var app=angular.module('search',[])
                 $scope.app.examedContext =  worss;
                 console.log(worss);
                 $scope.app.working = false;
-                $("#wjcrs").mLoading("hide");
+                appvm.value = 100;
+                clearInterval(interval);
+                // $("#wjcrs").mLoading("hide");
                 // $scope.$apply();
                 // resultWjc.contextWords;
             }
         },function errorCallback(info) {
             $scope.app.working = false;
-            $("#wjcrs").mLoading("hide");
+            appvm.value = 100;
+            clearInterval(interval);
+            // $("#wjcrs").mLoading("hide");
             // alert("失败了");
         })
         }
@@ -91,7 +111,11 @@ var app=angular.module('search',[])
          hasNoViolation : false,
          examedContext : null
      };
-
+    var xyvm = $scope.xinYu.vm = {};
+        xyvm.value = 0;
+        xyvm.style = 'progress-bar-info';
+        xyvm.showLabel = true;
+        xyvm.striped = true;
      $scope.searchXinyu = function () {
          if ($scope.username == null){
              $('#myModal').modal('show');
@@ -104,9 +128,21 @@ var app=angular.module('search',[])
              });
              return;
          }
-         $("#xyrs").mLoading({
+        /* $("#xyrs").mLoading({
              text:"查询中"
-         });
+         });*/
+         xyvm.value = 0;
+         var interval = setInterval(function(){
+             xyvm.value++;
+             $scope.$apply();
+             if (xyvm.value == 100) {
+                 $scope.xinYu.msg = "查询超时！请重新查询";
+                 $scope.xinYu.working = false;
+                 $scope.$apply();
+                 clearInterval(interval);
+             }
+         }, 150);
+
          $scope.xinYu.examedContext = null;
          $scope.xinYu.hasNoViolation = false;
          $scope.xinYu.working = true;
@@ -139,12 +175,16 @@ var app=angular.module('search',[])
                 }
                 $scope.xinYu.examedContext = list;
             }
-             $("#xyrs").mLoading('hide');
+             // $("#xyrs").mLoading('hide');
+             xyvm.value = 100;
+             clearInterval(interval);
              $scope.xinYu.working = false;
          },function errorCallback(info) {
              // alert("失败了");
              $scope.xinYu.working = false;
-             $("#xyrs").mLoading('hide');
+             // $("#xyrs").mLoading('hide');
+             xyvm.value = 100;
+             clearInterval(interval);
          })
      }
      //########################信誉查询###############################//
@@ -159,9 +199,14 @@ var app=angular.module('search',[])
         isNormal : 0,
         examedContext : null
     };
-
+    var jqvm = $scope.jiangquan.vm = {};
+    jqvm.value = 0;
+    jqvm.style = 'progress-bar-info';
+    jqvm.showLabel = true;
+    jqvm.striped = true;
      //查询
     $scope.searchJiangQuan = function () {
+
         if ($scope.username == null){
             $('#myModal').modal('show');
             return;
@@ -173,9 +218,21 @@ var app=angular.module('search',[])
             });
             return;
         }
-        $("#jqrs").mLoading({
+       /* $("#jqrs").mLoading({
             text:"查询中"
-        });
+        });*/
+        jqvm.value = 0;
+        var interval = setInterval(function(){
+            jqvm.value++;
+            $scope.$apply();
+            if (jqvm.value == 100) {
+                $scope.jiangquan.msg = "查询超时！请重新查询";
+                $scope.jiangquan.working = false;
+                $scope.$apply();
+                clearInterval(interval);
+            }
+        }, 170);
+
         $scope.jiangquan.msg = null;
         $scope.jiangquan.examedContext = null;
         $scope.jiangquan.working = true;
@@ -197,12 +254,16 @@ var app=angular.module('search',[])
                 var result = info.data.data;
                 $scope.jiangquan.examedContext = angular.fromJson(result.replace(/'/g, '"'));
             }
-            $("#jqrs").mLoading("hide");
+            // $("#jqrs").mLoading("hide");
+            jqvm.value = 100;
+            clearInterval(interval);
             $scope.jiangquan.working = false;
         },function errorCallback(info) {
             // alert("失败了");
             $scope.jiangquan.working = false;
-            $("#jqrs").mLoading("hide");
+            jqvm.value = 100;
+            // $("#jqrs").mLoading("hide");
+            clearInterval(interval);
         })
     };
 
@@ -218,11 +279,26 @@ var app=angular.module('search',[])
         msg : null,
         examedContext : null
     };
+
+    var vm = $scope.bbPaiMing.vm = {};
+        vm.value = 0;
+        vm.style = 'progress-bar-info';
+        vm.showLabel = true;
+        vm.striped = true;
     //查询
     $scope.searchPaiming = function () {
-        if ($scope.username == null){
+       /* if ($scope.username == null){
             $('#freeSearch').modal('show');
             return;
+        }*/
+        if ($scope.username == null){
+            $('#myModal').modal('show');
+            return;
+        }
+        var str = angular.copy($scope.bbPaiMing.tbaoId);
+        str = str.match(/id=(\d*)&/);
+        if (str) {
+            $scope.bbPaiMing.tbaoId = str[1];
         }
         if ($scope.bbPaiMing.keyWords == null || $scope.bbPaiMing.tbaoId == null) {
             spop({template: '<strong>请输入查询字符!</strong>',
@@ -231,18 +307,29 @@ var app=angular.module('search',[])
             });
             return;
         }
-        $("#pmrs").mLoading({
-            text:"查询中"
-        });
+        /* $("#pmrs").mLoading({
+             text:"查询中"
+         });*/
+        vm.value = 0;
+        var interval = setInterval(function(){
+            vm.value++;
+            $scope.$apply();
+            if (vm.value == 100) {
+                $scope.bbPaiMing.msg = "查询超时！请重新查询";
+                $scope.bbPaiMing.working = false;
+                $scope.$apply();
+                clearInterval(interval);
+            }
+        }, 500);
         $scope.bbPaiMing.msg = null;
         $scope.bbPaiMing.examedContext = null;
         $scope.bbPaiMing.working = true;
-        $scope.ad_oneTimeout=setTimeout(function(){
+      /* $scope.ad_oneTimeout=setTimeout(function(){
             $scope.bbPaiMing.msg = "查询超时！请重新查询";
             $scope.bbPaiMing.working = false;
             $("#pmrs").mLoading("hide");
             $scope.$apply();
-        },180000);
+        },180000);*/
          $http({
                     method: 'get',
                     url: '/deepsearch/getSearchPaiming',
@@ -263,14 +350,18 @@ var app=angular.module('search',[])
                     var result = info.data.data;
                     $scope.bbPaiMing.examedContext = angular.fromJson(result.replace(/'/g, '"'));
                 }
-                $("#pmrs").mLoading("hide");
+                 vm.value = 100;
+                 clearInterval(interval);
+                // $("#pmrs").mLoading("hide");
                 $scope.bbPaiMing.working = false;
-             clearTimeout($scope.ad_oneTimeout);
+             // clearTimeout($scope.ad_oneTimeout);
          }, function errorCallback(info) {
              // alert("失败了");
              $scope.bbPaiMing.working = false;
-             $("#pmrs").mLoading("hide");
-             clearTimeout($scope.ad_oneTimeout);
+             vm.value = 100;
+             // $("#pmrs").mLoading("hide");
+             clearInterval(interval);
+             // clearTimeout($scope.ad_oneTimeout);
             })
         }
 
@@ -284,18 +375,29 @@ var app=angular.module('search',[])
             });
             return;
         }
-        $("#pmrs").mLoading({
+      /*  $("#pmrs").mLoading({
             text:"查询中"
-        });
+        });*/
+        vm.value = 0;
+        var interval = setInterval(function(){
+            vm.value++;
+            $scope.$apply();
+            if (vm.value == 100) {
+                $scope.bbPaiMing.msg = "查询超时！请重新查询";
+                $scope.bbPaiMing.working = false;
+                $scope.$apply();
+                clearInterval(interval);
+            }
+        }, 500);
         $scope.bbPaiMing.msg = null;
         $scope.bbPaiMing.examedContext = null;
         $scope.bbPaiMing.working = true;
-        $scope.ad_oneTimeout=setTimeout(function(){
-            $scope.bbPaiMing.msg = "查询超时！请重新查询";
-            $scope.bbPaiMing.working = false;
-            $("#pmrs").mLoading("hide");
-            $scope.$apply();
-        },180000);
+
+        var str = angular.copy($scope.bbPaiMing.tbaoId);
+        str = str.match(/id=(\d*)&/);
+        if (str) {
+            $scope.bbPaiMing.tbaoId = str[1];
+        }
         $http({
                 method: 'get',
                 url: '/deepsearch/getFreeSearchPaiming',
@@ -316,14 +418,14 @@ var app=angular.module('search',[])
                 var result = info.data.data;
                 $scope.bbPaiMing.examedContext = angular.fromJson(result.replace(/'/g, '"'));
             }
-            $("#pmrs").mLoading("hide");
+            vm.value = 100;
+            clearInterval(interval);
             $scope.bbPaiMing.working = false;
-            clearTimeout($scope.ad_oneTimeout);
         }, function errorCallback(info) {
             // alert("失败了");
             $scope.bbPaiMing.working = false;
-            $("#pmrs").mLoading("hide");
-            clearTimeout($scope.ad_oneTimeout);
+            vm.value = 100;
+            clearInterval(interval);
         })
     }
      //########################宝贝排名查询###############################//
@@ -377,9 +479,12 @@ var app=angular.module('search',[])
         }
         var url='/deepsearch/sign';
         location.href = url;
-
     };
 
+    $scope.toAdminPage = function () {
+        var url='/deepsearch/adminPage';
+        location.href = url;
+    }
 
 
 

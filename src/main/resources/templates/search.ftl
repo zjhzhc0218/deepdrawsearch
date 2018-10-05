@@ -72,7 +72,7 @@
                         </a>
 
                         <ul  ng-if="username!=null" class="dropdown-menu">
-                            <li><a tabindex="-1" href="#">设置</a></li>
+                            <li><a tabindex="-1" href="#" ng-if="username!=null && username.grade==1" ng-click="toAdminPage()">后台管理</a></li>
                             <li class="divider"></li>
                             <li><a tabindex="-1" href="#" ng-click="signLogin()">注销</a></li>
                         </ul>
@@ -138,6 +138,13 @@
             </div></br>
             <!--结果-->
             <div class="result " id="pmrs" style="width:85%;height:350px;">
+                <div style="width: 37%" ng-if="bbPaiMing.msg == null " ng-show="bbPaiMing.vm.value!=0&&bbPaiMing.vm.value!=100">
+                    <div ng-class="{progress: true, 'progress-striped': bbPaiMing.vm.striped}">
+                        <div ng-class="['progress-bar', bbPaiMing.vm.style]" ng-style="{width: bbPaiMing.vm.value + '%'}">
+                            <div ng-if="bbPaiMing.vm.showLabel">{{bbPaiMing.vm.value}}%</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="noViolation " ng-show="bbPaiMing.msg != null" style="color: red;font-size: 30px" ng-bind="bbPaiMing.msg">
                 </div>
                 <div class="result-context" ng-show="bbPaiMing.examedContext != null" >
@@ -180,7 +187,10 @@
                             店铺宝贝隐形降权查询
                         </dt>
                         <dd style="font-size: 15px">
-                            隐形降权是在线检测宝贝是否被淘宝网隐形降权的分析工具，帮助卖家了解自己宝贝是否被降权。
+                            1.隐形降权是淘宝作弊检测体系自动检测发现宝贝有问题，但是没有明确的证据或者还不是很严重的情况，就是犯罪嫌疑人，对这些宝贝商至店铺采取降权处理。
+                        </dd>
+                        <dd style="font-size: 15px">
+                            2.隐形降权一般和以下因素有关：刷销量：有黑号参与、转化率低、支付宝使用率低。
                         </dd>
                         <dd style="font-size: 15px">
                             <span style="color: red">注意：宝贝隐形降权只提供参考，非淘宝官方数据</span>
@@ -208,6 +218,13 @@
             </div></br>
             <!--结果-->
             <div class="result " id="jqrs" style="width:85%;height:350px;">
+                <div style="width: 37%" ng-if="jiangquan.msg == null " ng-show="jiangquan.vm.value!=0&&jiangquan.vm.value!=100">
+                    <div ng-class="{progress: true, 'progress-striped': jiangquan.vm.striped}">
+                        <div ng-class="['progress-bar', jiangquan.vm.style]" ng-style="{width: jiangquan.vm.value + '%'}">
+                            <div ng-if="jiangquan.vm.showLabel">{{jiangquan.vm.value}}%</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="noViolation " ng-show="jiangquan.msg != null" style="color: red;font-size: 30px">
                     {{jiangquan.msg}}
                 </div>
@@ -264,23 +281,32 @@
                 </div>
             </div>
             <div class="context" >
-                <textarea style="width: 763px;height: 149px;border-radius:5px " ng-model="xinYu.searchWordsXy"  placeholder="请输入淘宝账号，然后点击 &quot;检测一下&quot; 按钮" class="ng-pristine ng-valid ng-empty ng-touched"></textarea>
+                <textarea style="width: 467px;height: 71px;border-radius:5px " ng-model="xinYu.searchWordsXy"  placeholder="请输入淘宝账号，然后点击 &quot;检测一下&quot; 按钮" class="ng-pristine ng-valid ng-empty ng-touched"></textarea>
             </div>
             <div style="margin-top: 30px" class="button-container text-left">
                 <button class="btn btn-success" ng-click="searchXinyu()" ng-disabled="xinYu.working">检测一下</button>
             </div></br>
             <!--结果-->
             <div class="result " id="xyrs"  style="width:85%;height:270px;">
+                <div style="width: 37%" ng-if="xinYu.msg == null " ng-show="xinYu.vm.value!=0&&xinYu.vm.value!=100">
+                    <div ng-class="{progress: true, 'progress-striped': xinYu.vm.striped}">
+                        <div ng-class="['progress-bar', xinYu.vm.style]" ng-style="{width: xinYu.vm.value + '%'}">
+                            <div ng-if="xinYu.vm.showLabel">{{xinYu.vm.value}}%</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="noViolation " ng-show="xinYu.hasNoViolation == true" style="color: red;font-size: 30px">
                     该号不存在，请检测是否输入有误!
                 </div>
                 <div class="result-context" ng-show="xinYu.examedContext != null" >
-                    <table class="table table-bordered table-hover" style="  display: block;width:51%;height: 59%;overflow-y: scroll;">
+                    <table class="table table-hover" style="  display: block;width:100%;height: 100%;overflow: hidden;">
                         <tbody>
-                        <tr ng-repeat="d in xinYu.examedContext ">
-                            <td ng-bind="d.name">
+                        <tr >
+                            <td  ng-repeat="d in xinYu.examedContext " ng-bind="d.name">
                             </td>
-                            <td ng-bind="d.value">
+                        </tr>
+                        <tr class="success">
+                            <td ng-repeat="d in xinYu.examedContext " ng-bind="d.value">
                             </td>
                         </tr>
                         </tbody>
@@ -315,6 +341,13 @@
             </div></br>
             <!--结果-->
             <div class="result "  id="wjcrs" style="width:85%;height:310px;">
+                <div style="width: 37%" ng-if="app.msg == null " ng-show="app.vm.value!=0&&app.vm.value!=100">
+                    <div ng-class="{progress: true, 'progress-striped': app.vm.striped}">
+                        <div ng-class="['progress-bar', app.vm.style]" ng-style="{width: app.vm.value + '%'}">
+                            <div ng-if="app.vm.showLabel">{{app.vm.value}}%</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="noViolation " ng-show="app.hasNoViolation == true" style="color: green;font-size: 30px">
                     恭喜你，没有发现任何禁用词／敏感词！
                 </div>

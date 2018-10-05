@@ -7,8 +7,8 @@ public class CodeMsg {
 	
 	//通用的错误码
 	public static CodeMsg SUCCESS = new CodeMsg(0, "success");
-	public static CodeMsg SERVER_ERROR = new CodeMsg(500100, "服务端异常");
-	public static CodeMsg BIND_ERROR = new CodeMsg(500101, "参数校验异常：%s");
+	public static CodeMsg SERVER_ERROR = new CodeMsg(1, "服务端异常");
+	public static CodeMsg BIND_ERROR = new CodeMsg(1, "参数校验异常：%s");
 	//登录模块 5002XX
 	public static CodeMsg SESSION_ERROR = new CodeMsg(500210, "Session不存在或者已经失效");
 	public static CodeMsg SIGN_CODE_ERROR = new CodeMsg(500211, "邀请码输入错误，请重新通过微信二维码获取");
