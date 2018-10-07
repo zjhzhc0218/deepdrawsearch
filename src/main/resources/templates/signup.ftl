@@ -37,7 +37,9 @@
                                 <input type="text" placeholder="获取手机验证码"  class="js5-form3-input"    ng-model="showAuthCode"></input>
                             </div>
                             <div class="col-md-4">
-                                <button type="submit" class="btn btn-primary" style=" width: 98%; height: 41px;" ng-click="changeVerify()">获取</button>
+                                <button ng-bind="timing" ng-click="changeVerify()" class="btn btn-primary" style=" width: 98%; height: 41px;"  ng-disabled="selected >= 0"></button>
+
+                            <#--<button type="submit" class="btn btn-primary" style=" width: 98%; height: 41px;" ng-click="changeVerify()">获取</button>-->
                             </div>
                         </div>
                         <div class="row" style="margin-top: 5px;margin-bottom: 5px">

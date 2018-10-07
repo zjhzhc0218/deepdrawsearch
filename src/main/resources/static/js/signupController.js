@@ -1,7 +1,28 @@
 var app = angular.module('signup', ['Encrypt']);
-app.controller('signupController', ['$scope', '$http', 'Md5', 'Base64', 'Sha1', function ($scope, $http, Md5, Base64, Sha1) {
+app.controller('signupController', ['$scope', '$http','$interval' , function ($scope, $http,$interval) {
     $scope.name = null;
     $scope.password = null;
+
+    //控制按钮是否可以再按
+    $scope.selected = 1;
+
+
+    //控制倒计时
+    var countDown = 0;
+    $scope.timing = "获取手机验证码";
+
+    function settime() {
+        if(countDown > 0) {
+            setTimeout(function() {settime(countDown--); $scope.$apply();}, 1000);
+            $scope.timing = countDown + 's';
+            $scope.selected = 0;
+        }else {
+            $scope.timing = "获取手机验证码";
+
+            $scope.selected = -1;
+        }
+    }
+    settime();
 
     $scope.over = function () {
         $('#codeUrl').hide();
@@ -26,6 +47,7 @@ app.controller('signupController', ['$scope', '$http', 'Md5', 'Base64', 'Sha1', 
 
     //生成手机验证码
     $scope.changeVerify = function () {//定义了一个点击事件，获取验证码
+
         if ($scope.name == null) {
             spop({
                 template: '<strong>请输入手机号!</strong>',
@@ -34,6 +56,13 @@ app.controller('signupController', ['$scope', '$http', 'Md5', 'Base64', 'Sha1', 
             });
             return;
         }
+
+        if(countDown <= 0) {
+            countDown = 60;
+            $scope.timing = countDown + "s";
+            settime();
+        }
+
         $http({
             method: 'GET',
             url: '/deepsearch/mobile/getMobile',

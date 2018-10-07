@@ -68,6 +68,7 @@ public class MobileAuthenticationController {
         int random = (int) ((Math.random() * 9 + 1) * 100000);
 
         /*对应的手机验证码放在session中*/
+
         session.setAttribute("mobileNum", random);
 
         request.setTemplateParam("{\"code\":\"" + random + "\"}");
@@ -76,6 +77,8 @@ public class MobileAuthenticationController {
         // 可选:outId为提供给业务方扩展字段,最终在短信回执消息中将此值带回给调用者
         request.setOutId("yourOutId");
         //请求失败这里会抛ClientException异常
+
+
         SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);
         if (sendSmsResponse.getCode() != null && sendSmsResponse.getCode().equals("OK")) {
             return JsonUtil.object2Json(ResultUtil.success("手机验证码发送成功，请打开手机查看"));

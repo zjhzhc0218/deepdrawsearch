@@ -115,17 +115,26 @@ public class LoginUserControllers {
          return JsonUtil.object2Json(ResultUtil.success(messge));
     }
 
-    /*** 修改密码处理
+    /*** 忘记密码处理
      * * @param name
      * * @param password
      * * @return*/
     @RequestMapping("/userForgot")
     @ResponseBody
-    public String forgot(HttpServletRequest request, Long id, String password,String passwordagain) throws IOException {
+    public String forgot(HttpServletRequest request, Long id, String mobileCode,String passwordagain,HttpSession session) throws IOException {
         String ip = NetWorkUtil.getIpAddress(request).toString();
-        //System.out.println("当前的ip地址是"+ip);
-        //logger.info("当前的ip地址是"+ip);
-        Map<String,Object> map = shUserService.selectUser(id, password);
+
+        if(session.getAttribute("mobileNum") == null){
+            String messge = "请先点击获取手机验证码";
+            return JsonUtil.object2Json(ResultUtil.error(1,messge));
+        }
+        String mobileNum = session.getAttribute("mobileNum").toString();
+        if(!mobileNum.equals(mobileCode)){
+            String messge = "手机验证码输入错误，请重新获取手机验证码";
+            return JsonUtil.object2Json(ResultUtil.error(1,messge));
+        }
+
+        Map<String,Object> map = shUserService.selectUsermessage(id);
         String messge = "";
         if(map.get("shUser")!=null){
             SHUser shUser = (SHUser)map.get("shUser");
@@ -148,7 +157,7 @@ public class LoginUserControllers {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date timeStartN = null;
         Date timeEndN = null;
-        if(timeStartN==null && timeEndN==null){
+        if(timeStart==null && timeEnd==null){
             if(type==null){
                 type=99;
             }

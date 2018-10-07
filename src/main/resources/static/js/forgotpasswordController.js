@@ -1,8 +1,82 @@
 var app=angular.module('signup',['Encrypt']);
-        app.controller('signupController',['$scope','$http', 'Md5','Base64','Sha1', function ($scope,$http,Md5,Base64,Sha1) {
+        app.controller('signupController',['$scope','$http','$interval', 'Md5','Base64','Sha1', function ($scope,$http,$interval,Md5,Base64,Sha1) {
             $scope.name = null;
-            $scope.password = null;
+            // $scope.password = null;
             $scope.passwordAgain1 = null;
+
+            $scope.passwordAgain2 = null;
+
+            //控制按钮是否可以再按
+            $scope.selected = 1;
+            //控制倒计时
+            var countDown = 0;
+            $scope.timing = "获取手机验证码";
+
+            function settime() {
+                if(countDown > 0) {
+                    setTimeout(function() {settime(countDown--); $scope.$apply();}, 1000);
+                    $scope.timing = countDown + 's';
+                    $scope.selected = 0;
+                }else {
+                    $scope.timing = "获取手机验证码";
+
+                    $scope.selected = -1;
+                }
+            }
+            settime();
+
+            //生成手机验证码
+            $scope.changeVerify = function () {//定义了一个点击事件，获取验证码
+                if ($scope.name == null) {
+                    spop({
+                        template: '<strong>请输入手机号!</strong>',
+                        autoclose: 3000,
+                        style: 'error'
+                    });
+                    return;
+                }
+
+                if(countDown <= 0) {
+                    countDown = 60;
+                    $scope.timing = countDown + "s";
+                    settime();
+                }
+
+                $http({
+                    method: 'GET',
+                    url: '/deepsearch/mobile/getMobile',
+                    params: {
+                        'PhoneNumbers': $scope.name
+                    }
+                }).success(function (data) {
+                    console.log(data);
+                    if(data.code!=0){
+                        spop({template: '<strong>' +data.msg+
+                        '</strong>',
+                            autoclose: 3000,
+                            style:'error'
+                        });
+                        return;
+                    }else{
+                        spop({template: '<strong>' +data.data+
+                        '</strong>',
+                            autoclose: 3000,
+                            style:'success'
+                        });
+                        return;
+                    }
+                }).error(function (data) {
+                    console.log(data);
+                    if(data.code!=0){
+                        spop({template: '<strong>' +data.msg+
+                        '</strong>',
+                            autoclose: 3000,
+                            style:'error'
+                        });
+                        return;
+                    }
+                })
+            }
 
             //修改密码
             $scope.forgot = function () {
@@ -21,6 +95,7 @@ var app=angular.module('signup',['Encrypt']);
                     });
                     return;
                 }
+
                 var namereg = /^[1][0-9]{2,11}$/;
                 if(!namereg.test($scope.name)){
                     spop({template: '<strong>手机号格式不对</strong>',
@@ -30,21 +105,39 @@ var app=angular.module('signup',['Encrypt']);
                     return;
                 }
 
-                if($scope.password == null){
-                    spop({template: '<strong>请输入密码!</strong>',
+                if($scope.showAuthCode == null){
+                    spop({template: '<strong>请输入手机验证码!</strong>',
                         autoclose: 3000,
                         style:'error'
                     });
                     return;
                 }
+
+                if($scope.signCode == null){
+                    spop({template: '<strong>请输入邀请码!</strong>',
+                        autoclose: 3000,
+                        style:'error'
+                    });
+                    return;
+                }
+
+                // if($scope.password == null){
+                //     spop({template: '<strong>请输入密码!</strong>',
+                //         autoclose: 3000,
+                //         style:'error'
+                //     });
+                //     return;
+                // }
+
+
                 var passwordreg = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{8,25}$/;
-                if(!passwordreg.test($scope.password)){
-                    spop({template: '<strong>密码长是8-25个字符，必须包含数字、字母、特殊字符其中的两种</strong>',
-                        autoclose: 3000,
-                        style:'error'
-                    });
-                    return;
-                }
+                // if(!passwordreg.test($scope.password)){
+                //     spop({template: '<strong>密码长是8-25个字符，必须包含数字、字母、特殊字符其中的两种</strong>',
+                //         autoclose: 3000,
+                //         style:'error'
+                //     });
+                //     return;
+                // }
 
 
                 if($scope.passwordAgain1 == null){
@@ -97,7 +190,8 @@ var app=angular.module('signup',['Encrypt']);
                         params:{
                             // 'name':$scope.name,
                             'id':$scope.name,
-                            'password':$scope.password,
+                            // 'password':$scope.password,
+                            'mobileCode':$scope.showAuthCode,
                             'passwordagain':$scope.passwordAgain1
                         }
                     }).success(function (data) {
