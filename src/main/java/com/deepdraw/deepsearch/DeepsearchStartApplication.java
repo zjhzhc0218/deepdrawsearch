@@ -1,4 +1,3 @@
-/*
 package com.deepdraw.deepsearch;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -13,4 +12,3 @@ public class DeepsearchStartApplication extends SpringBootServletInitializer {
     }
 }
 
-*/
