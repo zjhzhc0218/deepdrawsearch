@@ -29,6 +29,15 @@ public interface SHUserService {
      */
     Map<String,Object> selectUser(Long id, String password);
 
+
+    /**
+     * 通过账号去查询对应数据(给重置密码使用)
+     * @param id
+     * @return
+     * @author zyw
+     */
+    Map<String, Object> selectUsermessage(Long id );
+
     /**
      * 新增用户
      * @param user  用户实体类

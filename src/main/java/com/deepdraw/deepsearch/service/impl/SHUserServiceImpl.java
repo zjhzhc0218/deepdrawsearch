@@ -50,6 +50,23 @@ public class SHUserServiceImpl implements SHUserService {
         }
     }
 
+
+    @Override
+    public Map<String, Object> selectUsermessage(Long id ) {
+        Map<String,Object> map =   new HashMap<>();
+        SHUser shUser = shUserDao.selectUserById(id);
+        if(shUser==null){
+            throw new GlobalException(CodeMsg.USER_NULL_ERROR);
+        }else {
+//                修改登录时间跟登录次数
+                Integer y =  shUserDao.updateUser(shUser);
+                map.put("message","查询成功，返回客户信息");
+                map.put("shUser",shUser);
+                return map;
+        }
+    }
+
+
     @Transactional(value="mysqlTransactionManager")
     @Override
     public String addUser(SHUser user) {

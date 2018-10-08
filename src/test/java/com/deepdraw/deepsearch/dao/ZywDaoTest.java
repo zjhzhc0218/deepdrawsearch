@@ -1,7 +1,5 @@
 package com.deepdraw.deepsearch.dao;
 
-import com.deepdraw.deepsearch.entity.Zyw;
-import com.deepdraw.deepsearch.handler.MobileAuthentication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +15,7 @@ public class ZywDaoTest {
 
     @Test
     public void queryArea() throws Exception {
-//        MobileAuthentication.SendCode("17858947531");
+
     }
 
 
