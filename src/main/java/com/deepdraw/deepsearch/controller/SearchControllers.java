@@ -84,7 +84,7 @@ public class SearchControllers {
     public String  getSearchPaiming(HttpServletRequest request){
         String keyWords =  request.getParameter("keyWords");
         String tbaoId = request.getParameter("tbaoId");
-        String[]  args = new String[] { "python", pythonPath+"/text4_bRanking.py", keyWords,tbaoId};
+        String[]  args = new String[] { "python", pythonPath+"/save_cookie.py", keyWords,tbaoId};
         String result = JavaToPython.getPython(args);
         if (result == null)
             throw new GlobalException(CodeMsg.SERVER_ERROR);
