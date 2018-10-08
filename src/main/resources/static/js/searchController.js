@@ -295,11 +295,6 @@ var app=angular.module('search',[])
             $('#myModal').modal('show');
             return;
         }
-        var str = angular.copy($scope.bbPaiMing.tbaoId);
-        str = str.match(/id=(\d*)&/);
-        if (str) {
-            $scope.bbPaiMing.tbaoId = str[1];
-        }
         if ($scope.bbPaiMing.keyWords == null || $scope.bbPaiMing.tbaoId == null) {
             spop({template: '<strong>请输入查询字符!</strong>',
                 autoclose: 3000,
@@ -307,6 +302,12 @@ var app=angular.module('search',[])
             });
             return;
         }
+        var str = angular.copy($scope.bbPaiMing.tbaoId);
+        str = str.match(/id=(\d*)&/);
+        if (str) {
+            $scope.bbPaiMing.tbaoId = str[1];
+        }
+
         /* $("#pmrs").mLoading({
              text:"查询中"
          });*/
