@@ -3,72 +3,70 @@
 <head>
 	<meta charset="UTF-8">
 	<title>忘记密码</title>
-	<link rel="stylesheet" href="/deepsearch/css/normalize.css">
-	<link rel="stylesheet" href="/deepsearch/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/deepsearch/css/tao/app.css"></head>
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
     <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
 </head>
 <style type="text/css">
-    body {
-        color: black;
-    }
+    /*body {*/
+        /*color: black;*/
+    /*}*/
 </style>
-<body ng-app="signup">
+<body ng-app="signup" ng-controller="signupController">
 
-<div ng-controller="signupController" class="signup">
-    <div  class="container-fluid" >
-        <div class="row"  >
-            <div class="col-md-4" >
-            </div>
-            <div class="col-md-4" style="margin-top: 9%;text-align: center;color: #e3e2e2;">
-                <h1>忘记密码</h1>
-                <#--<input type="text" ng-model="name" name="u" placeholder="用户名" required="required"/>-->
+<div class="header">
+    <div class="header-wrapper" "="">
 
-                <#--<input type="password" ng-model="password" name="p" placeholder="原密码" required="required"/>-->
-
-
-                    <#--<input type="text" ng-model="name" name="u" placeholder="用户名" required="required"/>-->
-
-
-                <input type="text" style="margin-top: 5px;margin-bottom: 5px" ng-model="name" name="u" placeholder="手机号" required="required"/>
-
-                <div class="row" style="margin-top: 5px;margin-bottom: 5px">
-                    <div class=" col-md-8">
-                        <input type="text" placeholder="获取手机验证码"  class="js5-form3-input"    ng-model="showAuthCode"></input>
-                    </div>
-                    <div class="col-md-4">
-                        <button ng-bind="timing" ng-click="changeVerify()" class="btn btn-primary" style=" width: 98%; height: 41px;"  ng-disabled="selected >= 0"></button>
-
-                    </div>
-                </div>
-
-                <input type="password" style="margin-top: 5px;margin-bottom: 5px" ng-model="passwordAgain1" name="p" placeholder="密码" required="required"/>
-
-                <input type="password" style="margin-top: 5px;margin-bottom: 5px" ng-model="passwordAgain2" name="p" placeholder="再次输入密码" required="required"/>
-
-                <#--<div class="row" style="margin-top: 5px;margin-bottom: 5px">-->
-                    <#--&lt;#&ndash;<input type="password" style="margin-top: 5px;margin-bottom: 5px" ng-model="password" name="p" placeholder="密码" required="required"/>&ndash;&gt;-->
-                    <#--<input type="password" style="margin-top: 5px;margin-bottom: 5px"  ng-model="passwordAgain1" name="p" placeholder="新密码" required="required"/>-->
-                <#--</div>-->
-
-                <#--<div class="row" style="margin-top: 5px;margin-bottom: 5px">-->
-                    <#--<input type="password" ng-model="passwordAgain2" name="p" placeholder="再次输入密码" required="required"/>-->
-                <#--</div>-->
-
-                <#--<input type="password" ng-model="passwordAgain1" name="p" placeholder="新密码" required="required"/>-->
-
-
-                <#--<input type="password" ng-model="passwordAgain2" name="p" placeholder="再次输入密码" required="required"/>-->
-
-
-                <button  ng-click="forgot()" class="btn btn-primary btn-block btn-large">忘记密码</button>
-                <button  ng-click="openSign()" class="btn btn-primary btn-block btn-large">返回登录界面</button>
-            </div>
-            <div class="col-md-4"  >
-			</div>
+    <a href="https://www.taodaxiang.com/" class="left"><div class=""></div></a>
+    <span class="header-title">用户中心</span>
+    <div class="nav"> <label>卖家查询工具</label><span class="split">|</span><#--<a href="https://bbs.taodaxiang.com/">论坛</a>-->
+    </div>
 </div>
 
+</div>
+<div class="passport">
+    <div class="bk20"></div>
+    <div class="wrapper">
+        <div id="cas" class="main">
+            <div id="content" class="main-body" style="width: 100%;height: 600px" >
+                <div id="form"  >
+                    <div id="fm1" class="fm-v "  method="post">
+                        <div id="msg" class="errors"></div>
+                        <h2>忘记密码</h2>
+                        <div class="row fl-controls-left">
+                            <label for="email" class="fl-label">手机号:</label>
+                            <input type="text" ng-model="name" name="u" class="required text" placeholder="手机号" required="required"/>
+                        </div>
+                     <div class="row fl-controls-left">
+                         <label for="email" class="fl-label">手机验证:</label>
+                         <input type="text" ng-model="showAuthCode" name="u" class="required text"  placeholder="手机验证码" required="required"/>
+                         <button ng-bind="timing" ng-click="changeVerify()"  style=" margin-left:100px; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); color: #000000;"  ng-disabled="selected >= 0">
+                </div>
+                        <div class="row fl-controls-left">
+                            <label for="password" class="fl-label">密　码:</label>
+                            <input type="password" ng-model="passwordAgain1"  class="required password" name="p" placeholder="密码" required="required"/>
+                        </div>
+                        <div class="row fl-controls-left">
+                            <label for="password" class="fl-label">再输密码:</label>
+                            <input type="password" ng-model="passwordAgain2"  class="required password" name="p" placeholder="再次输入密码" required="required"/>
+                        </div>
+                        <div class="row btn-row" style="padding-top:10px;clear:both;">
+                            <input id="btn-login" class="btn-submit"  type="button"  style="margin-left:100px"  value="忘记密码" ng-click="forgot()" >
+                            <span style="margin-left:20px;font-size:12px"> </span>
+                            <input class="btn-submit" type="button" ng-click="openSign()"  value="登录界面" style="background:#f73">
+                        </div>
+
+                    </>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bk20"></div>
+</div>
+<div class="footer">
+    <p>© 2014-2018 深绘 版权所有</p>
+</div>
 
 
 </body>

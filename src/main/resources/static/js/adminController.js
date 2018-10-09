@@ -159,8 +159,12 @@ app.controller('adminController',['$scope','$http','$sce', function ($scope,$htt
 
         var yDate = new Date();
         yDate.setDate(yDate.getDate()-1);
-    $scope.time = {
 
+        var date = new Date().toLocaleTimeString();
+        var ydate = (yDate).toLocaleTimeString();
+        // date.replace()
+
+    $scope.time = {
         'endTime' : new Date().toLocaleTimeString(),
         'startTime' : (yDate).toLocaleTimeString()
     }

@@ -15,7 +15,7 @@ var app=angular.module('signup',['Encrypt']);
             function settime() {
                 if(countDown > 0) {
                     setTimeout(function() {settime(countDown--); $scope.$apply();}, 1000);
-                    $scope.timing = countDown + 's';
+                    $scope.timing = countDown + 's后重新获取';
                     $scope.selected = 0;
                 }else {
                     $scope.timing = "获取手机验证码";
@@ -38,7 +38,7 @@ var app=angular.module('signup',['Encrypt']);
 
                 if(countDown <= 0) {
                     countDown = 60;
-                    $scope.timing = countDown + "s";
+                    $scope.timing = countDown + "s后重新获取";
                     settime();
                 }
 
@@ -113,31 +113,8 @@ var app=angular.module('signup',['Encrypt']);
                     return;
                 }
 
-                if($scope.signCode == null){
-                    spop({template: '<strong>请输入邀请码!</strong>',
-                        autoclose: 3000,
-                        style:'error'
-                    });
-                    return;
-                }
-
-                // if($scope.password == null){
-                //     spop({template: '<strong>请输入密码!</strong>',
-                //         autoclose: 3000,
-                //         style:'error'
-                //     });
-                //     return;
-                // }
-
-
                 var passwordreg = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{8,25}$/;
-                // if(!passwordreg.test($scope.password)){
-                //     spop({template: '<strong>密码长是8-25个字符，必须包含数字、字母、特殊字符其中的两种</strong>',
-                //         autoclose: 3000,
-                //         style:'error'
-                //     });
-                //     return;
-                // }
+
 
 
                 if($scope.passwordAgain1 == null){
@@ -197,11 +174,13 @@ var app=angular.module('signup',['Encrypt']);
                     }).success(function (data) {
                         console.log(data);
                         spop({template: '<strong>' +data.msg+
+                            '，跳转到登录页面'+
                         '</strong>',
                             autoclose: 3000,
                             style:'success'
                         });
-                        return;
+                        var url='/deepsearch/sign';
+                        location.href = url;
                     }).error(function (data) {
                         spop({template: '<strong>' +data.msg+
                         '</strong>',

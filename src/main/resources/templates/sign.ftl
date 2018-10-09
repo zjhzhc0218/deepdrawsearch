@@ -2,7 +2,7 @@
 <html >
 <head>
 	<meta charset="UTF-8">
-	<title>sign</title>
+	<title>用户登录</title>
     <link rel="stylesheet" type="text/css" href="/deepsearch/css/tao/app.css"></head>
 	<#--<link rel="stylesheet" href="/deepsearch/css/normalize.css">-->
 	<#--<link rel="stylesheet" href="/deepsearch/css/login.css">-->
@@ -58,14 +58,14 @@
     <div class="bk20"></div>
     <div class="wrapper">
         <div id="cas" class="main">
-            <div id="content" class="main-body" >
+            <div id="content" class="main-body" style="width: 100%;height: 600px" >
                 <div id="form"  >
                     <div id="fm1" class="fm-v "  method="post">
                         <div id="msg" class="errors"></div>
-                        <h2>登录</h2>
+                        <h2>用户登录</h2>
                         <div class="row fl-controls-left">
-                            <label for="email" class="fl-label">用户名:</label>
-                            <input type="text" ng-model="name" name="u" class="required text" placeholder="用户名" required="required"/>
+                            <label for="email" class="fl-label">手机号:</label>
+                            <input type="text" ng-model="name" name="u" class="required text" placeholder="手机号" required="required"/>
 
                         </div>
                         <div class="row fl-controls-left">
