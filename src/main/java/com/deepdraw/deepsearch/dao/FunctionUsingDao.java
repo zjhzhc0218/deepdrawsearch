@@ -43,12 +43,7 @@ public interface FunctionUsingDao {
      */
     Integer addFT(FunctionUsing functionUsing);
 
-    /**
-     * 统计某个时间段的用户模块使用数据，当天，几天内，某个时间段都按照这个接口来实现
-     * @param timeStart 其实时间
-     * @param timeEnd 截止时间
-     * @return
-     */
+
     /**
      * 统计某个时间段的用户模块使用数据，当天，几天内，某个时间段都按照这个接口来实现
      * @param userId 用户id

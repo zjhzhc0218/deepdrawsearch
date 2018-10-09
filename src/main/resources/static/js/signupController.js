@@ -24,14 +24,6 @@ app.controller('signupController', ['$scope', '$http','$interval' , function ($s
     }
     settime();
 
-    $scope.over = function () {
-        $('#codeUrl').hide();
-    }
-    $scope.down = function () {
-        $('#codeUrl').show();
-    }
-
-
     // //生成验证码
     // $scope.changeVerify = function () {//定义了一个点击事件，获取验证码
     //     var authCode = "";

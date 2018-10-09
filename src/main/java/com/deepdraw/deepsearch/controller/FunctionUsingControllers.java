@@ -46,12 +46,11 @@ public class FunctionUsingControllers {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date timeStartN = null;
         Date timeEndN = null;
-        if(timeStartN==null && timeEndN==null){
+
+        if(timeStart!=null &&timeEnd!=null ){
             if(type==null){
                 type=99;
             }
-        }
-        if(timeStart!=null &&timeEnd!=null ){
             if(timeStart.length()!=0 && timeEnd.length()!=0) {
                 type = 1;
                 try {

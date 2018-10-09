@@ -6,6 +6,14 @@ app.controller('adminController',['$scope','$http','$sce', function ($scope,$htt
         $scope.id = null;
         $scope.type = 99;
 
+        $scope.over = function (type) {
+            if($scope.type == 99){
+                $('#time').show();
+            }else{
+                $('#time').hide();
+            }
+        }
+
         $scope.banJ = function (id) {
             $http({
                 method: 'GET',
@@ -157,27 +165,33 @@ app.controller('adminController',['$scope','$http','$sce', function ($scope,$htt
             };
         }
 
-        var yDate = new Date();
-        yDate.setDate(yDate.getDate()-1);
 
-        var date = new Date().toLocaleTimeString();
-        var ydate = (yDate).toLocaleTimeString();
-        // date.replace()
+        // var Date = new Date();
+        // var yDate = new Date().setDate(yDate.getDate()-7);
+        //
+        // var date = new Date().toLocaleTimeString();
+        //     // .replace("年","-").replace("月","-").replace("日","");
+        // var ydate = (yDate).toLocaleTimeString();
+        //     // .replace("年","-").replace("月","-").replace("日","");
+
 
     $scope.time = {
-        'endTime' : new Date().toLocaleTimeString(),
-        'startTime' : (yDate).toLocaleTimeString()
+        'endTime' : null,
+        'startTime' : null
     }
 
     $scope.selectFT  = function () {
-      if($scope.time.startTime > $scope.time.endTime) {
-          spop({
-              template: '<strong>起始时间不可以超过结束时间，请检查后重新输入时间</strong>',
-              autoclose: 3000,
-              style: 'error'
-          });
-          return;
-      }
+
+                if ($scope.time.startTime > $scope.time.endTime) {
+                    spop({
+                        template: '<strong>起始时间不可以超过结束时间，请检查后重新输入时间</strong>',
+                        autoclose: 3000,
+                        style: 'error'
+                    });
+                    return;
+                }
+
+
         $http({
             method: 'GET',
             url: '/deepsearch/functionUsing/getFT',

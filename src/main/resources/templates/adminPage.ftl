@@ -89,11 +89,11 @@
                             <option value="5">当年</option>
                         </select>
                     </div>
-                    <div class="col-md-12 column form-inline " style="font-size: 20px">
+                    <div ng-show="type==99" class="col-md-12 column form-inline " style="font-size: 20px">
                         <label class="font-7">开始时间：</label>
                         <input type="text" class="Wdate form-control" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="time.startTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" onchange="" "/>
                     </div></br>
-                    <div class="col-md-12 column form-inline " style="font-size: 20px">
+                    <div ng-show="type==99" class="col-md-12 column form-inline " style="font-size: 20px">
                         <label class="font-7">结束时间：</label>
                         <input type="text" class="Wdate form-control" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="time.endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  onchange=""  "/>
                     </div></br>
@@ -202,11 +202,11 @@
                             <option value="5">当年</option>
                         </select>
                     </div>
-                    <div class="col-md-12 column form-inline " style="font-size: 20px">
+                    <div ng-show="type==99" class="col-md-12 column form-inline " style="font-size: 20px">
                         <label class="font-7">开始时间：</label>
                         <input type="text" class="Wdate form-control" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="time.startTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" onchange="" "/>
                     </div></br>
-                    <div class="col-md-12 column form-inline " style="font-size: 20px">
+                    <div ng-show="type==99" class="col-md-12 column form-inline " style="font-size: 20px">
                         <label class="font-7">结束时间：</label>
                         <input type="text" class="Wdate form-control" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="time.endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  onchange=""  "/>
                     </div></br>

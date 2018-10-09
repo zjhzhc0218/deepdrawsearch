@@ -71,25 +71,25 @@ public class FunctionUsingServiceImpl implements FunctionUsingService {
             case 2:
                 Timestamp timeStartD = new java.sql.Timestamp(DateUtils.getDayBegin().getTime());
                 Timestamp timeEndD = new java.sql.Timestamp(DateUtils.getDayEnd().getTime());
-                functionUsings = functionUsingDao.selectFTByTime(id, module, timeStart, timeEnd);
+                functionUsings = functionUsingDao.selectFTByTime(id, module, timeStartD, timeEndD);
                 break;
 //                3.表示当周的
             case 3:
                 Timestamp timeStartW = new java.sql.Timestamp(DateUtils.getBeginDayOfWeek().getTime());
                 Timestamp timeEndW = new java.sql.Timestamp(DateUtils.getEndDayOfWeek().getTime());
-                functionUsings = functionUsingDao.selectFTByTime(id, module, timeStart, timeEnd);
+                functionUsings = functionUsingDao.selectFTByTime(id, module, timeStartW, timeEndW);
                 break;
 //                4.表示当月的
             case 4:
                 Timestamp timeStartM = new java.sql.Timestamp(DateUtils.getBeginDayOfMonth().getTime());
                 Timestamp timeEndM = new java.sql.Timestamp(DateUtils.getEndDayOfMonth().getTime());
-                functionUsings = functionUsingDao.selectFTByTime(id, module, timeStart, timeEnd);
+                functionUsings = functionUsingDao.selectFTByTime(id, module, timeStartM, timeEndM);
                 break;
 //                5.表示当年的
             case 5:
                 Timestamp timeStartY = new java.sql.Timestamp(DateUtils.getBeginDayOfYear().getTime());
                 Timestamp timeEndY = new java.sql.Timestamp(DateUtils.getEndDayOfYear().getTime());
-                functionUsings = functionUsingDao.selectFTByTime(id, module, timeStart, timeEnd);
+                functionUsings = functionUsingDao.selectFTByTime(id, module, timeStartY, timeEndY);
                 break;
             default:
                 if(id==null){
