@@ -43,6 +43,8 @@ var app=angular.module('search',[])
             text:"查询中"
         });*/
         appvm.value = 0;
+        $scope.app.examedContext = null;
+        $scope.app.hasNoViolation = false;
         var interval = setInterval(function(){
             appvm.value++;
             $scope.$apply();
@@ -67,25 +69,14 @@ var app=angular.module('search',[])
         ).then(function successCallback(info) {
             if(info.data.data) {
                 var resultWjc = info.data.data;
-                var index = resultWjc.lastIndexOf(':');
-                //第一个
-                if(resultWjc.substr(index+2,1) =='T') {
-                    $scope.app.hasAbsolutedWord = true;
-                }else {
-                    $scope.app.hasAbsolutedWord = false;
-                }
-                //第二个
-                var index2 = resultWjc.substr(0,resultWjc.lastIndexOf(':')-1).lastIndexOf(':');
-                if (resultWjc.substr(index2+2,1) == 'T') {
-                    $scope.app.hasNoViolation = true;
-                }else {
+                
+                if (resultWjc.indexOf('small') !=-1) {
                     $scope.app.hasNoViolation = false;
+                }else {
+                    $scope.app.hasNoViolation = true;
                 }
-                //第三个
-                var index3 = resultWjc.substr(resultWjc.indexOf(':')+3);
-                var worss = index3.substring(0,index3.indexOf('\', \'hasNoViolation'));
-                $scope.app.examedContext =  worss;
-                console.log(worss);
+                $scope.app.examedContext =  resultWjc;
+
                 $scope.app.working = false;
                 appvm.value = 100;
                 clearInterval(interval);
