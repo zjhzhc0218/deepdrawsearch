@@ -6,6 +6,16 @@ app.controller('signupController', ['$scope', '$http','$interval' , function ($s
     //控制按钮是否可以再按
     $scope.selected = 1;
 
+    $scope.over = function () {
+
+            $('#codeUrl').hide();
+
+    };
+
+    $scope.down = function () {
+            $('#codeUrl').show();
+
+    };
 
     //控制倒计时
     var countDown = 0;
