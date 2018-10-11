@@ -1,7 +1,15 @@
 var app=angular.module('sign',['Encrypt']);
-app.controller('signController',['$scope','$http', 'Md5','Base64','Sha1', function ($scope,$http,Md5,Base64,Sha1) {
+app.controller('signController',['$scope','$http', '$document','Md5','Base64','Sha1', function ($scope,$http,$document,Md5,Base64,Sha1) {
     $scope.name = null;
     $scope.password = null;
+
+    $document.bind("keypress", function(event) {
+
+        if(event.keyCode == 13){
+            $scope.sign();
+        }
+
+    });
 
 
     //登陆

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
     <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
-
 </head>
 <style type="text/css">
     /*body {*/
@@ -18,7 +17,6 @@
 
 <div class="header">
     <div class="header-wrapper" "="">
-
     <a href="https://www.taodaxiang.com/" class="left"><div class=""></div></a>
     <span class="header-title">用户中心</span>
     <div class="nav"> <label>卖家查询工具</label><span class="split">|</span><#--<a href="https://bbs.taodaxiang.com/">论坛</a>-->
@@ -64,7 +62,7 @@
 
 
                         <div class="row btn-row" style="padding-top:10px;clear:both;">
-                            <input id="btn-login" class="btn-submit"  type="button"  style="margin-left:100px"  value="注册用户" ng-click="registered()" >
+                            <input id="btn-login"  class="btn-submit"  type="button"  style="margin-left:100px"  value="注册用户" ng-click="registered()" >
                             <span style="margin-left:20px;font-size:12px"> </span>
                             <input class="btn-submit" type="button" ng-click="openSign()"  value="登录界面" style="background:#f73">
                         </div>
