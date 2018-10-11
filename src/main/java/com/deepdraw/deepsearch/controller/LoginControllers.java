@@ -1,29 +1,19 @@
 package com.deepdraw.deepsearch.controller;
 
 import com.deepdraw.deepsearch.entity.SHUser;
-import com.deepdraw.deepsearch.entity.Zyw;
 import com.deepdraw.deepsearch.handler.ContextHolder;
-import com.deepdraw.deepsearch.service.AreaService;
-import com.deepdraw.deepsearch.service.ZywService;
 import com.deepdraw.deepsearch.util.*;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.util.Map;
 
 @RestController
 public class LoginControllers {
 
-    @Autowired
-    private ZywService zywService;
 
     @Value("sign.url.cod")
     private String code;

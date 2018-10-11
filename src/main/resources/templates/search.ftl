@@ -78,7 +78,7 @@
                         </ul>
                     </li>
                 </ul>
-                <a style="text-decoration:none" class="brand" href="index.ftl"><span class="first">卖家在线查询</span></a>
+                <a style="text-decoration:none" class="brand" href="sign.ftl"><span class="first">卖家在线查询</span></a>
                 <!--<a class="brand" href="#"> <h3 style="text-align: center"><strong>卖家在线查询</strong></h3></a>-->
             </div>
         </div>
