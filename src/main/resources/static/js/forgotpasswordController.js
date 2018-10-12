@@ -1,10 +1,12 @@
 var app=angular.module('signup',['Encrypt']);
-        app.controller('signupController',['$scope','$http','$interval', 'Md5','Base64','Sha1', function ($scope,$http,$interval,Md5,Base64,Sha1) {
+        app.controller('signupController',['$scope','$http','$interval','$document', 'Md5','Base64','Sha1', function ($scope,$http,$interval,$document,Md5,Base64,Sha1) {
             $scope.name = null;
             // $scope.password = null;
             $scope.passwordAgain1 = null;
 
             $scope.passwordAgain2 = null;
+
+
 
             //控制按钮是否可以再按
             $scope.selected = 1;
@@ -77,6 +79,14 @@ var app=angular.module('signup',['Encrypt']);
                     }
                 })
             }
+
+
+            $document.bind("keypress", function(event) {
+
+                if(event.keyCode == 13){
+                    $scope.forgot();
+                }
+            });
 
             //修改密码
             $scope.forgot = function () {

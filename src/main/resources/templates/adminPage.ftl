@@ -48,7 +48,7 @@
             <div class="container-fluid">
                 <ul class="nav pull-right">
                 </ul>
-                <a style="text-decoration:none" class="brand" href="index.ftl"><span class="first">后台页面</span></a>
+                <a style="text-decoration:none" class="brand" href="sign.ftl"><span class="first">后台页面</span></a>
             </div>
         </div>
     </div>
@@ -60,8 +60,8 @@
     <div class="container">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li style="width: 150px;" class="active" ><a style="text-align:center;font-size: 10px" href="#renyuan"  role="tab" data-toggle="tab"><strong>人员</strong></a></li>
-                <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#cishu"  role="tab" data-toggle="tab" ><strong>使用次数</strong></a></li>
+                <li style="width: 150px;" class="active" ><a style="text-align:center;font-size: 10px" href="#renyuan"  role="tab" data-toggle="tab" ng-click="moduleType = 1"><strong>人员</strong></a></li>
+                <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#cishu"  role="tab" data-toggle="tab" ng-click="moduleType=2" ><strong>使用次数</strong></a></li>
             </ul>
         </div>
     </div>

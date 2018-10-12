@@ -1,10 +1,24 @@
 var app=angular.module('app',['ui.bootstrap']);
-app.controller('adminController',['$scope','$http','$sce', function ($scope,$http,$sce) {
+app.controller('adminController',['$scope','$http','$sce','$document', function ($scope,$http,$sce,$document) {
+
+         $scope.moduleType = 1;
+
+        $document.bind("keypress", function(event) {
+
+            if(event.keyCode == 13){
+                if( $scope.moduleType == 1 ){
+                    $scope.select();
+                }else{
+                    $scope.selectFT();
+                }
+            }
+        });
 
         /*表单内容显示*/
         $scope.go = 1 ;
         $scope.id = null;
         $scope.type = 99;
+
 
         $scope.over = function (type) {
             if($scope.type == 99){

@@ -1,7 +1,14 @@
 var app = angular.module('signup', ['Encrypt']);
-app.controller('signupController', ['$scope', '$http','$interval' , function ($scope, $http,$interval) {
+app.controller('signupController', ['$scope', '$http','$interval' ,'$document', function ($scope, $http,$interval,$document) {
     $scope.name = null;
     $scope.password = null;
+
+    $document.bind("keypress", function(event) {
+
+        if(event.keyCode == 13){
+            $scope.sign();
+        }
+    });
 
     //控制按钮是否可以再按
     $scope.selected = 1;
@@ -99,6 +106,13 @@ app.controller('signupController', ['$scope', '$http','$interval' , function ($s
                 return;
             }
         })
+    }
+
+
+    $scope.todoSomething=function($event){
+        if($event.keyCode==13){//回车
+            registered();
+        }
     }
 
 
