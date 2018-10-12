@@ -67,7 +67,7 @@
                         <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-user"></i>
                             <span ng-if="username!=null" ng-bind="username.id"></span>
-                            <span ng-if="username==null" ng-click="signLogin()">请登陆</span>
+                            <span ng-if="username==null" ng-click="signLogin()">登陆/注册</span>
                             <i class="icon-caret-down"></i>
                         </a>
 
