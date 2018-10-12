@@ -306,7 +306,9 @@
                             </td>
                         </tr>
                         <tr class="success">
-                            <td ng-repeat="d in xinYu.examedContext " ng-bind="d.value">
+                            <td ng-repeat="d in xinYu.examedContext "  >
+                                <label ng-bind="d.value" ></label>
+                                <img  ng-if="d.id!=null&&d.id==10" ng-src="{{d.img}}">
                             </td>
                         </tr>
                         </tbody>

@@ -162,6 +162,11 @@ var app=angular.module('search',[])
                         'id' :c[0],
                         'value' :c[1],
                     };
+                    if(node.id == 10) {
+                        var r = node.value.split(':');
+                        node.value = r[0];
+                        node.img = r[1];
+                    }
                     list.push(node);
                 }
                 $scope.xinYu.examedContext = list;
@@ -222,7 +227,7 @@ var app=angular.module('search',[])
                 $scope.$apply();
                 clearInterval(interval);
             }
-        }, 170);
+        }, 400);
 
         $scope.jiangquan.msg = null;
         $scope.jiangquan.examedContext = null;
