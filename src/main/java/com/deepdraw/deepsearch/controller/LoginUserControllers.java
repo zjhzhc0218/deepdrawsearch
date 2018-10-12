@@ -110,6 +110,14 @@ public class LoginUserControllers {
 
         String messge =  shUserService.addUser(shUser);
 
+        Map<String,Object> map = shUserService.selectUser(id, password);
+        if(map.get("shUser")!=null){
+            session=request.getSession();
+            session.setMaxInactiveInterval(14400);
+            session.setAttribute("shUser",map.get("shUser"));
+
+        }
+
         System.out.println(JsonUtil.object2Json(ResultUtil.success(messge)));
 
          return JsonUtil.object2Json(ResultUtil.success(messge));

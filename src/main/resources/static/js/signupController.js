@@ -31,7 +31,7 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
     function settime() {
         if(countDown > 0) {
             setTimeout(function() {settime(countDown--); $scope.$apply();}, 1000);
-            $scope.timing = countDown + 's';
+            $scope.timing = countDown + 's后重新获取';
             $scope.selected = 0;
         }else {
             $scope.timing = "获取手机验证码";
@@ -68,7 +68,7 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
 
         if(countDown <= 0) {
             countDown = 60;
-            $scope.timing = countDown + "s";
+            $scope.timing = countDown + "s后重新获取";
             settime();
         }
 
@@ -217,7 +217,9 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
                     });
                     return;
                 }
-                var url = '/deepsearch/sign';
+                //注册成功跳转到登录页面
+                var url='/deepsearch/searchIndex';
+                // var url='/deepsearch/changeName';
                 location.href = url;
             }).error(function (data) {
                 spop({template: '<strong>' +data.msg+

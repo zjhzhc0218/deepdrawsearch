@@ -5,10 +5,10 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
 
         $document.bind("keypress", function(event) {
 
-            if(event.keyCode == 13){
-                if( $scope.moduleType == 1 ){
+            if(event.keyCode == 13) {
+                if ($scope.moduleType == 1) {
                     $scope.select();
-                }else{
+                } else {
                     $scope.selectFT();
                 }
             }
