@@ -10,6 +10,12 @@
         <tbody>
 
         <tr>
+            <td>2018-10-09 </td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1ZPBSF8nej7WSt_zaMvgG9A">PC端TOP 20W</a> </td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1cyMkriiuHz3Ge0FXCuxiOw">无线端TOP 20W</a> </td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1MoyeLVEIK4WtECyupQz5JA">潜力词表PC</a>| <a target="_blank" href="https://pan.baidu.com/s/1vfcNy140J9jupvBwjiH5xA">潜力词表无线端</a> </td>
+
+        <tr>
             <td>2018-09-26 </td>
             <td><a target="_blank" href="https://pan.baidu.com/s/18jIozvhFIhB31CnjH7q_QQ">PC端TOP 20W</a> </td>
             <td><a target="_blank" href="https://pan.baidu.com/s/1N4d1Lhd4cz8rFMSzzqqRCQ">无线端TOP 20W</a> </td>
@@ -30,8 +36,8 @@
         <tr>
             <td>2018-09-04 </td>
             <td><a target="_blank" href="https://pan.baidu.com/s/1GKsXKnrGaGZGaJV18M8kCA">PC端TOP 20W</a> </td>
-            <td><a target="_blank" href="https://pan.baidu.com/s/182l9BnS-09fzcoxcHUc_KJA">无线端TOP 20W</a> </td>
-            <td><a target="_blank" href="https://pan.baidu.com/s/1MCIApSrTem9hrGf-07rYmAA">潜力词表PC</a>| <a target="_blank" href="https://pan.baidu.com/s/1Rgf63yWzT6BklPWmlGSDmw">潜力词表无线端</a> </td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1eKQ1N52TavKhhtLpmTEC3g">无线端TOP 20W</a> </td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1kckE-iEImWhJdh8z1EbjVA">潜力词表PC</a>| <a target="_blank" href="https://pan.baidu.com/s/1Rgf63yWzT6BklPWmlGSDmw">潜力词表无线端</a> </td>
         </tr>
         <tr>
             <td>2018-08-29 </td>
@@ -42,7 +48,7 @@
         </tr>
         <tr>
             <td>2018-08-22 </td>
-            <td><a target="_blank" href="https://pan.baidu.com/s/1V9g6BujTv-09tvSa5Om-xyA ">PC端TOP 20W</a> </td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/131zFJDTt0i9oS4Ez9M3SCw">PC端TOP 20W</a> </td>
             <td><a target="_blank" href="https://pan.baidu.com/s/136lawtb77RkkFkOMhQg_3g	">无线端TOP 20W</a> </td>
             <td><a target="_blank" href="https://pan.baidu.com/s/12i_z6daYiRZ4gWbZBV8VjQ	">潜力词表PC</a>| <a target="_blank" href="https://pan.baidu.com/s/149a4XLGILcZHayM40VJbTw">潜力词表无线端</a> </td>
         </tr>
@@ -84,7 +90,7 @@
         </tr>
         <tr>
             <td>2018-06-27 </td>
-            <td><a target="_blank" href="https://pan.baidu.com/s/1CrcJ-05znkj-ADtc0Jyu2Rg">PC端TOP 20W</a> </td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1yOE8zv-oI1f9AUtzqLlXWg">PC端TOP 20W</a> </td>
             <td><a target="_blank" href="https://pan.baidu.com/s/1Sw457tFW8hPzMErAcPk6vA">无线端TOP 20W</a> </td>
             <td><a target="_blank" href="https://pan.baidu.com/s/1m57tvweCppINkmeOVo-odg">潜力词表PC</a>| <a target="_blank" href="https://pan.baidu.com/s/16zo9z9VKI1JuQX4cKYB_sQ">潜力词表无线端</a> </td>
         </tr>
@@ -97,7 +103,7 @@
         <tr>
             <td>2018-06-13 </td>
             <td><a target="_blank" href="https://pan.baidu.com/s/13OWPo5XmWEwn37HUEveNnw	">PC端TOP 20W</a> </td>
-            <td><a target="_blank" href="https://pan.baidu.com/s/1-04V4lq0nFKLwb4PurLMdLQ	">无线端TOP 20W</a> </td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/161xNSSllz7Lecy4ySTqyjg">无线端TOP 20W</a> </td>
             <td><a target="_blank" href="https://pan.baidu.com/s/1RLSg56tH4Tncbl2lwM_YSg	">潜力词表PC</a>| <a target="_blank" href="https://pan.baidu.com/s/11eRrxM1zkMeshDVXTNLzYQ">潜力词表无线端</a> </td>
         </tr>
         <tr>
@@ -110,7 +116,7 @@
             <td>2018-05-23 </td>
             <td><a target="_blank" href="https://pan.baidu.com/s/1pa6ncpC6J2XOX-eIPNI7mw	">PC端TOP 20W</a> </td>
             <td><a target="_blank" href="https://pan.baidu.com/s/1_Os1-oJe7vvCu9nkDlVSfQ	">无线端TOP 20W</a> </td>
-            <td><a target="_blank" href="https://pan.baidu.com/s/1YtE-Ae8gudGrBIGjTzRn_A	">潜力词表PC</a>| <a target="_blank" href="https://pan.baidu.com/s/1ex9jGuZ6ulnY8E_bd-02N4w">潜力词表无线端</a> </td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1YtE-Ae8gudGrBIGjTzRn_A	">潜力词表PC</a>| <a target="_blank" href="https://pan.baidu.com/s/1MVUnienBbdQQgsqiduvZHg">潜力词表无线端</a> </td>
         </tr>
         <tr>
             <td>2018-05-15 </td>
@@ -160,7 +166,7 @@
         <tr>
             <td>2018-03-06 </td>
             <td><a target="_blank" href="https://pan.baidu.com/s/1z9YyiHQTtKo7ZCknZvOFJQ">PC端TOP 20W</a> </td>
-            <td><a target="_blank" href="https://pan.baidu.com/s/1y-X1M-03jvWXGkfcHvTWGqA">无线端TOP 20W</a> </td>
+            <td><a target="_blank" href="https://pan.baidu.com/s/1TWkYJP6kTHvYRa-T3UxYeg">无线端TOP 20W</a> </td>
             <td><a target="_blank" href="https://pan.baidu.com/s/1EpdlfXjr9vFw2PqdhQjdgQ	">潜力词表PC</a> </td>
         </tr>
         <tr>
