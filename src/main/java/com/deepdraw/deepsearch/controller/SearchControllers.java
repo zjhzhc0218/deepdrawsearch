@@ -33,7 +33,7 @@ public class SearchControllers {
     @GetMapping(value="/getSearchWjc")
     public String  findOneUser(HttpServletRequest request){
         String word =  request.getParameter("searchWords");
-        String[]  args = new String[] { "python", pythonPath+"/text2.py", word };
+        String[]  args = new String[] { "python", pythonPath+"/dangerous_words.py", word };
         functionUsingService.addFT(2);
         return JsonUtil.object2Json(ResultUtil.success(JavaToPython.getPython(args)));
     }
@@ -46,7 +46,7 @@ public class SearchControllers {
     @GetMapping(value="/getSearchXinyu")
     public String  getSearchXinyu(HttpServletRequest request){
         String word =  request.getParameter("searchWords");
-        String[]  args = new String[] { "python", pythonPath+"/text3.py", word};
+        String[]  args = new String[] { "python", pythonPath+"/credit_query.py", word};
         String result = JavaToPython.getPython(args);
         if (result == null)
             throw new GlobalException(CodeMsg.SERVER_ERROR);
@@ -65,7 +65,7 @@ public class SearchControllers {
     public String  getSearchJiangQuan(HttpServletRequest request){
         String word =  request.getParameter("searchWords");
         String isNormal = request.getParameter("isNormal");
-        String[]  args = new String[] { "python", pythonPath+"/text1.py", word,isNormal};
+        String[]  args = new String[] { "python", pythonPath+"/down_right.py", word,isNormal};
         String result = JavaToPython.getPython(args);
         if (result == null)
             throw new GlobalException(CodeMsg.SERVER_ERROR);
@@ -84,13 +84,13 @@ public class SearchControllers {
     public String  getSearchPaiming(HttpServletRequest request){
         String keyWords =  request.getParameter("keyWords");
         String tbaoId = request.getParameter("tbaoId");
-        String[]  args = new String[] { "python", pythonPath+"/save_cookie.py", keyWords,tbaoId};
+        String[]  args = new String[] { "python", pythonPath+"/ranking.py", keyWords,tbaoId};
         String result = JavaToPython.getPython(args);
         if (result == null)
             throw new GlobalException(CodeMsg.SERVER_ERROR);
         functionUsingService.addFT(1);
         if (result!=null && result.equals("003"))
-            return JsonUtil.object2Json(ResultUtil.error(1,"您查询的宝贝不存在"));
+            return JsonUtil.object2Json(ResultUtil.error(1,"亲,没有您家的宝贝！"));
         if (result!=null && result.equals("004"))
             return JsonUtil.object2Json(ResultUtil.error(1,"服务器异常，请重试"));
         return JsonUtil.object2Json(ResultUtil.success(result));

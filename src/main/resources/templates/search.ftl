@@ -67,7 +67,7 @@
                         <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-user"></i>
                             <span ng-if="username!=null" ng-bind="username.id"></span>
-                            <span ng-if="username==null" ng-click="signLogin()">请登陆</span>
+                            <span ng-if="username==null" ng-click="signLogin()">登陆/注册</span>
                             <i class="icon-caret-down"></i>
                         </a>
 
@@ -306,7 +306,9 @@
                             </td>
                         </tr>
                         <tr class="success">
-                            <td ng-repeat="d in xinYu.examedContext " ng-bind="d.value">
+                            <td ng-repeat="d in xinYu.examedContext "  >
+                                <label ng-bind="d.value" ></label>
+                                <img  ng-if="d.id!=null&&d.id==10" ng-src="{{d.img}}">
                             </td>
                         </tr>
                         </tbody>
