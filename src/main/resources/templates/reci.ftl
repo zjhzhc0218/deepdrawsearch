@@ -1,4 +1,4 @@
-<div style="height: 95%;overflow: auto;overflow-x: hidden">
+<div style="">
     <table class="table table-bordered table-hover" style="width: 100%;" >
         <thead>
         <tr>
