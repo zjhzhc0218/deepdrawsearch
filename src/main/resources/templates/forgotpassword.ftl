@@ -15,20 +15,18 @@
 </style>
 <body ng-app="signup" ng-controller="signupController">
 
-<div class="header">
-    <div class="header-wrapper" "="">
-    <a href="https://www.taodaxiang.com/" class="left"><div class=""></div></a>
-    <span class="header-title">用户中心</span>
-    <div class="nav"> <label>卖家查询工具</label><span class="split">|</span><#--<a href="https://bbs.taodaxiang.com/">论坛</a>-->
+<div class="header" style="background-color: #3367ef">
+    <div class="header-wrapper" >
+        <a href="#" class="left"><div class="logo"></div></a>
+        <span class="header-title">用户中心</span>
     </div>
 </div>
 
-</div>
 <div class="passport">
     <div class="bk20"></div>
     <div class="wrapper">
         <div id="cas" class="main">
-            <div id="content" class="main-body" style="width: 100%;height: 600px" >
+            <div id="content" class="main-body" style="width: 100%;height: 650px" >
                 <div id="form"  >
                     <div id="fm1" class="fm-v "  method="post">
                         <div id="msg" class="errors"></div>

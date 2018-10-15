@@ -19,38 +19,11 @@
 
 <body ng-app="sign" ng-controller="signController">
 
-<#--<div ng-controller="signController" class="sign">
 
-    <div  class="container-fluid" >
-        <div class="row"  >
-            <div class="col-md-4" >
-            </div>
-            <div class="col-md-4"  style="margin-top: 9%;text-align: center;color: #e3e2e2;">
-				<h1>sign/登录</h1>
-				<input type="text" ng-model="name" name="u" placeholder="用户名" required="required"/>
-
-				<input type="password" ng-model="password" name="p" placeholder="密码" required="required"/>
-
-
-				<button  ng-click="sign()" class="btn btn-primary btn-block btn-large">登录</button>
-				<button  ng-click="forgot()" class="btn btn-primary btn-block btn-large">忘记密码</button>
-				<button  ng-click="openSignup()" class="btn btn-primary btn-block btn-large">Create an account/注册账号</button>
-			</div>
-        </div>
-        <div class="col-md-4" >
-
-
-        </div>
-    </div>
-</div>-->
-
-<div class="header">
-    <div class="header-wrapper" "="">
-
-    <a href="https://www.taodaxiang.com/" class="left"><div class=""></div></a>
+<div class="header" style="background-color: #3367ef">
+    <div class="header-wrapper" >
+    <a href="#" class="left"><div class="logo"></div></a>
     <span class="header-title">用户中心</span>
-    <div class="nav"> <label>卖家查询工具</label><span class="split">|</span><#--<a href="https://bbs.taodaxiang.com/">论坛</a>-->
-    </div>
 </div>
 
 </div>
@@ -58,7 +31,7 @@
     <div class="bk20"></div>
     <div class="wrapper">
         <div id="cas" class="main">
-            <div id="content" class="main-body" style="width: 100%;height: 600px" >
+            <div id="content" class="main-body" style="width: 100%;height: 650px" >
                 <div id="form"  >
                     <div id="fm1" class="fm-v "  method="post">
                         <div id="msg" class="errors"></div>
@@ -102,8 +75,8 @@
 </div>
 </body>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="/deepsearch/css/tao/base.js"></script>
-<script type="text/javascript" src="/deepsearch/css/tao/login.js"></script>
+<#--<script type="text/javascript" src="/deepsearch/css/tao/base.js"></script>-->
+<#--<script type="text/javascript" src="/deepsearch/css/tao/login.js"></script>-->
 <script src="/deepsearch/js/angular/angular.js"></script>
 <script src="/deepsearch/js/spop/spop.js"></script>
 <script src="/deepsearch/js/angular/encrypt.js"></script>
