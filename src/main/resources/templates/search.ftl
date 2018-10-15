@@ -63,8 +63,8 @@
             </ul>
         </div>
         <div class="nav-list">
-            <div class="one ">
-                <a  class="active" role="tab" data-toggle="tab"href="#paimin">淘宝排名</a>
+            <div class="one active">
+                <a  class="" role="tab" data-toggle="tab"href="#paimin">淘宝排名</a>
             </div>
             <div class="one">
                 <a  role="tab" data-toggle="tab" href="#reci" ng-click="searchLogin()">热词下载</a>

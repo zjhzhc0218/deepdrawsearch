@@ -9,8 +9,8 @@ body { font-family: ΢���ź�, ����, "Helvetica Neue", Helvetica,
 #cas #content #msg.errors {  color: #BB0000; padding-left: 100px; background: url(../images/error.jpg) no-repeat 20px center;  -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
 #cas #content #msg.success { border: 1px dotted #390; color: #390; padding-left: 100px; background: url(../images/success.jpg) no-repeat 20px center;border:0;background-color:#f0ffe5;border:1px solid #4dbf00;display:block; }
 #cas #content #msg.info { border: 1px dotted #008; color: #008; padding-left: 100px; background: url(../images/info.gif) no-repeat 20px center; }
-#cas #content #form { width: 320px; float: left; margin-right: 20px;padding:40px 0; }
-#cas #content #form #fm1 { padding: 20px; background: #eee; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;background:white; }
+#cas #content #form { width: 340px; float: left; margin-right: 20px;padding:40px 0; }
+#cas #content #form #fm1 { padding: 20px; background: #eee; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;background:white;    margin-top: 39px; }
 #cas #content #form #fm1 h2 { font-size: 1.4em; font-weight: normal; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #DDDDDD; }
 #cas #content #form #fm1 .row { margin-bottom: 10px; }
 #cas #content #form #fm1 .row .fl-label { display: block; color: #777777; }
@@ -76,7 +76,7 @@ body { font-family: ΢���ź�, ����, "Helvetica Neue", Helvetica,
 #cas #content #m_login #fm1 .row .btn-submit { outline: none; -webkit-appearance: none; -webkit-border-radius: 0; border: 0; background: #04c; color: white; font-weight: bold; padding: 10px 20px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
 .footer{text-align: center;padding: 20px;}
 .footer p {text-align: center;padding: 0 6px;color: #999;}
-/*.logo{background: url(../images/logo2.jpg) no-repeat;width: 120px;height: 75px;float:left;}*/
+.logo{background: url(/deepsearch/img/logo.png) no-repeat;width: 131px;height: 75px;float:left;}
 .header{text-align:center;height:75px;}
 .header-wrapper{width:990px;margin:auto;}
 .header .header-title{float:left;font-size: 26px;font-family: Microsoft YaHei,Hiragino Sans GB,\5b8b\4f53;color: #999;line-height:75px;margin-left:20px;}
