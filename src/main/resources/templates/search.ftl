@@ -120,9 +120,9 @@
                     </div>
                 </div>
             </div>
-            <div class="noViolation " ng-show="bbPaiMing.msg != null" style="color: red;font-size: 30px" ng-bind="bbPaiMing.msg">
+            <div class="noViolation " ng-if="bbPaiMing.msg != null" style="color: red;font-size: 30px" ng-bind="bbPaiMing.msg">
             </div>
-            <div class="result-context" ng-show="bbPaiMing.examedContext != null" >
+            <div class="result-context" ng-if="bbPaiMing.examedContext != null" >
                 <table class="table table-hover" style="  display: block;width:100%;height: 95%;overflow-y: hidden;">
                     <thead>
                     <tr>
