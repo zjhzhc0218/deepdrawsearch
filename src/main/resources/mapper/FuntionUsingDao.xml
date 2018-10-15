@@ -19,7 +19,7 @@
     <select id="selectFTByuserId" resultType="com.deepdraw.deepsearch.entity.FunctionUsing">
         SELECT  id,module,userId,usingTime
         FROM function_using
-        WHERE userId = #{id}
+        WHERE userId = #{userId}
         <if test = "module!=null">
         AND module = #{module}
         </if>
