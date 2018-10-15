@@ -225,7 +225,7 @@
     <div role="tabpanel" class="tab-pane"  class="content" id="xinyu">
         <div class="search-view">
             <input type="text"   ng-model="xinYu.searchWordsXy"  placeholder="请输入淘宝账号，然后点击 &quot;检测一下&quot; 按钮"/>
-            <button class="btn  search-btn" href="javascript:;" ng-click="searchXinyu()" ng-disabled="xinYu.working">查询</button>
+            <button class="btn  search-btnN" href="javascript:;" ng-click="searchXinyu()" ng-disabled="xinYu.working">查询</button>
         </div>
 
         <div class="search-desc" style="margin-top: -28px;">
@@ -266,7 +266,7 @@
             <#--<input type="text"  ng-model="searchWordsWjc" placeholder="粘贴你的广告、文案到此处，然后点击 查询"/>-->
                 <textarea  ng-model="searchWordsWjc" placeholder="粘贴你的广告、文案到此处，然后点击 查询"></textarea>
 
-            <button class="btn  search-btn"  href="javascript:;" ng-click="searchWjc()" ng-disabled="app.working" >查询</button>
+            <button class="btn  search-btnN"  href="javascript:;" ng-click="searchWjc()" ng-disabled="app.working" >查询</button>
         </div>
 
         <div class="search-desc" style="margin-top: -28px;">
