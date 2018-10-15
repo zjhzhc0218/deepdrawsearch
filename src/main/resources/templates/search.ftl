@@ -194,7 +194,7 @@
                 {{jiangquan.msg}}
             </div>
             <div class="result-context" ng-show="jiangquan.examedContext != null" >
-                <table class="table table-hover" style="  display: block;width:100%;height: 95%;overflow-y: scroll;">
+                <table class="table table-hover" style="  display: block;width:100%;height: 95%;">
                     <thead>
                     <tr style="width:100%">
                         <td style="width: 30px;text-align: center"><label>评价数量</label></td>
