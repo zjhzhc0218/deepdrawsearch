@@ -103,6 +103,22 @@ header .header-content{
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 }
+
+/*按照需求改变*/
+.search-view textarea{
+	font-size: 22px;
+	color: #333333;
+	height: 50px;
+	background-color: #eeeeee;
+	border: 1px solid #dcdcdc;
+	outline: none;
+	width: 550px;
+	padding: 0 10px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+
 .search-view .search-btn{
 	font-size: 24px;
 	color: #fff;

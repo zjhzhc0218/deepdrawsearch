@@ -34,6 +34,7 @@
         border-color: #428bca;
     }
 
+
 </style>
 <body ng-controller="searchController" style="">
 <header>
@@ -262,7 +263,9 @@
 
     <div role="tabpanel" class="tab-pane"class="content" id="weijin" style="">
         <div class="search-view">
-            <input type="text"  ng-model="searchWordsWjc" placeholder="粘贴你的广告、文案到此处，然后点击 查询"/>
+            <#--<input type="text"  ng-model="searchWordsWjc" placeholder="粘贴你的广告、文案到此处，然后点击 查询"/>-->
+                <textarea  ng-model="searchWordsWjc" placeholder="粘贴你的广告、文案到此处，然后点击 查询"></textarea>
+
             <button class="btn  search-btn"  href="javascript:;" ng-click="searchWjc()" ng-disabled="app.working" >查询</button>
         </div>
 

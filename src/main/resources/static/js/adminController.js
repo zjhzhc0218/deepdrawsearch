@@ -133,7 +133,6 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
                     style:'success'
                 });
 
-
                 //总条数
                 $scope.total = data.data.User.length;
                 //反转函数转化abcd转dcba
