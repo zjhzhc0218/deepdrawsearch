@@ -4,7 +4,7 @@
     <title>首页</title>
     <!-- 设置文档编码 -->
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <#--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--  -->
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
@@ -16,12 +16,15 @@
     <script  type="text/javascript" src="/deepsearch/js/My97DatePicker/WdatePicker.js"></script>
 
     <!-- 下面是表单的格式 -->
-    <link rel="stylesheet" href="/deepsearch/css/normalize.css">
-    <#--<link rel="stylesheet" href="http://www.jq22.com/demo/angular201707111100/css/bootstrap.min.css">-->
+    <#--<link rel="stylesheet" href="/deepsearch/css/normalize.css">-->
+    <link rel="stylesheet" href="http://www.jq22.com/demo/angular201707111100/css/bootstrap.min.css">
 
 
     <!-- CSS样式 -->
     <style type="text/css">
+        .panel{width:60%;margin:0 auto;text-align: center;}
+        .form-inline{width:60%;margin:0 auto;}
+
         .brand { font-family: georgia, serif; }
         .brand .first {
             color: #373731;
@@ -213,14 +216,12 @@
                     <button  ng-click="selectFT()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;">查询</button>
 
 
-                </div>
-
+    </div>
                 <!--结果-->
-                <div class="result " id="" style="width:85%;height:350px;">
-
+                <div ng-show="djl"  style="width:85%;height:350px;">
+                    <h2>{{dianjiliang}}</h2>
                 </div>
             </div>
-    </div>
 
     </div>
 </div>
@@ -277,7 +278,7 @@
 <script src="/deepsearch/js/loading/jquery.mloading.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <!-- 表单引入的 -->
-<#--<script src="http://www.jq22.com/jquery/angular-1.4.6.js"></script>-->
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 <#--<script type="text/javascript" src="http://www.jq22.com/demo/angular201707111100/js/ui-bootstrap-tpls.min.js"></script>-->
 <script src="https://cdn.bootcss.com/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
 

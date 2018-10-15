@@ -2,6 +2,8 @@ var app=angular.module('app',['ui.bootstrap']);
 app.controller('adminController',['$scope','$http','$sce','$document', function ($scope,$http,$sce,$document) {
 
          $scope.moduleType = 1;
+        $scope.djl = false;
+        $scope.dianjiliang = null;
 
         $document.bind("keypress", function(event) {
 
@@ -219,11 +221,52 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
             }
         }).success(function (data) {
             console.log(data.data);
-            spop({template: '<strong>' +data.data.count +
-            '</strong>',
-                autoclose: 3000,
-                style:'success'
-                });
+            // spop({template: '<strong>' +data.data.count +
+            // '</strong>',
+            //     autoclose: 3000,
+            //     style:'success'
+            //     });
+
+            $scope.djl = true;
+            if($scope.id==null){
+                $scope.dianjiliang="本次全用户";
+            }else{
+                $scope.dianjiliang="本次"+$scope.id;
+            }
+
+            if($scope.module==null){
+                $scope.dianjiliang =  $scope.dianjiliang+"全模块";
+            }else if($scope.module==1){
+                $scope.dianjiliang =  $scope.dianjiliang+"排名模块";
+            }else if($scope.module==2){
+                $scope.dianjiliang =  $scope.dianjiliang+"违禁词模块";
+            }else if($scope.module==3){
+                $scope.dianjiliang =  $scope.dianjiliang+"信誉模块";
+            }else if($scope.module==4){
+                $scope.dianjiliang =  $scope.dianjiliang+"热词模块";
+            }else if($scope.module==5){
+                $scope.dianjiliang =  $scope.dianjiliang+"降权模块";
+            }
+
+            if($scope.type==99){
+                if($scope.time.startTime==null && $scope.time.endTime==null){
+                    $scope.dianjiliang =  $scope.dianjiliang+"在全时间";
+                }else{
+                $scope.dianjiliang =  $scope.dianjiliang+"在"+$scope.time.startTime+至+$scope.time.endTime;}
+            }else if($scope.type==2){
+                $scope.dianjiliang =  $scope.dianjiliang+"当天";
+            }
+            else if($scope.type==3){
+                $scope.dianjiliang =  $scope.dianjiliang+"当周";
+            }
+            else if($scope.type==4){
+                $scope.dianjiliang =  $scope.dianjiliang+"当月";
+            }
+            else if($scope.type==5){
+                $scope.dianjiliang =  $scope.dianjiliang+"当年";
+            }
+
+            $scope.dianjiliang =$scope.dianjiliang+"点击量为"+ data.data.count;
             });
 
         }
