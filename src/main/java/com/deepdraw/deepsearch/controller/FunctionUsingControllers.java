@@ -64,7 +64,8 @@ public class FunctionUsingControllers {
         Map<String,Object> maps = new HashMap<>();
         List<FunctionUsing> functionUsings = functionUsingService.selectFTByTime(id,type,module,timeStartN,timeEndN);
 //        maps.put("FT",functionUsings);
-        message = "本次模块使用查询，总共查询到"+functionUsings.size()+"条记录";
+//        message = "本次模块使用查询，总共查询到"+functionUsings.size()+"条记录";
+        message = functionUsings.size()+"次";
         maps.put("count",message);
         return JsonUtil.object2Json(ResultUtil.success(maps));
     }

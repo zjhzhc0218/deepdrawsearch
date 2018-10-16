@@ -3,6 +3,10 @@ package com.deepdraw.deepsearch.exception;
 
 import com.deepdraw.deepsearch.util.CodeMsg;
 
+/**
+ * 全局业务异常
+ * @author  zyw
+ */
 public class GlobalException extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
