@@ -54,9 +54,9 @@
                         <div class="row fl-controls-left">
                             <label for="email" class="fl-label">邀请码验证:</label>
                             <input type="text" ng-model="signCode" name="u" class="required text"  placeholder="邀请码" required="required"/>
-                            <button style="margin-left:100px;" ng-mouseenter="down()" ng-mouseleave="over()">扫二维码获取</button>
+                            <button style="margin-left:100px;" ng-mouseenter="down()" ng-mouseleave="over()">扫二维码查看空间背景图片获取邀请码</button>
                             <div id="codeUrl" style="width: 200px;height: 200px;background-color: white; left: 55%;;top: 301px;border-radius:3px;width: 200px;position: absolute; height: 200px;display: none">
-                                <img  style="width: 198px;height:198px;"src="/deepsearch/img/codeImg.png">
+                                <img  style="width: 198px;height:198px;"src="/deepsearch/img/codeImg.jpg">
                             </div>
                         </div>
 
