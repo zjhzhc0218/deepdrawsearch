@@ -1,12 +1,12 @@
 var app=angular.module('app',['ui.bootstrap']);
 app.controller('adminController',['$scope','$http','$sce','$document', function ($scope,$http,$sce,$document) {
 
-         $scope.moduleType = 1;
+        $scope.moduleType = 1;
         $scope.djl = false;
         $scope.dianjiliang = null;
 
+        /*键盘按回车事件*/
         $document.bind("keypress", function(event) {
-
             if(event.keyCode == 13) {
                 if ($scope.moduleType == 1) {
                     $scope.select();
@@ -22,6 +22,7 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
         $scope.type = 99;
 
 
+       /* 时间部分显示*/
         $scope.over = function (type) {
             if($scope.type == 99){
                 $('#time').show();
@@ -30,6 +31,7 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
             }
         }
 
+        /*禁止某个id登录*/
         $scope.banJ = function (id) {
             $http({
                 method: 'GET',
@@ -56,6 +58,8 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
                 });
             })
         }
+
+        /*恢复某个id登录*/
         $scope.banH = function (id) {
             $http({
                 method: 'GET',
@@ -82,6 +86,8 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
                 });
             })
         }
+
+        /*一键设置某个用户的密码为123456abc*/
         $scope.resetpassword = function (id) {
             $http({
                 method: 'GET',
@@ -108,6 +114,7 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
             })
         }
 
+       /* 主要功能:查询用户信息*/
         $scope.select = function () {
             if($scope.time.startTime > $scope.time.endTime){
                 spop({template: '<strong>起始时间不可以超过结束时间，请检查后重新输入时间</strong>',
@@ -128,7 +135,6 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
 
                 }
             }).success(function (data) {
-                console.log(data.data.User);
                 spop({template: '<strong>' +data.data.count +
                 '</strong>',
                     autoclose: 3000,
@@ -180,23 +186,12 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
             };
         }
 
-
-        // var Date = new Date();
-        // var yDate = new Date().setDate(yDate.getDate()-7);
-        //
-        // var date = new Date().toLocaleTimeString();
-        //     // .replace("年","-").replace("月","-").replace("日","");
-        // var ydate = (yDate).toLocaleTimeString();
-        //     // .replace("年","-").replace("月","-").replace("日","");
-
-
-    $scope.time = {
+        $scope.time = {
         'endTime' : null,
         'startTime' : null
     }
-
-    $scope.selectFT  = function () {
-
+        /*另一个主要功能：查询模块使用情况*/
+        $scope.selectFT  = function () {
                 if ($scope.time.startTime > $scope.time.endTime) {
                     spop({
                         template: '<strong>起始时间不可以超过结束时间，请检查后重新输入时间</strong>',
@@ -205,35 +200,24 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
                     });
                     return;
                 }
-
-
         $http({
             method: 'GET',
             url: '/deepsearch/functionUsing/getFT',
             params: {
-                // 'name':$scope.name,
                 'id': $scope.id,
                 'module':$scope.module,
                 'type': $scope.type,
                 'timeStart': $scope.time.startTime,
                 'timeEnd': $scope.time.endTime
-
             }
         }).success(function (data) {
             console.log(data.data);
-            // spop({template: '<strong>' +data.data.count +
-            // '</strong>',
-            //     autoclose: 3000,
-            //     style:'success'
-            //     });
-
             $scope.djl = true;
             if($scope.id==null){
                 $scope.dianjiliang="本次全用户";
             }else{
                 $scope.dianjiliang="本次"+$scope.id;
             }
-
             if($scope.module==null){
                 $scope.dianjiliang =  $scope.dianjiliang+"全模块";
             }else if($scope.module==1){
@@ -247,7 +231,6 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
             }else if($scope.module==5){
                 $scope.dianjiliang =  $scope.dianjiliang+"降权模块";
             }
-
             if($scope.type==99){
                 if($scope.time.startTime==null && $scope.time.endTime==null){
                     $scope.dianjiliang =  $scope.dianjiliang+"在全时间";
@@ -265,13 +248,12 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
             else if($scope.type==5){
                 $scope.dianjiliang =  $scope.dianjiliang+"当年";
             }
-
             $scope.dianjiliang =$scope.dianjiliang+"点击量为"+ data.data.count;
             });
 
         }
 
-    $scope.look = function(){
+        $scope.look = function(){
             alert($scope.adStyle)
         }
 
