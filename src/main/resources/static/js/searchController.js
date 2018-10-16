@@ -433,7 +433,13 @@ var app=angular.module('search',[])
             $('#'+id).toggle();
     };
 
-    $scope.reciRecord = function() {
+    $scope.reciRecord = function(url) {
+        if ($scope.username == null){
+            $('#myModal').modal('show');
+            return;
+        }else  {
+            window.open(url);
+        }
         $http({
                 method: 'get',
                 url: '/deepsearch/setReciRecord',
@@ -483,8 +489,11 @@ var app=angular.module('search',[])
         location.href = url;
     }
 
+    $scope.jqWords = function (str) {
+        $("."+str).toggle();
+    }
 
-
+    
 
     }]
 

@@ -64,19 +64,19 @@
         </div>
         <div class="nav-list">
             <div class="one active">
-                <a  class="" role="tab" data-toggle="tab"href="#paimin">淘宝排名</a>
+                <a  class="" role="tab" data-toggle="tab"href="#paimin">宝贝排名查询</a>
             </div>
             <div class="one">
-                <a  role="tab" data-toggle="tab" href="#reci" ng-click="searchLogin()">热词下载</a>
-            </div>
-            <div class="one">
-                <a  role="tab" data-toggle="tab" href="#jiangquan">降权查询</a>
+                <a  role="tab" data-toggle="tab" href="#jiangquan">隐形降权查询</a>
             </div>
             <div class="one ">
-                <a  role="tab" data-toggle="tab" href="#xinyu">信誉查询</a>
+                <a  role="tab" data-toggle="tab" href="#xinyu">买家信誉查询</a>
             </div>
             <div class="one">
-                <a  role="tab" data-toggle="tab" href="#weijin">违禁词</a>
+                <a  role="tab" data-toggle="tab" href="#weijin">违禁词查询</a>
+            </div>
+            <div class="one">
+                <a  role="tab" data-toggle="tab" href="#reci" >20W热词下载</a>
             </div>
         </div>
     </div>
@@ -84,7 +84,7 @@
 
 <div class="tab-content container">
     <div role="tabpanel" class="tab-pane active"class="content" id="paimin" >
-        <div class="search-view">
+        <div class="search-view" style="margin-top: 30px;margin-right: 264px;">
             <table>
                 <tr>
                     <td><label>关键字：</label></td>
@@ -100,7 +100,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <button class="btn  search-btn" href="javascript:;" ng-click="searchPaiming()" ng-disabled="bbPaiMing.working">查询</button>
+                        <button style="margin-top: -41px;margin-left: 441px;position: absolute; line-height: 41px;" class="btn  search-btn" href="javascript:;" ng-click="searchPaiming()" ng-disabled="bbPaiMing.working">查询</button>
                     </td>
                 </tr>
             </table>
@@ -108,8 +108,19 @@
         </div>
 
         <div class="search-desc" style="margin-top: -28px;">
-            <p class="title"> 宝贝排名查询</p>
-            <p class="txt" style="color: red">注意：宝贝排名只提供参考，非淘宝官方数据</p>
+           <p class="title" style=""> 宝贝排名查询</p>
+            <#--<p class="txt" style="color: red">注意：宝贝排名只提供参考，非淘宝官方数据</p>-->
+            <p>   &nbsp;</p>
+           <div >
+               <h4>为什么要用宝贝排名查询功能？</h4>
+               <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FE8034">宝贝的排名</span>决定了宝贝的展现量，也就影响了宝贝的流量及成交量，所以运营在做推广的时候非常关注 宝贝的排名变化。但是由于淘宝的千人千面导致我们在本地电脑上看不到宝贝的<span style="color: #FE8034">客观排名</span>，其次本地查 询需要手工去一页一页查询，非常耗时。</p>
+           </div>
+            <p>   &nbsp;</p>
+           <div>
+               <h4>为什么要用白马查的宝贝排名查询？</h4>
+               <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;白马查采用目前最先进的<span style="color: #FE8034">分布式云服务器查询模式</span>，模拟了无痕用户的搜索结果，采用<span style="color: #FE8034">大数据技术</span>客观展现宝贝在全网的排名情况，让您更了解自己宝贝的<span style="color: #FE8034">真实排名</span>。</p>
+           </div>
+
         </div>
 
         <div class="search-info" id="pmrs" >
@@ -147,15 +158,15 @@
 
     </div>
 
-    <div ng-if="username!=null"role="tabpanel" class="tab-pane" class="content" id="reci">
+    <div role="tabpanel" class="tab-pane" class="content" id="reci">
         <#include "//reci.ftl">
     </div>
 
     <div role="tabpanel" class="tab-pane" class="content" id="jiangquan">
-        <div class="search-view">
+        <div class="search-view" style="margin-top: 30px;margin-right: 311px;">
             <table>
                 <tr>
-                    <td><label>旺旺ID：</label></td>
+                    <td><label>店铺旺旺ID：</label></td>
                     <td>
                         <input type="text"  class="form-control" style="width: 263px;border-radius:5px;height: 40px;"ng-model="jiangquan.searchWordsJq"  />
                     </td>
@@ -163,13 +174,13 @@
                 <tr style="">
                     <td ><label style="margin-top: 14px;">选择类型：</label></td>
                     <td>
-                            <label >异常<input type="radio"  style="width: 25px; height: 16px;" ng-value=0 ng-model="jiangquan.isNormal" name="normal"></label>
+                            <label style="margin-top: 10px;" >异常<input type="radio"  style="width: 25px; height: 16px;" ng-value=0 ng-model="jiangquan.isNormal" name="normal"></label>
                             <label >正常<input type="radio"  style="width: 25px; height: 16px;" ng-value=1 ng-model="jiangquan.isNormal" name="normal"></label>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button class="btn  search-btn" href="javascript:;" ng-click="searchJiangQuan()" ng-disabled="jiangquan.working">查询</button>
+                        <button style="margin-top: -41px;margin-left: 358px;position: absolute; line-height: 41px;" class="btn  search-btn" href="javascript:;" ng-click="searchJiangQuan()" ng-disabled="jiangquan.working">查询</button>
                     </td>
                 </tr>
             </table>
@@ -177,9 +188,30 @@
 
         <div class="search-desc" style="margin-top: -28px;">
             <p class="title"> 店铺宝贝隐形降权查询</p>
-            <p> 1.隐形降权是淘宝作弊检测体系自动检测发现宝贝有问题，但是没有明确的证据或者还不是很严重的情况，就是犯罪嫌疑人，对这些宝贝商至店铺采取降权处理。</p>
+            <#--<p> 1.隐形降权是淘宝作弊检测体系自动检测发现宝贝有问题，但是没有明确的证据或者还不是很严重的情况，就是犯罪嫌疑人，对这些宝贝商至店铺采取降权处理。</p>
             <p> 2.隐形降权一般和以下因素有关：刷销量：有黑号参与、转化率低、支付宝使用率低。</p>
-            <p><font>注意：宝贝隐形降权只提供参考，非淘宝官方数据</font></p>
+            <p><font>注意：宝贝隐形降权只提供参考，非淘宝官方数据</font></p>-->
+            <div style="line-height: 1.6rem">
+                <h4>什么是隐形降权？<a href="#" ng-click="jqWords('div_p1')" id="button1" class="glyphicon glyphicon-plus">点击查看</a></h4>
+                <p class="div_p1" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FE8034">隐形降权</span>是淘宝作弊检测体系自动检测发现宝贝有问题，但是没有明确的证据或者还不是很严重的情况 下，对这些宝贝或者店铺采取<span style="color: #FE8034">降权处理</span>。</p>
+            </div>
+
+            <div style="line-height: 1.6rem">
+                <h4>隐形降权跟哪些因素有关？<a href="#" ng-click="jqWords('div_p2')" id="button1" class="glyphicon glyphicon-plus">点击查看</a></h4>
+                <p class="div_p2" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. <span style="color: #FE8034">频繁修改</span>宝贝的标题、描述、属性；滥用、堆砌关键词，频繁的修改宝贝价格。</p>
+                <p class="div_p2" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. <span style="color: #FE8034">虚假交易，炒作信用</span>，有淘宝监控的账号(黑号)购买了这个宝贝，被淘宝判断有刷销量嫌疑。</p>
+                <p class="div_p2" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. <span style="color: #FE8034">宝贝转化率，支付宝使用率</span>出现异常。</p>
+                <p class="div_p2" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. <span style="color: #FE8034">类目错放，标题、图片、描述</span>等不一致。</p>
+            </div>
+
+            <div style="line-height: 1.6rem">
+                <h4>如何看懂权重差值？<a href="#" ng-click="jqWords('div_p3')" id="button1" class="glyphicon glyphicon-plus">点击查看</a></h4>
+                <p class="div_p3" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.淘宝权重差值是根据一个宝贝的<span style="color: #FE8034">销量权重</span>和<span style="color: #FE8034">人气权重</span>比较得出来的一个数值(非淘宝官方数据，不需要处理）。</p>
+                <p class="div_p3" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.<span style="color: #FE8034">淘宝权重差值是0的时候</span>，说明此商品权重正常，排名正常，是一个很正常的商品。</p>
+                <p class="div_p3" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.<span style="color: #FE8034">淘宝权重差值是正数（>0)的时候</span>，说明此商品根据淘宝搜索排名比较前，比正常搜索排名要靠前。</p>
+                <p class="div_p3" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.<span style="color: #FE8034">淘宝权重差值是负数（<0）的时候</span>，说明此商品可能已经被查降权了，权重差值负数越大，排名就越 靠后。</p>
+            </div>
+
         </div>
 
         <div class="search-info" id="jqrs" >
@@ -207,7 +239,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="data in jiangquan.examedContext " >
+                    <tr ng-repeat="data in jiangquan.examedContext" >
                         <td ng-repeat="(x,y) in data ">
                             <img ng-if="x == 'pic'" ng-src="{{y}}">
                             <span style="font-size: 22px" ng-if="x != 'pic'&& x != 'tbao'">{{y}}</span>
@@ -223,17 +255,16 @@
 
 
     <div role="tabpanel" class="tab-pane"  class="content" id="xinyu">
-        <div class="search-view">
-            <input type="text"   ng-model="xinYu.searchWordsXy"  placeholder="请输入淘宝账号，然后点击 &quot;检测一下&quot; 按钮"/>
+        <div class="search-view" style="margin-top: 30px" style="margin-top: 30px" style="margin-top: 30px">
+            <input type="text"   ng-model="xinYu.searchWordsXy"  placeholder="请输入买家淘宝账号，然后点击 &quot;查询&quot; 按钮"/>
             <button class="btn  search-btnN" href="javascript:;" ng-click="searchXinyu()" ng-disabled="xinYu.working">查询</button>
         </div>
 
         <div class="search-desc" style="margin-top: -28px;">
-            <p class="title">淘宝信用查询</p>
-            <p class="txt">请在输入框内输入淘宝账号，并点击查询</p>
-            <p>1、<font>注册时间小于30天的</font>，被认定为小号/新号，有可能是骗子，应当谨慎交易，免得赚几块钱换来一个中差评。</p>
-            <p>2、可以查询买家中差评数量以及中差评信息，<font>如果该用户的比例超过一定的比例</font>，则有可能是中差评师，要十分注意了。</p>
-            <p>3、经常刷的小号，<font>当信用点数超过20点</font>（常购物的买家大号除外），有可能这个号被淘宝列入黑名单，他在拍的东西有可能会被认为是虚假交易，在刷会有降权风险。</p>
+            <p class="title">买家信用查询</p>
+            <p>1、<font>注册时间小于30天的</font>，被认定为小号/新号，有可能是骗子，应当谨慎交易。</p>
+            <p>2、<font>买家中差评数量以及中差评信息超过一定的比例</font>，则有可能是职业中差评师。</p>
+            <p>3、经常刷的小号，<font>当周购物单量超过一定量（6-10单）</font>，则有可能是黑号。</p>
         </div>
 
         <div class="search-info" id="xyrs" >
@@ -262,9 +293,9 @@
     </div>
 
     <div role="tabpanel" class="tab-pane"class="content" id="weijin" style="">
-        <div class="search-view">
+        <div class="search-view" style="margin-top: 30px">
             <#--<input type="text"  ng-model="searchWordsWjc" placeholder="粘贴你的广告、文案到此处，然后点击 查询"/>-->
-                <textarea  ng-model="searchWordsWjc" placeholder="粘贴你的广告、文案到此处，然后点击 查询"></textarea>
+                <textarea  ng-model="searchWordsWjc" placeholder="粘贴你的广告、文案到此处，然后点击 &quot;查询&quot; 按钮"></textarea>
 
             <button class="btn  search-btnN"  href="javascript:;" ng-click="searchWjc()" ng-disabled="app.working" >查询</button>
         </div>

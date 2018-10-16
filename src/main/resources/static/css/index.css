@@ -92,7 +92,7 @@ header .header-content{
 	padding: 50px 0;
 }
 .search-view input{
-	font-size: 22px;
+	font-size: 17px;
 	color: #333333;
 	height: 50px;
 	background-color: #eeeeee;
@@ -106,7 +106,7 @@ header .header-content{
 
 /*按照需求改变*/
 .search-view textarea{
-	font-size: 22px;
+	font-size: 17px;
 	color: #333333;
 	min-height: 160px;
 	background-color: #eeeeee;
@@ -115,7 +115,7 @@ header .header-content{
 	min-width: 660px;
 	padding: 0 10px;
 	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
+	border-radius: 5px;
 }
 
 
