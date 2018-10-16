@@ -278,11 +278,11 @@
             <div class="noViolation " ng-show="xinYu.hasNoViolation == true" style="color: red;font-size: 30px">
                 该号不存在，请检测是否输入有误!
             </div>
-            <a href="javascript:;"  ng-show="xinYu.examedContext != null"  class="info-item"  ng-repeat="d in xinYu.examedContext " >
+            <a href="javascript:;"  ng-show="xinYu.examedContext != null"  class="info-item"  ng-repeat="d in xinYu.examedContext" >
                 <div class="item-left">
                     <span>{{d.name}}</span>
-                    <p> <label ng-bind="d.value" ></label>
-                        <img  ng-if="d.id!=null&&d.id==10" ng-src="{{d.img}}"></p>
+                    <p> <label ng-bind="d.value" ><img  ng-if="d.id!=null&&d.id==8" ng-src="{{d.img}}"></label>
+                    </p>
                 </div>
                <#-- <div class="item-right">
                     <span>中评个数 ：</span>
