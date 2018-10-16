@@ -1,5 +1,5 @@
 var app=angular.module('search',[])
-    .controller('searchController',['$scope','$http','$sce', function ($scope,$http,$sce) {
+    .controller('searchController',['$scope','$http','$sce','$filter', function ($scope,$http,$sce,$filter) {
 
     /**
      * 登陆信息
@@ -159,17 +159,18 @@ var app=angular.module('search',[])
                     var c = rec[d].split('-');
                     var node ={
                         'name' :d,
-                        'id' :c[0],
+                        'id' :parseInt(c[0]),
                         'value' :c[1],
                     };
-                    if(node.id == 10) {
+                    if(node.id == 8) {
                         var r = node.value.split(':');
                         node.value = r[0];
                         node.img = r[1];
                     }
                     list.push(node);
                 }
-                $scope.xinYu.examedContext = list;
+                var dList = $filter('orderBy')( list ,'id');
+                $scope.xinYu.examedContext = dList;
             }
              // $("#xyrs").mLoading('hide');
              xyvm.value = 100;

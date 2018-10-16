@@ -188,6 +188,7 @@ header .header-content{
 	cursor: pointer;
 }
 .item-left, .item-right{
+	height: 6%;
 	width: 50%;
 	display: flex;
 	justify-content: flex-start;
