@@ -5,21 +5,21 @@
     <!-- 设置文档编码 -->
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--  -->
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <link rel="stylesheet" href="/deepsearch/css/loading/jquery.mloading.css">
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <#--分页样式-->
+
     <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
+    <link rel="stylesheet" href="/deepsearch/css/reset.css" />
+    <link rel="stylesheet" href="/deepsearch/css/index.css" />
     <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/deepsearch/css/font/font-awesome.css">
     <script  type="text/javascript" src="/deepsearch/js/My97DatePicker/WdatePicker.js"></script>
 
     <!-- 下面是表单的格式 -->
-    <#--<link rel="stylesheet" href="/deepsearch/css/normalize.css">-->
-    <link rel="stylesheet" href="http://www.jq22.com/demo/angular201707111100/css/bootstrap.min.css">
-
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <#--  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
     <!-- CSS样式 -->
     <style type="text/css">
         .panel{width:60%;margin:0 auto;text-align: center;}
@@ -45,39 +45,52 @@
 
 <body ng-controller="adminController" style="overflow: hidden">
 <!--顶部-开始-->
-<div style=" background:#EBEBEB; width:100%; height:80px; line-height:80px;">
-    <div class="navbar">
-        <div class="navbar-inner">
-            <div class="container-fluid">
-                <ul class="nav pull-right">
-                </ul>
-                <a style="text-decoration:none" class="brand" href="sign.ftl"><span class="first">后台页面</span></a>
-            </div>
-        </div>
-    </div>
-</div>
-<!--顶部-结束-->
+<header>
+    <div class="header-content">
+        <div class="header-top">
+            <a class="logo" href="javascript:;">
+                <img src="img/logo.png"/>
+                <p>电商在线查询工具</p>
+            </a>
 
-<!--导航-开始-->
-<nav style="" class="navbar navbar-default">
-    <div class="container">
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li style="width: 150px;" class="active" ><a style="text-align:center;font-size: 10px" href="#renyuan"  role="tab" data-toggle="tab" ng-click="moduleType = 1"><strong>人员</strong></a></li>
-                <li style="width: 150px;"><a style="text-align:center;font-size: 10px" href="#cishu"  role="tab" data-toggle="tab" ng-click="moduleType=2" ><strong>使用次数</strong></a></li>
-            </ul>
+            <#--<ul class="nav pull-right">-->
+                <#--<li id="fat-menu" class="dropdown">-->
+                    <#--<a style="color:white " href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">-->
+                        <#--<i style="color: white" class="icon-user"></i>-->
+                        <#--<span ng-if="username!=null" ng-bind="username.id"></span>-->
+                        <#--<span  ng-if="username==null" ng-click="signLogin()">登陆/注册</span>-->
+                        <#--<i style="color: white" class="icon-caret-down"></i>-->
+                    <#--</a>-->
+
+                    <#--<ul  ng-if="username!=null" class="dropdown-menu">-->
+                        <#--<li><a tabindex="-1" href="#" ng-if="username!=null && username.grade==1" ng-click="toAdminPage()">这里可以弄个返回前台</a></li>-->
+                        <#--<li class="divider"></li>-->
+                        <#--<li><a tabindex="-1" href="#" ng-click="signLogin()">注销</a></li>-->
+                    <#--</ul>-->
+                <#--</li>-->
+            <#--</ul>-->
+        </div>
+        <div class="nav-list">
+            <div class="one active">
+                <a  class="" role="tab" data-toggle="tab"href="#renyuan">人员详情</a>
+            </div>
+            <div class="one">
+                <a  role="tab" data-toggle="tab" href="#cishu">使用次数</a>
+            </div>
+
         </div>
     </div>
-</nav>
+</header>
 <!--导航-结束-->
 
 <!--内容-开始-->
-<div style=" overflow-y: auto;width: 90%;height: 75%" class="container">
+<div style=" overflow-y: auto;width: 100%;height: 75%;padding-top: 22px; " class="container">
     <div class="tab-content">
         <!--用户信息-->
         <div role="tabpanel" class="tab-pane active" id="renyuan" >
             <div style="width: 100%;height: 100%" class="Container">
-                <div class="row clearfix">
+
+                <div class="row clearfix" style="text-align: center">
                     <div class="col-md-12 column form-inline" style="font-size: 20px">
                             <label class="font-7">用户手机：</label>
                             <input type="number" class="" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="id" name="id" placeholder="查询用户的手机号" required="required"/>
@@ -93,7 +106,7 @@
                         </select>
                     </div>
                     <div ng-show="type==99" class="col-md-12 column form-inline " style="font-size: 20px">
-                        <label class="font-7">开始时间：</label>
+                    <label class="font-7">开始时间：</label>
                         <input type="text" class="Wdate form-control" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="time.startTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" onchange="" "/>
                     </div></br>
                     <div ng-show="type==99" class="col-md-12 column form-inline " style="font-size: 20px">
@@ -144,7 +157,10 @@
                     </div>
                     <div class="row form-inline">
                         <div class="col-md-8">
-                            <uib-pagination
+
+
+
+                            <ul uib-pagination
                                     total-items="page.totalCount"
                                     ng-model="page.pageNo"
                                     max-size="5"
@@ -158,21 +174,15 @@
                                     items-per-page="page.limit"
                                     ng-change="pageChanged()"
                                     boundary-link-numbers="true"
-                            >
-                            </uib-pagination>
+                            ></ul>
+
+
                         </div>
                         <div class="col-md-4">
                             <input type="text" class="form-control" style="width:100px;margin:25px 0" name="" ng-model="go" />
                             <a class="btn btn-primary btn-sm" ng-click="setPage(go)">跳转</a>
                         </div>
                     </div>
-
-
-                </div>
-
-                <!--结果-->
-                <div class="result " id="" style="width:85%;height:350px;">
-
                 </div>
             </div>
         </div>
@@ -228,23 +238,23 @@
 <!--内容-结束-->
 
 <!--尾部-开始-->
-<div class="footer" style="background:#777777; width:100%; padding-bottom:20px; margin-top: 23px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
+<#--<div class="footer" style="background:#777777; width:100%; padding-bottom:20px; margin-top: 23px;">-->
+    <#--<div class="container">-->
+        <#--<div class="row">-->
+            <#--&lt;#&ndash;<div class="col-sm-4">&ndash;&gt;-->
 
-            </div>
-            <div class="col-sm-4">
+            <#--&lt;#&ndash;</div>&ndash;&gt;-->
+            <#--&lt;#&ndash;<div class="col-sm-4">&ndash;&gt;-->
 
-            </div>
-            <div class="col-sm-4">
+            <#--&lt;#&ndash;</div>&ndash;&gt;-->
+            <#--&lt;#&ndash;<div class="col-sm-4">&ndash;&gt;-->
 
-            </div>
-            <div class="col-sm-12 text-center" style="margin-top:20px;">
-                版权所有 Power by DeepDraw
-            </div>
-        </div>
-    </div>
+            <#--&lt;#&ndash;</div>&ndash;&gt;-->
+            <#--<div class="col-sm-12 text-center" style="margin-top:20px;">-->
+                <#--版权所有 Power by DeepDraw-->
+            <#--</div>-->
+        <#--</div>-->
+    <#--</div>-->
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
@@ -268,23 +278,45 @@
 </div>
 <!--尾部-结束-->
 
+    <footer style="">
+        <p>版权所有power by DeepDraw</p>
+    </footer>
 
 </body>
 
-<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
 <script src="/deepsearch/js/angular/angular.js"></script>
 <script src="/deepsearch/js/adminController.js"></script>
 <script src="/deepsearch/js/spop/spop.js"></script>
 <script src="/deepsearch/js/loading/jquery.mloading.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<!-- 表单引入的 -->
 <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
-<#--<script type="text/javascript" src="http://www.jq22.com/demo/angular201707111100/js/ui-bootstrap-tpls.min.js"></script>-->
+<#--主页面判断-->
+<!-- 表单引入的 -->
+<script src="/deepsearch/js/angular-ui-bootstrap.js"></script>
+<script src="/deepsearch/js/index.js"></script>
 <script src="https://cdn.bootcss.com/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
 
+
+
+
+
 <script type="text/javascript">
-
-
+    user = '${user!}';
+    $('.info-item').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    })
+    var activeIndex = location.search.slice(1).split('=')[1]
+    $('.one').eq(activeIndex).addClass('active')
+    $('.one').on('click', function () {
+        $(this).siblings().removeClass('active')
+        $(this).addClass('active')
+    })
+    $('.one a').on('click', function () {
+        $('.content').hide();
+        $($(this).attr('data-id')).show()
+    })
+</script>
 
 </html>
 </html>
