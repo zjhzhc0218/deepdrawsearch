@@ -22,7 +22,7 @@
     <!-- CSS样式 -->
     <style type="text/css">
         .panel{width:60%;margin:0 auto;text-align: center;}
-        .form-inline{width:60%;margin:0 auto;}
+        .form-inline{width:40%;margin:0 auto;}
 
         .brand { font-family: georgia, serif; }
         .brand .first {
@@ -84,12 +84,11 @@
 
 <!--内容-开始-->
 <div style=" overflow-y: auto;width: 100%;height: 75%;padding-top: 22px; " class="container">
-    <div class="tab-content">
+    <div class="tab-content" >
         <!--用户信息-->
         <div role="tabpanel" class="tab-pane active" id="renyuan" >
             <div style="width: 100%;height: 100%" class="Container">
-
-                <div class="row clearfix" style="text-align: center">
+                <div class="row clearfix" style="text-align: center;min-width:1100px">
                     <div class="col-md-12 column form-inline" style="font-size: 20px">
                             <label class="font-7">用户手机：</label>
                             <input type="number" class="" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="id" name="id" placeholder="查询用户的手机号" required="required"/>
@@ -104,7 +103,8 @@
                             <option value="5">当年</option>
                         </select>
                     </div>
-                    <div ng-show="type==99" class="col-md-12 column form-inline " style="font-size: 20px">
+                    <button  ng-click="select()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;height: 36px;">查询</button>
+                    <div ng-show="type==99" class="col-md-12 column form-inline " style="margin-top:20px;font-size: 20px">
                     <label class="font-7">开始时间：</label>
                         <input type="text" class="Wdate form-control" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="time.startTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" onchange="" "/>
                     </div></br>
@@ -112,7 +112,7 @@
                         <label class="font-7">结束时间：</label>
                         <input type="text" class="Wdate form-control" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="time.endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  onchange=""  "/>
                     </div></br>
-                    <button  ng-click="select()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;">查询</button>
+                    <#--<button  ng-click="select()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;">查询</button>-->
 
                     <div class="panel">
                         <div class="row req form-inline">
@@ -145,9 +145,9 @@
                                 <td>{{data.grade}}</td>
                                 <td>{{data.ban}}</td>
                                 <td>
-                                    <button  ng-click="banJ(data.id)" class="btn btn-primary btn-block btn-large">禁止登录</button>
-                                    <button  ng-click="banH(data.id)" class="btn btn-primary btn-block btn-large">恢复登录</button>
-                                    <button  ng-click="resetpassword(data.id)" class="btn btn-primary btn-block btn-large">一键还原初始密码</button>
+                                    <button  ng-click="banJ(data.id)" class="btn btn-primary btn-blockN btn-large">禁登</button>
+                                    <button  ng-click="banH(data.id)" class="btn btn-primary btn-blockN btn-large">复登</button>
+                                    <button  ng-click="resetpassword(data.id)" class="btn btn-primary btn-blockN btn-large">重置密码</button>
 
                                 </td>
                             </tr>

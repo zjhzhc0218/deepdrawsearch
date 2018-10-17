@@ -31,7 +31,7 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
     function settime() {
         if(countDown > 0) {
             setTimeout(function() {settime(countDown--); $scope.$apply();}, 1000);
-            $scope.timing = countDown + 's后重新获取';
+            $scope.timing = '验证码已经发送，'+countDown + 's后重新获取';
             $scope.selected = 0;
         }else {
             $scope.timing = "获取手机验证码";
@@ -68,7 +68,7 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
 
         if(countDown <= 0) {
             countDown = 60;
-            $scope.timing = countDown + "s后重新获取";
+            $scope.timing = '验证码已经发送，'+countDown + "s后重新获取";
             settime();
         }
 
