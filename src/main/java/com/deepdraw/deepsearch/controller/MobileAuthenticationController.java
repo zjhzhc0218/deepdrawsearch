@@ -83,7 +83,9 @@ public class MobileAuthenticationController {
         if (sendSmsResponse.getCode() != null && sendSmsResponse.getCode().equals("OK")) {
         return JsonUtil.object2Json(ResultUtil.success("手机验证码发送成功，请打开手机查看"));
     }else{
-        return JsonUtil.object2Json(ResultUtil.error(2,sendSmsResponse.getMessage()));
+        return JsonUtil.object2Json(ResultUtil.error(2,"发送失败，失败原因是："
+                +sendSmsResponse.getMessage()
+        ));
     }
 }
 }

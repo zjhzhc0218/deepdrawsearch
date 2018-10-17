@@ -2,6 +2,7 @@ var app = angular.module('signup', ['Encrypt']);
 app.controller('signupController', ['$scope', '$http','$interval' ,'$document', function ($scope, $http,$interval,$document) {
     $scope.name = null;
     $scope.password = null;
+    $scope.tisiyu = null;
 
     $document.bind("keypress", function(event) {
 
@@ -31,7 +32,7 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
     function settime() {
         if(countDown > 0) {
             setTimeout(function() {settime(countDown--); $scope.$apply();}, 1000);
-            $scope.timing = '验证码已经发送，'+countDown + 's后重新获取';
+            $scope.timing = $scope.tisiyu+countDown + 's后重新获取';
             $scope.selected = 0;
         }else {
             $scope.timing = "获取手机验证码";
@@ -68,7 +69,7 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
 
         if(countDown <= 0) {
             countDown = 60;
-            $scope.timing = '验证码已经发送，'+countDown + "s后重新获取";
+            $scope.timing = $scope.tisiyu+countDown + "s后重新获取";
             settime();
         }
 
@@ -80,7 +81,9 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
             }
         }).success(function (data) {
             console.log(data);
+
             if(data.code!=0){
+                $scope.tisiyu = "验证码发送失败";
                 spop({template: '<strong>' +data.msg+
                 '</strong>',
                     autoclose: 3000,
@@ -88,6 +91,7 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
                 });
                 return;
             }else{
+                $scope.tisiyu = "验证码发送成功";
                 spop({template: '<strong>' +data.data+
                 '</strong>',
                     autoclose: 3000,
