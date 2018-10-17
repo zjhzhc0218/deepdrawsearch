@@ -4,6 +4,12 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
         $scope.moduleType = 1;
         $scope.djl = false;
         $scope.dianjiliang = null;
+        $scope.qixian = null;
+        $scope.paiming = null;
+        $scope.weijinci = null;
+        $scope.xinyu = null;
+        $scope.reci = null;
+        $scope.jiangquan = null;
 
         /*键盘按回车事件*/
         $document.bind("keypress", function(event) {
@@ -220,34 +226,37 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
             }
             if($scope.module==null){
                 $scope.dianjiliang =  $scope.dianjiliang+"全模块";
-            }else if($scope.module==1){
-                $scope.dianjiliang =  $scope.dianjiliang+"排名模块";
-            }else if($scope.module==2){
-                $scope.dianjiliang =  $scope.dianjiliang+"违禁词模块";
-            }else if($scope.module==3){
-                $scope.dianjiliang =  $scope.dianjiliang+"信誉模块";
-            }else if($scope.module==4){
-                $scope.dianjiliang =  $scope.dianjiliang+"热词模块";
-            }else if($scope.module==5){
-                $scope.dianjiliang =  $scope.dianjiliang+"降权模块";
             }
+
             if($scope.type==99){
                 if($scope.time.startTime==null && $scope.time.endTime==null){
-                    $scope.dianjiliang =  $scope.dianjiliang+"在全时间";
+                    $scope.qixian = "全时间";
                 }else{
-                $scope.dianjiliang =  $scope.dianjiliang+"在"+$scope.time.startTime+至+$scope.time.endTime;}
+                    $scope.qixian = "固定时间";
+                }
             }else if($scope.type==2){
+                $scope.qixian = "当天";
                 $scope.dianjiliang =  $scope.dianjiliang+"当天";
             }
             else if($scope.type==3){
+                $scope.qixian = "当周";
                 $scope.dianjiliang =  $scope.dianjiliang+"当周";
             }
             else if($scope.type==4){
+                $scope.qixian = "当月";
                 $scope.dianjiliang =  $scope.dianjiliang+"当月";
             }
             else if($scope.type==5){
+                $scope.qixian = "当年";
                 $scope.dianjiliang =  $scope.dianjiliang+"当年";
             }
+
+            $scope.paiming = data.data.paiming;
+            $scope.weijinci = data.data.weijinci;
+            $scope.xinyu = data.data.xinyu;
+            $scope.reci = data.data.reci;
+            $scope.jiangquan = data.data.jiangquan;
+
             $scope.dianjiliang =$scope.dianjiliang+"点击量为"+ data.data.count;
             });
 

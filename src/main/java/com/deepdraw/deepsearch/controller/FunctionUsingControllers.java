@@ -48,9 +48,6 @@ public class FunctionUsingControllers {
         Date timeEndN = null;
 
         if(timeStart!=null &&timeEnd!=null ){
-            if(type==null){
-                type=99;
-            }
             if(timeStart.length()!=0 && timeEnd.length()!=0) {
                 type = 1;
                 try {
@@ -62,10 +59,24 @@ public class FunctionUsingControllers {
             }
         }
         Map<String,Object> maps = new HashMap<>();
-        List<FunctionUsing> functionUsings = functionUsingService.selectFTByTime(id,type,module,timeStartN,timeEndN);
-//        maps.put("FT",functionUsings);
-//        message = "本次模块使用查询，总共查询到"+functionUsings.size()+"条记录";
-        message = functionUsings.size()+"次";
+
+        List<FunctionUsing> functionUsingsOne = functionUsingService.selectFTByTime(id,type,1,timeStartN,timeEndN);
+        List<FunctionUsing> functionUsingsTwo = functionUsingService.selectFTByTime(id,type,2,timeStartN,timeEndN);
+        List<FunctionUsing> functionUsingsTree = functionUsingService.selectFTByTime(id,type,3,timeStartN,timeEndN);
+        List<FunctionUsing> functionUsingsFour = functionUsingService.selectFTByTime(id,type,4,timeStartN,timeEndN);
+        List<FunctionUsing> functionUsingsFive = functionUsingService.selectFTByTime(id,type,5,timeStartN,timeEndN);
+
+        maps.put("paiming",functionUsingsOne==null?0:functionUsingsOne.size());
+        maps.put("weijinci",functionUsingsTwo==null?0:functionUsingsTwo.size());
+        maps.put("xinyu",functionUsingsTree==null?0:functionUsingsTree.size());
+        maps.put("reci",functionUsingsFour==null?0:functionUsingsFour.size());
+        maps.put("jiangquan",functionUsingsFive==null?0:functionUsingsFive.size());
+        Integer zongshu = (functionUsingsOne==null?0:functionUsingsOne.size())                  + (functionUsingsTwo==null?0:functionUsingsTwo.size())
+                +(functionUsingsTree==null?0:functionUsingsTree.size())
+                +(functionUsingsFour==null?0:functionUsingsFour.size())
+                +(functionUsingsFive==null?0:functionUsingsFive.size());
+
+        message = zongshu+"次";
         maps.put("count",message);
         return JsonUtil.object2Json(ResultUtil.success(maps));
     }

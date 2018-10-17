@@ -189,22 +189,22 @@
 
         <div  role="tabpanel" class="tab-pane " id="cishu"  >
             <div style="width: 100%;height: 100%" class="Container">
-                <div class="row clearfix">
+                <div class="row clearfix" style="text-align: center;min-width:1100px">
                     <div class="col-md-12 column form-inline" style="font-size: 20px">
                         <label class="font-7">用户手机：</label>
                         <input type="number" class="" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="id" name="id" placeholder="查询用户的手机号" required="required"/>
                     </div>
-                    <div class="col-md-12 column form-inline" style="font-size: 20px">
-                        <label class="font-7">查询模块：</label>
-                        <select ng-model="module"  style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" >
-                            <option value="">模块不限制</option>
-                            <option value="1">排名</option>
-                            <option value="2">违禁词</option>
-                            <option value="3">信誉</option>
-                            <option value="4">热词</option>
-                            <option value="5">降权</option>
-                        </select>
-                    </div>
+                    <#--<div class="col-md-12 column form-inline" style="font-size: 20px">-->
+                        <#--<label class="font-7">查询模块：</label>-->
+                        <#--<select ng-model="module"  style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" >-->
+                            <#--<option value="">模块不限制</option>-->
+                            <#--<option value="1">排名</option>-->
+                            <#--<option value="2">违禁词</option>-->
+                            <#--<option value="3">信誉</option>-->
+                            <#--<option value="4">热词</option>-->
+                            <#--<option value="5">降权</option>-->
+                        <#--</select>-->
+                    <#--</div>-->
                     <div class="col-md-12 column form-inline" style="font-size: 20px">
                         <label class="font-7">查询期限：</label>
                         <select ng-model="type"  style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" >
@@ -215,7 +215,8 @@
                             <option value="5">当年</option>
                         </select>
                     </div>
-                    <div ng-show="type==99" class="col-md-12 column form-inline " style="font-size: 20px">
+                    <button  ng-click="selectFT()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;height: 36px;">查询</button>
+                    <div ng-show="type==99" class="col-md-12 column form-inline " style="margin-top:20px;font-size: 20px">
                         <label class="font-7">开始时间：</label>
                         <input type="text" class="Wdate form-control" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="time.startTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" onchange="" "/>
                     </div></br>
@@ -223,13 +224,67 @@
                         <label class="font-7">结束时间：</label>
                         <input type="text" class="Wdate form-control" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="time.endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  onchange=""  "/>
                     </div></br>
-                    <button  ng-click="selectFT()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;">查询</button>
+                    <#--<button  ng-click="selectFT()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;">查询</button>-->
 
 
     </div>
                 <!--结果-->
-                <div ng-show="djl"  style="width:85%;height:350px;">
+                <div ng-show="djl"  style="text-align: center;min-width:1100px；width:85%;height:350px;">
                     <h2>{{dianjiliang}}</h2>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <td>用户手机</td>
+                            <td>查询期限</td>
+                            <td>模块种类</td>
+                            <td>起始时间</td>
+                            <td>截止时间</td>
+                            <td>点击次数</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{qixian}}</td>
+                            <td>排名</td>
+                            <td>{{time.startTime}}</td>
+                            <td>{{time.endTime}}</td>
+                            <td>{{paiming}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{qixian}}</td>
+                            <td>违禁词</td>
+                            <td>{{time.startTime}}</td>
+                            <td>{{time.endTime}}</td>
+                            <td>{{weijinci}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{qixian}}</td>
+                            <td>信誉</td>
+                            <td>{{time.startTime}}</td>
+                            <td>{{time.endTime}}</td>
+                            <td>{{xinyu}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{qixian}}</td>
+                            <td>热词</td>
+                            <td>{{time.startTime}}</td>
+                            <td>{{time.endTime}}</td>
+                            <td>{{reci}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{qixian}}</td>
+                            <td>降权</td>
+                            <td>{{time.startTime}}</td>
+                            <td>{{time.endTime}}</td>
+                            <td>{{jiangquan}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
