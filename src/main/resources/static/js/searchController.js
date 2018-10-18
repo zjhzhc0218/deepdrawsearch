@@ -16,8 +16,7 @@ var app=angular.module('search',[])
     $scope.app = {
         hasNoViolation : false,
         working : false,
-        hideErrors : false,
-        hideErrorsDetail : false,
+        hideDetail : false,
         hasAbsolutedWord : false,
         examedContext : null
     };
@@ -72,11 +71,12 @@ var app=angular.module('search',[])
                 
                 if (resultWjc.indexOf('small') !=-1) {
                     $scope.app.hasNoViolation = false;
+                    $scope.app.examedContext =  resultWjc;
                 }else {
                     $scope.app.hasNoViolation = true;
+                    $scope.app.examedContext ="<span style='color: green;font-size: 22px' >恭喜你，没有发现任何禁用词／敏感词！</span>";
                 }
-                $scope.app.examedContext =  resultWjc;
-
+                $scope.app.hideDetail = true;
                 $scope.app.working = false;
                 appvm.value = 100;
                 clearInterval(interval);
@@ -91,6 +91,10 @@ var app=angular.module('search',[])
             // $("#wjcrs").mLoading("hide");
             // alert("失败了");
         })
+        }
+
+        $scope.hideDetail = function () {
+            $scope.app.hideDetail = false;
         }
     //########################违禁词###############################//
 

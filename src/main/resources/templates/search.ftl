@@ -21,6 +21,7 @@
         text-decoration: none;
     }
     .error{
+        font-size: 22px;
         color:red;
     }
     .result-context span {
@@ -281,7 +282,9 @@
             <a href="javascript:;"  ng-show="xinYu.examedContext != null"  class="info-item"  ng-repeat="d in xinYu.examedContext" >
                 <div class="item-left">
                     <span>{{d.name}}</span>
-                    <p> <label ng-bind="d.value" ><img  ng-if="d.id!=null&&d.id==8" ng-src="{{d.img}}"></label>
+                    <p> <label ng-bind="d.value" style="margin-bottom: -4px;" >
+                    </label>
+                        <img  ng-if="d.id!=null&&d.id==8" ng-src="{{d.img}}">
                     </p>
                 </div>
                <#-- <div class="item-right">
@@ -295,14 +298,24 @@
     <div role="tabpanel" class="tab-pane"class="content" id="weijin" style="">
         <div class="search-view" style="margin-top: 30px">
             <#--<input type="text"  ng-model="searchWordsWjc" placeholder="粘贴你的广告、文案到此处，然后点击 查询"/>-->
-                <textarea  ng-model="searchWordsWjc" placeholder="粘贴你的广告、文案到此处，然后点击 &quot;查询&quot; 按钮"></textarea>
+                <textarea  ng-show="app.hideDetail == false" ng-model="searchWordsWjc" placeholder="粘贴你的广告、文案到此处，然后点击 &quot;查询&quot; 按钮">
+                </textarea>
 
-            <button class="btn  search-btnN"  href="javascript:;" ng-click="searchWjc()" ng-disabled="app.working" >查询</button>
+               <#-- <div class="noViolation " ng-show="app.hasNoViolation == true&&app.hideDetail == true" style="width:45%;color: green;font-size: 30px;position: absolute">
+                    恭喜你，没有发现任何禁用词／敏感词！
+                </div>-->
+                <#--<div class="result-context" ng-show="app.hasNoViolation == false&&app.hideDetail == true" style="width:45%;position: absolute" ng-bind-html="app.examedContext | to_trusted"></div>-->
+                <div class="wordShowC"  ng-show="app.hideDetail == true" ng-bind-html="app.examedContext | to_trusted">
+                </div>
+            <button class="btn search-btnN" ng-show="app.hideDetail == false" href="javascript:;" ng-click="searchWjc()" ng-disabled="app.working" >查询</button>
+            <button class="btn search-btnB" ng-show="app.hideDetail == true"  href="javascript:;" ng-click="hideDetail()"  >继续检测</button>
         </div>
 
         <div class="search-desc" style="margin-top: -28px;">
-            <p class="title"> 淘宝禁用词／广告、文案敏感词／检测查询工具</p>
-            <p> 已收录约3300个敏感词、禁用词，违禁词的命中率高，词库具有主动学习、动态更新的能力，我们为做最全面的违规词检查工具而努力，以便更好的服务各位卖家！</p>
+
+
+            <p class="title"> 淘宝违禁词/敏感词/新广告法违禁词检测工具</p>
+            <p> 已收录各类违禁词、敏感词超过20000个，且词库还在不断更新中。</p>
         </div>
 
         <div class="search-info" id="wjcrs" >
@@ -313,10 +326,7 @@
                     </div>
                 </div>
             </div>
-            <div class="noViolation " ng-show="app.hasNoViolation == true" style="color: green;font-size: 30px">
-                恭喜你，没有发现任何禁用词／敏感词！
-            </div>
-            <div class="result-context" ng-show="app.hasNoViolation == false" style="width:80%;" ng-bind-html="app.examedContext | to_trusted"></div>
+
         </div>
     </div>
 

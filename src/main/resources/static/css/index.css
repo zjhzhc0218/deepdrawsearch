@@ -143,6 +143,29 @@ header .header-content{
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+.search-view .search-btnB{
+	font-size: 24px;
+	color: #fff;
+	background-color: #5981fe;
+	display: block;
+	line-height: 50px;
+	padding: 0 30px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.wordShowC {
+	width: 660px;
+	min-height: 160px;
+	max-height: 500px;
+	padding: 3px;
+	border: 1px solid #dcdcdc;
+	background-color: #FFFFFF;
+	border-radius: 5px;
+	/* font-size: 12px; */
+	word-wrap: break-word;
+	overflow-y: auto;
+}
 
 .search-view .btn_search {
 	font-size: 24px;
