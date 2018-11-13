@@ -3,9 +3,12 @@
 <head>
     <title>首页</title>
     <!-- 设置文档编码 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=width,user-scalable=no">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="viewport" content="user-scalable=yes">
     <!--  -->
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <link rel="stylesheet" href="/deepsearch/css/loading/jquery.mloading.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
@@ -42,7 +45,7 @@
     <div class="header-content">
         <div class="header-top">
             <a class="logo" href="javascript:;">
-                <img src="img/logo.png"/>
+                <img src="deepsearch/img/logo.png"/>
                 <p>电商在线查询工具</p>
             </a>
 
@@ -312,8 +315,6 @@
         </div>
 
         <div class="search-desc" style="margin-top: -28px;">
-
-
             <p class="title"> 淘宝违禁词/敏感词/新广告法违禁词检测工具</p>
             <p> 已收录各类违禁词、敏感词超过20000个，且词库还在不断更新中。</p>
         </div>
