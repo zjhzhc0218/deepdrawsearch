@@ -8,12 +8,14 @@
     <select id="selectUser" resultType="com.deepdraw.deepsearch.entity.SHUser">
         SELECT  id,nickname,password,salt,head,register_date,last_login_date,login_count,grade,ban
         FROM shenhui_user
+        order by register_date
     </select>
 
     <select id="selectUserById" resultType="com.deepdraw.deepsearch.entity.SHUser">
     SELECT  id,nickname,password,salt,head,register_date,last_login_date,login_count,grade,ban
     FROM shenhui_user
     WHERE id = #{id}
+    order by register_date
   </select>
 
     <select id="selectUserByTime" resultType="com.deepdraw.deepsearch.entity.SHUser">
@@ -24,6 +26,7 @@
         <if test = "id!=null">
             id = #{id},
         </if>
+        order by register_date
     </select>
 
     <insert id="addUser" parameterType="com.deepdraw.deepsearch.entity.SHUser">
