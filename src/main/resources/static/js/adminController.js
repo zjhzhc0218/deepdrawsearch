@@ -138,7 +138,6 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
                     'type': $scope.type,
                     'timeStart': $scope.time.startTime,
                     'timeEnd': $scope.time.endTime
-
                 }
             }).success(function (data) {
                 spop({template: '<strong>' +data.data.count +
@@ -152,9 +151,9 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
                 //反转函数转化abcd转dcba
                 $scope.data = data.data.User.reverse();
                 //选择显示的条数
-                $scope.values = [{"limit": 3}, {"limit": 4}, {"limit": 5}, {"limit": 6}, {"limit": 7}, {"limit": 8}];
+                $scope.values = [{"limit": 8}, {"limit": 16}, {"limit": 32}, {"limit": 50}, {"limit": 100}, {"limit": 200}];
                 //默认显示的条数
-                $scope.selectedLimit = $scope.values[0];
+                $scope.selectedLimit = $scope.values[3];
                 //默认显示当前页数
                 $scope.currentPage = 1;
                 if ($scope.data != null) {
