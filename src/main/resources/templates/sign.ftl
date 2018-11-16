@@ -71,7 +71,7 @@
     <div class="bk20"></div>
 </div>
 <div class="footer">
-    <p>© 2014-2018 深绘 版权所有</p>
+    <p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>
 </div>
 </body>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>

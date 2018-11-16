@@ -49,7 +49,7 @@
                             <input type="password" ng-model="passwordAgain2"  class="required password" name="p" placeholder="再次输入密码" required="required"/>
                         </div>
                         <div class="row btn-row" style="padding-top:10px;clear:both;">
-                            <input id="btn-login" class="btn-submit"  type="button"  style="margin-left:100px"  value="忘记密码" ng-click="forgot()" >
+                            <input id="btn-login" class="btn-submit"  type="button"  style="margin-left:100px"  value="确认" ng-click="forgot()" >
                             <span style="margin-left:20px;font-size:12px"> </span>
                             <input class="btn-submit" type="button" ng-click="openSign()"  value="登录界面" style="background:#f73">
                         </div>
@@ -62,7 +62,7 @@
     <div class="bk20"></div>
 </div>
 <div class="footer">
-    <p>© 2014-2018 深绘 版权所有</p>
+    <p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>
 </div>
 
 

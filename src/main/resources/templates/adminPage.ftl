@@ -334,7 +334,7 @@
 <!--尾部-结束-->
 
     <footer style="">
-        <p>版权所有power by DeepDraw</p>
+        <p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>
     </footer>
 
 </body>
