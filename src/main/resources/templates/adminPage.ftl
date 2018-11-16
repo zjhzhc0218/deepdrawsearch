@@ -140,8 +140,8 @@
                             <tbody>
                             <tr  ng-repeat="data in datas">
                                 <td>{{data.id}}</td>
-                                <td>{{data.registerDate|date:'yyyy-MM-dd hh:mm:ss'}}</td>
-                                <td>{{data.lastLoginDate|date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                                <td>{{data.registerDate|date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                                <td>{{data.lastLoginDate|date:'yyyy-MM-dd HH:mm:ss'}}</td>
                                 <td>{{data.loginCount}}</td>
                                 <td>{{data.grade}}</td>
                                 <td>{{data.ban}}</td>
