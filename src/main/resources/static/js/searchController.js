@@ -498,7 +498,10 @@ var app=angular.module('search',[])
         $("."+str).toggle();
     }
 
-    
+
+    $scope.showWeModal = function (name) {
+        $('#'+ name).modal('show');
+    }
 
     }]
 

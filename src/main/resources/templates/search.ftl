@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html ng-app="search">
 <head>
-    <title>首页</title>
+    <title>白马查--电商在线查询工具</title>
     <!-- 设置文档编码 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
@@ -91,7 +91,7 @@
         <div class="search-view" style="margin-top: 30px;margin-right: 264px;">
             <table>
                 <tr>
-                    <td><label>关键字：</label></td>
+                    <td><label>关键词：</label></td>
                     <td>
                        <input type="text"  class="form-control" style="width: 263px;border-radius:5px;height: 40px;" ng-model="bbPaiMing.keyWords"  />
                     </td>
@@ -374,8 +374,50 @@
     </div>
 </div>
 
+
+<!--关于我们 Modal -->
+<div class="modal fade" id="weModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">关于我们</h4>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                <#--<label style="font-size: 25px ;color: red;text-align: center">请登陆后进行查询！</label>-->
+                <p style="word-break:break-all;text-align:left;text-indent:2em"> 杭州兴淘网络科技有限公司是一家以技术为驱动、以社群为闭环的电商服务公司。其旗下的白马查产品为广大电商用户提供了精准的在线数据查询功能。 同时公司旗下的白马会为电商社群，为广大电商提供交流互助、资源共享的平台。</p>
+                <p>公司自成立以来一直以服务广大电商卖家为己任。未来兴淘网络还会继续推出更多的服务，敬请期待。</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--关于我们 Modal -->
+<div class="modal fade" id="tellweModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">关于我们</h4>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                <p>联系方式：杭州市江干区艮山支三路5号4幢104室</p>
+                <p>联系电话：13858154498（电话/微信）</p>
+                <p>联系时间：工作日9:00—18:00</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer style="">
-    <p>版权所有power by DeepDraw</p>
+    <p>杭州兴淘网络科技有限公司  浙ICP备18047066号 &nbsp; <a style="text-decoration:none;color: gray;cursor:pointer;font-size: 13px;" ng-click="showWeModal('weModal')">关于我们</a>&nbsp; <a style="text-decoration:none;color: gray;cursor:pointer;font-size: 13px;" ng-click="showWeModal('tellweModal')">联系我们</a></p>
 </footer>
 
 
