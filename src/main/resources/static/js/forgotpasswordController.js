@@ -189,7 +189,7 @@ var app=angular.module('signup',['Encrypt']);
                             autoclose: 3000,
                             style:'success'
                         });
-                        var url='/deepsearch/sign';
+                        var url='/deepsearch/searchIndex';
                         location.href = url;
                     }).error(function (data) {
                         spop({template: '<strong>' +data.msg+
