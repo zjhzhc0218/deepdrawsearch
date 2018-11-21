@@ -49,7 +49,7 @@
                 <p>电商在线查询工具</p>
             </a>
 
-            <ul class="nav pull-right">
+            <ul class="nav pull-right" style="margin-right: 20px">
                 <li id="fat-menu" class="dropdown">
                     <a style="color:white " href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
                         <i style="color: white" class="icon-user"></i>

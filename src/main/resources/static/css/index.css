@@ -1,10 +1,10 @@
 header{
 	width: 100%;
 	background: url(../img/top-bg.jpg) no-repeat center top #1d71f0;
-	background-size: 1920px auto;
+	background-size:  100% auto;
 }
 header .header-content{
-	width: 1200px;
+	width: 100%;
 	margin: 0 auto;
 }
 .header-top{
