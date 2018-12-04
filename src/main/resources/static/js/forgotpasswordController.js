@@ -184,7 +184,7 @@ var app=angular.module('signup',['Encrypt']);
                     }).success(function (data) {
                         console.log(data);
                         spop({template: '<strong>' +data.msg+
-                            '，跳转到登录页面'+
+                            '，跳转到功能使用页面'+
                         '</strong>',
                             autoclose: 3000,
                             style:'success'

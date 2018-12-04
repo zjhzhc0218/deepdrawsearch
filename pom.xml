@@ -35,11 +35,11 @@
             <scope>test</scope>
         </dependency>
         <!--声明spring boot内嵌tomcat的作用范围  在运行时不起作用 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
@@ -92,6 +92,12 @@
             <version>1.1.0</version>
         </dependency>
 
+        <!-- 用于通过手机号码获取对应的地址 这里对阿里巴巴序列化应用-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.4</version>
+        </dependency>
 
     </dependencies>
 

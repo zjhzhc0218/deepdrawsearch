@@ -18,10 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @Controller
@@ -49,6 +46,9 @@ public class LoginUserControllers {
     public String passwordToLogin(HttpServletRequest request, Long id, String password,HttpSession session) throws IOException {
         String ip = NetWorkUtil.getIpAddress(request).toString();
         System.out.println("当前的ip地址是"+ip);
+
+        String address = PhoneUtil.getMobileAddressByBaiDu(id.toString());
+        System.out.println("对应id的地址："+address);
 
 //        return JsonUtil.object2Json(ResultUtil.error(2,"OJBK"));
         Map<String,Object> map = shUserService.selectUser(id, password);
@@ -99,7 +99,8 @@ public class LoginUserControllers {
 
         SHUser shUser = new SHUser();
         shUser.setId(id);
-        shUser.setNickname("joshon");
+        String address = PhoneUtil.getMobileAddressByBaiDu(id.toString());
+        shUser.setNickname(address);
 
         String salt = SixNumberRadom.getSixNumberRadom();
         String passwords = MD5Util.inputPassToDbPass(password,salt);
