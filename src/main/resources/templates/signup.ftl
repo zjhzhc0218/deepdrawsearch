@@ -54,12 +54,11 @@
                         <div class="row fl-controls-left">
                             <label for="email" class="fl-label">邀请码验证:</label>
                             <input type="text" ng-model="signCode" name="u" class="required text"  placeholder="邀请码" required="required"/>
-                            <button style="margin-left:100px;" ng-mouseenter="down()" ng-mouseleave="over()">添加微信后查看微信朋友圈背景图</button>
-                            <div id="codeUrl" style="width: 200px;height: 200px;background-color: white; left: 55%;;top: 301px;border-radius:3px;width: 200px;position: absolute; height: 200px;display: none">
-                                <img  style="width: 198px;height:198px;"src="/deepsearch/img/codeImg.jpg">
+                            <button style="margin-left:100px; color: red;font-size: 13px;">邀请码见微信朋友圈背景图，请扫码添加微信</button>
+                            <div id="codeUrl" style="background-color: white;left: 56%; top: 418px; border-radius: 3px; width: 134px;position: absolute; height: 200px;display: block;">
+                                <img  style="width: 146px;height:146px;"src="/codeimg/codeImg.jpg">
                             </div>
                         </div>
-
 
                         <div class="row btn-row" style="padding-top:10px;clear:both;">
                             <input id="btn-login"  class="btn-submit"  type="button"  style="margin-left:100px"  value="注册用户" ng-click="registered()" >
@@ -74,7 +73,7 @@
     </div>
     <div class="bk20"></div>
 </div>
-<div class="footer">
+<div class="footer" style="position:fixed;bottom:0;width:100%;background-color:#e5e5e5;height: 40px;line-height: 40px;padding: 0">
     <p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>
 </div>
 

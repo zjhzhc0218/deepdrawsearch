@@ -2,6 +2,7 @@
 <html ng-app="search">
 <head>
     <title>白马查--电商在线查询工具</title>
+    <link rel="shortcut icon" href="/deepsearch/img/baima.ico" type="image/x-icon"/>
     <!-- 设置文档编码 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
@@ -37,21 +38,22 @@
         background-color: #3277F8;
         border-color: #428bca;
     }
-
-
+    .search-info p {
+        margin-top: 10px;
+    }
 </style>
 <body ng-controller="searchController" style="">
 <header>
     <div class="header-content">
         <div class="header-top">
             <a class="logo" href="javascript:;">
-                <img src="deepsearch/img/logo.png"/>
+                <img style="margin-left: 100px" src="/deepsearch/img/logo.png"/>
                 <p>电商在线查询工具</p>
             </a>
 
             <ul class="nav pull-right" style="margin-right: 20px">
                 <li id="fat-menu" class="dropdown">
-                    <a style="color:white " href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                    <a style="color:white;margin-right: 100px " href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
                         <i style="color: white" class="icon-user"></i>
                         <span ng-if="username!=null" ng-bind="username.id"></span>
                         <span  ng-if="username==null" ng-click="signLogin()">登陆/注册</span>
@@ -131,14 +133,14 @@
             <div style="width: 100%" ng-if="bbPaiMing.msg == null " ng-show="bbPaiMing.vm.value!=0&&bbPaiMing.vm.value!=100">
                 <div ng-class="{progress: true, 'progress-striped': bbPaiMing.vm.striped}">
                     <div ng-class="['progress-bar', bbPaiMing.vm.style]" ng-style="{width: bbPaiMing.vm.value + '%'}">
-                        <div ng-if="bbPaiMing.vm.showLabel">{{bbPaiMing.vm.value}}%</div>
+                        <div ng-if="bbPaiMing.vm.showLabel" ng-bind="bbPaiMing.vm.value+'%'"></div>
                     </div>
                 </div>
             </div>
             <div class="noViolation " ng-if="bbPaiMing.msg != null" style="color: red;font-size: 30px" ng-bind="bbPaiMing.msg">
             </div>
             <div class="result-context" ng-if="bbPaiMing.examedContext != null" >
-                <table class="table table-hover" style="  display: block;width:100%;height: 95%;overflow-y: hidden;">
+                <table class="table table-hover" ng-show="bbPaiMing.examedContext != null" style="  display: block;width:100%;height: 95%;overflow-y: hidden;">
                     <thead>
                     <tr>
                         <td style="width: 60px;text-align: center"><label>图片链接</label></td>
@@ -150,8 +152,8 @@
                     <tr ng-repeat="data in bbPaiMing.examedContext " >
                         <td ng-repeat="(x,y) in data ">
                             <img ng-if="x == 'pic'" ng-src="{{y}}">
-                            <span style="font-size: 22px" ng-if="x == 'title'">{{y}}</span>
-                            <span style="font-size: 22px;color: green" ng-if="x == 'zoom'">{{y}}</span>
+                            <span style="font-size: 22px" ng-if="x == 'title'" ng-bind="y"></span>
+                            <span style="font-size: 22px;color: green" ng-if="x == 'zoom'"  ng-bind="y"></span>
                         </td>
                     </tr>
                     </tbody>
@@ -167,29 +169,10 @@
     </div>
 
     <div role="tabpanel" class="tab-pane" class="content" id="jiangquan">
-        <div class="search-view" style="margin-top: 30px;margin-right: 311px;">
-            <table>
-                <tr>
-                    <td><label>店铺旺旺ID：</label></td>
-                    <td>
-                        <input type="text"  class="form-control" style="width: 263px;border-radius:5px;height: 40px;"ng-model="jiangquan.searchWordsJq"  />
-                    </td>
-                </tr>
-                <tr style="">
-                    <td ><label style="margin-top: 14px;">选择类型：</label></td>
-                    <td>
-                            <label style="margin-top: 10px;" >异常<input type="radio"  style="width: 25px; height: 16px;" ng-value=0 ng-model="jiangquan.isNormal" name="normal"></label>
-                            <label >正常<input type="radio"  style="width: 25px; height: 16px;" ng-value=1 ng-model="jiangquan.isNormal" name="normal"></label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button style="margin-top: -41px;margin-left: 358px;position: absolute; line-height: 41px;" class="btn  search-btn" href="javascript:;" ng-click="searchJiangQuan()" ng-disabled="jiangquan.working">查询</button>
-                    </td>
-                </tr>
-            </table>
+        <div class="search-view" style="margin-top: 30px" style="margin-top: 30px" style="margin-top: 30px">
+            <input type="text"   ng-model="jiangquan.searchWordsJq"  placeholder="请输入店铺旺旺ID，然后点击 &quot;查询&quot; 按钮"/>
+            <button class="btn  search-btnN" href="javascript:;" ng-click="searchJiangQuan()" ng-disabled="jiangquan.working">查询</button>
         </div>
-
         <div class="search-desc" style="margin-top: -28px;">
             <p class="title"> 店铺宝贝隐形降权查询</p>
             <#--<p> 1.隐形降权是淘宝作弊检测体系自动检测发现宝贝有问题，但是没有明确的证据或者还不是很严重的情况，就是犯罪嫌疑人，对这些宝贝商至店铺采取降权处理。</p>
@@ -229,25 +212,27 @@
             <div class="noViolation " ng-show="jiangquan.msg != null" style="color: red;font-size: 30px">
                 {{jiangquan.msg}}
             </div>
-            <div class="result-context" ng-show="jiangquan.examedContext != null" >
-                <table class="table table-hover" style="  display: block;width:100%;height: 95%;">
+            <div class="result-context" ng-show="jiangquan.examedContext != null&&jiangquan.examedContext.length>0" >
+                <table class="table table-hover" style="  display: block;width:100%;margin-bottom: 0px;">
                     <thead>
                     <tr style="width:100%">
-                        <td style="width: 30px;text-align: center"><label>评价数量</label></td>
-                        <td style="width: 40px;text-align: center"><label>内容</label></td>
-                        <td style="width: 80px;text-align: center"><label>权重差值</label></td>
-                        <td style="width: 50px;text-align: center"><label>图片</label></td>
+                        <td style="width: 30px;text-align: center"><label>图片</label></td>
+                        <td style="width: 120px;text-align: center"><label>标题</label></td>
+                        <td style="width: 90px;text-align: center"><label>销量</label></td>
+                        <td style="width: 90px;text-align: center"><label>价格</label></td>
                     <#--<td style="width: 50px;text-align: center"><label>价格</label></td>-->
-                        <td style="width: 200px;text-align: center"><label>评估结果</label></td>
-                        <td style="width: 60px;text-align: center"><label>淘宝链接</label></td>
+                        <td style="width: 90px;text-align: center"><label>库存</label></td>
+                        <td style="width: 90px;text-align: center"><label>权重值</label></td>
+                        <td style="width: 120px;text-align: center"><label>说明</label></td>
+
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="data in jiangquan.examedContext" >
-                        <td ng-repeat="(x,y) in data ">
-                            <img ng-if="x == 'pic'" ng-src="{{y}}">
-                            <span style="font-size: 22px" ng-if="x != 'pic'&& x != 'tbao'">{{y}}</span>
-                            <a ng-if="x == 'tbao'"  href="{{y}}"  target="_blank" style="text-decoration:none">{{y}}</a>
+                    <tr ng-repeat="data in jiangquan.examedContext " >
+                        <td ng-repeat="node in data | orderBy:'id'"  style="text-align: center">
+                            <a href="{{node.href}}" target="_blank" style="text-decoration:none" ><img style="width: 100px;height: 100px;margin-top: 10px" ng-if="node.name=='img'" ng-src="{{node.value}}"></a>
+                            <span style="font-size: 18px;line-height: 120px" ng-if="node.name!='img'&&node.name!='title'">{{node.value}}</span>
+                            <a ng-if="node.name ==  'title'"  href="{{node.href}}"  target="_blank" style="text-decoration:none;line-height: 120px">{{node.value}}</a>
                         </td>
                     </tr>
                     </tbody>
@@ -264,14 +249,14 @@
             <button class="btn  search-btnN" href="javascript:;" ng-click="searchXinyu()" ng-disabled="xinYu.working">查询</button>
         </div>
 
-        <div class="search-desc" style="margin-top: -28px;">
+        <div class="search-desc" style="margin-top: -28px;margin-left: 280px">
             <p class="title">买家信用查询</p>
             <p>1、<font>注册时间小于30天的</font>，被认定为小号/新号，有可能是骗子，应当谨慎交易。</p>
             <p>2、<font>买家中差评数量以及中差评信息超过一定的比例</font>，则有可能是职业中差评师。</p>
             <p>3、经常刷的小号，<font>当周购物单量超过一定量（6-10单）</font>，则有可能是黑号。</p>
         </div>
 
-        <div class="search-info" id="xyrs" >
+        <div class="search-info" id="xyrs" style="width: 75%;margin-left: 200px">
             <div style="width: 90%" ng-if="xinYu.msg == null " ng-show="xinYu.vm.value!=0&&xinYu.vm.value!=100">
                 <div ng-class="{progress: true, 'progress-striped': xinYu.vm.striped}">
                     <div ng-class="['progress-bar', xinYu.vm.style]" ng-style="{width: xinYu.vm.value + '%'}">
@@ -282,19 +267,94 @@
             <div class="noViolation " ng-show="xinYu.hasNoViolation == true" style="color: red;font-size: 30px">
                 该号不存在，请检测是否输入有误!
             </div>
-            <a href="javascript:;"  ng-show="xinYu.examedContext != null"  class="info-item"  ng-repeat="d in xinYu.examedContext" >
+        <#-- <a href="javascript:;"  ng-show="xinYu.examedContext != null"  class="info-item"  ng-repeat="d in xinYu.examedContext" >
+             <div class="item-left" ng-if="d.id!=2&&d.id!=3">
+                 <span>{{d.name}}</span>
+                 <p> <label ng-if="d.id!=null&&d.id!=15" ng-bind="d.value" style="margin-bottom: -4px;" >
+                 </label>
+                     <img ng-if="d.id!=null&&d.id==1" href="{{d.addr}}" ng-src="{{d.pic}}" />
+                     <img  ng-if="d.id!=null&&d.id==15" ng-src="{{d.value}}"/>
+                 </p>
+             </div>
+            </a>-->
+           <div href="javascript:;" ng-show="xinYu.examedContext != null" class="info-item active">
+
+               <div class="item-left" style="background-color: #f4f7e4;top: 7px;">
+                   淘宝买家：
+                   <div  style="width:auto;color: #FE7738;position: relative">
+                       <a ng-href="{{xinYu.examedContext[0].addr}}" target="_blank" style="font-size: 16px;color: red;float: left">
+                           {{xinYu.examedContext[0].value}}&nbsp;&nbsp;
+                       </a>
+                       <a ng-href="{{xinYu.examedContext[0].addr}}" target="_blank" style="font-size: 16px;color: red;float: left">
+                           <img ng-src="{{xinYu.examedContext[0].pic}}" >
+                       </a>
+                       <b style="float: left;margin-top: 3px">&nbsp;&nbsp;{{xinYu.examedContext[1].value}}</b>
+                   </div>
+               </div>
+
+               <div class="item-right" style="background-color: #f4f7e4">
+                   实名认证：
+                   <p style="color: red">{{xinYu.examedContext[2].value}}</p>
+               </div>
+           </div>
+
+            <div href="javascript:;" ng-show="xinYu.examedContext != null" class="info-item">
                 <div class="item-left">
-                    <span>{{d.name}}</span>
-                    <p> <label ng-bind="d.value" style="margin-bottom: -4px;" >
-                    </label>
-                        <img  ng-if="d.id!=null&&d.id==8" ng-src="{{d.img}}">
-                    </p>
+                    注册时间：
+                    <p style="color: green">{{xinYu.examedContext[3].value}}</p>
                 </div>
-               <#-- <div class="item-right">
-                    <span>中评个数 ：</span>
-                    <p>0</p>
-                </div>-->
-            </a>
+                <div class="item-right">
+                    最后登录：
+                    <p style="color: green">{{xinYu.examedContext[4].value}}</p>
+                </div>
+            </div>
+
+            <div href="javascript:;" ng-show="xinYu.examedContext != null" class="info-item">
+                <div class="item-left">
+                    店铺信息：
+                    <p>{{xinYu.examedContext[5].value}}</p>
+                </div>
+                <div class="item-right">
+                    所在地区：
+                    <p style="color: green">{{xinYu.examedContext[6].value}}</p>
+                </div>
+            </div>
+
+            <div href="javascript:;" ng-show="xinYu.examedContext != null" class="info-item">
+                <div class="item-left">
+                    买家信用：<b style="color: green">{{xinYu.examedContext[7].value}}</b>&nbsp;
+                    每周平均：<b style="color: green">&nbsp;{{xinYu.examedContext[8].value}}</b>&nbsp;
+                    <img id="dd" ng-src="{{xinYu.examedContext[9].value}}">
+                    &nbsp;<b style="color: red">{{xinYu.examedContext[10].value}}</b>
+                </div>
+                <div class="item-right">
+                    卖家信用：<b style="color: green">{{xinYu.examedContext[11].value}}</b>
+                    &nbsp;<img ng-src="{{xinYu.examedContext[12].value}}">
+                    <b style="color: red">&nbsp;{{xinYu.examedContext[13].value}}</b>
+                </div>
+            </div>
+
+            <div href="javascript:;" ng-show="xinYu.examedContext != null" class="info-item">
+                <div class="item-left">
+                    男号女号：<b style="color: green">{{xinYu.examedContext[14].value}}</b>
+                    &nbsp;&nbsp;账号热度：<b style="color: #FE7738">{{xinYu.examedContext[15].value}}</b>
+                </div>
+                <div class="item-right">
+                    活  跃  度：<p style="color: green">{{xinYu.examedContext[16].value}}</p>
+                </div>
+            </div>
+
+            <div href="javascript:;" ng-show="xinYu.examedContext != null" class="info-item">
+                <div class="item-left">
+                    &nbsp;查询  ip:
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;{{xinYu.examedContext[17].value}}</p>
+                </div>
+                <div class="item-right">
+                    查询时间：
+                    <p>&nbsp;&nbsp;{{xinYu.examedContext[18].value}}</p>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -416,9 +476,9 @@
     </div>
 </div>
 
-<footer style="">
+<div  class="footer" style="position: fixed;bottom: 0;width: 100%">
     <p>杭州兴淘网络科技有限公司  浙ICP备18047066号 &nbsp; <a style="text-decoration:none;color: gray;cursor:pointer;font-size: 13px;" ng-click="showWeModal('weModal')">关于我们</a>&nbsp; <a style="text-decoration:none;color: gray;cursor:pointer;font-size: 13px;" ng-click="showWeModal('tellweModal')">联系我们</a></p>
-</footer>
+</div>
 
 
 </body>
@@ -432,9 +492,7 @@
 
 <script type="text/javascript">
     user = '${user!}';
-    $('.info-item').click(function(){
-        $(this).addClass('active').siblings().removeClass('active');
-    })
+
     var activeIndex = location.search.slice(1).split('=')[1]
     $('.one').eq(activeIndex).addClass('active')
     $('.one').on('click', function () {

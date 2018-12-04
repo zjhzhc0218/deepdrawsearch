@@ -46,7 +46,7 @@ public class SearchControllers {
     @GetMapping(value="/getSearchXinyu")
     public String  getSearchXinyu(HttpServletRequest request){
         String word =  request.getParameter("searchWords");
-        String[]  args = new String[] { "python", pythonPath+"/credit_query.py", word};
+        String[]  args = new String[] { "python", pythonPath+"/credit_taodaxiang.py", word};
         String result = JavaToPython.getPython(args);
         if (result == null)
             throw new GlobalException(CodeMsg.SERVER_ERROR);
@@ -64,8 +64,7 @@ public class SearchControllers {
     @GetMapping(value="/getSearchJiangQuan")
     public String  getSearchJiangQuan(HttpServletRequest request){
         String word =  request.getParameter("searchWords");
-        String isNormal = request.getParameter("isNormal");
-        String[]  args = new String[] { "python", pythonPath+"/down_right.py", word,isNormal};
+        String[]  args = new String[] { "python", pythonPath+"/down_right_kdb.py", word};
         String result = JavaToPython.getPython(args);
         if (result == null)
             throw new GlobalException(CodeMsg.SERVER_ERROR);

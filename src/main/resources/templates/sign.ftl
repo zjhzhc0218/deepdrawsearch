@@ -70,7 +70,7 @@
     </div>
     <div class="bk20"></div>
 </div>
-<div class="footer">
+<div class="footer" style="position:fixed;bottom:0;width:100%;background-color:#e5e5e5;height: 40px;line-height: 40px;padding: 0">
     <p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>
 </div>
 </body>

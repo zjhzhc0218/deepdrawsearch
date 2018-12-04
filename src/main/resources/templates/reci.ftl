@@ -10,10 +10,60 @@
         <tbody>
 
         <tr>
+            <td>2018-11-28 </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1MWZXesB1IqIR2iUvWYyu9A')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1GtcYtFlguJxXkmKP2AdcHw')" target="_blank" href="javascript:void(0)">无线端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1wzlwKFlX9UpaB3maXLcX-Q')" target="_blank" href="javascript:void(0)" >潜力词表PC</a>| <a ng-click="reciRecord('https://pan.baidu.com/s/1LmNVfOSqQsHzi67pHFxfpQ')" target="_blank" href="javascript:void(0)">潜力词表无线端</a></td>
+        </tr>
+
+        <tr>
+            <td>2018-11-20 </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1G9lOPGb07h0TtR6i-lFgKg')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/17C0hMRpu98LGFj1-20DijA')" target="_blank" href="javascript:void(0)">无线端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1lTELtnk1w0u6E3DcwiXXXg')" target="_blank" href="javascript:void(0)" >潜力词表PC</a>| <a ng-click="reciRecord('https://pan.baidu.com/s/1tZF203QlYP1uyffYlw4lSw')" target="_blank" href="javascript:void(0)">潜力词表无线端</a></td>
+        </tr>
+
+        <tr>
+            <td>2018-11-14 </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1aR2Wi4SBnnm3dt2urvbayw')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1vYXVMMb0TuEkl4eq1wrTFg')" target="_blank" href="javascript:void(0)">无线端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/12cyWBjUFqGtiPhX8wyxJsg')" target="_blank" href="javascript:void(0)" >潜力词表PC</a>| <a ng-click="reciRecord('https://pan.baidu.com/s/1OSI8hOWqLKz809jQ4G4rFQ')" target="_blank" href="javascript:void(0)">潜力词表无线端</a></td>
+        </tr>
+
+        <tr>
+            <td>2018-11-07 </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1FGCHg-n6sizPBEG5UloQIw')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1OCVwGOXGe4qDlQrGi2GTeg')" target="_blank" href="javascript:void(0)">无线端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1wH_zGnNG1BwNx08Ch200sQ')" target="_blank" href="javascript:void(0)" >潜力词表PC</a>| <a ng-click="reciRecord('https://pan.baidu.com/s/1VCSPX_sdmUsrpoviMGTHlQ')" target="_blank" href="javascript:void(0)">潜力词表无线端</a></td>
+        </tr>
+
+        <tr>
+            <td>2018-10-31 </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1BJfAdrlIBYnR1GM_66NQdw')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1bAlPQIzMZOsT9phz7Hz6Eg')" target="_blank" href="javascript:void(0)">无线端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1VVPzq0RdRVhT5KaN589vVw')" target="_blank" href="javascript:void(0)" >潜力词表PC</a>| <a ng-click="reciRecord('https://pan.baidu.com/s/1H_3VneWN_whcfmdHXNCp7Q')" target="_blank" href="javascript:void(0)">潜力词表无线端</a></td>
+        </tr>
+
+        <tr>
+            <td>2018-10-24 </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1gzi4fHDXAEc6LWcc5cDm4Q')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1kvcOStMkHPUC8P6XgDQtiA')" target="_blank" href="javascript:void(0)">无线端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1N-BuGa9h3JQdYle8RTpyzQ')" target="_blank" href="javascript:void(0)" >潜力词表PC</a>| <a ng-click="reciRecord('https://pan.baidu.com/s/19VcdAF4NzQI70pnBN4-ACQ')" target="_blank" href="javascript:void(0)">潜力词表无线端</a></td>
+        </tr>
+
+        <tr>
+            <td>2018-10-16 </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1VlOPh7POYnXeO7vZf8wZnw')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1lbZ3jjy0ptnEiQ8nDbxe-w')" target="_blank" href="javascript:void(0)">无线端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1WDnLzdA9RhYoU3zR0EDyZQ')" target="_blank" href="javascript:void(0)" >潜力词表PC</a>| <a ng-click="reciRecord('https://pan.baidu.com/s/1JC00r1FIe-_CkOKnkEQeuQ')" target="_blank" href="javascript:void(0)">潜力词表无线端</a></td>
+        </tr>
+
+        <tr>
             <td>2018-10-09 </td>
             <td><a ng-click="reciRecord('https://pan.baidu.com/s/1ZPBSF8nej7WSt_zaMvgG9A')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
             <td><a ng-click="reciRecord('https://pan.baidu.com/s/1cyMkriiuHz3Ge0FXCuxiOw')" target="_blank" href="javascript:void(0)">无线端TOP 20W</a> </td>
-            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1MoyeLVEIK4WtECyupQz5JA')" target="_blank" href="javascript:void(0)" >潜力词表PC</a>| <a ng-click="reciRecord('https://pan.baidu.com/s/1vfcNy140J9jupvBwjiH5xA')" target="_blank" href="javascript:void(0)">潜力词表无线端</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1MoyeLVEIK4WtECyupQz5JA')" target="_blank" href="javascript:void(0)" >潜力词表PC</a>| <a ng-click="reciRecord('https://pan.baidu.com/s/1vfcNy140J9jupvBwjiH5xA')" target="_blank" href="javascript:void(0)">潜力词表无线端</a></td>
+        </tr>
 
         <tr>
             <td>2018-09-26 </td>
@@ -887,148 +937,148 @@
             <td>-</td>
         </tr>
         <#--<tr>-->
-            <#--<td>2015-12-30 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1xBkWCl0TD4S40OkRtL9mYA">PC端TOP 20W</a> </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1b5tTdku1mwLj06E7HNisXw	">无线端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-12-30 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1xBkWCl0TD4S40OkRtL9mYA">PC端TOP 20W</a> </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1b5tTdku1mwLj06E7HNisXw	">无线端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-12-23 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1U8vJDCycFyvcfTuS718bUw">PC端TOP 20W</a> </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1utm2V1pR3x6XOi00tIjD_A	">无线端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-12-23 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1U8vJDCycFyvcfTuS718bUw">PC端TOP 20W</a> </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1utm2V1pR3x6XOi00tIjD_A	">无线端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-12-16 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/12S6FH-zizIkjiTq6MhnHQg">PC端TOP 20W</a> </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1ALxRRDe5AIjP4f6WWBqAww	">无线端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-12-16 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/12S6FH-zizIkjiTq6MhnHQg">PC端TOP 20W</a> </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1ALxRRDe5AIjP4f6WWBqAww	">无线端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-12-09 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1NhRwQmJoMd0UmWunnJVcIg">PC端TOP 20W</a> </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1ZEM7MNiWkkYfDzGVoMmpqw	">无线端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-12-09 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1NhRwQmJoMd0UmWunnJVcIg">PC端TOP 20W</a> </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1ZEM7MNiWkkYfDzGVoMmpqw	">无线端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-11-25 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/19c6wJq8mbBtiIlM_OcCTTQ">PC端TOP 20W</a> </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1wJFrcfAt8NpX5FfmugBicA	">无线端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-11-25 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/19c6wJq8mbBtiIlM_OcCTTQ">PC端TOP 20W</a> </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1wJFrcfAt8NpX5FfmugBicA	">无线端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-10-28 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1KiGWl1DEobwfcRc4JyKn3g">PC端TOP 20W</a> </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1OIIwydu0sI5OGpY0MwMvvQ	">无线端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-10-28 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1KiGWl1DEobwfcRc4JyKn3g">PC端TOP 20W</a> </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1OIIwydu0sI5OGpY0MwMvvQ	">无线端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-10-21 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/122-cXc78UEdGocjiEbxBzA">PC端TOP 20W</a> </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1B66RJxFya3UtOODXCOHWFw	">无线端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-10-21 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/122-cXc78UEdGocjiEbxBzA">PC端TOP 20W</a> </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1B66RJxFya3UtOODXCOHWFw	">无线端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-09-02 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1TVPDN1uDBTWElcTriPp7uA">PC端TOP 20W</a> </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1uWXaaDKAr3i4icV3qz6Pag	">无线端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-09-02 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1TVPDN1uDBTWElcTriPp7uA">PC端TOP 20W</a> </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1uWXaaDKAr3i4icV3qz6Pag	">无线端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-08-26 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/11uiGeJIYVYXLRK0EC3hrxg">PC端TOP 20W</a> </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1bia0E3yF1xdkY-tv1NLKwQ	">无线端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-08-26 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/11uiGeJIYVYXLRK0EC3hrxg">PC端TOP 20W</a> </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1bia0E3yF1xdkY-tv1NLKwQ	">无线端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-08-19 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1rli5uIhYMBMhxGYDi2jc4g">PC端TOP 20W</a> </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/15uPnviSOTgAEI52QUoJb7w">无线端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-08-19 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1rli5uIhYMBMhxGYDi2jc4g">PC端TOP 20W</a> </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/15uPnviSOTgAEI52QUoJb7w">无线端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-08-12 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/15-aQDmgpzIXRZG-aeJCzvg">PC端TOP 20W</a> </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1w-TthcxD4xtEF8qR-kRjgA	">无线端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-08-12 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/15-aQDmgpzIXRZG-aeJCzvg">PC端TOP 20W</a> </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1w-TthcxD4xtEF8qR-kRjgA	">无线端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-08-05 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1ziGcqhMqufdXQ2NY4SVVMQ">PC端TOP 20W</a> </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1E65L0NBlw484BxiMspJnGw	">无线端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-08-05 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1ziGcqhMqufdXQ2NY4SVVMQ">PC端TOP 20W</a> </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1E65L0NBlw484BxiMspJnGw	">无线端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-07-01 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1turEErdrrn8mq8WSPWD0aA">PC端TOP 20W</a> </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1JYNsrxwiStD3qyiMzicJZQ	">无线端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-07-01 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1turEErdrrn8mq8WSPWD0aA">PC端TOP 20W</a> </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1JYNsrxwiStD3qyiMzicJZQ	">无线端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-06-11 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1lRH5ujC7A0sUFqPJ8LZLQA	">PC端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-06-11 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1lRH5ujC7A0sUFqPJ8LZLQA	">PC端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-05-27 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1B-Gilr_t2LJjVlSRRzlf-w	">PC端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-05-27 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1B-Gilr_t2LJjVlSRRzlf-w	">PC端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-05-13 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1QA6ZUFXfBL8XkGCWzeUIUw	">PC端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-05-13 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1QA6ZUFXfBL8XkGCWzeUIUw	">PC端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-04-22 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1ovKlN0m6euTN3983QpWBIg	">PC端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-04-22 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1ovKlN0m6euTN3983QpWBIg	">PC端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-04-15 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1if18bUOolFPa39CUG2QyQg	">PC端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-04-15 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1if18bUOolFPa39CUG2QyQg	">PC端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-04-09 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1Cfkwyy2zrL8ZGPYU213jZA	">PC端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-04-09 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1Cfkwyy2zrL8ZGPYU213jZA	">PC端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-04-02 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1dJIGjkuLThGfcJMtWKRMyw	">PC端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-04-02 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1dJIGjkuLThGfcJMtWKRMyw	">PC端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-03-24 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1COWxyiNsrKAIyGmFKkyRTQ	">PC端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-03-24 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1COWxyiNsrKAIyGmFKkyRTQ	">PC端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-03-12 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/15tIi_fCBRmxfxQZSlw4v2w	">PC端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-03-12 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/15tIi_fCBRmxfxQZSlw4v2w	">PC端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-03-02 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1NLHKzJvja1Y0yIDHrBGsOg	">PC端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-03-02 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1NLHKzJvja1Y0yIDHrBGsOg	">PC端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
         <#--<tr>-->
-            <#--<td>2015-02-11 </td>-->
-            <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1edvba1sUdpus53NGupy_Rw	">PC端TOP 20W</a> </td>-->
-            <#--<td>-</td>-->
-            <#--<td>-</td>-->
+        <#--<td>2015-02-11 </td>-->
+        <#--<td><a ng-click="reciRecord()" target="_blank" href="https://pan.baidu.com/s/1edvba1sUdpus53NGupy_Rw	">PC端TOP 20W</a> </td>-->
+        <#--<td>-</td>-->
+        <#--<td>-</td>-->
         <#--</tr>-->
 
 

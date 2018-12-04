@@ -3,9 +3,11 @@
 <head>
     <title>首页</title>
     <!-- 设置文档编码 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=width,user-scalable=no">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="viewport" content="user-scalable=yes">
     <link rel="stylesheet" href="/deepsearch/css/loading/jquery.mloading.css">
     <#--分页样式-->
 
@@ -112,7 +114,9 @@
                     <div ng-show="type==99" class="col-md-12 column form-inline " style="font-size: 20px">
                         <label class="font-7">结束时间：</label>
                         <input type="text" class="Wdate form-control" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="time.endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  onchange=""  "/>
-                    </div></br>
+                    </div>
+                    <button  ng-click="export()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;height: 36px;">导出</button>
+                    </br>
                     <#--<button  ng-click="select()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;">查询</button>-->
 
                     <div class="panel">
@@ -333,9 +337,9 @@
 </div>
 <!--尾部-结束-->
 
-    <footer style="">
+    <div class="footer" style="position:fixed;bottom:0;width:100%;background-color:#e5e5e5;height: 40px;line-height: 40px;">
         <p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>
-    </footer>
+    </div>
 
 </body>
 

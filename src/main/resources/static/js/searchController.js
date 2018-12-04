@@ -133,6 +133,7 @@ var app=angular.module('search',[])
              if (xyvm.value == 100) {
                  $scope.xinYu.msg = "查询超时！请重新查询";
                  $scope.xinYu.working = false;
+                 $scope.xinYu.hasNoViolation == true;
                  $scope.$apply();
                  clearInterval(interval);
              }
@@ -159,20 +160,32 @@ var app=angular.module('search',[])
                 var result = info.data.data;
                 var rec = angular.fromJson(result.replace(/'/g, '"'));
                 var list = [];
+                var userNode = {
+                }
                 for (var d in rec) {
-                    var c = rec[d].split('-');
+                    var c = rec[d].split('~');
                     var node ={
                         'name' :d,
                         'id' :parseInt(c[0]),
                         'value' :c[1],
                     };
-                    if(node.id == 8) {
-                        var r = node.value.split(':');
-                        node.value = r[0];
-                        node.img = r[1];
+                    if (node.id ==1) {
+                        userNode.value = c[1];
                     }
-                    list.push(node);
+                    if (node.id ==2) {
+                        userNode.addr = c[1];
+                    }
+                    if (node.id ==3) {
+                        userNode.pic = c[1];
+                    }
+
+                    if(node.id!=3&&node.id!=2&&node.id!=1) {
+                        list.push(node);
+                    }
                 }
+                userNode.id = 1;
+                userNode.name = '淘宝买家';
+                list.push(userNode);
                 var dList = $filter('orderBy')( list ,'id');
                 $scope.xinYu.examedContext = dList;
             }
@@ -232,7 +245,7 @@ var app=angular.module('search',[])
                 $scope.$apply();
                 clearInterval(interval);
             }
-        }, 400);
+        }, 450);
 
         $scope.jiangquan.msg = null;
         $scope.jiangquan.examedContext = null;
@@ -250,10 +263,46 @@ var app=angular.module('search',[])
         ).then(function successCallback(info) {
             if (info.data.code == 1) {
                 // alert(info.data.msg);
-                $scope.jiangquan.msg = info.data.msg;
+                if($scope.jiangquan.isNormal==1){
+                    $scope.jiangquan.msg = "很抱歉！检测到您店铺宝贝有被降权。请选择上方异常按钮点击查询。";
+                }else{
+                    $scope.jiangquan.msg = "恭喜您! 暂未检测到您店铺宝贝有被降权。您也可选择上方检测类型“正常”进行查看。";
+                }
             }else if(info.data.code == 0){
                 var result = info.data.data;
-                $scope.jiangquan.examedContext = angular.fromJson(result.replace(/'/g, '"'));
+                var rec = angular.fromJson(result.replace(/'/g, '"'));
+                $scope.jiangquan.examedContext = [];
+                for (var d in rec) {
+                    if(rec[d] == undefined) {
+                        return;
+                    }
+                    var li = [];
+                    var href_jq = null;
+                    for (var n in rec[d]) {
+                        var c = rec[d][n].split('~');
+                        if(n=='a_href'){
+                            href_jq = c[1];
+                            break;
+                        }
+                    }
+                    for (var n in rec[d]) {
+                        if(rec[d][n] == undefined) {
+                            return;
+                        }
+                        var c = rec[d][n].split('~');
+                        var node ={
+                            'id' :parseInt(c[0]),
+                            'name' :n,
+                            'href' : href_jq,
+                            'value' :c[1]
+                        };
+                        if(n!='a_href'){
+                            li.push(node);
+                        }
+                    }
+                    $scope.jiangquan.examedContext.push(li);
+                }
+
             }
             // $("#jqrs").mLoading("hide");
             jqvm.value = 100;
@@ -304,11 +353,18 @@ var app=angular.module('search',[])
             return;
         }
         var str = angular.copy($scope.bbPaiMing.tbaoId);
-        str = str.match(/id=(\d*)&/);
+        str = str.match(/id=(\d*)/);
         if (str) {
             $scope.bbPaiMing.tbaoId = str[1];
         }
-
+        var reg = /^[0-9]+.?[0-9]*$/;
+        if (!reg.test($scope.bbPaiMing.tbaoId)) {
+            spop({template: '<strong>宝贝ID或者宝贝链接输入不符合规则!</strong>',
+                autoclose: 3000,
+                style:'error'
+            });
+            return;
+        }
         /* $("#pmrs").mLoading({
              text:"查询中"
          });*/
@@ -317,12 +373,12 @@ var app=angular.module('search',[])
             vm.value++;
             $scope.$apply();
             if (vm.value == 100) {
-                $scope.bbPaiMing.msg = "查询超时！请重新查询";
+                $scope.bbPaiMing.msg = "亲，您的宝贝在前100页没有展现，继续加油哦！";
                 $scope.bbPaiMing.working = false;
                 $scope.$apply();
                 clearInterval(interval);
             }
-        }, 500);
+        }, 600);
         $scope.bbPaiMing.msg = null;
         $scope.bbPaiMing.examedContext = null;
         $scope.bbPaiMing.working = true;
@@ -347,7 +403,7 @@ var app=angular.module('search',[])
             ).then(function successCallback(info) {
                 if (info.data.code == 1) {
                     // alert(info.data.msg);
-                    $scope.bbPaiMing.msg = info.data.msg;
+                    $scope.bbPaiMing.msg = "亲，您的宝贝在前100页没有展现，继续加油哦！";//info.data.msg;
                 } else if (info.data.code == 0) {
                     var result = info.data.data;
                     $scope.bbPaiMing.examedContext = angular.fromJson(result.replace(/'/g, '"'));

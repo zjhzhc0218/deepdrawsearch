@@ -1,5 +1,5 @@
 var app=angular.module('app',['ui.bootstrap']);
-app.controller('adminController',['$scope','$http','$sce','$document', function ($scope,$http,$sce,$document) {
+app.controller('adminController',['$scope','$http','$sce','$document','$filter', function ($scope,$http,$sce,$document,$filter) {
 
         $scope.moduleType = 1;
         $scope.djl = false;
@@ -11,7 +11,8 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
         $scope.reci = null;
         $scope.jiangquan = null;
 
-        /*键盘按回车事件*/
+        $scope.datasTotal = [];
+       /* /!*键盘按回车事件*!/
         $document.bind("keypress", function(event) {
             if(event.keyCode == 13) {
                 if ($scope.moduleType == 1) {
@@ -20,7 +21,7 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
                     $scope.selectFT();
                 }
             }
-        });
+        });*/
 
         /*表单内容显示*/
         $scope.go = 1 ;
@@ -129,6 +130,7 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
                 });
                 return;
             }
+            $scope.datasTotal = [];
             $http({
                 method: 'GET',
                 url: '/deepsearch/login/getUsers',
@@ -150,6 +152,7 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
                 $scope.total = data.data.User.length;
                 //反转函数转化abcd转dcba
                 $scope.data = data.data.User.reverse();
+                $scope.datasTotal =angular.copy($scope.data);
                 //选择显示的条数
                 $scope.values = [{"limit": 8}, {"limit": 16}, {"limit": 32}, {"limit": 50}, {"limit": 100}, {"limit": 200}];
                 //默认显示的条数
@@ -268,6 +271,52 @@ app.controller('adminController',['$scope','$http','$sce','$document', function 
         $scope.check = function () {
         console.log($scope.time);
     }
+
+      $scope.export = function () {
+          if($scope.datasTotal.length == 0) {
+              spop({template: '<strong>暂无数据可导出</strong>',
+                  autoclose: 3000,
+                  style:'error'
+              });
+              return;
+          }
+          var str = `用户,注册时间,最后登录时间,登录次数,用户权限,是否禁用\n`;
+          for(var i = 0 ; i < $scope.datasTotal.length ; i++ ){
+              for(var item in $scope.datasTotal[i]){
+                  if(item == "ban") {
+                      str+=`${$scope.datasTotal[i][item]  == '1' ?'正常':'禁用' + '\t'},`;
+                  }
+                  if(item == "grade") {
+                      str+=`${$scope.datasTotal[i][item]  == '2' ?'普通':'管理员' + '\t'},`;
+                  }
+                  if(item == "lastLoginDate" || item == "registerDate" ) {
+                      str+=`${ $filter('date')($scope.datasTotal[i][item],'yyyy-MM-dd HH:mm:ss') + '\t'},`;
+                  }
+                  if(item == "id") {
+                      str+=`${$scope.datasTotal[i][item] + '\t'},`;
+                  }
+                  if(item == "loginCount") {
+                      str+=`${$scope.datasTotal[i][item] + '\t'},`;
+                  }
+                  // str+=`${$scope.datas[i][item] + '\t'},`;
+              }
+              str+='\n';
+          }
+          //encodeURIComponent解决中文乱码
+          var uri = 'data:text/csv;charset=utf-8,\ufeff' + encodeURIComponent(str);
+          //通过创建a标签实现
+          var link = document.createElement("a");
+          link.href = uri;
+          //对下载的文件命名
+          link.download =  "人员信息表.csv";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+
+      }
+
+
+
         }]
     );
 app.filter('to_trusted', ['$sce', function ($sce) {
