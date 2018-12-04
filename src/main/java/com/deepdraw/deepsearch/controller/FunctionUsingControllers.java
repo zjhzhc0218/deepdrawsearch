@@ -47,14 +47,16 @@ public class FunctionUsingControllers {
         Date timeStartN = null;
         Date timeEndN = null;
 
-        if(timeStart!=null &&timeEnd!=null ){
-            if(timeStart.length()!=0 && timeEnd.length()!=0) {
-                type = 1;
-                try {
-                    timeStartN = sdf.parse(timeStart);
-                    timeEndN = sdf.parse(timeEnd);
-                } catch (ParseException e) {
-                    e.printStackTrace();
+        if(type==1) {
+            if (timeStart != null && timeEnd != null) {
+                if (timeStart.length() != 0 && timeEnd.length() != 0) {
+                    type = 1;
+                    try {
+                        timeStartN = sdf.parse(timeStart);
+                        timeEndN = sdf.parse(timeEnd);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
