@@ -133,6 +133,7 @@
                             <thead>
                             <tr>
                                 <td>用户手机</td>
+                                <td>用户归属地</td>
                                 <td>注册时间</td>
                                 <td>最后登录时间</td>
                                 <td>登录次数</td>
@@ -144,6 +145,7 @@
                             <tbody>
                             <tr  ng-repeat="data in datas">
                                 <td>{{data.id}}</td>
+                                <td>{{data.nickname}}</td>
                                 <td>{{data.registerDate|date:'yyyy-MM-dd HH:mm:ss'}}</td>
                                 <td>{{data.lastLoginDate|date:'yyyy-MM-dd HH:mm:ss'}}</td>
                                 <td>{{data.loginCount}}</td>

@@ -280,7 +280,7 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
               });
               return;
           }
-          var str = `用户,注册时间,最后登录时间,登录次数,用户权限,是否禁用\n`;
+          var str = `用户,用户归属地，注册时间,最后登录时间,登录次数,用户权限,是否禁用\n`;
           for(var i = 0 ; i < $scope.datasTotal.length ; i++ ){
               for(var item in $scope.datasTotal[i]){
                   if(item == "ban") {
@@ -293,6 +293,9 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
                       str+=`${ $filter('date')($scope.datasTotal[i][item],'yyyy-MM-dd HH:mm:ss') + '\t'},`;
                   }
                   if(item == "id") {
+                      str+=`${$scope.datasTotal[i][item] + '\t'},`;
+                  }
+                  if(item == "nickname") {
                       str+=`${$scope.datasTotal[i][item] + '\t'},`;
                   }
                   if(item == "loginCount") {
