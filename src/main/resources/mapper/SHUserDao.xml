@@ -82,6 +82,12 @@
         WHERE id = #{id}
     </update>
 
+    <update id="gradeChange" parameterType="com.deepdraw.deepsearch.entity.SHUser">
+        UPDATE shenhui_user SET
+        grade = #{type}
+        WHERE id = #{id}
+    </update>
+
     <update id="resetpassword" >
         UPDATE shenhui_user SET
             password = #{password},

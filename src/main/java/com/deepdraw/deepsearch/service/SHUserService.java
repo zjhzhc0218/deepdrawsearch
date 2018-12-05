@@ -79,4 +79,12 @@ public interface SHUserService {
      * @return
      */
     String resetpassword( Long id, String password, String salt);
+
+    /**
+     * 一键提升用户权限，一键降低用户权限
+     * @param id 用户名
+     * @param type（1表示升权 2表示降权）
+     * @return
+     */
+    String updataGrade( Long id,Integer type);
 }

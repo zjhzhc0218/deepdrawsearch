@@ -188,5 +188,17 @@ public class SHUserServiceImpl implements SHUserService {
         return message;
     }
 
+    @Override
+    public String updataGrade(Long id, Integer type) {
+        String message = "";
+        Integer y = shUserDao.gradeChange(id,type);
+        if(y!=0){
+            message = "用户等级权限修改成功";
+        }else{
+            throw new GlobalException(CodeMsg.USER_CHANGE_GRADE_ERROR);
+        }
+        return message;
+    }
+
 
 }

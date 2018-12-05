@@ -154,6 +154,8 @@
                                 <td>
                                     <button  ng-click="banJ(data.id)" class="btn btn-primary btn-blockN btn-large">禁登</button>
                                     <button  ng-click="banH(data.id)" class="btn btn-primary btn-blockN btn-large">复登</button>
+                                    <button  ng-click="gradeJ(data.id)" class="btn btn-primary btn-blockN btn-large">降权限</button>
+                                    <button  ng-click="gradeH(data.id)" class="btn btn-primary btn-blockN btn-large">升权限</button>
                                     <button  ng-click="resetpassword(data.id)" class="btn btn-primary btn-blockN btn-large">重置密码</button>
 
                                 </td>

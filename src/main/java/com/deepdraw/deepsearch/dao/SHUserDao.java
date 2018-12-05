@@ -70,5 +70,13 @@ public interface SHUserDao {
      */
     Integer resetpassword(@Param("id") Long id,@Param("password") String password,@Param("salt") String salt);
 
+    /**
+     * 修改用户等级权限  3为提升  2为降权
+     * @param id 用户id
+     * @param type（3表示上升 2表示降权）
+     * @return
+     */
+    Integer gradeChange(@Param("id") Long id,@Param("type") Integer type);
+
 
 }

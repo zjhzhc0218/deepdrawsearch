@@ -52,4 +52,15 @@ public class UserControllers {
     return JsonUtil.object2Json(ResultUtil.success(message));
 }
 
+    //    后台提升权限 （
+
+    @RequestMapping("/updateGrade")
+    @ResponseBody
+    public String updataGrade(HttpServletRequest request,Long id,Integer type ) throws IOException {
+        String message =  "";
+//        传入用户手机号，升权限还是降权限   type 3 就是升权限   type2 就是降权限
+        message = shUserService.updataGrade(id, type);
+        return JsonUtil.object2Json(ResultUtil.success(message));
+    }
+
 }

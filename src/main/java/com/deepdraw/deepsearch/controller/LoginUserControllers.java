@@ -71,7 +71,7 @@ public class LoginUserControllers {
     public String registered(HttpServletRequest request, Long id, String password,String mobileCode,String signCode,HttpSession session) throws IOException {
         /*测试后台进程的速度 返回值是对应的当前时间到某个时间的过去的毫秒*/
         Long timeStart =  System.currentTimeMillis();
-        
+
 //        if(signCode==null){
 //            String messge = "没有邀请码，请输入邀请码";
 //            return JsonUtil.object2Json(ResultUtil.error(1,messge));

@@ -94,6 +94,65 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
             })
         }
 
+
+        /*降某个id等级*/
+        $scope.gradeJ = function (id) {
+            $http({
+                method: 'GET',
+                url: '/deepsearch/User/updateGrade',
+                params: {
+                    'id': id,
+                    'type':2
+                }
+            }).success(function (data) {
+                spop({
+                    template: '<strong>' + data.data +
+                    '</strong>',
+                    autoclose: 3000,
+                    style: 'success'
+                });
+                $scope.id = id;
+                $scope.select();
+            }).error(function (data) {
+                spop({
+                    template: '<strong>' + data.data +
+                    '</strong>',
+                    autoclose: 3000,
+                    style: 'error'
+                });
+            })
+        }
+
+        /*升某个id权限*/
+        $scope.gradeH = function (id) {
+            $http({
+                method: 'GET',
+                url: '/deepsearch/User/updateGrade',
+                params: {
+                    'id': id,
+                    'type':3
+                }
+            }).success(function (data) {
+                spop({
+                    template: '<strong>' + data.data +
+                    '</strong>',
+                    autoclose: 3000,
+                    style: 'success'
+                });
+                $scope.id = id;
+                $scope.select();
+            }).error(function (data) {
+                spop({
+                    template: '<strong>' + data.data +
+                    '</strong>',
+                    autoclose: 3000,
+                    style: 'error'
+                });
+            })
+        }
+
+
+
         /*一键设置某个用户的密码为123456abc*/
         $scope.resetpassword = function (id) {
             $http({

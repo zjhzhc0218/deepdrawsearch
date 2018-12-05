@@ -84,4 +84,16 @@ public class FunctionUsingControllers {
     }
 
 
+    /** 获取当前使用用户模块信息
+     * * @return*/
+    @RequestMapping("/getFTForUser")
+    @ResponseBody
+    public Object getFTForUser(HttpServletRequest request, Long id) throws IOException {
+        Map<String,Object> maps = new HashMap<>();
+        List<FunctionUsing> functionUsings= functionUsingService.selectFTByTime(id,null,null,null,null);
+        Integer message = functionUsings.size();
+        maps.put("count",message);
+        return JsonUtil.object2Json(ResultUtil.success(maps));
+    }
+
 }
