@@ -91,7 +91,10 @@ public class FunctionUsingControllers {
     public Object getFTForUser(HttpServletRequest request, Long id) throws IOException {
         Map<String,Object> maps = new HashMap<>();
         List<FunctionUsing> functionUsings= functionUsingService.selectFTByTime(id,null,null,null,null);
-        Integer message = functionUsings.size();
+        Integer message = 0;
+        if(functionUsings.size()!=0){
+            message= functionUsings.size();
+        }
         maps.put("count",message);
         return JsonUtil.object2Json(ResultUtil.success(maps));
     }
