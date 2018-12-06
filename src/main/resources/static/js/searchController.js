@@ -31,6 +31,12 @@ var app=angular.module('search',[])
             $('#myModal').modal('show');
             return;
         }
+        //判断是否注册
+        var fCount = getFTForUser();
+        if($scope.username.grade == 2 && fCount> 10) {
+            $('#tixing').modal('show');
+            return;
+        }
         if( $scope.searchWordsWjc == null) {
             spop({template: '<strong>请输入查询字符!</strong>',
                 autoclose: 3000,
@@ -38,9 +44,10 @@ var app=angular.module('search',[])
             });
             return;
         }
-      /*  $("#wjcrs").mLoading({
-            text:"查询中"
-        });*/
+
+        /*  $("#wjcrs").mLoading({
+              text:"查询中"
+          });*/
         appvm.value = 0;
         $scope.app.examedContext = null;
         $scope.app.hasNoViolation = false;
@@ -116,6 +123,12 @@ var app=angular.module('search',[])
              $('#myModal').modal('show');
              return;
          }
+         //判断是否注册
+         var fCount = getFTForUser();
+         if($scope.username.grade == 2 && fCount> 10) {
+             $('#tixing').modal('show');
+             return;
+         }
          if( $scope.xinYu.searchWordsXy == null) {
              spop({template: '<strong>请输入查询字符!</strong>',
                  autoclose: 3000,
@@ -123,6 +136,7 @@ var app=angular.module('search',[])
              });
              return;
          }
+
         /* $("#xyrs").mLoading({
              text:"查询中"
          });*/
@@ -142,6 +156,7 @@ var app=angular.module('search',[])
          $scope.xinYu.examedContext = null;
          $scope.xinYu.hasNoViolation = false;
          $scope.xinYu.working = true;
+         $scope.xinYu.msg = null;
          $http({
              method:'get',
              url:'/deepsearch/getSearchXinyu', params:{"searchWords": $scope.xinYu.searchWordsXy},
@@ -155,6 +170,7 @@ var app=angular.module('search',[])
          ).then(function successCallback(info) {
             if (info.data.code == 1) {
                 // alert(info.data.msg);
+                $scope.xinYu.msg = info.data.msg;
                 $scope.xinYu.hasNoViolation = true;
             }else if(info.data.code == 0){
                 var result = info.data.data;
@@ -189,14 +205,12 @@ var app=angular.module('search',[])
                 var dList = $filter('orderBy')( list ,'id');
                 $scope.xinYu.examedContext = dList;
             }
-             // $("#xyrs").mLoading('hide');
              xyvm.value = 100;
              clearInterval(interval);
              $scope.xinYu.working = false;
          },function errorCallback(info) {
              // alert("失败了");
              $scope.xinYu.working = false;
-             // $("#xyrs").mLoading('hide');
              xyvm.value = 100;
              clearInterval(interval);
          })
@@ -223,6 +237,12 @@ var app=angular.module('search',[])
 
         if ($scope.username == null){
             $('#myModal').modal('show');
+            return;
+        }
+        //判断是否注册
+        var fCount = getFTForUser();
+        if($scope.username.grade == 2 && fCount> 10) {
+            $('#tixing').modal('show');
             return;
         }
         if( $scope.jiangquan.searchWordsJq == null) {
@@ -263,11 +283,11 @@ var app=angular.module('search',[])
         ).then(function successCallback(info) {
             if (info.data.code == 1) {
                 // alert(info.data.msg);
-                if($scope.jiangquan.isNormal==1){
-                    $scope.jiangquan.msg = "很抱歉！检测到您店铺宝贝有被降权。请选择上方异常按钮点击查询。";
-                }else{
-                    $scope.jiangquan.msg = "恭喜您! 暂未检测到您店铺宝贝有被降权。您也可选择上方检测类型“正常”进行查看。";
-                }
+                // if($scope.jiangquan.isNormal==1){
+                //     $scope.jiangquan.msg = "很抱歉！检测到您店铺宝贝有被降权。请选择上方异常按钮点击查询。";
+                // }else{
+                    $scope.jiangquan.msg = "查询该旺旺号不存在。";
+                // }
             }else if(info.data.code == 0){
                 var result = info.data.data;
                 var rec = angular.fromJson(result.replace(/'/g, '"'));
@@ -343,6 +363,12 @@ var app=angular.module('search',[])
         }*/
         if ($scope.username == null){
             $('#myModal').modal('show');
+            return;
+        }
+        //判断是否注册
+        var fCount = getFTForUser();
+        if($scope.username.grade == 2 && fCount> 10) {
+            $('#tixing').modal('show');
             return;
         }
         if ($scope.bbPaiMing.keyWords == null || $scope.bbPaiMing.tbaoId == null) {
@@ -424,7 +450,7 @@ var app=angular.module('search',[])
         }
 
     //查询
-    $scope.freeSearchPaim = function () {
+  /*  $scope.freeSearchPaim = function () {
 
         if ($scope.bbPaiMing.keyWords == null || $scope.bbPaiMing.tbaoId == null) {
             spop({template: '<strong>请输入查询字符!</strong>',
@@ -433,9 +459,9 @@ var app=angular.module('search',[])
             });
             return;
         }
-      /*  $("#pmrs").mLoading({
+      /!*  $("#pmrs").mLoading({
             text:"查询中"
-        });*/
+        });*!/
         vm.value = 0;
         var interval = setInterval(function(){
             vm.value++;
@@ -485,7 +511,7 @@ var app=angular.module('search',[])
             vm.value = 100;
             clearInterval(interval);
         })
-    }
+    }*/
      //########################宝贝排名查询###############################//
 
      //########################热词查询###############################//
@@ -498,7 +524,13 @@ var app=angular.module('search',[])
         if ($scope.username == null){
             $('#myModal').modal('show');
             return;
-        }else  {
+        }
+        //判断是否注册
+        var fCount = getFTForUser();
+        if($scope.username.grade == 2 && fCount> 10) {
+            $('#tixing').modal('show');
+            return;
+        } else  {
             window.open(url);
         }
         $http({
@@ -558,6 +590,30 @@ var app=angular.module('search',[])
     $scope.showWeModal = function (name) {
         $('#'+ name).modal('show');
     }
+
+            /**
+             * 获得次数
+             */
+    var getFTForUser = function () {
+             var count = null;
+                $.ajaxSettings.async = false;
+                $.ajax({
+                    url: '/deepsearch/functionUsing/getFTForUser', data: {"id": $scope.username.id},
+                    dataType: 'json',
+                    method: 'GET',
+                    success: function (data) {
+                        count =  data.data.count;
+                    }
+                })
+                return  count;
+           /*     $http({
+                    method: 'GET',
+                    // url:'/deepsearch/registered',
+                    url:'/deepsearch/functionUsing/getFTForUser', params:{"id":  $scope.username.id},
+                }).success(function (data) {
+                    return data.data.count;
+                });*/
+            }
 
     }]
 

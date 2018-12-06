@@ -77,9 +77,17 @@
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <#--<script type="text/javascript" src="/deepsearch/css/tao/base.js"></script>-->
 <#--<script type="text/javascript" src="/deepsearch/css/tao/login.js"></script>-->
-<script src="/deepsearch/js/angular/angular.js"></script>
+<script src="/deepsearch/js/angular/angular.min.js"></script>
 <script src="/deepsearch/js/spop/spop.js"></script>
 <script src="/deepsearch/js/angular/encrypt.js"></script>
 <script src="/deepsearch/js/signController.js"></script>
-
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?cd0084c107ed760839e9ae15fe18c8f9";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 </html>

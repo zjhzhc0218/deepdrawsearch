@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
     <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
+<link rel="stylesheet" href="/deepsearch/css/loading/jquery.mloading.css">
 </head>
 <style type="text/css">
     /*body {*/
@@ -51,35 +52,51 @@
                             <button ng-bind="timing" ng-click="changeVerify()"  style=" margin-left:100px; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); color: #000000;"  ng-disabled="selected >= 0">
                         </div>
 
-                        <div class="row fl-controls-left">
-                            <label for="email" class="fl-label">邀请码验证:</label>
-                            <input type="text" ng-model="signCode" name="u" class="required text"  placeholder="邀请码" required="required"/>
-                            <button style="margin-left:100px; color: red;font-size: 13px;">邀请码见微信朋友圈背景图，请扫码添加微信</button>
-                            <div id="codeUrl" style="background-color: white;left: 56%; top: 418px; border-radius: 3px; width: 134px;position: absolute; height: 200px;display: block;">
-                                <img  style="width: 146px;height:146px;"src="/codeimg/codeImg.jpg">
-                            </div>
-                        </div>
+                        <#--<div class="row btn-row" style="padding-top:10px;clear:both;">-->
+                            <#--<input id="btn-login"  class="btn-submit"  type="button"  style="margin-left:100px"  value="注册" ng-click="registered()" >-->
+                            <#--<span style="margin-left:20px;font-size:12px"> </span>-->
+                            <#--<input class="btn-submit" type="button" ng-click="openSign()"  value="登录界面" style="background:#f73">-->
+                        <#--</div>-->
 
                         <div class="row btn-row" style="padding-top:10px;clear:both;">
-                            <input id="btn-login"  class="btn-submit"  type="button"  style="margin-left:100px"  value="注册用户" ng-click="registered()" >
+                            <input id="btn-login"  class="btn-submit"  type="button"  style="margin-left:100px"  value="注册" ng-click="tixing()"  >
                             <span style="margin-left:20px;font-size:12px"> </span>
                             <input class="btn-submit" type="button" ng-click="openSign()"  value="登录界面" style="background:#f73">
                         </div>
-
-                    </>
                 </div>
             </div>
         </div>
     </div>
     <div class="bk20"></div>
 </div>
+<div class="modal fade" id="tixing" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
+        <div class="modal-dialog" role="document" style="width: 400px;height: 400px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="font-size: 45px">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel" style="color: red;font-size: 25px">温馨提醒：</h4>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    <label style="font-size: 20px ;text-align: center">新注册用户有10次体验使用次数</label></br>
+                    <label style="font-size: 20px ;text-align: center">添加微信，获取永久查询次数</label>
+                    <img src="/deepsearch/img/codeImg.jpg" style="width: 200px">
+                </div>
+                <div class="modal-footer">
+                <#--<button type="button" class="btn btn-primary" ng-click="signLogin()">确认</button>-->
+                    <input id="btn-login"  class="btn-submit"  type="button"  style="height: 36px;width: 71px"  value="我知道了" ng-click="registered()" >&nbsp;&nbsp;&nbsp;
+                    <#--<input id="btn-login"  class="btn-submit"  type="button"  style="height: 36px;width: 71px"  value="暂不添加" ng-click="registered()" >-->
+                </div>
+            </div>
+        </div>
+    </div>
 <div class="footer" style="position:fixed;bottom:0;width:100%;background-color:#e5e5e5;height: 40px;line-height: 40px;padding: 0">
     <p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>
 </div>
 
 </body>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="/deepsearch/js/angular/angular.js"></script>
+<script src="/deepsearch/js/angular/angular.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="/deepsearch/js/angular/jquery.qrcode.min.js"></script>
 <script src="/deepsearch/js/spop/spop.js"></script>
 <script src="/deepsearch/js/angular/encrypt.js"></script>

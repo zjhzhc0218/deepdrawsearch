@@ -90,7 +90,7 @@ public class FunctionUsingControllers {
     @ResponseBody
     public Object getFTForUser(HttpServletRequest request, Long id) throws IOException {
         Map<String,Object> maps = new HashMap<>();
-        List<FunctionUsing> functionUsings= functionUsingService.selectFTByTime(id,null,null,null,null);
+        List<FunctionUsing> functionUsings= functionUsingService.selectFTByTime(id,6,null,null,null);
         Integer message = 0;
         if(functionUsings.size()!=0){
             message= functionUsings.size();

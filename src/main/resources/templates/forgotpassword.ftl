@@ -68,7 +68,7 @@
 
 </body>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="/deepsearch/js/angular/angular.js"></script>
+<script src="/deepsearch/js/angular/angular.min.js"></script>
 <script src="/deepsearch/js/angular/encrypt.js"></script>
 <script src="/deepsearch/js/spop/spop.js"></script>
 <script src="/deepsearch/js/angular/encrypt.js"></script>

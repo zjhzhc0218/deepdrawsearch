@@ -79,7 +79,7 @@ body { font-family: ΢���ź�, ����, "Helvetica Neue", Helvetica,
 .logo{background: url(/deepsearch/img/logo.png) no-repeat;width: 131px;height: 75px;float:left;}
 .header{text-align:center;height:75px;}
 .header-wrapper{width:990px;margin:auto;}
-.header .header-title{float:left;font-size: 26px;font-family: Microsoft YaHei,Hiragino Sans GB,\5b8b\4f53;color: #999;line-height:75px;margin-left:20px;}
+.header .header-title{float:left;font-size: 26px;font-family: Microsoft YaHei,Hiragino Sans GB,\5b8b\4f53;color: #fff;line-height:75px;margin-left:20px;}
 .nav{float: right;height: 75px;line-height:75px;font: normal 12px/75px Verdana,Arial,\5b8b\4f53,sans-serif;}
 .nav a{color: #666;text-decoration:none;}
 .nav a:hover{text-decoration:underline;}

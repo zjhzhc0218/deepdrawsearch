@@ -88,6 +88,11 @@
     </div>
 </header>
 
+<div class="float_weixin" style="position: absolute;width: 200px;height: 200px;top: 230px;right: 3%;">
+    <h4 style="margin-top: 0px">客服微信号：</h4>
+    <img src="/deepsearch/img/codeImg.jpg" style="width: 120px">
+</div>
+
 <div class="tab-content container">
     <div role="tabpanel" class="tab-pane active"class="content" id="paimin" >
         <div class="search-view" style="margin-top: 30px;margin-right: 264px;">
@@ -101,7 +106,7 @@
                 <tr style="">
                     <td><label style="margin-top: 12px">宝贝ID或者宝贝链接：</label></td>
                     <td>
-                        <input type="text"   class="form-control" style="width: 263px;border-radius:5px;height: 40px;margin-top: 12px "ng-model="bbPaiMing.tbaoId"  />
+                        <input type="text"   class="form-control" style="width: 263px;border-radius:5px;height: 40px;margin-top: 12px " ng-model="bbPaiMing.tbaoId"  />
                     </td>
                 </tr>
                 <tr>
@@ -257,7 +262,7 @@
         </div>
 
         <div class="search-info" id="xyrs" style="width: 75%;margin-left: 200px">
-            <div style="width: 90%" ng-if="xinYu.msg == null " ng-show="xinYu.vm.value!=0&&xinYu.vm.value!=100">
+                <div style="width: 90%" ng-if="xinYu.msg == null " ng-show="xinYu.vm.value!=0&&xinYu.vm.value!=100">
                 <div ng-class="{progress: true, 'progress-striped': xinYu.vm.striped}">
                     <div ng-class="['progress-bar', xinYu.vm.style]" ng-style="{width: xinYu.vm.value + '%'}">
                         <div ng-if="xinYu.vm.showLabel">{{xinYu.vm.value}}%</div>
@@ -415,24 +420,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="freeSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel" style="color: red;font-size: 25px">提醒</h4>
-            </div>
-            <div class="modal-body" style="text-align: center;">
-                <label style="font-size: 20px ;text-align: center">因服务器处理能力有限，无线端临时限制查询10页</label>
-                <label style="font-size: 20px ;text-align: center">登陆后才可查询100页</label>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" ng-click="signLogin()">注册/登陆</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="freeSearchPaim()">查询10页</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 <!--关于我们 Modal -->
@@ -457,7 +445,7 @@
 
 
 <!--关于我们 Modal -->
-<div class="modal fade" id="tellweModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
+<div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -476,6 +464,27 @@
     </div>
 </div>
 
+<div class="modal fade" id="tixing" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
+    <div class="modal-dialog" role="document" style="width: 400px;height: 400px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="font-size: 45px">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel" style="color: red;font-size: 25px">温馨提醒：</h4>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <label style="font-size: 20px ;text-align: center">新注册用户有10次体验使用次数</label></br>
+                <label style="font-size: 20px ;text-align: center">添加微信，获取永久查询次数</label>
+                <img src="/deepsearch/img/codeImg.jpg" style="width: 200px;display: inline-block;">
+            </div>
+            <div class="modal-footer">
+            <#--<button type="button" class="btn btn-primary" ng-click="signLogin()">确认</button>-->
+                <input id="btn-login"  class="btn-submit"  type="button"  style="height: 36px;width: 65px"  value="已添加"  data-dismiss="modal" >&nbsp;&nbsp;&nbsp;
+                <#--<input id="btn-login"  class="btn-submit"  type="button"  style="height: 36px;width: 71px"  value="" ng-click="registered()" >-->
+            </div>
+        </div>
+    </div>
+</div>
+
 <div  class="footer" style="position: fixed;bottom: 0;width: 100%">
     <p>杭州兴淘网络科技有限公司  浙ICP备18047066号 &nbsp; <a style="text-decoration:none;color: gray;cursor:pointer;font-size: 13px;" ng-click="showWeModal('weModal')">关于我们</a>&nbsp; <a style="text-decoration:none;color: gray;cursor:pointer;font-size: 13px;" ng-click="showWeModal('tellweModal')">联系我们</a></p>
 </div>
@@ -484,8 +493,8 @@
 </body>
 
 <script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
-<script src="/deepsearch/js/angular/angular.js"></script>
-<script src="/deepsearch/js/spop/spop.js"></script>
+<script src="/deepsearch/js/angular/angular.min.js"></script>
+<script src="/deepsearch/js/spop/spop.min.js"></script>
 <script src="/deepsearch/js/loading/jquery.mloading.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="/deepsearch/js/searchController.js"></script>
@@ -503,5 +512,14 @@
         $('.content').hide();
         $($(this).attr('data-id')).show()
     })
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?cd0084c107ed760839e9ae15fe18c8f9";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 </script>
 </html>

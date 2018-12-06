@@ -92,7 +92,7 @@
     </body>
 
 
-    <script src="/deepsearch/js/angular/angular.js"></script>
+    <script src="/deepsearch/js/angular/angular.min.js"></script>
     <script src="/deepsearch/js/spop/spop.js"></script>
     <script src="http://www.jq22.com/jquery/angular-1.4.6.js"></script>
     <script type="text/javascript" src="http://www.jq22.com/demo/angular201707111100/js/ui-bootstrap-tpls.min.js"></script>

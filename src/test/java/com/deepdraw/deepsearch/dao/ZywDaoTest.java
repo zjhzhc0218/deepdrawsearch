@@ -22,14 +22,14 @@ public class ZywDaoTest {
     @Test
     public void queryArea() throws Exception {
 
-        List<SHUser> shUserList =  shUserDao.selectUser();
+       /* List<SHUser> shUserList =  shUserDao.selectUser();
 
         for(SHUser shUserListNew:shUserList){
             Long id =shUserListNew.getId();
             String address = PhoneUtil.getMobileAddressByBaiDu(id.toString());
             shUserListNew.setNickname(address);
             shUserDao.updateUser(shUserListNew);
-        }
+        }*/
 
     }
 

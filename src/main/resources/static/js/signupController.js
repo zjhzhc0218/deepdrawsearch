@@ -192,13 +192,13 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
             return;
         }
 
-        if($scope.signCode == null){
-            spop({template: '<strong>请输入邀请码!</strong>',
-                autoclose: 3000,
-                style:'error'
-            });
-            return;
-        }
+        // if($scope.signCode == null){
+        //     spop({template: '<strong>请输入邀请码!</strong>',
+        //         autoclose: 3000,
+        //         style:'error'
+        //     });
+        //     return;
+        // }
 
             console.log('ok');
             $http({
@@ -242,6 +242,9 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
         location.href = url;
     }
 
+    $scope.tixing = function() {
+        $('#tixing').modal('show');
+    }
 
     /**
      * 二维码
