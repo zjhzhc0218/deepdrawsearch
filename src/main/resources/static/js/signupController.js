@@ -27,15 +27,15 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
 
     //控制倒计时
     var countDown = 0;
-    $scope.timing = "获取手机验证码";
+    $scope.timing = "获取";
 
     function settime() {
         if(countDown > 0) {
             setTimeout(function() {settime(countDown--); $scope.$apply();}, 1000);
-            $scope.timing = $scope.tisiyu+countDown + 's后重新获取';
+            $scope.timing = $scope.tisiyu+countDown + 's';
             $scope.selected = 0;
         }else {
-            $scope.timing = "获取手机验证码";
+            $scope.timing = "获取";
 
             $scope.selected = -1;
         }
@@ -66,10 +66,16 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
             });
             return;
         }
-
+        if(!$(".sliderContainer").hasClass("sliderContainer_success")) {
+            spop({template: '<strong>请滑动验证</strong>',
+                autoclose: 3000,
+                style:'error'
+            });
+            return;
+        }
         if(countDown <= 0) {
             countDown = 60;
-            $scope.timing = $scope.tisiyu+countDown + "s后重新获取";
+            $scope.timing = $scope.tisiyu+countDown + "s";
             settime();
         }
 
@@ -144,6 +150,14 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
             });
             return;
         }
+
+        // if(!$(".sliderContainer").hasClass(".sliderContainer_success")) {
+        //     spop({template: '<strong>请重新滑动验证</strong>',
+        //         autoclose: 3000,
+        //         style:'error'
+        //     });
+        //     return;
+        // }
 
         if($scope.password == null){
             spop({template: '<strong>请输入密码!</strong>',

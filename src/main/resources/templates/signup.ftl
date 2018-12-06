@@ -7,7 +7,24 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
     <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
-<link rel="stylesheet" href="/deepsearch/css/loading/jquery.mloading.css">
+    <link rel="stylesheet" href="/deepsearch/css/loading/jquery.mloading.css">
+    <link rel="stylesheet" href="/deepsearch/css/jigsaw.css">
+<style>
+    .container {
+        width: 310px;
+        margin:  auto;
+    }
+    #msg {
+        width: 100%;
+        line-height: 40px;
+        font-size: 14px;
+        text-align: center;
+    }
+    a:link,a:visited,a:hover,a:active {
+        margin-left: 100px;
+        color: #0366D6;
+    }
+</style>
 </head>
 <style type="text/css">
     /*body {*/
@@ -30,27 +47,40 @@
     <div class="wrapper">
         <div id="cas" class="main">
             <div id="content" class="main-body" style="width: 100%;height: 650px" >
-                <div id="form"  >
-                    <div id="fm1" class="fm-v "  method="post">
+                <div id="form" >
+                    <div id="fm1" class="fm-v "  method="post" style="margin-top: 0px">
                         <div id="msg" class="errors"></div>
                         <h2>用户注册</h2>
                         <div class="row fl-controls-left">
                             <label for="email" class="fl-label">手机号:</label>
-                            <input type="text" ng-model="name" name="u" class="required text" placeholder="手机号" required="required"/>
+                            <input type="text" ng-model="name" name="u" class="required text" placeholder="手机号" required="required" style="width: 310px"/>
                         </div>
                         <div class="row fl-controls-left">
                             <label for="password" class="fl-label">密　码:</label>
-                            <input type="password" ng-model="password"  class="required password" name="p" placeholder="密码" required="required"/>
+                            <input type="password" ng-model="password"  class="required password" name="p" placeholder="密码" required="required" style="width: 310px"/>
                         </div>
                         <div class="row fl-controls-left">
                             <label for="password" class="fl-label">再输密码:</label>
-                            <input type="password" ng-model="passwordAgain"  class="required password" name="p" placeholder="再次输入密码" required="required"/>
+                            <input type="password" ng-model="passwordAgain"  class="required password" name="p" placeholder="再次输入密码" required="required" style="width: 310px"/>
                         </div>
+
+                        <div class="container" style="margin-left: 70px;margin-bottom: 10px">
+                            <div id="captcha" style="position: relative;"></div>
+                            <div id="msg" style=""></div>
+                        </div>
+
                         <div class="row fl-controls-left">
                             <label for="email" class="fl-label">手机验证:</label>
-                            <input type="text" ng-model="showAuthCode" name="u" class="required text"  placeholder="手机验证码" required="required"/>
-                            <button ng-bind="timing" ng-click="changeVerify()"  style=" margin-left:100px; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); color: #000000;"  ng-disabled="selected >= 0">
+                            <input type="text" ng-model="showAuthCode" name="u" class="required text"  placeholder="手机验证码" required="required" style="width: 310px"/>
+                            <button ng-bind="timing" ng-click="changeVerify()" style="position: absolute;margin-left: 0;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);color: #000000;width: 56px;height: 42px;margin-top: -30;top: 563px;left: 838px;"  ng-disabled="selected >= 0">
                         </div>
+
+                        <#--<div class="row fl-controls-left">-->
+                            <#--<label for="email" class="fl-label">手机验证:</label>-->
+                            <#--<input type="text" ng-model="showAuthCode" name="u" class="required text"  placeholder="手机验证码" required="required"/>-->
+                            <#--<button ng-bind="timing" ng-click="changeVerify()"  style=" margin-left:100px; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); color: #000000;"  ng-disabled="selected >= 0">-->
+                        <#--</div>-->
+
 
                         <#--<div class="row btn-row" style="padding-top:10px;clear:both;">-->
                             <#--<input id="btn-login"  class="btn-submit"  type="button"  style="margin-left:100px"  value="注册" ng-click="registered()" >-->
@@ -59,7 +89,7 @@
                         <#--</div>-->
 
                         <div class="row btn-row" style="padding-top:10px;clear:both;">
-                            <input id="btn-login"  class="btn-submit"  type="button"  style="margin-left:100px"  value="注册" ng-click="tixing()"  >
+                            <input id="btn-login"  class="btn-submit"  type="button"  style="margin-left:100px"  value="注册" ng-click="registered()"  >
                             <span style="margin-left:20px;font-size:12px"> </span>
                             <input class="btn-submit" type="button" ng-click="openSign()"  value="登录界面" style="background:#f73">
                         </div>
@@ -101,4 +131,10 @@
 <script src="/deepsearch/js/spop/spop.js"></script>
 <script src="/deepsearch/js/angular/encrypt.js"></script>
 <script src="/deepsearch/js/signupController.js"></script>
+<script src="/deepsearch/js/jigsaw.js"></script>
+<script>
+    jigsaw.init(document.getElementById('captcha'), function () {
+        document.getElementById('msg').innerHTML = '登录成功！'
+    })
+</script>
 </html>
