@@ -32,7 +32,9 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
     function settime() {
         if(countDown > 0) {
             setTimeout(function() {settime(countDown--); $scope.$apply();}, 1000);
-            $scope.timing = $scope.tisiyu+countDown + 's';
+            $scope.timing =
+                // $scope.tisiyu+
+                countDown + 's';
             $scope.selected = 0;
         }else {
             $scope.timing = "获取";
@@ -75,7 +77,9 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
         }
         if(countDown <= 0) {
             countDown = 60;
-            $scope.timing = $scope.tisiyu+countDown + "s";
+            $scope.timing =
+                // $scope.tisiyu+
+                countDown + "s";
             settime();
         }
 
@@ -166,8 +170,8 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
             });
             return;
         }
-        var passwordreg = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{8,25}$/;
-        if(!passwordreg.test($scope.password)){
+        // var passwordreg = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,25}$/;
+        if(!($scope.password.length>=6 && $scope.password.length<=25)){
             spop({template: '<strong>密码长是8-25个字符，必须包含数字、字母、特殊字符其中的两种</strong>',
                 autoclose: 3000,
                 style:'error'
@@ -182,7 +186,7 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
             });
             return;
         }
-        if(!passwordreg.test($scope.passwordAgain)){
+        if(!($scope.passwordAgain.length>=6 && $scope.passwordAgain.length<=25)){
             spop({template: '<strong>再次输入密码密码长是8-25个字符，必须包含数字、字母、特殊字符其中的两种</strong>',
                 autoclose: 3000,
                 style:'error'
@@ -256,9 +260,7 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
         location.href = url;
     }
 
-    $scope.tixing = function() {
-        $('#tixing').modal('show');
-    }
+
 
     /**
      * 二维码

@@ -9,8 +9,11 @@ var app=angular.module('search',[])
     if (user != '') {
         $scope.username = angular.fromJson(user);
     }
-
-
+    var init = function() {
+            if($scope.username!=null&& $scope.username.grade == 1) {
+                $('#tixing').modal('show');
+            }
+    }
     //########################违禁词###############################//
     $scope.searchWordsWjc = null;//查询
     $scope.app = {
@@ -615,6 +618,7 @@ var app=angular.module('search',[])
                 });*/
             }
 
+            init();
     }]
 
 

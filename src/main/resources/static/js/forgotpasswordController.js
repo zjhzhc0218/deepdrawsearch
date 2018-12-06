@@ -123,7 +123,7 @@ var app=angular.module('signup',['Encrypt']);
                     return;
                 }
 
-                var passwordreg = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{8,25}$/;
+                // var passwordreg = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{8,25}$/;
 
 
 
@@ -134,8 +134,7 @@ var app=angular.module('signup',['Encrypt']);
                     });
                     return;
                 }
-
-                if(!passwordreg.test($scope.passwordAgain1)){
+                if(!($scope.passwordAgain1.length>=6 && $scope.passwordAgain1.length<=25)){
                     spop({template: '<strong>新密码长是8-25个字符，必须包含数字、字母、特殊字符其中的两种</strong>',
                         autoclose: 3000,
                         style:'error'
@@ -151,8 +150,7 @@ var app=angular.module('signup',['Encrypt']);
                     return;
                 }
 
-
-                if(!passwordreg.test($scope.passwordAgain2)){
+                if(!($scope.passwordAgain2.length>=6 && $scope.passwordAgain2.length<=25)){
                     spop({template: '<strong>第二次输入的新密码长是8-25个字符，必须包含数字、字母、特殊字符其中的两种</strong>',
                         autoclose: 3000,
                         style:'error'

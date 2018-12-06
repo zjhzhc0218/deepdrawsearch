@@ -17,7 +17,7 @@
 
 <div class="header" style="background-color: #3367ef">
     <div class="header-wrapper" >
-        <a href="#" class="left"><div class="logo"></div></a>
+        <a href="#" class="left"  href="http://www.baimacha.com"><div class="logo"></div></a>
         <span class="header-title">用户中心</span>
     </div>
 </div>

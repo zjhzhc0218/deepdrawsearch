@@ -45,8 +45,8 @@ app.controller('signController',['$scope','$http', '$document','Md5','Base64','S
             });
             return;
         }
-        var passwordreg = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{8,25}$/;
-        if(!passwordreg.test($scope.password)){
+        // var passwordreg = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{8,25}$/;
+        if(!($scope.password.length>=6 && $scope.password.length<=25)){
             spop({template: '<strong>密码长是8-25个字符，必须包含数字、字母、特殊字符其中的两种</strong>',
                 autoclose: 3000,
                 style:'error'

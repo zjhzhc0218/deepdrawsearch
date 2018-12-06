@@ -46,7 +46,7 @@
 <header>
     <div class="header-content">
         <div class="header-top">
-            <a class="logo" href="javascript:;">
+            <a class="logo" href="http://www.baimacha.com" >
                 <img style="margin-left: 100px" src="/deepsearch/img/logo.png"/>
                 <p>电商在线查询工具</p>
             </a>
@@ -63,7 +63,7 @@
                     <ul  ng-if="username!=null" class="dropdown-menu">
                         <li><a tabindex="-1" href="#" ng-if="username!=null && username.grade==1" ng-click="toAdminPage()">后台管理</a></li>
                         <li class="divider"></li>
-                        <li><a tabindex="-1" href="#" ng-click="signLogin()">注销</a></li>
+                        <li><a tabindex="-1" href="#" ng-click="signLogin()">退出</a></li>
                     </ul>
                 </li>
             </ul>
@@ -98,13 +98,13 @@
         <div class="search-view" style="margin-top: 30px;margin-right: 264px;">
             <table>
                 <tr>
-                    <td><label>关键词：</label></td>
+                    <td><label>关&nbsp;&nbsp;&nbsp;&nbsp;键&nbsp;&nbsp;&nbsp;&nbsp;词：</label></td>
                     <td>
                        <input type="text"  class="form-control" style="width: 263px;border-radius:5px;height: 40px;" ng-model="bbPaiMing.keyWords"  />
                     </td>
                 </tr>
                 <tr style="">
-                    <td><label style="margin-top: 12px">宝贝ID或者宝贝链接：</label></td>
+                    <td><label style="margin-top: 12px">宝贝ID(链接)：</label></td>
                     <td>
                         <input type="text"   class="form-control" style="width: 263px;border-radius:5px;height: 40px;margin-top: 12px " ng-model="bbPaiMing.tbaoId"  />
                     </td>
@@ -118,20 +118,16 @@
 
         </div>
 
-        <div class="search-desc" style="margin-top: -28px;">
-           <p class="title" style=""> 宝贝排名查询</p>
-            <#--<p class="txt" style="color: red">注意：宝贝排名只提供参考，非淘宝官方数据</p>-->
-            <p>   &nbsp;</p>
-           <div >
-               <h4>为什么要用宝贝排名查询功能？</h4>
-               <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FE8034">宝贝的排名</span>决定了宝贝的展现量，也就影响了宝贝的流量及成交量，所以运营在做推广的时候非常关注 宝贝的排名变化。但是由于淘宝的千人千面导致我们在本地电脑上看不到宝贝的<span style="color: #FE8034">客观排名</span>，其次本地查 询需要手工去一页一页查询，非常耗时。</p>
-           </div>
-            <p>   &nbsp;</p>
-           <div>
-               <h4>为什么要用白马查的宝贝排名查询？</h4>
-               <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;白马查采用目前最先进的<span style="color: #FE8034">分布式云服务器查询模式</span>，模拟了无痕用户的搜索结果，采用<span style="color: #FE8034">大数据技术</span>客观展现宝贝在全网的排名情况，让您更了解自己宝贝的<span style="color: #FE8034">真实排名</span>。</p>
-           </div>
-
+        <div class="search-desc" style="margin-top: -38px;margin-left: 249px">
+            <p class="title" style=""> 宝贝排名查询</p>
+            <div>
+                <h4>为什么要用宝贝排名查询功能？<a href="#" style="color: #30F" ng-click="jqWords('div_pp1')" id="button1" class="glyphicon glyphicon-plus">点击查看</a></h4>
+                <p class="div_pp1" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FE8034">宝贝的排名</span>决定了宝贝的展现量，也就影响了宝贝的流量及成交量，所以运营在做推广的时候非常关注 宝贝的排名变化。但是由于淘宝的千人千面导致我们在本地电脑上看不到宝贝的<span style="color: #FE8034">客观排名</span>，其次本地查 询需要手工去一页一页查询，非常耗时。</p>
+            </div>
+            <div>
+                <h4>为什么要用白马查的宝贝排名查询？<a href="#" style="color: #30F" ng-click="jqWords('div_pp2')" id="button1" class="glyphicon glyphicon-plus">点击查看</a></h4>
+                <p class="div_pp2" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;白马查采用目前最先进的<span style="color: #FE8034">分布式云服务器查询模式</span>，模拟了无痕用户的搜索结果，采用<span style="color: #FE8034">大数据技术</span>客观展现宝贝在全网的排名情况，让您更了解自己宝贝的<span style="color: #FE8034">真实排名</span>。</p>
+            </div>
         </div>
 
         <div class="search-info" id="pmrs" >
@@ -178,7 +174,7 @@
             <input type="text"   ng-model="jiangquan.searchWordsJq"  placeholder="请输入店铺旺旺ID，然后点击 &quot;查询&quot; 按钮"/>
             <button class="btn  search-btnN" href="javascript:;" ng-click="searchJiangQuan()" ng-disabled="jiangquan.working">查询</button>
         </div>
-        <div class="search-desc" style="margin-top: -28px;">
+        <div class="search-desc" style="margin-left: 249px;margin-top: -38;">
             <p class="title"> 店铺宝贝隐形降权查询</p>
             <#--<p> 1.隐形降权是淘宝作弊检测体系自动检测发现宝贝有问题，但是没有明确的证据或者还不是很严重的情况，就是犯罪嫌疑人，对这些宝贝商至店铺采取降权处理。</p>
             <p> 2.隐形降权一般和以下因素有关：刷销量：有黑号参与、转化率低、支付宝使用率低。</p>
@@ -254,7 +250,7 @@
             <button class="btn  search-btnN" href="javascript:;" ng-click="searchXinyu()" ng-disabled="xinYu.working">查询</button>
         </div>
 
-        <div class="search-desc" style="margin-top: -28px;margin-left: 280px">
+        <div class="search-desc" style="margin-top: -38;margin-left: 249px;">
             <p class="title">买家信用查询</p>
             <p>1、<font>注册时间小于30天的</font>，被认定为小号/新号，有可能是骗子，应当谨慎交易。</p>
             <p>2、<font>买家中差评数量以及中差评信息超过一定的比例</font>，则有可能是职业中差评师。</p>
@@ -379,7 +375,7 @@
             <button class="btn search-btnB" ng-show="app.hideDetail == true"  href="javascript:;" ng-click="hideDetail()"  >继续检测</button>
         </div>
 
-        <div class="search-desc" style="margin-top: -28px;">
+        <div class="search-desc" style="margin-left: 200px;padding-top: 0px;margin-top: -38px">
             <p class="title"> 淘宝违禁词/敏感词/新广告法违禁词检测工具</p>
             <p> 已收录各类违禁词、敏感词超过20000个，且词库还在不断更新中。</p>
         </div>
@@ -469,16 +465,26 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="font-size: 45px">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel" style="color: red;font-size: 25px">温馨提醒：</h4>
+                <h4 class="modal-title" id="myModalLabel" style="color: #008fff;font-size: 25px">温馨提醒：</h4>
             </div>
             <div class="modal-body" style="text-align: center;">
-                <label style="font-size: 20px ;text-align: center">新注册用户有10次体验使用次数</label></br>
-                <label style="font-size: 20px ;text-align: center">添加微信，获取永久查询次数</label>
-                <img src="/deepsearch/img/codeImg.jpg" style="width: 200px;display: inline-block;">
+                <label style="font-size: 18px;text-align: center;color: #008fff;">新注册用户有&nbsp;<span style="color: red">10次</span>&nbsp;查询权限</label></br>
+                <label style="font-size: 18px;text-align: center;color: #008fff;">微信扫描二维码，联系客服获取永久查询权限</label>
+                <img src="/deepsearch/img/codeImg.jpg" style="width: 200px;margin-left: 80px">
             </div>
             <div class="modal-footer">
             <#--<button type="button" class="btn btn-primary" ng-click="signLogin()">确认</button>-->
-                <input id="btn-login"  class="btn-submit"  type="button"  style="height: 36px;width: 65px"  value="已添加"  data-dismiss="modal" >&nbsp;&nbsp;&nbsp;
+                <input id="btn-login"  class="btn-submit"  type="button"  style="
+                height: 36px;
+                width: 85px;
+                border: none;
+                background-color: #008fff;
+                color: white;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                "  value="我知道了"  data-dismiss="modal" >&nbsp;&nbsp;&nbsp;
                 <#--<input id="btn-login"  class="btn-submit"  type="button"  style="height: 36px;width: 71px"  value="" ng-click="registered()" >-->
             </div>
         </div>

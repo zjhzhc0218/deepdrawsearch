@@ -49,7 +49,7 @@
 <header>
     <div class="header-content">
         <div class="header-top">
-            <a class="logo" href="javascript:;">
+            <a class="logo"  href="http://www.baimacha.com">
                 <img src="img/logo.png"/>
                 <p>电商在线查询工具</p>
             </a>

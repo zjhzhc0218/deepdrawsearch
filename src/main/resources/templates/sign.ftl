@@ -22,7 +22,7 @@
 
 <div class="header" style="background-color: #3367ef">
     <div class="header-wrapper" >
-    <a href="#" class="left"><div class="logo"></div></a>
+    <a class="left"  href="http://www.baimacha.com"><div class="logo"></div></a>
     <span class="header-title">用户中心</span>
 </div>
 
@@ -33,16 +33,16 @@
         <div id="cas" class="main">
             <div id="content" class="main-body" style="width: 100%;height: 650px" >
                 <div id="form"  >
-                    <div id="fm1" class="fm-v "  method="post">
+                    <div id="fm1" class="fm-v "  method="post" style="width: 490px">
                         <div id="msg" class="errors"></div>
                         <h2>用户登录</h2>
                         <div class="row fl-controls-left">
-                            <label for="email" class="fl-label">手机号:</label>
+                            <label for="email" class="fl-label" style="line-height: 42px">手机号:</label>
                             <input type="text" ng-model="name" name="u" class="required text" placeholder="手机号" required="required"/>
 
                         </div>
                         <div class="row fl-controls-left">
-                            <label for="password" class="fl-label">密　码:</label>
+                            <label for="password" class="fl-label" style="line-height: 42px">密　码:</label>
 
                             <input type="password" ng-model="password"  class="required password" name="p" placeholder="密码" required="required"/>
                             <#--<input id="password" name="password" class="required password" tabindex="2" accesskey="p" type="password" value="" size="25">-->
@@ -55,11 +55,10 @@
                         <div class="row btn-row" style="padding-top:10px;clear:both;">
                             <#--<button  id="btn-login" ng-click="sign()" class="btn btn-primary btn-block btn-large" style="margin-left:100px" name="submit" accesskey="l" >登录</button>-->
                             <input id="btn-login" class="btn-submit"  type="button"  style="margin-left:100px"  value="登录" ng-click="sign()" >
-                            <span style="margin-left:20px;font-size:12px">没有账号？</span>
-                            <input class="btn-submit" type="button" ng-click="openSignup()"  value="免费注册" style="background:#f73">
+                            <input class="btn-submit" type="button" ng-click="openSignup()"  value="注册" style="background:#f73">
                         </div>
                         <div class="row btn-row">
-                            <a href="#" ng-click="forgot()"  style="text-decoration:none;margin-left: 100px;color:#000">忘记登录密码？</a>
+                            <a href="#" ng-click="forgot()"  style="margin-left: 100px;color:#000;text-decoration: underline">忘记&nbsp;/&nbsp;修改密码？</a>
                         </div>
 
                     </>
