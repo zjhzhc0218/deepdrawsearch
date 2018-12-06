@@ -86,6 +86,7 @@
         UPDATE shenhui_user SET
         grade = #{type}
         WHERE id = #{id}
+        and grade !=1
     </update>
 
     <update id="resetpassword" >
