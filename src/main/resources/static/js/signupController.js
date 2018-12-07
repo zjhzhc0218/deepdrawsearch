@@ -68,6 +68,15 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
             });
             return;
         }
+        // var namereg = /^[1][0-9]{2,11}$/;
+        var namereg = /^1(?:3\d|4[4-9]|5[0-35-9]|6[67]|7[013-8]|8\d|9\d)\d{8}$/;// "[1]"代表第1位为数字1，"[358]"代表第二位可以为3、5、8中的一个，"\\d{9}"
+        if(!namereg.test($scope.name)){
+            spop({template: '<strong>手机号格式不对</strong>',
+                autoclose: 3000,
+                style:'error'
+            });
+            return;
+        }
         if(!$(".sliderContainer").hasClass("sliderContainer_success")) {
             spop({template: '<strong>请滑动验证</strong>',
                 autoclose: 3000,
@@ -146,7 +155,8 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
             });
             return;
         }
-        var namereg = /^[1][0-9]{2,11}$/;
+        // var namereg = /^[1][0-9]{2,11}$/;
+        var namereg = /^1(?:3\d|4[4-9]|5[0-35-9]|6[67]|7[013-8]|8\d|9\d)\d{8}$/;// "[1]"代表第1位为数字1，"[358]"代表第二位可以为3、5、8中的一个，"\\d{9}"
         if(!namereg.test($scope.name)){
             spop({template: '<strong>手机号格式不对</strong>',
                 autoclose: 3000,

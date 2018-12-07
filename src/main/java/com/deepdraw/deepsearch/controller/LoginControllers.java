@@ -97,6 +97,12 @@ public class LoginControllers {
     @RequestMapping("/adminPage")
     public ModelAndView adminPage(ModelAndView mv) {
         //mv.addObject("name", "测试1");
+        SHUser shUser = ContextHolder.getSessionSHUser();
+        if (shUser == null) {
+            mv.addObject("user",null);
+        }else {
+            mv.addObject("user",JsonUtil.object2Json(shUser));
+        }
         mv.setViewName("adminPage");
         return mv;
     }

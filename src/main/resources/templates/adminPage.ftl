@@ -39,6 +39,13 @@
         .result-context span {
             font-size: 30px;
         }
+        .nav>li>a:hover, .nav>li>a:focus {
+            background-color: #3277F8;
+        }
+        .nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+            background-color: #3277F8;
+            border-color: #428bca;
+        }
 
     </style>
 
@@ -53,7 +60,20 @@
                 <img src="img/logo.png"/>
                 <p>电商在线查询工具</p>
             </a>
-
+            <ul class="nav pull-right" style="margin-right: 20px">
+                <li id="fat-menu" class="dropdown">
+                    <a style="color:white;margin-right: 100px " href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                        <i style="color: white" class="icon-user"></i>
+                        <span ng-if="username!=null" ng-bind="username.id"></span>
+                        <span  ng-if="username==null" ng-click="signLogin()">登陆/注册</span>
+                        <i style="color: white" class="icon-caret-down"></i>
+                    </a>
+                    <ul  ng-if="username!=null" class="dropdown-menu">
+                        <li class="divider"></li>
+                        <li><a tabindex="-1" href="#" ng-click="signLogin()">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
             <#--<ul class="nav pull-right">-->
                 <#--<li id="fat-menu" class="dropdown">-->
                     <#--<a style="color:white " href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">-->
@@ -356,8 +376,8 @@
 <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 <#--主页面判断-->
 <!-- 表单引入的 -->
-<script src="/deepsearch/js/angular-ui-bootstrap.js"></script>
-<script src="/deepsearch/js/index.js"></script>
+<#--<script src="/deepsearch/js/angular-ui-bootstrap.js"></script>-->
+<#--<script src="/deepsearch/js/index.js"></script>-->
 <script src="https://cdn.bootcss.com/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
 
 

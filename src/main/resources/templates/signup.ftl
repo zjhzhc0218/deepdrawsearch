@@ -61,7 +61,7 @@
                         </div>
                         <div class="row fl-controls-left" style="height: 42px;">
                             <label for="password" class="fl-label" style="line-height: 42px">密　  码:</label>
-                            <input type="password" ng-model="password"  class="required password" name="p" placeholder="请输入8位以上密码" required="required" style="width: 310px"/>
+                            <input type="password" ng-model="password"  class="required password" name="p" placeholder="请输入6位以上密码" required="required" style="width: 310px"/>
                         </div>
                         <div class="row fl-controls-left" style="height: 42px;">
                             <label for="password" class="fl-label" style="line-height: 42px">再输密码:</label>
@@ -73,16 +73,16 @@
                             <div id="msg" style=""></div>
                         </div>
 
-                        <div class="row fl-controls-left" style="height: 42px;width: 410px;">
+                        <div class="row fl-controls-left" style="height: 42px;width: 410px;position: relative">
                             <label for="email" class="fl-label" style="line-height: 42px">手机验证:</label>
                             <input type="text" ng-model="showAuthCode" name="u" class="required text"  placeholder="请输入手机验证码" required="required" style="width:310px"/>
-                            <button ng-bind="timing" ng-click="changeVerify()" style="top: 563px;margin-left: 0;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);color: #000000;width: 56px;height: 42px;position: absolute;left: 76%;"  ng-disabled="selected >= 0">
+                            <button ng-bind="timing" ng-click="changeVerify()" style="text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);color: #000000;width: 56px;height: 42px;position: absolute;top: 0;right: 0"  ng-disabled="selected >= 0">
                         </div>
 
                         <div class="row btn-row" style="padding-top:10px;">
-                            <input id="btn-login"  class="btn-submit"  type="button"  style="margin-left:100px"  value="注册" ng-click="registered()"  >
+                            <input id="btn-login"  class="btn-submit"  type="button"  style="margin-left:100px"  value="确认" ng-click="registered()"  >
                             <span style="margin-left:20px;font-size:12px"> </span>
-                            <input class="btn-submit" type="button" ng-click="openSign()"  value="登录界面" style="background:#f73">
+                            <input class="btn-submit" type="button" ng-click="openSign()"  value="返回" style="background:#f73">
                         </div>
                 </div>
             </div>

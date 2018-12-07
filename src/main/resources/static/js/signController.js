@@ -29,7 +29,8 @@ app.controller('signController',['$scope','$http', '$document','Md5','Base64','S
             });
             return;
         }
-        var namereg = /^[1][0-9]{2,11}$/;
+        // var namereg = /^[1][0-9]{2,11}$/;
+        var namereg = /^1(?:3\d|4[4-9]|5[0-35-9]|6[67]|7[013-8]|8\d|9\d)\d{8}$/;
         if(!namereg.test($scope.name)){
             spop({template: '<strong>手机号格式不对</strong>',
                 autoclose: 3000,

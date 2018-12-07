@@ -10,6 +10,14 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         $scope.xinyu = null;
         $scope.reci = null;
         $scope.jiangquan = null;
+        /**
+         * 登陆信息
+         * @type {string}
+         */
+        $scope.username = null;
+        if (user != '') {
+            $scope.username = angular.fromJson(user);
+        }
 
         $scope.datasTotal = [];
        /* /!*键盘按回车事件*!/
@@ -330,6 +338,27 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         $scope.check = function () {
         console.log($scope.time);
     }
+
+        //注销
+        $scope.signLogin = function() {
+            if($scope.username) {
+                $http({
+                        method: 'post',
+                        url: '/deepsearch/removeSession',
+                        params: {},
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                        transformRequest: function (data) {
+                            var str = '';
+                            for (var i in data) {
+                                str += i + '=' + data[i] + '&';
+                            }
+                        }
+                    }
+                )
+            }
+            var url='/deepsearch/sign';
+            location.href = url;
+        };
 
       $scope.export = function () {
           if($scope.datasTotal.length == 0) {
