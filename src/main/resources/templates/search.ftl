@@ -468,8 +468,8 @@
                 <h4 class="modal-title" id="myModalLabel" style="color: #008fff;font-size: 25px">温馨提醒：</h4>
             </div>
             <div class="modal-body" style="text-align: center;">
-                <label style="font-size: 18px;text-align: center;color: #008fff;">新注册用户有&nbsp;<span style="color: red">10次</span>&nbsp;查询权限</label></br>
-                <label style="font-size: 18px;text-align: center;color: #008fff;">微信扫描二维码，联系客服获取永久查询权限</label>
+                <span style="font-size: 18px;text-align: center;color: #008fff;">注册完只提供&nbsp;<span style="color: red">20w热词</span>&nbsp;下载功能</span></br>
+                <span style="font-size: 18px;text-align: center;color: #008fff;">数据查询功能请添加客服微信免费开通</span>
                 <img src="/deepsearch/img/codeImg.jpg" style="width: 200px;margin-left: 80px">
             </div>
             <div class="modal-footer">

@@ -368,7 +368,7 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
               });
               return;
           }
-          var str = `用户,用户归属地，注册时间,最后登录时间,登录次数,用户权限,是否禁用\n`;
+          var str = `用户,用户归属地,注册时间,最后登录时间,登录次数,用户权限,是否禁用\n`;
           for(var i = 0 ; i < $scope.datasTotal.length ; i++ ){
               for(var item in $scope.datasTotal[i]){
                   if(item == "ban") {
