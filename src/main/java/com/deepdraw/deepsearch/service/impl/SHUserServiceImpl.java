@@ -157,7 +157,9 @@ public class SHUserServiceImpl implements SHUserService {
                 if(id==null){
                     shUserList =  shUserDao.selectUser();
                 }else{
-                    shUserList.add(shUserDao.selectUserById(id));
+                    SHUser shUserNew  =  shUserDao.selectUserById(id);
+                    if(shUserNew!=null){
+                    shUserList.add(shUserNew);}
                 }
                  break;
         }

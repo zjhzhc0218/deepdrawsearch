@@ -7,6 +7,9 @@ var app=angular.module('signup',['Encrypt']);
             $scope.passwordAgain2 = null;
 
 
+            $scope.shoujihao = 1;
+
+
 
             //控制按钮是否可以再按
             $scope.selected = 1;
@@ -36,14 +39,48 @@ var app=angular.module('signup',['Encrypt']);
                         style: 'error'
                     });
                     return;
+                }else {
+                    $http({
+                        method: 'GET',
+                        url: '/deepsearch/login/getUsers',
+                        params: {
+                            // 'name':$scope.name,
+                            'id': $scope.name,
+                            'type': null,
+                            'timeStart': null,
+                            'timeEnd': null
+                        }
+                    }).success(function (data) {
+                        if (data.data.User.length == 0) {
+                            spop({
+                                template: '<strong>' + '查无此人请输出正确的账号' +
+                                '</strong>',
+                                autoclose: 3000,
+                                style: 'error'
+                            });
+                            return;
+                        }else{
+                            $scope.changeVerifyNew();
+                        }
+
+                    }).error(function (data) {
+                        spop({
+                            template: '<strong>' + '查无此人请输出正确的账号' +
+                            '</strong>',
+                            autoclose: 3000,
+                            style: 'error'
+                        });
+                        return;
+                    });
+                }
                 }
 
+            $scope.changeVerifyNew = function () {
                 if(countDown <= 0) {
                     countDown = 60;
                     $scope.timing = countDown + "s后重新获取";
                     settime();
                 }
-
                 $http({
                     method: 'GET',
                     url: '/deepsearch/mobile/getMobile',
@@ -52,33 +89,38 @@ var app=angular.module('signup',['Encrypt']);
                     }
                 }).success(function (data) {
                     console.log(data);
-                    if(data.code!=0){
-                        spop({template: '<strong>' +data.msg+
-                        '</strong>',
+                    if (data.code != 0) {
+                        spop({
+                            template: '<strong>' + data.msg +
+                            '</strong>',
                             autoclose: 3000,
-                            style:'error'
+                            style: 'error'
                         });
                         return;
-                    }else{
-                        spop({template: '<strong>' +data.data+
-                        '</strong>',
+                    } else {
+                        spop({
+                            template: '<strong>' + data.data +
+                            '</strong>',
                             autoclose: 3000,
-                            style:'success'
+                            style: 'success'
                         });
                         return;
                     }
                 }).error(function (data) {
                     console.log(data);
-                    if(data.code!=0){
-                        spop({template: '<strong>' +data.msg+
-                        '</strong>',
+                    if (data.code != 0) {
+                        spop({
+                            template: '<strong>' + data.msg +
+                            '</strong>',
                             autoclose: 3000,
-                            style:'error'
+                            style: 'error'
                         });
                         return;
                     }
                 })
-            }
+                }
+
+
 
 
             $document.bind("keypress", function(event) {
