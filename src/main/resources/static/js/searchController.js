@@ -10,7 +10,7 @@ var app=angular.module('search',[])
         $scope.username = angular.fromJson(user);
     }
     var init = function() {
-            if($scope.username!=null&& $scope.username.grade == 1) {
+            if($scope.username!=null&& $scope.username.grade == 2) {
                 $('#tixing').modal('show');
             }
     }
@@ -36,7 +36,7 @@ var app=angular.module('search',[])
         }
         //判断是否注册
         var fCount = getFTForUser();
-        if($scope.username.grade == 2 && fCount> 10) {
+        if($scope.username.grade == 2) {
             $('#tixing').modal('show');
             return;
         }
@@ -128,7 +128,7 @@ var app=angular.module('search',[])
          }
          //判断是否注册
          var fCount = getFTForUser();
-         if($scope.username.grade == 2 && fCount> 10) {
+         if($scope.username.grade == 2) {
              $('#tixing').modal('show');
              return;
          }
@@ -244,7 +244,7 @@ var app=angular.module('search',[])
         }
         //判断是否注册
         var fCount = getFTForUser();
-        if($scope.username.grade == 2 && fCount> 10) {
+        if($scope.username.grade == 2) {
             $('#tixing').modal('show');
             return;
         }
@@ -370,7 +370,7 @@ var app=angular.module('search',[])
         }
         //判断是否注册
         var fCount = getFTForUser();
-        if($scope.username.grade == 2 && fCount> 10) {
+        if($scope.username.grade == 2) {
             $('#tixing').modal('show');
             return;
         }
@@ -527,13 +527,13 @@ var app=angular.module('search',[])
         if ($scope.username == null){
             $('#myModal').modal('show');
             return;
-        }
+        }/*
         //判断是否注册
         var fCount = getFTForUser();
-        if($scope.username.grade == 2 && fCount> 10) {
+        if($scope.username.grade == 2) {
             $('#tixing').modal('show');
             return;
-        } else  {
+        }*/ else  {
             window.open(url);
         }
         $http({

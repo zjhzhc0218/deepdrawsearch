@@ -34,9 +34,8 @@
 </style>
 <body ng-app="signup" ng-controller="signupController">
 
-
 <div class="header" style="background-color: #3367ef">
-    <div class="header-wrapper" >
+    <div class="header-wrapper" style="margin-left: 5%">
         <a class="left"  href="http://www.baimacha.com"><div class="logo"></div></a>
         <span class="header-title">用户中心</span>
     </div>
