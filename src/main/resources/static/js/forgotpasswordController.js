@@ -8,8 +8,7 @@ var app=angular.module('signup',['Encrypt']);
 
 
             $scope.shoujihao = 1;
-
-
+            
 
             //控制按钮是否可以再按
             $scope.selected = 1;
