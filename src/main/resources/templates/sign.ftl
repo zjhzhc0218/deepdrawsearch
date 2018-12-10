@@ -30,8 +30,8 @@
     <div class="bk20"></div>
     <div class="wrapper">
         <div id="cas" class="main">
-            <div id="content" class="main-body" style="width: 100%;height: 650px" >
-                <div class="float_weixin" style="right: 5%;position: absolute;">
+            <div id="content" class="main-body" style="width: 100%;height: 800px" >
+                <div class="float_weixin" style="right: 2%;position: absolute;">
                     <h4 style="margin-top: 35%">客服微信号：</h4>
                     <img src="/deepsearch/img/codeImg.jpg" style="width: 110px">
                 </div>

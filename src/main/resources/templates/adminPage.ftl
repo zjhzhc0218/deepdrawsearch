@@ -1,8 +1,9 @@
 <!DOCTYPE>
 <html ng-app="app">
 <head>
-    <title>首页</title>
+    <title>后台管理</title>
     <!-- 设置文档编码 -->
+    <link rel="shortcut icon" href="/deepsearch/img/baima.ico" type="image/x-icon"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=width,user-scalable=no">

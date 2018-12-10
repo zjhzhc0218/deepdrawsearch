@@ -70,7 +70,7 @@
         </div>
         <div class="nav-list">
             <div class="one active">
-                <a  class="" role="tab" data-toggle="tab"href="#paimin">宝贝排名查询</a>
+                <a  class="" role="tab" data-toggle="tab"href="#paimin" style="font-size: 14px;">宝贝无线排名查询</a>
             </div>
             <div class="one">
                 <a  role="tab" data-toggle="tab" href="#jiangquan">隐形降权查询</a>
@@ -143,10 +143,10 @@
             <div class="result-context" ng-if="bbPaiMing.examedContext != null" >
                 <table class="table table-hover" ng-show="bbPaiMing.examedContext != null" style="  display: block;width:100%;height: 95%;overflow-y: hidden;">
                     <thead>
-                    <tr>
-                        <td style="width: 60px;text-align: center"><label>图片链接</label></td>
-                        <td style="width: 80px;text-align: center"><label>标题</label></td>
-                        <td style="width: 228px;text-align: center"><label>宝贝坐标</label></td>
+                    <tr ng-cloak>
+                        <td style="width: 60px;text-align: center"><label ng-bind="'图片链接'"></label></td>
+                        <td style="width: 80px;text-align: center"><label ng-bind="'标题'"></label></td>
+                        <td style="width: 228px;text-align: center"><label ng-bind="'宝贝坐标'"></label></td>
                     </tr>
                     </thead>
                     <tbody>
@@ -345,7 +345,7 @@
                 </div>
             </div>
 
-            <div href="javascript:;" ng-show="xinYu.examedContext != null" class="info-item">
+            <#--<div href="javascript:;" ng-show="xinYu.examedContext != null" class="info-item">
                 <div class="item-left">
                     &nbsp;查询  ip:
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;{{xinYu.examedContext[17].value}}</p>
@@ -354,7 +354,7 @@
                     查询时间：
                     <p>&nbsp;&nbsp;{{xinYu.examedContext[18].value}}</p>
                 </div>
-            </div>
+            </div>-->
 
         </div>
     </div>

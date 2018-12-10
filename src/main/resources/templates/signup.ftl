@@ -46,7 +46,7 @@
     <div class="bk20"></div>
     <div class="wrapper">
         <div id="cas" class="main">
-            <div id="content" class="main-body" style="width: 100%;height: 650px;" >
+            <div id="content" class="main-body" style="width: 100%;height: 800px;" >
                 <div style="width: 43%;height:580px;background-color: white;text-align: center;position: relative;float: left;top: 40px;left: 9%">
                     <img src="/deepsearch/img/6.jpg" style="width: 450px;padding-top: 150px;">
                 </div>
