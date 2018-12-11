@@ -27,6 +27,20 @@ public class UserControllers {
     @Autowired
     private SHUserService shUserService;
 
+    @RequestMapping("/selectGrade")
+    @ResponseBody
+    public Object selectGrade(HttpServletRequest request,Long id ,HttpSession session) throws IOException {
+        Map<String, Object> message = shUserService.selectUsermessage(id);
+        if((Integer)message.get("grade")==3){
+            session=request.getSession();
+            session.setMaxInactiveInterval(14400);
+            session.setAttribute("shUser",message.get("shUser"));
+            return JsonUtil.object2Json(ResultUtil.success(message));
+        }else{
+            return JsonUtil.object2Json(ResultUtil.error(2,"权限未改变"));
+        }
+    }
+
 
 //    禁止登录 恢复登录
     /** 获取后台对应的用户信息

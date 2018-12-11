@@ -62,6 +62,7 @@ public class SHUserServiceImpl implements SHUserService {
                 Integer y =  shUserDao.updateUser(shUser);
                 map.put("message","查询成功，返回客户信息");
                 map.put("shUser",shUser);
+                map.put("grade",shUser.getGrade());
                 return map;
         }
     }

@@ -14,6 +14,20 @@ var app=angular.module('search',[])
                 $('#tixing').modal('show');
             }
     }
+
+    var updateGrage = function () {
+        $http({
+            method: 'GET',
+            url: '/deepsearch/User/selectGrade',
+            params: {
+                'id': $scope.username.id
+            }
+        }).then(function successCallback(info) {
+            $scope.username = angular.fromJson(info.data.data.shUser);
+        },function errorCallback(info) {
+        })
+        
+    }
     //########################违禁词###############################//
     $scope.searchWordsWjc = null;//查询
     $scope.app = {
@@ -34,6 +48,8 @@ var app=angular.module('search',[])
             $('#myModal').modal('show');
             return;
         }
+        /*判断权限是否改变*/
+        updateGrage();
         //判断是否注册
         var fCount = getFTForUser();
         if($scope.username.grade == 2) {
@@ -126,6 +142,8 @@ var app=angular.module('search',[])
              $('#myModal').modal('show');
              return;
          }
+         /*判断权限是否改变*/
+         updateGrage();
          //判断是否注册
          var fCount = getFTForUser();
          if($scope.username.grade == 2) {
@@ -242,6 +260,8 @@ var app=angular.module('search',[])
             $('#myModal').modal('show');
             return;
         }
+        /*判断权限是否改变*/
+        updateGrage();
         //判断是否注册
         var fCount = getFTForUser();
         if($scope.username.grade == 2) {
@@ -368,6 +388,8 @@ var app=angular.module('search',[])
             $('#myModal').modal('show');
             return;
         }
+        /*判断权限是否改变*/
+        updateGrage();
         //判断是否注册
         var fCount = getFTForUser();
         if($scope.username.grade == 2) {
@@ -527,7 +549,9 @@ var app=angular.module('search',[])
         if ($scope.username == null){
             $('#myModal').modal('show');
             return;
-        }/*
+        }
+
+        /*
         //判断是否注册
         var fCount = getFTForUser();
         if($scope.username.grade == 2) {
