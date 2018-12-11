@@ -154,7 +154,7 @@ var app=angular.module('search',[])
                  $scope.$apply();
                  clearInterval(interval);
              }
-         }, 150);
+         }, 250);
 
          $scope.xinYu.examedContext = null;
          $scope.xinYu.hasNoViolation = false;
