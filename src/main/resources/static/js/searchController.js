@@ -16,6 +16,9 @@ var app=angular.module('search',[])
     }
 
     var updateGrage = function () {
+        if($scope.username.grade != 2){
+            return;
+        }
         $http({
             method: 'GET',
             url: '/deepsearch/User/selectGrade',
