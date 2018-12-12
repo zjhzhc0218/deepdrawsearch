@@ -82,6 +82,15 @@
                 <a  role="tab" data-toggle="tab" href="#weijin">违禁词查询</a>
             </div>
             <div class="one">
+                <a  role="tab" data-toggle="tab" href="#目录">目录查询</a>
+            </div>
+            <div class="one">
+                <a  role="tab" data-toggle="tab" href="#目录">动态评分查询</a>
+            </div>
+            <div class="one">
+                <a  role="tab" data-toggle="tab" href="#目录">上下架查询</a>
+            </div>
+            <div class="one">
                 <a  role="tab" data-toggle="tab" href="#reci" >20W热词下载</a>
             </div>
         </div>
@@ -168,6 +177,7 @@
     <div role="tabpanel" class="tab-pane" class="content" id="reci">
         <#include "//reci.ftl">
     </div>
+
 
     <div role="tabpanel" class="tab-pane" class="content" id="jiangquan">
         <div class="search-view" style="margin-top: 30px" style="margin-top: 30px" style="margin-top: 30px">
@@ -265,8 +275,11 @@
                     </div>
                 </div>
             </div>
-            <div class="noViolation " ng-show="xinYu.hasNoViolation == true" style="color: red;font-size: 30px">
+        <#--    <div class="noViolation " ng-show="xinYu.hasNoViolation == true" style="color: red;font-size: 30px">
                 该号不存在，请检测是否输入有误!
+            </div>-->
+            <div class="noViolation " ng-show="xinYu.msg != null" style="color: red;font-size: 30px">
+                {{xinYu.msg}}
             </div>
         <#-- <a href="javascript:;"  ng-show="xinYu.examedContext != null"  class="info-item"  ng-repeat="d in xinYu.examedContext" >
              <div class="item-left" ng-if="d.id!=2&&d.id!=3">
@@ -440,13 +453,13 @@
 </div>
 
 
-<!--关于我们 Modal -->
-<div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
+<!--联系我们 Modal -->
+<div class="modal fade" id="tellweModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">关于我们</h4>
+                <h4 class="modal-title" id="myModalLabel">联系我们</h4>
             </div>
             <div class="modal-body" style="text-align: center">
                 <p>联系方式：杭州市江干区艮山支三路5号4幢104室</p>

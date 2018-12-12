@@ -1,7 +1,8 @@
-var app=angular.module('app',['ui.bootstrap']);
-app.controller('adminController',['$scope','$http','$sce','$document','$filter', function ($scope,$http,$sce,$document,$filter) {
+var app=angular.module('app',['ui.bootstrap','ngFileUpload']);
+app.controller('adminController',['$scope','$http','$sce','$document','$filter', function ($scope,$http,$sce,$document,$filter,Upload) {
 
-        $scope.moduleType = 1;
+
+            $scope.moduleType = 1;
         $scope.djl = false;
         $scope.dianjiliang = null;
         $scope.qixian = null;
@@ -408,7 +409,64 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
 
 
 
-        }]
+    $scope.shopParams = {
+        'reader':new FileReader(), //创建一个FileReader接口
+        'form' : { //用于绑定提交内容，图片或其他数据
+            image: {},
+        },
+        'thumb':null, //用于存放图片的base64
+        'shopStoreUrl':null,//url
+        'imgSrc':null,//imgSrc
+        'file':null,//file
+        'img':null,//状态
+        'uploadFiles' : function (file, errorFile) {
+            if ( file ) {
+                $scope.shopParams.reader.onload = function(ev) {
+                    $scope.$apply(function() {
+                        $scope.shopParams.thumb = ev.target.result; //接收base64
+                    });
+                    $scope.shopParams.imgSrc = $scope.shopParams.thumb;
+                };
+            }
+            $scope.shopParams.reader.readAsDataURL(file); //FileReader的方法，把图片转成base64
+        },
+       /* 'show' : function () {
+           $('#export').modal('show');
+        },*/
+        'editShop' : function () { //修改
+            // console.log( $scope.editshopParams);
+            var data = new FormData();
+            if(!$scope.shopParams.file) {
+                alert("请上传图片");
+                return ;
+            }
+            data.append("params", angular.toJson($scope.shopParams));
+            var data = new FormData();
+            data.append("img", $scope.shopParams.file);
+            $http({
+                method: "POST",
+                url: "/deepsearch/User/saveShopRecord",
+                data: data,
+                headers: {
+                    'Content-Type': undefined
+                },
+                transformRequest: angular.identity
+
+            }).then(function successCallback(response) {
+                    // console.log(response.data)
+                    alert("上传成功，请刷新页面")
+                },
+                function errorCallback(response) {
+                    console.log("error");
+                    alert("上传成功，请刷新页面");
+                });
+
+        }
+    };
+
+
+
+    }]
     );
 app.filter('to_trusted', ['$sce', function ($sce) {
     return function (text) {

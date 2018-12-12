@@ -92,14 +92,25 @@
                 <#--</li>-->
             <#--</ul>-->
         </div>
-        <div class="nav-list">
+        <div class="nav-list" style="position: relative">
+
             <div class="one active">
                 <a  class="" role="tab" data-toggle="tab"href="#renyuan">人员详情</a>
             </div>
+
             <div class="one">
                 <a  role="tab" data-toggle="tab" href="#cishu">使用次数</a>
             </div>
 
+            <div style="position: absolute;right: 0">
+                <div class="upload-button" type="file" capture="camera" ngf-select="shopParams.uploadFiles($file,$errorfile)" ng-model="shopParams.file" accept="image/jpg,image/JPG,image/jpeg,image/gif,image/png" ngf-max-height="2000" ngf-max-size="5MB">
+                    <div>
+                        <img  style="height: 30px;width: 30px;float: right" class="uploadpic img-rounded" ng-src="{{shopParams.imgSrc}}" ng-model="shopParams.img"/>
+                        <div style="margin-left: 0px;margin-right: 0px;" class="glyphicon glyphicon-camera uploadpic-label">点击上传</div>
+                    </div>
+                    <button  ng-click="shopParams.editShop()" class="btn btn-primary btn-block btn-large" style="margin-top: -20;">确认上传</button>
+                </div>
+            </div>
         </div>
     </div>
 </header>
@@ -138,7 +149,7 @@
                     </div>
                     <button  ng-click="export()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;height: 36px;">导出</button>
                     </br>
-                    <#--<button  ng-click="select()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;">查询</button>-->
+
 
                     <div class="panel">
                         <div class="row req form-inline">
@@ -366,21 +377,60 @@
         <p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>
     </div>
 
+
+
+    <div class="modal fade" id="export" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="font-size: 45px">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel" style="color: #008fff;font-size: 25px">二维码上传：</h4>
+            </div>
+            <div class="modal-body" style="text-align: center;border: 1px solid red">
+                    <p>店铺后台截图:
+                    <div class="upload-button" type="file" capture="camera" ngf-select="shopParams.uploadFiles($file,$errorfile)" ng-model="shopParams.file" accept="image/jpg,image/JPG,image/jpeg,image/gif,image/png" ngf-max-height="2000" ngf-max-size="5MB">
+                        <img  style="height: 150px;width: 150px" class="uploadpic img-rounded" ng-src="{{shopParams.imgSrc}}" ng-model="shopParams.img"/>
+                        <div class="glyphicon glyphicon-camera uploadpic-label">点击上传照片</div>
+                    </div>
+                    </p>
+            </div>
+
+            <div class="modal-footer">
+            <#--<button type="button" class="btn btn-primary" ng-click="signLogin()">确认</button>-->
+                <button  ng-click="shopParams.editShop()" class="btn-submit"  type="button"  style="font-size: 20px;width: 190px;">二维码上传</button>
+                <input id="btn-login"  class="btn-submit"  type="button"  style="
+                height: 36px;
+                width: 85px;
+                border: none;
+                background-color: #008fff;
+                color: white;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                "  value="退出"  data-dismiss="modal" >&nbsp;&nbsp;&nbsp;
+            <#--<input id="btn-login"  class="btn-submit"  type="button"  style="height: 36px;width: 71px"  value="" ng-click="registered()" >-->
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
-<script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
+<#--<script src="/deepsearch/js/jquery-2.1.4.min.js"></script>-->
+<script type="text/javascript" src="/deepsearch/js/verdor/jquery/jquery-1.10.2.js"></script>
+
 <script src="/deepsearch/js/angular/angular.js"></script>
 <script src="/deepsearch/js/adminController.js"></script>
 <script src="/deepsearch/js/spop/spop.js"></script>
 <script src="/deepsearch/js/loading/jquery.mloading.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<#--<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>-->
 <#--主页面判断-->
 <!-- 表单引入的 -->
 <#--<script src="/deepsearch/js/angular-ui-bootstrap.js"></script>-->
 <#--<script src="/deepsearch/js/index.js"></script>-->
+<script type="text/javascript" src="/deepsearch/js/angular/ng-file-upload.js"></script>
 <script src="https://cdn.bootcss.com/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
-
 
 
 

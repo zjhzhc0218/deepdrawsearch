@@ -1,12 +1,8 @@
 package com.deepdraw.deepsearch.controller;
 
-import com.deepdraw.deepsearch.entity.SHUser;
-import com.deepdraw.deepsearch.handler.ContextHolder;
-import com.deepdraw.deepsearch.service.FunctionUsingService;
 import com.deepdraw.deepsearch.service.SHUserService;
 import com.deepdraw.deepsearch.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -74,6 +69,11 @@ public class UserControllers {
 //        传入用户手机号，升权限还是降权限   type 3 就是升权限   type2 就是降权限
         message = shUserService.updataGrade(id, type);
         return JsonUtil.object2Json(ResultUtil.success(message));
+    }
+
+    @RequestMapping("/saveShopRecord")
+    public String saveShopRecord(HttpServletRequest request) {
+        return ExportUtil.handleFileUpload(request);
     }
 
 }
