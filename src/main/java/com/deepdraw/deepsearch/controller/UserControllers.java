@@ -22,6 +22,14 @@ public class UserControllers {
     @Autowired
     private SHUserService shUserService;
 
+    /**
+     * 重新对该用户权限进行判断
+     * @param request
+     * @param id
+     * @param session
+     * @return
+     * @throws IOException
+     */
     @RequestMapping("/selectGrade")
     @ResponseBody
     public Object selectGrade(HttpServletRequest request,Long id ,HttpSession session) throws IOException {
@@ -34,6 +42,15 @@ public class UserControllers {
         }else{
             return JsonUtil.object2Json(ResultUtil.error(2,"权限未改变"));
         }
+    }
+
+    /*查询用户是否存在*/
+    @RequestMapping("/selectUser")
+    @ResponseBody
+    public String selectUser(HttpServletRequest request,Long id ) throws IOException {
+//        传入用户手机号，以及跟禁用还是恢复 登录
+        Map<String, Object> message  = shUserService.selectUsermessage(id );
+        return JsonUtil.object2Json(ResultUtil.success(message));
     }
 
 
