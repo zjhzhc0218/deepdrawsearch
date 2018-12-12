@@ -27,8 +27,51 @@ var app=angular.module('signup',['Encrypt']);
             }
             settime();
 
+            //先检验号码，在生成手机验证码
+            $scope.changeVerify = function () {
+                if ($scope.name == null) {
+                    spop({
+                        template: '<strong>请输入手机号!</strong>',
+                        autoclose: 3000,
+                        style: 'error'
+                    });
+                    return;
+                }
+
+                $http({
+                    method: 'GET',
+                    url: '/deepsearch/User/selectUser',
+                    params: {
+                        'id': $scope.name
+                    }
+                }).success(function (data) {
+                    console.log(data);
+                    if(data.code!=0){
+                        spop({template: '<strong>' +data.msg+
+                        '</strong>',
+                            autoclose: 3000,
+                            style:'error'
+                        });
+                        return;
+                    }else{
+                        $scope.changeVerifyNew(); 
+                    }
+                }).error(function (data) {
+                    console.log(data);
+                    if(data.code!=0){
+                        spop({template: '<strong>' +data.msg+
+                        '</strong>',
+                            autoclose: 3000,
+                            style:'error'
+                        });
+                        return;
+                    }
+                })
+
+            }
+
             //生成手机验证码
-            $scope.changeVerify = function () {//定义了一个点击事件，获取验证码
+            $scope.changeVerifyNew = function () {//定义了一个点击事件，获取验证码
                 if ($scope.name == null) {
                     spop({
                         template: '<strong>请输入手机号!</strong>',
