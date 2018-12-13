@@ -279,7 +279,7 @@ header .header-content{
 	 width: 400px;
  }
 
- .dsr-info .item-scrib .percent {
+ /*.dsr-info .item-scrib .percent {
 	 position: absolute;
 	 right: 10px;
 	 top: 2px;
@@ -290,5 +290,5 @@ header .header-content{
 	 line-height: 26px;
 	 display: block;
 	 color: #fff;
- }
+ }*/
 	/*background: url(../img/dsr.png) no-repeat;*/
