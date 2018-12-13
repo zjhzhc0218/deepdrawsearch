@@ -4,7 +4,6 @@ app.controller('signController',['$scope','$http', '$document','Md5','Base64','S
     $scope.password = null;
 
     $document.bind("keypress", function(event) {
-
         if(event.keyCode == 13){
             $scope.sign();
         }
