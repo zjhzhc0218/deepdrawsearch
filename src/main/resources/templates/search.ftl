@@ -87,7 +87,7 @@
                 <a  role="tab" data-toggle="tab" href="#weijin">违禁词查询</a>
             </div>
             <div class="one">
-                <a  role="tab" data-toggle="tab" href="#目录">目录查询</a>
+                <a  role="tab" data-toggle="tab" href="#mulu">目录查询</a>
             </div>
             <div class="one">
                 <a  role="tab" data-toggle="tab" href="#dongtaipingfeng">动态评分查询</a>
@@ -259,8 +259,6 @@
             </div>
         </div>
     </div>
-
-
 
     <div role="tabpanel" class="tab-pane"  class="content" id="xinyu">
         <div class="search-view" style="margin-top: 30px" style="margin-top: 30px" style="margin-top: 30px">
@@ -495,7 +493,18 @@
         </div>
     </div>
 
+    <div role="tabpanel" class="tab-pane"  class="content" id="mulu">
+        <div class="search-view" style="margin-top: 30px" style="margin-top: 30px" style="margin-top: 30px">
+            <input type="text"   ng-model="searchWordsMulu"  placeholder="请输入需要查询的商品ID或是商品链接 &quot;查询&quot; 按钮"/>
+            <button class="btn  search-btnN" href="javascript:;" ng-click="searchMulu()" ng-disabled="mulu.working">查询</button>
+        </div>
+        <div class="noViolation " ng-show="mulu.msg != null" style=" text-align:center;color; black;font-size: 30px">
+            {{mulu.msg}}
+        </div>
+    </div>
+
 </div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">

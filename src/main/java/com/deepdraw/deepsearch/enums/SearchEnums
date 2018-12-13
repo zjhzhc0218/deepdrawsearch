@@ -7,6 +7,7 @@ public enum SearchEnums {
     RECI("热词", 4),
     JIANGQUAN("降权", 5),
     DONGTAIPINGFEN("动态评分", 6);
+    MULU("目录", 7);
     // 成员变量
     private String name;
     private int type;

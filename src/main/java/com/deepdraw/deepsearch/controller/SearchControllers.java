@@ -143,6 +143,20 @@ public class SearchControllers {
     }
 
 
+    /**
+     * 调用python返回淘宝目录查询
+     * @param request
+     * @return
+     */
+    @GetMapping(value="/getSearchMulu")
+    public String  getSearchMulu(HttpServletRequest request){
+        String word =  request.getParameter("searchWords");
+        String[]  args = new String[] { "python", pythonPath+"/leimu.py", word };
+//        functionUsingService.addFT(7);
+        return JsonUtil.object2Json(ResultUtil.success(JavaToPython.getPython(args)));
+    }
+
+
 
 
 }
