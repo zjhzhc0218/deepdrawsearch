@@ -579,6 +579,126 @@ var app=angular.module('search',[])
     }
 
      //########################热词查询###############################//
+
+
+
+     //########################动态评分查询###############################//
+            $scope.dtPingFeng = {
+                searchWordsXy : null,//查询
+                working : false,
+                hasNoViolation : false,
+                examedContext : null
+            };
+            var dtpfvm = $scope.dtPingFeng.vm = {};
+            dtpfvm.value = 0;
+            dtpfvm.style = 'progress-bar-info';
+            dtpfvm.showLabel = true;
+            dtpfvm.striped = true;
+            $scope.searchPingfeng = function () {
+                if ($scope.username == null){
+                    $('#myModal').modal('show');
+                    return;
+                }
+                /*判断权限是否改变*/
+                updateGrage();
+                //判断是否注册
+                var fCount = getFTForUser();
+                if($scope.username.grade == 2) {
+                    $('#tixing').modal('show');
+                    return;
+                }
+                if( $scope.dtPingFeng.searchWordsXy == null) {
+                    spop({template: '<strong>请输入查询字符!</strong>',
+                        autoclose: 3000,
+                        style:'error'
+                    });
+                    return;
+                }
+
+                dtpfvm.value = 0;
+                var interval = setInterval(function(){
+                    dtpfvm.value++;
+                    $scope.$apply();
+                    if (dtpfvm.value == 100) {
+                        $scope.dtPingFeng.msg = "查询超时！请重新查询";
+                        $scope.dtPingFeng.working = false;
+                        $scope.dtPingFeng.hasNoViolation == true;
+                        $scope.$apply();
+                        clearInterval(interval);
+                    }
+                }, 250);
+
+                $scope.dtPingFeng.examedContext = null;
+                $scope.dtPingFeng.hasNoViolation = false;
+                $scope.dtPingFeng.working = true;
+                $scope.dtPingFeng.msg = null;
+                $http({
+                    method:'get',
+                    url:'/deepsearch/searchPingfeng', params:{"searchWords": $scope.dtPingFeng.searchWordsXy},
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    transformRequest: function ( data ) {
+                        var str = '';
+                        for( var i in data ) {
+                            str += i + '=' + data[i] + '&';
+                        }
+                    }}
+                ).then(function successCallback(info) {
+                    if (info.data.code == 1) {
+                        // alert(info.data.msg);
+                        $scope.dtPingFeng.msg = info.data.msg;
+                        $scope.dtPingFeng.hasNoViolation = true;
+                    }else if(info.data.code == 0){
+                        var result = info.data.data;
+                        var rec = angular.fromJson(result.replace(/'/g, '"'));
+                        var list = [];
+                        for (var d in rec) {
+                            var c = rec[d].split('~');
+                            var node ={
+                                'name' :d,
+                                'id' :parseInt(c[0]),
+                                'value' :c[1],
+                            };
+                            list.push(node);
+                        }
+                        var dList = $filter('orderBy')( list ,'id');
+                        $scope.dtPingFeng.examedContext = dList;
+                    }
+                    dtpfvm.value = 100;
+                    clearInterval(interval);
+                    $scope.dtPingFeng.working = false;
+                },function errorCallback(info) {
+                    // alert("失败了");
+                    $scope.dtPingFeng.working = false;
+                    dtpfvm.value = 100;
+                    clearInterval(interval);
+                })
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     //########################动态评分查询end###############################//
+
+
+
+
+
+
     $scope.searchLogin = function () {
         if ($scope.username == null){
             $('#myModal').modal('show');

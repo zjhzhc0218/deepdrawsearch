@@ -103,8 +103,8 @@
             </div>
 
             <div style="position: absolute;right: 0">
-                <div class="upload-button" type="file" capture="camera" ngf-select="shopParams.uploadFiles($file,$errorfile)" ng-model="shopParams.file" accept="image/jpg,image/JPG,image/jpeg,image/gif,image/png" ngf-max-height="2000" ngf-max-size="5MB">
-                    <div>
+                <div>
+                    <div  class="upload-button" type="file" capture="camera" ngf-select="shopParams.uploadFiles($file,$errorfile)" ng-model="shopParams.file" accept="image/jpg,image/JPG,image/jpeg,image/gif,image/png" ngf-max-height="2000" ngf-max-size="5MB">
                         <img  style="height: 30px;width: 30px;float: right" class="uploadpic img-rounded" ng-src="{{shopParams.imgSrc}}" ng-model="shopParams.img"/>
                         <div style="margin-left: 0px;margin-right: 0px;" class="glyphicon glyphicon-camera uploadpic-label">点击上传</div>
                     </div>
@@ -421,8 +421,8 @@
 
 <script src="/deepsearch/js/angular/angular.js"></script>
 <script src="/deepsearch/js/adminController.js"></script>
-<script src="/deepsearch/js/spop/spop.js"></script>
-<script src="/deepsearch/js/loading/jquery.mloading.js"></script>
+<#--<script src="/deepsearch/js/spop/spop.js"></script>-->
+<#--<script src="/deepsearch/js/loading/jquery.mloading.js"></script>-->
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <#--<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>-->
 <#--主页面判断-->

@@ -90,7 +90,12 @@ public class UserControllers {
 
     @RequestMapping("/saveShopRecord")
     public String saveShopRecord(HttpServletRequest request) {
-        return ExportUtil.handleFileUpload(request);
+        try {
+            return ExportUtil.handleFileUpload(request);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "erro";
     }
 
 }

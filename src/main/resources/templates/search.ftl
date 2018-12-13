@@ -69,8 +69,13 @@
             </ul>
         </div>
         <div class="nav-list">
+
             <div class="one active">
-                <a  class="" role="tab" data-toggle="tab"href="#paimin" style="font-size: 14px;">宝贝无线排名查询</a>
+                <a  class="" role="tab" data-toggle="tab" href="#guanjia" style="font-size: 14px;">白马单品管家</a>
+            </div>
+
+            <div class="one">
+                <a  class="" role="tab" data-toggle="tab" href="#paimin" style="font-size: 14px;">宝贝无线排名查询</a>
             </div>
             <div class="one">
                 <a  role="tab" data-toggle="tab" href="#jiangquan">隐形降权查询</a>
@@ -85,11 +90,11 @@
                 <a  role="tab" data-toggle="tab" href="#目录">目录查询</a>
             </div>
             <div class="one">
-                <a  role="tab" data-toggle="tab" href="#目录">动态评分查询</a>
+                <a  role="tab" data-toggle="tab" href="#dongtaipingfeng">动态评分查询</a>
             </div>
-            <div class="one">
+          <#--  <div class="one">
                 <a  role="tab" data-toggle="tab" href="#目录">上下架查询</a>
-            </div>
+            </div>-->
             <div class="one">
                 <a  role="tab" data-toggle="tab" href="#reci" >20W热词下载</a>
             </div>
@@ -97,13 +102,13 @@
     </div>
 </header>
 
-<div class="float_weixin" style="position: absolute;width: 200px;height: 200px;top: 230px;right: 3%;">
+<div class="float_weixin" style="position: fixed;z-index:9999999;width: 200px;height: 200px;top: 23%;right: -1%;">
     <h4 style="margin-top: 0px">客服微信号：</h4>
     <img src="/deepsearch/img/codeImg.jpg" style="width: 120px">
 </div>
 
 <div class="tab-content container">
-    <div role="tabpanel" class="tab-pane active"class="content" id="paimin" >
+    <div role="tabpanel" class="tab-pane "class="content" id="paimin" >
         <div class="search-view" style="margin-top: 30px;margin-right: 264px;">
             <table>
                 <tr>
@@ -178,6 +183,9 @@
         <#include "//reci.ftl">
     </div>
 
+    <div role="tabpanel" class="tab-pane active" class="content" id="guanjia">
+        <#include "//guanjia.ftl">
+    </div>
 
     <div role="tabpanel" class="tab-pane" class="content" id="jiangquan">
         <div class="search-view" style="margin-top: 30px" style="margin-top: 30px" style="margin-top: 30px">
@@ -405,7 +413,87 @@
         </div>
     </div>
 
+    <div role="tabpanel" class="tab-pane"  class="content" id="dongtaipingfeng">
+        <div class="search-view" style="margin-top: 30px" style="margin-top: 30px" style="margin-top: 30px">
+            <input type="text"   ng-model="dtPingFeng.searchWordsXy"  placeholder="请输入旺旺账号，然后点击 &quot;查询&quot; 按钮"/>
+            <button class="btn  search-btnN" href="javascript:;" ng-click="searchPingfeng()" ng-disabled="dtPingFeng.working">查询</button>
+        </div>
 
+        <div class="search-desc" style="margin-top: -38;margin-left: 249px;">
+            <p class="title">如何提高店铺动态评分(DSR)？</p>
+            <p>1、提高对顾客的服务态度，发货速度，完善商品的描叙。让顾客舒心购物!</p>
+            <p>2、<font>顾客收到宝贝后，主动联系顾客是否满意</font>。从而提醒顾客好评并打5分!</p>
+            <p>3、邀请你的朋友关照下你，从而获得5分好评!</p>
+            <p>4、<font>加入一些互刷平台，或是互刷团队来提高动态评分!</font>安全，方便，快捷。</p>
+        </div>
+
+        <div class="search-info" id="dtPingFengRs" style="width: 75%;margin-left: 200px">
+            <div style="width: 90%" ng-if="dtPingFeng.msg == null " ng-show="dtPingFeng.vm.value!=0&&dtPingFeng.vm.value!=100">
+                <div ng-class="{progress: true, 'progress-striped': dtPingFeng.vm.striped}">
+                    <div ng-class="['progress-bar', dtPingFeng.vm.style]" ng-style="{width: dtPingFeng.vm.value + '%'}">
+                        <div ng-if="dtPingFeng.vm.showLabel">{{dtPingFeng.vm.value}}%</div>
+                    </div>
+                </div>
+            </div>
+        <#--    <div class="noViolation " ng-show="xinYu.hasNoViolation == true" style="color: red;font-size: 30px">
+                该号不存在，请检测是否输入有误!
+            </div>-->
+            <div class="noViolation " ng-show="dtPingFeng.msg != null" style="color: red;font-size: 30px">
+                {{dtPingFeng.msg}}
+            </div>
+       <#--     <div href="javascript:;" ng-show="dtPingFeng.examedContext != null" class="info-item active">
+
+                <div class="item-left" style="background-color: #f4f7e4;top: 7px;">
+                    淘宝买家：
+                    <div  style="width:auto;color: #FE7738;position: relative">
+                        <a ng-href="{{xinYu.examedContext[0].addr}}" target="_blank" style="font-size: 16px;color: red;float: left">
+                            {{xinYu.examedContext[0].value}}&nbsp;&nbsp;
+                        </a>
+                        <a ng-href="{{xinYu.examedContext[0].addr}}" target="_blank" style="font-size: 16px;color: red;float: left">
+                            <img ng-src="{{xinYu.examedContext[0].pic}}" >
+                        </a>
+                        <b style="float: left;margin-top: 3px">&nbsp;&nbsp;{{xinYu.examedContext[1].value}}</b>
+                    </div>
+                </div>
+
+                <div class="item-right" style="background-color: #f4f7e4">
+                    实名认证：
+                    <p style="color: red">{{xinYu.examedContext[2].value}}</p>
+                </div>
+            </div>-->
+
+            <div href="javascript:;" ng-show="dtPingFeng.examedContext != null" class="info-item">
+                <ul class="dsr-info" id="dsr" style="text-align: center;">
+                    <li class="J_RateInfoTrigger dsr-item selected">
+                        <div class="item-scrib">
+                            <span class="title">宝贝与描述相符：</span>
+                            <em class="count" id="item_score" ng-bind="dtPingFeng.examedContext[0].value"></em>分
+                            <em title="计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分)"><strong class="percent over" id="p_item_score">比同行业平均水平高 <b style="color:#f60" ng-bind="dtPingFeng.examedContext[1].value"></b></strong></em>
+                        </div>
+                        <div style="position:relative;left:100px;" class="avg" ng-show="dtPingFeng.examedContext[2].value!= ''"> 行业平均得分约：<b style="color:#f60" ng-bind="dtPingFeng.examedContext[2].value"></b>，抵挡<b style="color:#f60" ng-bind="dtPingFeng.examedContext[3].value"></b>单<b style="color:#f60" ng-bind="dtPingFeng.examedContext[4].value"></b>分后飘绿</div>
+
+                    </li>
+                    <li class="J_RateInfoTrigger dsr-item selected">
+                        <div class="item-scrib">
+                            <span class="title">卖家的服务态度：</span>
+                            <em class="count" id="service_score"  ng-bind="dtPingFeng.examedContext[5].value"></em>分
+                            <em title="计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分)"><strong class="percent over" id="p_item_score">比同行业平均水平高 <b style="color:#f60"  ng-bind="dtPingFeng.examedContext[6].value"></b></strong></em>
+                        </div>
+                        <div style="position:relative;left:100px;" class="avg" ng-show="dtPingFeng.examedContext[7].value!= ''"> 行业平均得分约：<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[7].value"></b>，抵挡<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[8].value"></b>单<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[9].value"></b>分后飘绿</div>
+                    </li>
+                    <li class="J_RateInfoTrigger dsr-item selected">
+                        <div class="item-scrib">
+                            <span class="title">卖家发货的速度：</span>
+                            <em class="count" id="delivery_score"  ng-bind="dtPingFeng.examedContext[10].value"></em>分
+                            <em title="计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分)"><strong class="percent over" id="p_item_score">比同行业平均水平高 <b style="color:#f60"  ng-bind="dtPingFeng.examedContext[11].value"></b></strong></em>
+                        </div>
+                        <div style="position:relative;left:100px;" class="avg" ng-show="dtPingFeng.examedContext[12].value!=''"> 行业平均得分约：<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[12].value"></b>，抵挡<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[13].value"></b>单<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[14].value"></b>分后飘绿</div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
 
 </div>
 
@@ -483,7 +571,7 @@
             <div class="modal-body" style="text-align: center;">
                 <span style="font-size: 18px;text-align: center;color: #008fff;">注册完只提供&nbsp;<span style="color: red">20w热词</span>&nbsp;下载功能</span></br>
                 <span style="font-size: 18px;text-align: center;color: #008fff;">数据查询功能请添加客服微信免费开通</span>
-                <img src="/deepsearch/img/codeImg.jpg" style="width: 200px;margin-left: 80px">
+                <img src="/deepsearch/codeimg/codeImg.jpg" style="width: 200px;margin-left: 80px">
             </div>
             <div class="modal-footer">
             <#--<button type="button" class="btn btn-primary" ng-click="signLogin()">确认</button>-->

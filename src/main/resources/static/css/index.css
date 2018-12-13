@@ -261,3 +261,34 @@ header .header-content{
 	line-height: 35px;
 	margin-bottom: 0;
 }
+
+.dsr-info .dsr-item {
+	width: 382px;
+	height: 60px;
+	line-height: 30px;
+	padding-left: 10px;
+	margin-bottom: 12px;
+	vertical-align: middle;
+}
+ .dsr-info .item-scrib {
+	 position: relative;
+	 height: 30px;
+	 line-height: 30px;
+	 overflow: hidden;
+	 color: gray;
+	 width: 400px;
+ }
+
+ .dsr-info .item-scrib .percent {
+	 position: absolute;
+	 right: 10px;
+	 top: 2px;
+	 width: 79px;
+	 padding-left: 130px;
+	 text-align: center;
+	 height: 28px;
+	 line-height: 26px;
+	 display: block;
+	 color: #fff;
+ }
+	/*background: url(../img/dsr.png) no-repeat;*/

@@ -124,6 +124,23 @@ public class SearchControllers {
     }
 
 
+    /**
+     * 调用python返回动态评分数据
+     * @param request
+     * @return
+     */
+    @GetMapping(value="/searchPingfeng")
+    public String  searchPingfeng(HttpServletRequest request){
+        String word =  request.getParameter("searchWords");
+        String[]  args = new String[] { "python", pythonPath+"/score.py", word};
+        String result = JavaToPython.getPython(args);
+        if (result == null)
+            throw new GlobalException(CodeMsg.SERVER_ERROR);
+        functionUsingService.addFT(6);
+        if (result!=null && result.equals("001"))
+            return JsonUtil.object2Json(ResultUtil.error(1,"可能您查询的淘宝账号还没有在淘宝开店！"));
+        return JsonUtil.object2Json(ResultUtil.success(result));
+    }
 
 
 

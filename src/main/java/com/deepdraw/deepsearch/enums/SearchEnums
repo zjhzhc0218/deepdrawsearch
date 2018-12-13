@@ -5,7 +5,8 @@ public enum SearchEnums {
     WJC("违禁词", 2),
     XINYU("信誉", 3),
     RECI("热词", 4),
-    JIANGQUAN("降权", 5);
+    JIANGQUAN("降权", 5),
+    DONGTAIPINGFEN("动态评分", 6);
     // 成员变量
     private String name;
     private int type;
@@ -40,12 +41,5 @@ public enum SearchEnums {
         return null;
     }
 
-    public enum SearchEnums1 {
-    private String name;
-    private int type;
-    private String name;
-    private int type;
-
-    }
 
 }
