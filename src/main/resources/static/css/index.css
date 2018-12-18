@@ -25,7 +25,8 @@ header .header-content{
 	line-height: 35px;
 	padding: 0 5px;
 	margin-left: 5px;
-	margin-top: 7px;
+	position: relative;
+	top: 10px;
 }
 .user-view{
 	display: flex;
