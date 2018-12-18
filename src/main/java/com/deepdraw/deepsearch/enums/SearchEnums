@@ -8,6 +8,7 @@ public enum SearchEnums {
     JIANGQUAN("降权", 5),
     DONGTAIPINGFEN("动态评分", 6);
     MULU("目录", 7);
+     SHANGXIAJIA("上下架", 8);
     // 成员变量
     private String name;
     private int type;

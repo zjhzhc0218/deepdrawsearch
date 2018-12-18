@@ -92,9 +92,9 @@
             <div class="one">
                 <a  role="tab" data-toggle="tab" href="#dongtaipingfeng">动态评分查询</a>
             </div>
-          <#--  <div class="one">
-                <a  role="tab" data-toggle="tab" href="#目录">上下架查询</a>
-            </div>-->
+            <div class="one">
+                <a  role="tab" data-toggle="tab" href="#shangxiajia">上下架查询</a>
+            </div>
             <div class="one">
                 <a  role="tab" data-toggle="tab" href="#reci" >20W热词下载</a>
             </div>
@@ -503,6 +503,46 @@
         </div>
     </div>
 
+    <div role="tabpanel" class="tab-pane"  class="content" id="shangxiajia">
+        <div class="search-view" style="margin-top: 30px" style="margin-top: 30px" style="margin-top: 30px">
+            <input type="text"   ng-model="shangxiajia.searchWordsShangxiajia"  placeholder="请输入需要查询的商品ID或是商品链接 &quot;查询&quot; 按钮"/>
+            <button class="btn  search-btnN" href="javascript:;" ng-click="searchShangxiajia()" ng-disabled="shangxiajia.working">查询</button>
+        </div>
+        <div class="noViolation " ng-show="shangxiajia.msg != null" style=" text-align:center;color; black;font-size: 30px">
+            {{shangxiajia.msg}}
+        </div>
+
+        <!-- 查询记录开始 -->
+        <div class="result-context" ng-show="shangxiajia.examedContext != null&&shangxiajia.examedContext.length>0" >
+            <table class="table table-hover" style="  display: block;width:100%;margin-bottom: 0px;">
+                <thead>
+                <tr style="width:100%">
+                    <td style="width: 30px;text-align: center"><label>商品图片</label></td>
+                    <td style="width: 120px;text-align: center"><label>宝贝名称</label></td>
+                    <td style="width: 90px;text-align: center"><label>上架时间</label></td>
+                    <td style="width: 90px;text-align: center"><label>下架时间</label></td>
+                    <td style="width: 90px;text-align: center"><label>剩余时间</label></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="width:100%" >
+                    <td style="width: 30px;text-align: center">
+                        <img style="width: 100px;height: 100px;margin-top: 10px" ng-if="node.name=='img'" ng-src="{{shangxiajia.examedContext[0].value}}">
+                        <#--<b style="color:#f60"  ng-bind="shangxiajia.examedContext[0].value"></b>-->
+                    </td>
+                    <td style="width: 120px;text-align: center"><b style="color:#f60"  ng-bind="shangxiajia.examedContext[1].value"></b></td>
+                    <td style="width: 90px;text-align: center"><b style="color:#f60"  ng-bind="shangxiajia.examedContext[2].value"></b></td>
+                    <td style="width: 90px;text-align: center"><b style="color:#f60"  ng-bind="shangxiajia.examedContext[3].value"></b></td>
+                    <td style="width: 90px;text-align: center"><b style="color:#f60"  ng-bind="shangxiajia.examedContext[4].value"></b>天<b style="color:#f60"  ng-bind="shangxiajia.examedContext[5].value">小时</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- 查询记录结束 -->
+
+    </div>
+
 </div>
 
 
@@ -580,7 +620,7 @@
             <div class="modal-body" style="text-align: center;">
                 <span style="font-size: 18px;text-align: center;color: #008fff;">注册完只提供&nbsp;<span style="color: red">20w热词</span>&nbsp;下载功能</span></br>
                 <span style="font-size: 18px;text-align: center;color: #008fff;">数据查询功能请添加客服微信免费开通</span>
-                <img src="/deepsearch/codeimg/codeImg.jpg" style="width: 200px;margin-left: 80px">
+                <#--<img src="/deepsearch/codeimg/codeImg.jpg" style="width: 200px;margin-left: 80px">-->
             </div>
             <div class="modal-footer">
             <#--<button type="button" class="btn btn-primary" ng-click="signLogin()">确认</button>-->
