@@ -152,11 +152,21 @@ public class SearchControllers {
     public String  getSearchMulu(HttpServletRequest request){
         String word =  request.getParameter("searchWords");
         String[]  args = new String[] { "python", pythonPath+"/leimu.py", word };
-//        functionUsingService.addFT(7);
+        functionUsingService.addFT(7);
         return JsonUtil.object2Json(ResultUtil.success(JavaToPython.getPython(args)));
     }
 
-
-
+    /**
+     * 调用python返回淘宝上下架查询
+     * @param request
+     * @return
+     */
+    @GetMapping(value="/getSearchShangxiajia")
+    public String  getSearchShangxiajia(HttpServletRequest request){
+        String word =  request.getParameter("searchWords");
+        String[]  args = new String[] { "python", pythonPath+"/up_down.py", word };
+//        functionUsingService.addFT(8);  上下架
+        return JsonUtil.object2Json(ResultUtil.success(JavaToPython.getPython(args)));
+    }
 
 }
