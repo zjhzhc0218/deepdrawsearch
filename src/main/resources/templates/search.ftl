@@ -68,36 +68,62 @@
                 </li>
             </ul>
         </div>
-        <div class="nav-list">
+        <div class="nav-list container">
+            <div class="row">
+                <#--<div class="col-md-12">-->
+                    <div class="one active">
+                        <a  class="" role="tab" data-toggle="tab" href="#guanjia" style="font-size: 14px;">白马单品管家</a>
+                    </div>
 
-            <div class="one active">
-                <a  class="" role="tab" data-toggle="tab" href="#guanjia" style="font-size: 14px;">白马单品管家</a>
-            </div>
+                    <div class="one">
+                        <a  class="" role="tab" data-toggle="tab" href="#paimin" style="font-size: 14px;">宝贝无线排名查询</a>
+                    </div>
+                    <div class="one">
+                        <a  role="tab" data-toggle="tab" href="#jiangquan">隐形降权查询</a>
+                    </div>
+                    <div class="one">
+                        <a  role="tab" data-toggle="tab" href="#">下拉框选词</a>
+                    </div>
+                    <div class="one">
+                        <a  role="tab" data-toggle="tab" href="#">指数还原</a>
+                    </div>
+                    <div class="one">
+                        <a  role="tab" data-toggle="tab" href="#">展现查询</a>
+                    </div>
+                    <div class="one ">
+                        <a  role="tab" data-toggle="tab" href="#xinyu">买家信誉查询</a>
+                    </div>
 
-            <div class="one">
-                <a  class="" role="tab" data-toggle="tab" href="#paimin" style="font-size: 14px;">宝贝无线排名查询</a>
+                <#--<div class="one">-->
+                <#--<a  role="tab" data-toggle="tab" href="#weijin">违禁词查询</a>-->
+                <#--</div>-->
+                <#--<div class="one">-->
+                <#--<a  role="tab" data-toggle="tab" href="#mulu">目录查询</a>-->
+                <#--</div>-->
+                <#--<div class="one">-->
+                <#--<a  role="tab" data-toggle="tab" href="#dongtaipingfeng">动态评分查询</a>-->
+                <#--</div>-->
+                <#--<div class="one">-->
+                <#--<a  role="tab" data-toggle="tab" href="#reci" >20W热词下载</a>-->
+                <#--</div>-->
+                <div class="one header_more">
+                    <a  role="tab" data-toggle="tab" href="#">更多</a>
+                    <ul>
+                        <li><a href="#weijin">违禁词查询</a></li>
+                        <li><a href="#mulu">目录查询</a></li>
+                        <li><a href="#dongtaipingfeng">动态评分查询</a></li>
+                        <li><a href="#reci">20W热词下载</a></li>
+                        <li><a href="#">上下架查询</a></li>
+                        <li><a href="#">历史价格查询</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="one">
-                <a  role="tab" data-toggle="tab" href="#jiangquan">隐形降权查询</a>
-            </div>
-            <div class="one ">
-                <a  role="tab" data-toggle="tab" href="#xinyu">买家信誉查询</a>
-            </div>
-            <div class="one">
-                <a  role="tab" data-toggle="tab" href="#weijin">违禁词查询</a>
-            </div>
-            <div class="one">
-                <a  role="tab" data-toggle="tab" href="#mulu">宝贝类目查询</a>
-            </div>
-            <div class="one">
-                <a  role="tab" data-toggle="tab" href="#dongtaipingfeng">动态评分查询</a>
-            </div>
-            <div class="one">
-                <a  role="tab" data-toggle="tab" href="#zhishu">指数还原查询</a>
-            </div>
-            <div class="one">
-                <a  role="tab" data-toggle="tab" href="#reci" >20W热词下载</a>
-            </div>
+        </div>
+        <#--  <div class="one">
+              <a  role="tab" data-toggle="tab" href="#目录">上下架查询</a>
+          </div>-->
+
+
         </div>
     </div>
 </header>
@@ -658,20 +684,79 @@
 <script src="/deepsearch/js/jquery.lazyload.min.js"></script>
 <script src="/deepsearch/js/jquery.scrollstop.min.js"></script>
 
+
 <script type="text/javascript">
     user = '${user!}';
 
     var activeIndex = location.search.slice(1).split('=')[1]
     $('.one').eq(activeIndex).addClass('active')
     $('.one').on('click', function () {
-        $(this).siblings().removeClass('active')
-        $(this).addClass('active')
+        if($(this).hasClass("header_more")){
+            // alert(1)
+
+        }else if($(this).find("a").attr('href')=="#")
+        {
+            alert("此功能暂未开发")
+        }
+        else{
+            $(this).siblings().removeClass('active')
+            $(this).addClass('active')
+        }
+
+
     })
     $('.one a').on('click', function () {
         $('.content').hide();
         $($(this).attr('data-id')).show()
     })
-    $("img").lazyload({effect: "fadeIn"});
+
+    //默认弹框样式
+    window.alert = function (msg){
+        dialog.showTips(msg, "warn");
+    }
+    var dialog = {
+        /*
+         type为firm时，url传回调参数
+         */
+        showTips : function (msg,type,url){
+
+            var htmlCon="";
+
+
+            htmlCon='<div class="wap_tanc" style="display: block;">'+
+                '<div class="wap_tanc_bg"></div>'+
+                '<div class="wap_tanc_con" style="display: block;">'+
+                '<h5>'+msg+'</h5>'+
+                '<div class="wap_tanc_btn clearfix">'+
+                '<a href="javascript:void(0)" style="width:100%;" class="close1">确定</a>'+
+                '</div>'+
+                '</div>'+
+                '</div>';
+
+            $('.wap_tanc').remove();
+            $('body').append(htmlCon);
+            var url_function = url;
+            //$('body').prepend("pllp");
+
+            $('.close1').click(function(){
+                $('.wap_tanc').stop(true).fadeOut(300);
+                $('.wap_tanc_con').stop(true).fadeOut(300);
+                if(typeof url == "function" && type=='warn'){url_function();}
+                return false;
+            });
+
+            $(".reload").click(function(){
+
+                location.reload();
+
+            });
+
+            $(".continue").click(function (){
+                // url();
+                $('.close1').trigger("click");
+            })
+        }
+    }
 
 </script>
 <script>
@@ -682,9 +767,6 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
-    $(function(){
-        window.parent.scrollTo(0, 0);
-    })
 </script>
 
 </html>
