@@ -1,0 +1,3 @@
+2018-12-19 10:38:04,572 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT id,module,userId,usingTime FROM function_using WHERE userId = ? 
+2018-12-19 10:38:04,576 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 13476551627(Long)
+2018-12-19 10:38:04,627 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1

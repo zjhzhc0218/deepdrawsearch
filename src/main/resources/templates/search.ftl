@@ -705,6 +705,11 @@
 
 
     })
+    $(".header_more ul a").on('click', function (){
+        if($(this).attr('href')=="#"){
+            alert("此功能暂未开发")
+        }
+    })
     $('.one a').on('click', function () {
         $('.content').hide();
         $($(this).attr('data-id')).show()
