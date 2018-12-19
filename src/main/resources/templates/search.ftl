@@ -611,7 +611,8 @@
                     <td style="width: 120px;text-align: center"><b   ng-bind="shangxiajia.examedContext[1].value"></b></td>
                     <td style="width: 90px;text-align: center"><b   ng-bind="shangxiajia.examedContext[2].value"></b></td>
                     <td style="width: 90px;text-align: center"><b  ng-bind="shangxiajia.examedContext[3].value"></b></td>
-                    <td style="width: 90px;text-align: center"><b  ng-bind="shangxiajia.examedContext[4].value"></b>天<b  ng-bind="shangxiajia.examedContext[5].value"></b>小时</td>
+                    <td style="width: 90px;text-align: center"><b  ng-bind="shangxiajia.examedContext[4].value"></b>天<b 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                                                                                                                        ng-bind="shangxiajia.examedContext[5].value"></b>小时</td>
                 </tr>
                 </tbody>
             </table>
