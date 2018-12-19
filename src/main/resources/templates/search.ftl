@@ -85,7 +85,7 @@
                         <a  role="tab" data-toggle="tab" href="#">下拉框选词</a>
                     </div>
                     <div class="one">
-                        <a  role="tab" data-toggle="tab" href="#">指数还原</a>
+                        <a  role="tab" data-toggle="tab" href="#zhishu">指数还原</a>
                     </div>
                     <div class="one">
                         <a  role="tab" data-toggle="tab" href="#">展现查询</a>
@@ -109,12 +109,12 @@
                 <div class="one header_more">
                     <a  role="tab" data-toggle="tab" href="#">更多</a>
                     <ul>
-                        <li><a href="#weijin">违禁词查询</a></li>
-                        <li><a href="#mulu">目录查询</a></li>
-                        <li><a href="#dongtaipingfeng">动态评分查询</a></li>
-                        <li><a href="#reci">20W热词下载</a></li>
-                        <li><a href="#">上下架查询</a></li>
-                        <li><a href="#">历史价格查询</a></li>
+                        <li><a role="tab" data-toggle="tab" href="#weijin">违禁词查询</a></li>
+                        <li><a role="tab" data-toggle="tab" href="#mulu">目录查询</a></li>
+                        <li><a role="tab" data-toggle="tab" href="#dongtaipingfeng">动态评分查询</a></li>
+                        <li><a role="tab" data-toggle="tab" href="#reci">20W热词下载</a></li>
+                        <li><a role="tab" data-toggle="tab" href="#">上下架查询</a></li>
+                        <li><a role="tab" data-toggle="tab" href="#">历史价格查询</a></li>
                     </ul>
                 </div>
             </div>
@@ -746,11 +746,8 @@
             });
 
             $(".reload").click(function(){
-
                 location.reload();
-
             });
-
             $(".continue").click(function (){
                 // url();
                 $('.close1').trigger("click");
