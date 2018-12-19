@@ -113,7 +113,7 @@
                         <li><a role="tab" data-toggle="tab" href="#mulu">目录查询</a></li>
                         <li><a role="tab" data-toggle="tab" href="#dongtaipingfeng">动态评分查询</a></li>
                         <li><a role="tab" data-toggle="tab" href="#reci">20W热词下载</a></li>
-                        <li><a role="tab" data-toggle="tab" href="#">上下架查询</a></li>
+                        <li><a role="tab" data-toggle="tab" href="#shangxiajia">上下架查询</a></li>
                         <li><a role="tab" data-toggle="tab" href="#">历史价格查询</a></li>
                     </ul>
                 </div>
