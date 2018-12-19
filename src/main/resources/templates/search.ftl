@@ -527,13 +527,13 @@
                 <tbody>
                 <tr style="width:100%" >
                     <td style="width: 30px;text-align: center">
-                        <img style="width: 100px;height: 100px;margin-top: 10px" ng-if="node.name=='img'" ng-src="{{shangxiajia.examedContext[0].value}}">
-                        <#--<b style="color:#f60"  ng-bind="shangxiajia.examedContext[0].value"></b>-->
+                        <img style="width: 100px;height: 100px;margin-top: 10px"  ng-src="{{shangxiajia.examedContext[0].value}}">
+                    <#--<b style="color:#f60"  ng-bind="shangxiajia.examedContext[0].value"></b>-->
                     </td>
                     <td style="width: 120px;text-align: center"><b style="color:#f60"  ng-bind="shangxiajia.examedContext[1].value"></b></td>
                     <td style="width: 90px;text-align: center"><b style="color:#f60"  ng-bind="shangxiajia.examedContext[2].value"></b></td>
                     <td style="width: 90px;text-align: center"><b style="color:#f60"  ng-bind="shangxiajia.examedContext[3].value"></b></td>
-                    <td style="width: 90px;text-align: center"><b style="color:#f60"  ng-bind="shangxiajia.examedContext[4].value"></b>天<b style="color:#f60"  ng-bind="shangxiajia.examedContext[5].value">小时</td>
+                    <td style="width: 90px;text-align: center"><b style="color:#f60"  ng-bind="shangxiajia.examedContext[4].value"></b>天<b style="color:#f60"  ng-bind="shangxiajia.examedContext[5].value"></b>小时</td>
                 </tr>
                 </tbody>
             </table>

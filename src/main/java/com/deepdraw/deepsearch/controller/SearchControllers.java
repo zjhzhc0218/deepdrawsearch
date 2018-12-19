@@ -165,7 +165,7 @@ public class SearchControllers {
     public String  getSearchShangxiajia(HttpServletRequest request){
         String word =  request.getParameter("searchWords");
         String[]  args = new String[] { "python", pythonPath+"/up_down.py", word };
-//        functionUsingService.addFT(8);  上下架
+        functionUsingService.addFT(8);
         return JsonUtil.object2Json(ResultUtil.success(JavaToPython.getPython(args)));
     }
 
