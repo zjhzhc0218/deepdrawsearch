@@ -554,17 +554,28 @@
                 {{zhishu.msg}}
             </div>
             <div href="javascript:;" ng-show="zhishu.examedContext != null" class="info-item">
-                <ul class="dsr-info" id="dsr" style="">
-                    <li class="J_RateInfoTrigger dsr-item selected">
-                        <div class="item-scrib">
-                            <span class="title" style="">销售金额：</span>
-                            <em style="color:#f60" class="count" id="item_score" ng-bind="zhishu.examedContext"></em>
-                        </div>
-                        <div class="item-scrib">
-                            <span class="title" style="">交易指数：</span>
-                            <em style="color:#f60" class="count" id="item_score" ng-bind="zhishu.searchWordsXy"></em>
-                        </div>
-                    </li>
+                <div class="reductionIndex" id="dsr">
+                    <div>
+                        <h5 style="display: inline">销售金额：</h5>
+                        <h1 ng-if="zhishu.searchWordsXy<=2100">交易指数过小</h1>
+                        <h1 ng-if="zhishu.searchWordsXy>2100" id="item_score" ng-bind="zhishu.examedContext"></h1>
+                    </div>
+
+                    <h5>交易指数： <span class="count" id="item_score" ng-bind="zhishu.searchWordsXy"></span></h5>
+                </div>
+
+                <#--<ul class="dsr-info" id="dsr" style="">-->
+                <#--<li class="J_RateInfoTrigger dsr-item selected">-->
+                <#--<div class="item-scrib">-->
+                <#--<span class="title" style="">销售金额：</span>-->
+                <#--<em style="color:#f60" class="count" id="item_score" ng-bind="zhishu.examedContext"></em>-->
+                <#--</div>-->
+                <#--<div class="item-scrib">-->
+                <#--<span class="title" style="">交易指数：</span>-->
+                <#--<em style="color:#f60" class="count" id="item_score" ng-bind="zhishu.searchWordsXy"></em>-->
+                <#--</div>-->
+                <#--</li>-->
+                <#--</ul>-->
                 </ul>
             </div>
         </div>
@@ -756,7 +767,7 @@
 
     //默认弹框样式
     window.alert = function (msg){
-        dialog.showTips(msg, "warn");
+        dialog.showTips(msg, "warn");s
     }
     var dialog = {
         /*
