@@ -1,3 +1,4 @@
+
 header{
 	width: 100%;
 	background: url(../img/top-bg.jpg) no-repeat center top #1d71f0;
@@ -171,7 +172,7 @@ header .header-content{
 	background-color: #fe8034;
 	display: block;
 	/*line-height: 50px;*/
-    line-height: 30px;
+	line-height: 30px;
 	padding: 0 30px;
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
@@ -180,14 +181,14 @@ header .header-content{
 
 
 .search-view .search-btnN{
-    font-size: 24px;
-    color: #fff;
-    background-color: #fe8034;
-    display: block;
-    line-height: 50px;
-    padding: 0 30px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+	font-size: 24px;
+	color: #fff;
+	background-color: #fe8034;
+	display: block;
+	line-height: 50px;
+	padding: 0 30px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 .search-view .search-btnB{
 	font-size: 24px;
@@ -271,10 +272,10 @@ header .header-content{
 	color: #526d88;
 }
 /*.item-left p{*/
-	/*flex: 1;*/
-	/*line-height: 40px;*/
-	/*font-size: 16px;*/
-	/*color: #008ae5;*/
+/*flex: 1;*/
+/*line-height: 40px;*/
+/*font-size: 16px;*/
+/*color: #008ae5;*/
 /*}*/
 .item-right span{
 	display: block;
@@ -294,7 +295,7 @@ header .header-content{
 	background-color: #d0dded;
 }
 /*.search-info .active span, .search-info .active p{*/
-	/*color: #ff0000;*/
+/*color: #ff0000;*/
 /*}*/
 
 .footer{
@@ -316,30 +317,30 @@ header .header-content{
 	margin-bottom: 12px;
 	vertical-align: middle;
 }
- .dsr-info .item-scrib {
-	 position: relative;
-	 height: 30px;
-	 line-height: 30px;
-	 overflow: hidden;
-	 color: gray;
-	 width: 400px;
- }
+.dsr-info .item-scrib {
+	position: relative;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+	color: gray;
+	width: 400px;
+}
 
- /*.dsr-info .item-scrib .percent {
-	 position: absolute;
-	 right: 10px;
-	 top: 2px;
-	 width: 79px;
-	 padding-left: 130px;
-	 text-align: center;
-	 height: 28px;
-	 line-height: 26px;
-	 display: block;
-	 color: #fff;
- }*/
-	/*background: url(../img/dsr.png) no-repeat;*/
+/*.dsr-info .item-scrib .percent {
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    width: 79px;
+    padding-left: 130px;
+    text-align: center;
+    height: 28px;
+    line-height: 26px;
+    display: block;
+    color: #fff;
+}*/
+/*background: url(../img/dsr.png) no-repeat;*/
 
-*********.网站弹框**********/
+/*********.网站弹框**********/
 .wap_tanc{
 	width:100%;
 	height:100%;
@@ -439,3 +440,25 @@ header .header-content{
 	cursor:pointer;
 }
 /*********网站弹框**********/
+.reductionIndex{
+	width: 400px;
+	/* margin: 0 auto; */
+	background-color: #eaf0ff;
+	border: 2px solid #6c9cff;
+	color: #696b6d;
+	/*text-align: center;*/
+	border-radius: 5px;
+	padding: 21px;
+	padding-left: 6%;
+	margin-left: 5%;
+	display: block;
+}
+.reductionIndex h5{
+	font-size:17px;
+}
+.reductionIndex h1{
+	margin: 17px 0;
+	color:#ff6000;
+	font-size: 30px;
+	display: inline;
+}
