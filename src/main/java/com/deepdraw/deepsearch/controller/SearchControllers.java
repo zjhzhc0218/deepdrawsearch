@@ -155,7 +155,7 @@ public class SearchControllers {
         String result = JavaToPython.getPython(args);
         if (result == null)
             throw new GlobalException(CodeMsg.SERVER_ERROR);
-        //functionUsingService.addFT(6);
+        functionUsingService.addFT(7);
         if (result!=null && result.equals("001"))
             return JsonUtil.object2Json(ResultUtil.error(1,"可能您查询的暂无数据！"));
         return JsonUtil.object2Json(ResultUtil.success(result));
@@ -177,6 +177,19 @@ public class SearchControllers {
         if (result!=null && result.equals("001"))
             return JsonUtil.object2Json(ResultUtil.error(1,"可能您查询的淘宝账号还没有在淘宝开店！"));
         return JsonUtil.object2Json(ResultUtil.success(result));
+    }
+
+    /**
+     * 调用python返回淘宝上下架查询
+     * @param request
+     * @return
+     */
+    @GetMapping(value="/getSearchShangxiajia")
+    public String  getSearchShangxiajia(HttpServletRequest request){
+        String word =  request.getParameter("searchWords");
+        String[]  args = new String[] { "python", pythonPath+"/up_down.py", word };
+        functionUsingService.addFT(8);
+        return JsonUtil.object2Json(ResultUtil.success(JavaToPython.getPython(args)));
     }
 
 

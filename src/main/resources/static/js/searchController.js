@@ -871,6 +871,100 @@ var app=angular.module('search',[])
             //########################指数查询end###############################//
 
 
+            //########################上下架查询###############################//
+            $scope.shangxiajia = {
+                searchWordsShangxiajia : null,//查询
+                working : false,
+                hasNoViolation : false,
+                examedContext : null
+            };
+            var sxjvm = $scope.shangxiajia.vm = {};
+            sxjvm.value = 0;
+            sxjvm.style = 'progress-bar-info';
+            sxjvm.showLabel = true;
+            sxjvm.striped = true;
+            $scope.searchShangxiajia = function () {
+                if ($scope.username == null){
+                    $('#myModal').modal('show');
+                    return;
+                }
+                /*判断权限是否改变*/
+                updateGrage();
+                //判断是否注册
+                var fCount = getFTForUser();
+                if($scope.username.grade == 2) {
+                    $('#tixing').modal('show');
+                    return;
+                }
+                if( $scope.shangxiajia.searchWordsShangxiajia == null) {
+                    spop({template: '<strong>请输入查询字符!</strong>',
+                        autoclose: 3000,
+                        style:'error'
+                    });
+                    return;
+                }
+
+                sxjvm.value = 0;
+                var interval = setInterval(function(){
+                    sxjvm.value++;
+                    $scope.$apply();
+                    if (sxjvm.value == 100) {
+                        $scope.shangxiajia.msg = "查询超时！请重新查询";
+                        $scope.shangxiajia.working = false;
+                        $scope.shangxiajia.hasNoViolation == true;
+                        $scope.$apply();
+                        clearInterval(interval);
+                    }
+                }, 250);
+
+                $scope.shangxiajia.examedContext = null;
+                $scope.shangxiajia.hasNoViolation = false;
+                $scope.shangxiajia.working = true;
+                $scope.shangxiajia.msg = null;
+                $http({
+                    method:'get',
+                    url:'/deepsearch/getSearchShangxiajia', params:{"searchWords": $scope.shangxiajia.searchWordsShangxiajia},
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    transformRequest: function ( data ) {
+                        var str = '';
+                        for( var i in data ) {
+                            str += i + '=' + data[i] + '&';
+                        }
+                    }}
+                ).then(function successCallback(info) {
+                    if (info.data.code == 1) {
+                        // alert(info.data.msg);
+                        $scope.shangxiajia.msg = info.data.msg;
+                        $scope.shangxiajia.hasNoViolation = true;
+                    }else if(info.data.code == 0){
+                        var result = info.data.data;
+                        var rec = angular.fromJson(result.replace(/'/g, '"'));
+                        var list = [];
+                        for (var d in rec) {
+                            var c = rec[d].split('~');
+                            var node ={
+                                'name' :d,
+                                'id' :parseInt(c[0]),
+                                'value' :c[1],
+                            };
+                            list.push(node);
+                        }
+                        var dList = $filter('orderBy')( list ,'id');
+                        $scope.shangxiajia.examedContext = dList;
+                    }
+                    sxjvm.value = 100;
+                    clearInterval(interval);
+                    $scope.shangxiajia.working = false;
+                },function errorCallback(info) {
+                    // alert("失败了");
+                    $scope.shangxiajia.working = false;
+                    sxjvm.value = 100;
+                    clearInterval(interval);
+                })
+            }
+
+            //########################上下架查询###############################//
+
 
 
     $scope.searchLogin = function () {

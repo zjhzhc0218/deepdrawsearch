@@ -570,6 +570,45 @@
         </div>
     </div>
 
+    <div role="tabpanel" class="tab-pane"  class="content" id="shangxiajia">
+        <div class="search-view" style="margin-top: 30px" style="margin-top: 30px" style="margin-top: 30px">
+            <input type="text"   ng-model="shangxiajia.searchWordsShangxiajia"  placeholder="请输入需要查询的商品ID或是商品链接 &quot;查询&quot; 按钮"/>
+            <button class="btn  search-btnN" href="javascript:;" ng-click="searchShangxiajia()" ng-disabled="shangxiajia.working">查询</button>
+        </div>
+        <div class="noViolation " ng-show="shangxiajia.msg != null" style=" text-align:center;color; black;font-size: 30px">
+            {{shangxiajia.msg}}
+        </div>
+
+        <!-- 查询记录开始 -->
+        <div class="result-context" ng-show="shangxiajia.examedContext != null&&shangxiajia.examedContext.length>0" >
+            <table class="table table-hover" style="  display: block;width:100%;margin-bottom: 0px;">
+                <thead>
+                <tr style="width:100%">
+                    <td style="width: 30px;text-align: center"><label>商品图片</label></td>
+                    <td style="width: 120px;text-align: center"><label>宝贝名称</label></td>
+                    <td style="width: 90px;text-align: center"><label>上架时间</label></td>
+                    <td style="width: 90px;text-align: center"><label>下架时间</label></td>
+                    <td style="width: 90px;text-align: center"><label>剩余时间</label></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="width:100%" >
+                    <td style="width: 30px;text-align: center">
+                        <img style="width: 100px;height: 100px;margin-top: 10px"  ng-src="{{shangxiajia.examedContext[0].value}}">
+                    <#--<b style="color:#f60"  ng-bind="shangxiajia.examedContext[0].value"></b>-->
+                    </td>
+                    <td style="width: 120px;text-align: center"><b style="color:#f60"  ng-bind="shangxiajia.examedContext[1].value"></b></td>
+                    <td style="width: 90px;text-align: center"><b style="color:#f60"  ng-bind="shangxiajia.examedContext[2].value"></b></td>
+                    <td style="width: 90px;text-align: center"><b style="color:#f60"  ng-bind="shangxiajia.examedContext[3].value"></b></td>
+                    <td style="width: 90px;text-align: center"><b style="color:#f60"  ng-bind="shangxiajia.examedContext[4].value"></b>天<b style="color:#f60"  ng-bind="shangxiajia.examedContext[5].value"></b>小时</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- 查询记录结束 -->
+
+
 </div>
 
 
