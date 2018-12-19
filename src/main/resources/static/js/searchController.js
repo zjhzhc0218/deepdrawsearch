@@ -675,41 +675,125 @@ var app=angular.module('search',[])
             }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
      //########################动态评分查询end###############################//
 
-            //########################目录查询###############################//
-            $scope.searchWordsMulu = null;//查询
-            $scope.mulu = {
-                hasNoViolation : false,
+        //########################目录查询###############################//
+        $scope.searchWordsMulu = null;//查询
+        $scope.mulu = {
+            hasNoViolation : false,
+            working : false,
+            hideDetail : false,
+            hasAbsolutedWord : false,
+            examedContext : null
+        };
+        var muluvm = $scope.mulu.vm = {};
+            muluvm.value = 0;
+            muluvm.style = 'progress-bar-info';
+            muluvm.showLabel = true;
+            muluvm.striped = true;
+        $scope.searchMulu = function () {
+
+            if ($scope.username == null){
+                $('#myModal').modal('show');
+                return;
+            }
+            /*判断权限是否改变*/
+            updateGrage();
+            //判断是否注册
+            var fCount = getFTForUser();
+            if($scope.username.grade == 2) {
+                $('#tixing').modal('show');
+                return;
+            }
+            if( $scope.searchWordsMulu == null) {
+                spop({template: '<strong>请输入查询字符!</strong>',
+                    autoclose: 3000,
+                    style:'error'
+                });
+                return;
+            }
+            var str = angular.copy($scope.searchWordsMulu);
+            str = str.match(/id=(\d*)/);
+            if (str) {
+                $scope.searchWordsMulu = str[1];
+            }
+            var reg = /^[0-9]+.?[0-9]*$/;
+            if (!reg.test($scope.searchWordsMulu)) {
+                spop({template: '<strong>宝贝ID或者宝贝链接输入不符合规则!</strong>',
+                    autoclose: 3000,
+                    style:'error'
+                });
+                return;
+            }
+
+            /*  $("#wjcrs").mLoading({
+             text:"查询中"
+             });*/
+            muluvm.value = 0;
+            $scope.mulu.examedContext = null;
+            $scope.mulu.msg = null;
+            $scope.mulu.hasNoViolation = false;
+            var interval = setInterval(function(){
+                muluvm.value++;
+                $scope.$apply();
+                if (muluvm.value == 100) {
+                    $scope.mulu.msg = "查询超时！请重新查询";
+                    $scope.mulu.working = false;
+                    $scope.mulu.hasNoViolation == true;
+                    $scope.$apply();
+                    clearInterval(interval);
+                }
+            }, 240);
+            $scope.mulu.working = true;
+            $http({
+                method:'get',
+                url:'/deepsearch/getSearchMulu', params:{"searchWords": $scope.searchWordsMulu},
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                transformRequest: function ( data ) {
+                    var str = '';
+                    for( var i in data ) {
+                        str += i + '=' + data[i] + '&';
+                    }
+                }}
+            ).then(function successCallback(info) {
+                if (info.data.code == 1) {
+                    // alert(info.data.msg);
+                    $scope.mulu.msg = info.data.msg;
+                    $scope.mulu.hasNoViolation = true;
+                }else if(info.data.code == 0){
+                    $scope.mulu.examedContext = info.data.data;
+                    $scope.mulu.hideDetail = true;
+                    $scope.mulu.working = false;
+                    muluvm.value = 100;
+                    clearInterval(interval);
+                }
+            },function errorCallback(info) {
+                $scope.mulu.working = false;
+                appvm.value = 100;
+                clearInterval(interval);
+                // $("#wjcrs").mLoading("hide");
+                // alert("失败了");
+            })
+        }
+
+        $scope.hideDetail = function () {
+            $scope.mulu.hideDetail = false;
+        }
+        //########################目录查询###############################//
+
+        //########################指数查询###############################//
+            $scope.zhishu = {
+                searchWordsXy : null,//查询
                 working : false,
-                hideDetail : false,
-                hasAbsolutedWord : false,
+                hasNoViolation : false,
                 examedContext : null
             };
-            var appvm = $scope.mulu.vm = {};
-            appvm.value = 0;
-            appvm.style = 'progress-bar-info';
-            appvm.showLabel = true;
-            appvm.striped = true;
-            $scope.searchMulu = function () {
-
+            var zhishuvm = $scope.zhishu.vm = {};
+            zhishuvm.value = 0;
+            zhishuvm.style = 'progress-bar-info';
+            zhishuvm.showLabel = true;
+            zhishuvm.striped = true;
+            $scope.searchZhishu = function () {
                 if ($scope.username == null){
                     $('#myModal').modal('show');
                     return;
@@ -722,34 +806,42 @@ var app=angular.module('search',[])
                     $('#tixing').modal('show');
                     return;
                 }
-                if( $scope.searchWordsMulu == null) {
+                if( $scope.zhishu.searchWordsXy == null) {
                     spop({template: '<strong>请输入查询字符!</strong>',
                         autoclose: 3000,
                         style:'error'
                     });
                     return;
                 }
+                var reg = /^[0-9]+.?[0-9]*$/;
+                if (!reg.test($scope.zhishu.searchWordsXy)) {
+                    spop({template: '<strong>宝贝ID或者宝贝链接输入不符合规则!</strong>',
+                        autoclose: 3000,
+                        style:'error'
+                    });
+                    return;
+                }
 
-                /*  $("#wjcrs").mLoading({
-                 text:"查询中"
-                 });*/
-                appvm.value = 0;
-                $scope.mulu.examedContext = null;
-                $scope.mulu.hasNoViolation = false;
+                zhishuvm.value = 0;
                 var interval = setInterval(function(){
-                    appvm.value++;
+                    zhishuvm.value++;
                     $scope.$apply();
-                    if (appvm.value == 100) {
-                        // $scope.mulu.msg = "查询超时！请重新查询";
-                        $scope.mulu.working = false;
+                    if (zhishuvm.value == 100) {
+                        $scope.zhishu.msg = "查询超时！请重新查询";
+                        $scope.zhishu.working = false;
+                        $scope.zhishu.hasNoViolation == true;
                         $scope.$apply();
                         clearInterval(interval);
                     }
-                }, 90);
-                $scope.mulu.working = true;
+                }, 250);
+
+                $scope.zhishu.examedContext = null;
+                $scope.zhishu.hasNoViolation = false;
+                $scope.zhishu.working = true;
+                $scope.zhishu.msg = null;
                 $http({
                     method:'get',
-                    url:'/deepsearch/getSearchMulu', params:{"searchWords": $scope.searchWordsMulu},
+                    url:'/deepsearch/searchZhishu', params:{"searchWords": $scope.zhishu.searchWordsXy},
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     transformRequest: function ( data ) {
                         var str = '';
@@ -758,28 +850,25 @@ var app=angular.module('search',[])
                         }
                     }}
                 ).then(function successCallback(info) {
-                    if(info.data.data) {
-                        $scope.mulu.msg = info.data.data;
-                        $scope.mulu.hideDetail = true;
-                        $scope.mulu.working = false;
-                        appvm.value = 100;
-                        clearInterval(interval);
+                    if (info.data.code == 1) {
+                        // alert(info.data.msg);
+                        $scope.zhishu.msg = info.data.msg;
+                        $scope.zhishu.hasNoViolation = true;
+                    }else if(info.data.code == 0){
+                        $scope.zhishu.examedContext = info.data.data;
                     }
-                },function errorCallback(info) {
-                    $scope.mulu.working = false;
-                    appvm.value = 100;
+                    zhishuvm.value = 100;
                     clearInterval(interval);
-                    // $("#wjcrs").mLoading("hide");
+                    $scope.zhishu.working = false;
+                },function errorCallback(info) {
                     // alert("失败了");
+                    $scope.zhishu.working = false;
+                    zhishuvm.value = 100;
+                    clearInterval(interval);
                 })
             }
 
-            $scope.hideDetail = function () {
-                $scope.mulu.hideDetail = false;
-            }
-            //########################目录查询###############################//
-
-
+            //########################指数查询end###############################//
 
 
 

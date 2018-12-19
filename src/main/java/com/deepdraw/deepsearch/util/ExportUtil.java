@@ -1,13 +1,10 @@
 package com.deepdraw.deepsearch.util;
 
-import org.apache.commons.net.ftp.FTPClient;
-import org.apache.commons.net.ftp.FTPReply;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
-import java.net.SocketException;
 import java.util.List;
 
 /**
@@ -73,7 +70,7 @@ public class ExportUtil {
         return "suee";
     }
 
-     public static String handleFileUpload(HttpServletRequest request) throws IOException {
+     public static String  handleFileUpload(HttpServletRequest request) throws IOException {
 
         //MultipartHttpServletRequest params = ((MultipartHttpServletRequest) request);
         List<MultipartFile> files = ((MultipartHttpServletRequest) request)
@@ -84,53 +81,18 @@ public class ExportUtil {
         for (int i = 0; i < files.size(); ++i) {
             file =  files.get(i);
             File imagefile = convert(file);
-            //创建ftp客户端
-            FTPClient ftpClient = new FTPClient();
-            ftpClient.setControlEncoding("GBK");
-            String hostname = "132.232.178.236";
-            int port = 21;
-            String username = "ubutu";
-            String password = "64JWrjAL9E9tEaL";
+                //InputStream input = new FileInputStream(imagefile);
             try {
-                //链接ftp服务器
-                ftpClient.connect(hostname, port);
-                //登录ftp
-                ftpClient.login(username, password);
-                int reply = ftpClient.getReplyCode();
-                System.out.println(reply);
-                //如果reply返回230就算成功了，如果返回530密码用户名错误或当前用户无权限下面有详细的解释。
-                if (!FTPReply.isPositiveCompletion(reply)) {
-                    ftpClient.disconnect();
-                    return "erro";
-                }
-                ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);
-                ftpClient.changeWorkingDirectory("/home/deep/app/img/");
-                //ftpClient.makeDirectory("path");//在root目录下创建文件夹
-                String remoteFileName = "codeImg.jpg";
-                InputStream input = new FileInputStream(imagefile);
-                ftpClient.storeFile(remoteFileName, input);//文件你若是不指定就会上传到root目录下
-                input.close();
-                ftpClient.logout();
-
-            } catch (SocketException e) {
-                // TODO Auto-generated catch block
+                FileInputStream in=new FileInputStream(imagefile);
+                boolean flag = FtpClientUtils.uploadFile("132.232.178.236", 22, "ubutu", "64JWrjAL9E9tEaL", "/home/deep/app/img/", "codeImg.jpg", in);
+                System.out.println(flag);
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                if (ftpClient.isConnected()) {
-                    try {
-                        ftpClient.disconnect();
-                    } catch (IOException ioe) {
-                        ioe.printStackTrace();
-                    }
-                }
-
             }
+
         }
         return "suee";
     }
-
 
     public static File multipartToFile(MultipartFile multipart) throws IllegalStateException, IOException
     {

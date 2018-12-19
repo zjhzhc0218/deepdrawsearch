@@ -3,7 +3,7 @@
 <head>
     <title>后台管理</title>
     <!-- 设置文档编码 -->
-    <link rel="shortcut icon" href="/deepsearch/img/baima.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/codeimg/baima.ico" type="image/x-icon"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=width,user-scalable=no">
@@ -417,11 +417,13 @@
 </body>
 
 <#--<script src="/deepsearch/js/jquery-2.1.4.min.js"></script>-->
-<script type="text/javascript" src="/deepsearch/js/verdor/jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="/deepsearch/js/verdor/jquery/jquery-2.1.4.min.js"></script>
 
-<script src="/deepsearch/js/angular/angular.js"></script>
+<#--<script src="/deepsearch/js/angular/angular.js/angular.min.js"></script>-->
+<script src="/deepsearch/js/angular/angular.min.js"></script>
+<script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
 <script src="/deepsearch/js/adminController.js"></script>
-<#--<script src="/deepsearch/js/spop/spop.js"></script>-->
+<script src="/deepsearch/js/spop/spop.js"></script>
 <#--<script src="/deepsearch/js/loading/jquery.mloading.js"></script>-->
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <#--<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>-->

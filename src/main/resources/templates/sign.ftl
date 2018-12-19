@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>用户登录</title>
-    <link rel="shortcut icon" href="/deepsearch/img/baima.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/codeimg/baima.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="/deepsearch/css/tao/app.css"></head>
     <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -33,10 +33,10 @@
             <div id="content" class="main-body" style="width: 100%;height: 800px" >
                 <div class="float_weixin" style="right: 2%;position: absolute;">
                     <h4 style="margin-top: 35%">客服微信号：</h4>
-                    <img src="/deepsearch/img/codeImg.jpg" style="width: 110px">
+                    <img src="/codeimg/codeImg.jpg" style="width: 110px">
                 </div>
                 <div style="width: 43%;height: 500px;background-color: white;text-align: center;position: relative;float: left;top: 40px;left: 9%;">
-                    <img src="/deepsearch/img/6.jpg" style="width: 450px;padding-top: 18%;">
+                    <img src="/codeimg/6.jpg" style="width: 450px;padding-top: 18%;">
                 </div>
                 <div id="form" style="position: relative;margin-left: 52.1%;">
                     <div id="fm1" class="fm-v "  method="post" style="position: absolute;width: 490px;margin-top: 0;top: 40px;height: 500px;">

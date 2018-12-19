@@ -18,6 +18,10 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         $scope.username = null;
         if (user != '') {
             $scope.username = angular.fromJson(user);
+        }else {
+            var url='/deepsearch/searchIndex';
+            // var url='/deepsearch/changeName';
+            location.href = url;
         }
 
         $scope.datasTotal = [];

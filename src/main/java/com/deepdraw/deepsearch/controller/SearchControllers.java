@@ -152,11 +152,32 @@ public class SearchControllers {
     public String  getSearchMulu(HttpServletRequest request){
         String word =  request.getParameter("searchWords");
         String[]  args = new String[] { "python", pythonPath+"/leimu.py", word };
-//        functionUsingService.addFT(7);
-        return JsonUtil.object2Json(ResultUtil.success(JavaToPython.getPython(args)));
+        String result = JavaToPython.getPython(args);
+        if (result == null)
+            throw new GlobalException(CodeMsg.SERVER_ERROR);
+        //functionUsingService.addFT(6);
+        if (result!=null && result.equals("001"))
+            return JsonUtil.object2Json(ResultUtil.error(1,"可能您查询的暂无数据！"));
+        return JsonUtil.object2Json(ResultUtil.success(result));
     }
 
-
+    /**
+     * 调用python返回指数数据
+     * @param request
+     * @return
+     */
+    @GetMapping(value="/searchZhishu")
+    public String  searchZhishu(HttpServletRequest request){
+        String word =  request.getParameter("searchWords");
+        String[]  args = new String[] { "python", pythonPath+"/hand_query.py", word};
+        String result = JavaToPython.getPython(args);
+        if (result == null)
+            throw new GlobalException(CodeMsg.SERVER_ERROR);
+        //functionUsingService.addFT(6);
+        if (result!=null && result.equals("001"))
+            return JsonUtil.object2Json(ResultUtil.error(1,"可能您查询的淘宝账号还没有在淘宝开店！"));
+        return JsonUtil.object2Json(ResultUtil.success(result));
+    }
 
 
 }

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>用户改密</title>
-    <link rel="shortcut icon" href="/deepsearch/img/baima.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/codeimg/baima.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="/deepsearch/css/tao/app.css"></head>
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
@@ -30,7 +30,7 @@
             <div id="content" class="main-body" style="width: 100%;height: 800px" >
 
                 <div style="width: 43%;height: 500px;background-color: white;text-align: center;position: relative;float: left;top: 40px;left: 9%;">
-                    <img src="/deepsearch/img/6.jpg" style="width: 450px;padding-top: 18%;">
+                    <img src="/codeimg/6.jpg" style="width: 450px;padding-top: 18%;">
                 </div>
 
                 <div id="form"  style="margin-left: 52.1%;padding-top: 0;">

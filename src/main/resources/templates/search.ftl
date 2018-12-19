@@ -1,8 +1,8 @@
 <!DOCTYPE>
-<html ng-app="search">
+<html ng-app="search" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>白马查--电商在线查询工具</title>
-    <link rel="shortcut icon" href="/deepsearch/img/baima.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/codeimg/baima.ico" type="image/x-icon"/>
     <!-- 设置文档编码 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
@@ -47,7 +47,7 @@
     <div class="header-content">
         <div class="header-top">
             <a class="logo" href="http://www.baimacha.com" >
-                <img style="margin-left: 100px" src="/deepsearch/img/logo.png"/>
+                <img style="margin-left: 100px" data-original="/codeimg/logo.png"/>
                 <p>电商在线查询工具</p>
             </a>
 
@@ -87,14 +87,14 @@
                 <a  role="tab" data-toggle="tab" href="#weijin">违禁词查询</a>
             </div>
             <div class="one">
-                <a  role="tab" data-toggle="tab" href="#mulu">目录查询</a>
+                <a  role="tab" data-toggle="tab" href="#mulu">宝贝类目查询</a>
             </div>
             <div class="one">
                 <a  role="tab" data-toggle="tab" href="#dongtaipingfeng">动态评分查询</a>
             </div>
-          <#--  <div class="one">
-                <a  role="tab" data-toggle="tab" href="#目录">上下架查询</a>
-            </div>-->
+            <div class="one">
+                <a  role="tab" data-toggle="tab" href="#zhishu">指数还原查询</a>
+            </div>
             <div class="one">
                 <a  role="tab" data-toggle="tab" href="#reci" >20W热词下载</a>
             </div>
@@ -103,11 +103,15 @@
 </header>
 
 <div class="float_weixin" style="position: fixed;z-index:9999999;width: 200px;height: 200px;top: 23%;right: -1%;">
-    <h4 style="margin-top: 0px">客服微信号：</h4>
-    <img src="/deepsearch/img/codeImg.jpg" style="width: 120px">
+    <h4 style="margin-top: 0">客服微信号：</h4>
+    <img src="/codeimg/codeImg.jpg" style="width: 120px">
 </div>
 
 <div class="tab-content container">
+    <div role="tabpanel" class="tab-pane active" class="content" id="guanjia">
+        <#include "//guanjia.ftl">
+    </div>
+
     <div role="tabpanel" class="tab-pane "class="content" id="paimin" >
         <div class="search-view" style="margin-top: 30px;margin-right: 264px;">
             <table>
@@ -183,12 +187,8 @@
         <#include "//reci.ftl">
     </div>
 
-    <div role="tabpanel" class="tab-pane active" class="content" id="guanjia">
-        <#include "//guanjia.ftl">
-    </div>
-
     <div role="tabpanel" class="tab-pane" class="content" id="jiangquan">
-        <div class="search-view" style="margin-top: 30px" style="margin-top: 30px" style="margin-top: 30px">
+        <div class="search-view" style="margin-top: 30px">
             <input type="text"   ng-model="jiangquan.searchWordsJq"  placeholder="请输入店铺旺旺ID，然后点击 &quot;查询&quot; 按钮"/>
             <button class="btn  search-btnN" href="javascript:;" ng-click="searchJiangQuan()" ng-disabled="jiangquan.working">查询</button>
         </div>
@@ -232,7 +232,7 @@
                 {{jiangquan.msg}}
             </div>
             <div class="result-context" ng-show="jiangquan.examedContext != null&&jiangquan.examedContext.length>0" >
-                <table class="table table-hover" style="  display: block;width:100%;margin-bottom: 0px;">
+                <table class="table table-hover" style="  display: block;width:100%;margin-bottom: 0;">
                     <thead>
                     <tr style="width:100%">
                         <td style="width: 30px;text-align: center"><label>图片</label></td>
@@ -260,8 +260,8 @@
         </div>
     </div>
 
-    <div role="tabpanel" class="tab-pane"  class="content" id="xinyu">
-        <div class="search-view" style="margin-top: 30px" style="margin-top: 30px" style="margin-top: 30px">
+    <div role="tabpanel" class="tab-pane" class="content" id="xinyu">
+        <div class="search-view" style="margin-top: 30px">
             <input type="text"   ng-model="xinYu.searchWordsXy"  placeholder="请输入买家淘宝账号，然后点击 &quot;查询&quot; 按钮"/>
             <button class="btn  search-btnN" href="javascript:;" ng-click="searchXinyu()" ng-disabled="xinYu.working">查询</button>
         </div>
@@ -292,8 +292,8 @@
                  <span>{{d.name}}</span>
                  <p> <label ng-if="d.id!=null&&d.id!=15" ng-bind="d.value" style="margin-bottom: -4px;" >
                  </label>
-                     <img ng-if="d.id!=null&&d.id==1" href="{{d.addr}}" ng-src="{{d.pic}}" />
-                     <img  ng-if="d.id!=null&&d.id==15" ng-src="{{d.value}}"/>
+                     <img ng-if="d.id!=null&&d.id==1" href="{{d.addr}}" ng-data-original="{{d.pic}}" />
+                     <img  ng-if="d.id!=null&&d.id==15" ng-data-original="{{d.value}}"/>
                  </p>
              </div>
             </a>-->
@@ -344,12 +344,12 @@
                 <div class="item-left">
                     买家信用：<b style="color: green">{{xinYu.examedContext[7].value}}</b>&nbsp;
                     每周平均：<b style="color: green">&nbsp;{{xinYu.examedContext[8].value}}</b>&nbsp;
-                    <img id="dd" ng-src="{{xinYu.examedContext[9].value}}">
+                    <img id="dd" src="{{xinYu.examedContext[9].value}}">
                     &nbsp;<b style="color: red">{{xinYu.examedContext[10].value}}</b>
                 </div>
                 <div class="item-right">
                     卖家信用：<b style="color: green">{{xinYu.examedContext[11].value}}</b>
-                    &nbsp;<img ng-src="{{xinYu.examedContext[12].value}}">
+                    &nbsp;<img ng-data-original="{{xinYu.examedContext[12].value}}">
                     <b style="color: red">&nbsp;{{xinYu.examedContext[13].value}}</b>
                 </div>
             </div>
@@ -378,7 +378,7 @@
         </div>
     </div>
 
-    <div role="tabpanel" class="tab-pane"class="content" id="weijin" style="">
+    <div role="tabpanel" class="tab-pane" class="content" id="weijin" style="">
         <div class="search-view" style="margin-top: 30px">
             <#--<input type="text"  ng-model="searchWordsWjc" placeholder="粘贴你的广告、文案到此处，然后点击 查询"/>-->
                 <textarea  ng-show="app.hideDetail == false" ng-model="searchWordsWjc" placeholder="粘贴你的广告、文案到此处，然后点击 &quot;查询&quot; 按钮">
@@ -394,7 +394,7 @@
             <button class="btn search-btnB" ng-show="app.hideDetail == true"  href="javascript:;" ng-click="hideDetail()"  >继续检测</button>
         </div>
 
-        <div class="search-desc" style="margin-left: 200px;padding-top: 0px;margin-top: -38px">
+        <div class="search-desc" style="margin-left: 200px;padding-top: 0;margin-top: -38px">
             <p class="title"> 淘宝违禁词/敏感词/新广告法违禁词检测工具</p>
             <p> 已收录各类违禁词、敏感词超过20000个，且词库还在不断更新中。</p>
         </div>
@@ -411,19 +411,19 @@
         </div>
     </div>
 
-    <div role="tabpanel" class="tab-pane"  class="content" id="dongtaipingfeng">
-        <div class="search-view" style="margin-top: 30px" style="margin-top: 30px" style="margin-top: 30px">
+    <div role="tabpanel" class="tab-pane" class="content" id="dongtaipingfeng">
+        <div class="search-view" style="margin-top: 30px">
             <input type="text"   ng-model="dtPingFeng.searchWordsXy"  placeholder="请输入旺旺账号，然后点击 &quot;查询&quot; 按钮"/>
             <button class="btn  search-btnN" href="javascript:;" ng-click="searchPingfeng()" ng-disabled="dtPingFeng.working">查询</button>
         </div>
 
         <div class="search-desc" style="margin-top: -38;margin-left: 249px;">
-            <p class="title">如何提高店铺动态评分(DSR)？</p>
-            <p>1、提高对顾客的服务态度，发货速度，完善商品的描叙。让顾客舒心购物!</p>
-            <p>2、<font>顾客收到宝贝后，主动联系顾客是否满意</font>。从而提醒顾客好评并打5分!</p>
-            <p>3、邀请你的朋友关照下你，从而获得5分好评!</p>
-            <p>4、<font>加入一些互刷平台，或是互刷团队来提高动态评分!</font>安全，方便，快捷。</p>
-        </div>
+        <p class="title">如何提高店铺动态评分(DSR)？</p>
+        <p>1、提高对顾客的服务态度，发货速度，完善商品的描叙。让顾客舒心购物!</p>
+        <p>2、<font>顾客收到宝贝后，主动联系顾客是否满意</font>。从而提醒顾客好评并打5分!</p>
+        <p>3、邀请你的朋友关照下你，从而获得5分好评!</p>
+        <p>4、<font>加入一些互刷平台，或是互刷团队来提高动态评分!</font>安全，方便，快捷。</p>
+    </div>
 
         <div class="search-info" id="dtPingFengRs" style="width: 75%;margin-left: 200px">
             <div style="width: 90%" ng-if="dtPingFeng.msg == null " ng-show="dtPingFeng.vm.value!=0&&dtPingFeng.vm.value!=100">
@@ -433,40 +433,16 @@
                     </div>
                 </div>
             </div>
-        <#--    <div class="noViolation " ng-show="xinYu.hasNoViolation == true" style="color: red;font-size: 30px">
-                该号不存在，请检测是否输入有误!
-            </div>-->
             <div class="noViolation " ng-show="dtPingFeng.msg != null" style="color: red;font-size: 30px">
                 {{dtPingFeng.msg}}
             </div>
-       <#--     <div href="javascript:;" ng-show="dtPingFeng.examedContext != null" class="info-item active">
-
-                <div class="item-left" style="background-color: #f4f7e4;top: 7px;">
-                    淘宝买家：
-                    <div  style="width:auto;color: #FE7738;position: relative">
-                        <a ng-href="{{xinYu.examedContext[0].addr}}" target="_blank" style="font-size: 16px;color: red;float: left">
-                            {{xinYu.examedContext[0].value}}&nbsp;&nbsp;
-                        </a>
-                        <a ng-href="{{xinYu.examedContext[0].addr}}" target="_blank" style="font-size: 16px;color: red;float: left">
-                            <img ng-src="{{xinYu.examedContext[0].pic}}" >
-                        </a>
-                        <b style="float: left;margin-top: 3px">&nbsp;&nbsp;{{xinYu.examedContext[1].value}}</b>
-                    </div>
-                </div>
-
-                <div class="item-right" style="background-color: #f4f7e4">
-                    实名认证：
-                    <p style="color: red">{{xinYu.examedContext[2].value}}</p>
-                </div>
-            </div>-->
-
             <div href="javascript:;" ng-show="dtPingFeng.examedContext != null" class="info-item">
-                <ul class="dsr-info" id="dsr" style="text-align: center;">
+                <ul class="dsr-info" id="dsr" style="">
                     <li class="J_RateInfoTrigger dsr-item selected">
                         <div class="item-scrib">
-                            <span class="title">宝贝与描述相符：</span>
+                            <span class="title" style="">宝贝与描述相符：</span>
                             <em class="count" id="item_score" ng-bind="dtPingFeng.examedContext[0].value"></em>分
-                            <em title="计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分)"><strong class="percent over" id="p_item_score">比同行业平均水平高 <b style="color:#f60" ng-bind="dtPingFeng.examedContext[1].value"></b></strong></em>
+                            <em title="计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分)"><strong class="percent over" id="">比同行业平均水平高 <b style="color:#f60" ng-bind="dtPingFeng.examedContext[1].value"></b></strong></em>
                         </div>
                         <div style="position:relative;left:100px;" class="avg" ng-show="dtPingFeng.examedContext[2].value!= ''"> 行业平均得分约：<b style="color:#f60" ng-bind="dtPingFeng.examedContext[2].value"></b>，抵挡<b style="color:#f60" ng-bind="dtPingFeng.examedContext[3].value"></b>单<b style="color:#f60" ng-bind="dtPingFeng.examedContext[4].value"></b>分后飘绿</div>
 
@@ -475,7 +451,7 @@
                         <div class="item-scrib">
                             <span class="title">卖家的服务态度：</span>
                             <em class="count" id="service_score"  ng-bind="dtPingFeng.examedContext[5].value"></em>分
-                            <em title="计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分)"><strong class="percent over" id="p_item_score">比同行业平均水平高 <b style="color:#f60"  ng-bind="dtPingFeng.examedContext[6].value"></b></strong></em>
+                            <em title="计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分)"><strong class="percent over" id="">比同行业平均水平高 <b style="color:#f60"  ng-bind="dtPingFeng.examedContext[6].value"></b></strong></em>
                         </div>
                         <div style="position:relative;left:100px;" class="avg" ng-show="dtPingFeng.examedContext[7].value!= ''"> 行业平均得分约：<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[7].value"></b>，抵挡<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[8].value"></b>单<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[9].value"></b>分后飘绿</div>
                     </li>
@@ -483,7 +459,7 @@
                         <div class="item-scrib">
                             <span class="title">卖家发货的速度：</span>
                             <em class="count" id="delivery_score"  ng-bind="dtPingFeng.examedContext[10].value"></em>分
-                            <em title="计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分)"><strong class="percent over" id="p_item_score">比同行业平均水平高 <b style="color:#f60"  ng-bind="dtPingFeng.examedContext[11].value"></b></strong></em>
+                            <em title="计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分)"><strong class="percent over" id="">比同行业平均水平高 <b style="color:#f60"  ng-bind="dtPingFeng.examedContext[11].value"></b></strong></em>
                         </div>
                         <div style="position:relative;left:100px;" class="avg" ng-show="dtPingFeng.examedContext[12].value!=''"> 行业平均得分约：<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[12].value"></b>，抵挡<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[13].value"></b>单<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[14].value"></b>分后飘绿</div>
                     </li>
@@ -493,13 +469,78 @@
         </div>
     </div>
 
-    <div role="tabpanel" class="tab-pane"  class="content" id="mulu">
-        <div class="search-view" style="margin-top: 30px" style="margin-top: 30px" style="margin-top: 30px">
+    <div role="tabpanel" class="tab-pane" class="content" id="mulu">
+        <div class="search-view" style="margin-top: 30px">
             <input type="text"   ng-model="searchWordsMulu"  placeholder="请输入需要查询的商品ID或是商品链接 &quot;查询&quot; 按钮"/>
             <button class="btn  search-btnN" href="javascript:;" ng-click="searchMulu()" ng-disabled="mulu.working">查询</button>
         </div>
-        <div class="noViolation " ng-show="mulu.msg != null" style=" text-align:center;color; black;font-size: 30px">
-            {{mulu.msg}}
+
+        <div class="search-desc" style="margin-top: -38;margin-left: 249px;">
+            <p class="title">目录查询</p>
+            <p>本工具可以在线查询天猫、淘宝商品宝贝类目属性。再也不用去问别人怎么查看淘宝产品类目了。</p>
+        </div>
+
+        <div class="search-info" id="dtPingFengRs" style="width: 75%;margin-left: 200px">
+            <div style="width: 90%" ng-if="mulu.msg == null " ng-show="mulu.vm.value!=0&&mulu.vm.value!=100">
+                <div ng-class="{progress: true, 'progress-striped': mulu.vm.striped}">
+                    <div ng-class="['progress-bar', mulu.vm.style]" ng-style="{width: mulu.vm.value + '%'}">
+                        <div ng-if="mulu.vm.showLabel">{{mulu.vm.value}}%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="noViolation " ng-show="mulu.msg != null" style="color: red;font-size: 30px">
+                {{mulu.msg}}
+            </div>
+
+            <div href="javascript:;" ng-show="mulu.examedContext != null" class="info-item" style="display: block;text-align:center; color; black;font-size: 24px;margin-left: -200px">
+                {{mulu.examedContext}}
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <div role="tabpanel" class="tab-pane" class="content" id="zhishu">
+        <div class="search-view" style="margin-top: 30px">
+            <input type="text"   ng-model="zhishu.searchWordsXy"  placeholder="请输入输入淘宝或天猫交易指数(大于2100)，然后点击 &quot;查询&quot; 按钮"/>
+            <button class="btn  search-btnN" href="javascript:;" ng-click="searchZhishu()" ng-disabled="zhishu.working">查询</button>
+        </div>
+
+        <div class="search-desc" style="margin-top: -38;margin-left: 249px;">
+            <p class="title">淘宝天猫交易指数查询转换销售额工具</p>
+           <#-- <p>1、提高对顾客的服务态度，发货速度，完善商品的描叙。让顾客舒心购物!</p>
+            <p>2、<font>顾客收到宝贝后，主动联系顾客是否满意</font>。从而提醒顾客好评并打5分!</p>
+            <p>3、邀请你的朋友关照下你，从而获得5分好评!</p>
+            <p>4、<font>加入一些互刷平台，或是互刷团队来提高动态评分!</font>安全，方便，快捷。</p>-->
+        </div>
+
+        <div class="search-info" id="zhishuRs" style="width: 75%;margin-left: 200px">
+            <div style="width: 90%" ng-if="zhishu.msg == null " ng-show="zhishu.vm.value!=0&&zhishu.vm.value!=100">
+                <div ng-class="{progress: true, 'progress-striped': zhishu.vm.striped}">
+                    <div ng-class="['progress-bar', zhishu.vm.style]" ng-style="{width: zhishu.vm.value + '%'}">
+                        <div ng-if="zhishu.vm.showLabel">{{zhishu.vm.value}}%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="noViolation " ng-show="zhishu.msg != null" style="color: red;font-size: 30px">
+                {{zhishu.msg}}
+            </div>
+            <div href="javascript:;" ng-show="zhishu.examedContext != null" class="info-item">
+                <ul class="dsr-info" id="dsr" style="">
+                    <li class="J_RateInfoTrigger dsr-item selected">
+                        <div class="item-scrib">
+                            <span class="title" style="">销售金额：</span>
+                            <em style="color:#f60" class="count" id="item_score" ng-bind="zhishu.examedContext"></em>
+                        </div>
+                        <div class="item-scrib">
+                            <span class="title" style="">交易指数：</span>
+                            <em style="color:#f60" class="count" id="item_score" ng-bind="zhishu.searchWordsXy"></em>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -580,7 +621,7 @@
             <div class="modal-body" style="text-align: center;">
                 <span style="font-size: 18px;text-align: center;color: #008fff;">注册完只提供&nbsp;<span style="color: red">20w热词</span>&nbsp;下载功能</span></br>
                 <span style="font-size: 18px;text-align: center;color: #008fff;">数据查询功能请添加客服微信免费开通</span>
-                <img src="/deepsearch/codeimg/codeImg.jpg" style="width: 200px;margin-left: 80px">
+                <img src="/codeimg/codeImg.jpg" style="width: 200px;margin-left: 80px">
             </div>
             <div class="modal-footer">
             <#--<button type="button" class="btn btn-primary" ng-click="signLogin()">确认</button>-->
@@ -614,6 +655,8 @@
 <script src="/deepsearch/js/loading/jquery.mloading.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="/deepsearch/js/searchController.js"></script>
+<script src="/deepsearch/js/jquery.lazyload.min.js"></script>
+<script src="/deepsearch/js/jquery.scrollstop.min.js"></script>
 
 <script type="text/javascript">
     user = '${user!}';
@@ -628,6 +671,8 @@
         $('.content').hide();
         $($(this).attr('data-id')).show()
     })
+    $("img").lazyload({effect: "fadeIn"});
+
 </script>
 <script>
     var _hmt = _hmt || [];
@@ -637,5 +682,9 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
+    $(function(){
+        window.parent.scrollTo(0, 0);
+    })
 </script>
+
 </html>

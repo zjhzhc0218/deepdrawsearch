@@ -21,7 +21,7 @@ header .header-content{
 .logo p{
 	font-size: 15px;
 	color: #fff;
-	background-color: #ff0000;
+	background-color: #2a67fd;
 	line-height: 35px;
 	padding: 0 5px;
 	margin-left: 5px;
@@ -50,7 +50,7 @@ header .header-content{
 	padding-bottom: 13px;
 }
 .nav-list div a{
-	font-size: 17px;
+	font-size: 14px;
 	color: #fff;
 	background: #5a95fb;
 	display: block;
