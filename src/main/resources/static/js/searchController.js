@@ -1055,13 +1055,13 @@ var app=angular.module('search',[])
                         // var dList = $filter('orderBy')( list ,'id');
                         $scope.xialakuang.examedContext=list;
                     }
-                    sxjvm.value = 100;
+                    xlkvm.value = 100;
                     clearInterval(interval);
                     $scope.xialakuang.working = false;
                 },function errorCallback(info) {
                     // alert("失败了");
-                    $scope.shangxiajia.working = false;
-                    sxjvm.value = 100;
+                    $scope.xialakuang.working = false;
+                    xlkvm.value = 100;
                     clearInterval(interval);
                 })
             }
