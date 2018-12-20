@@ -193,4 +193,17 @@ public class SearchControllers {
     }
 
 
+    /**
+     * 调用python返回淘宝下拉框选词
+     * @param request
+     * @return
+     */
+    @GetMapping(value="/getSearchXialakuangxuanci")
+    public String  getSearchXialakuangxuanci(HttpServletRequest request){
+        String word =  request.getParameter("searchWords");
+        String[]  args = new String[] { "python", pythonPath+"/down_ci.py", word };
+//        functionUsingService.addFT(9);
+        return JsonUtil.object2Json(ResultUtil.success(JavaToPython.getPython(args)));
+    }
+
 }
