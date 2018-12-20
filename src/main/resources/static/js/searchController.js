@@ -965,6 +965,110 @@ var app=angular.module('search',[])
 
             //########################上下架查询###############################//
 
+            //########################下拉框选词开始###############################//
+            $scope.xialakuang = {
+                searchWordsXialakuang : null,//查询
+                working : false,
+                hasNoViolation : false,
+                examedContext : null
+            };
+            var xlkvm = $scope.xialakuang.vm = {};
+            xlkvm.value = 0;
+            xlkvm.style = 'progress-bar-info';
+            xlkvm.showLabel = true;
+            xlkvm.striped = true;
+            $scope.searchXialakuang = function () {
+                if ($scope.username == null){
+                    $('#myModal').modal('show');
+                    return;
+                }
+                /*判断权限是否改变*/
+                updateGrage();
+                //判断是否注册
+                var fCount = getFTForUser();
+                if($scope.username.grade == 2) {
+                    $('#tixing').modal('show');
+                    return;
+                }
+                if( $scope.xialakuang.searchWordsXialakuang == null) {
+                    spop({template: '<strong>请输入查询字符!</strong>',
+                        autoclose: 3000,
+                        style:'error'
+                    });
+                    return;
+                }
+
+                xlkvm.value = 0;
+                var interval = setInterval(function(){
+                    xlkvm.value++;
+                    $scope.$apply();
+                    if (xlkvm.value == 100) {
+                        $scope.xialakuang.msg = "查询超时！请重新查询";
+                        $scope.xialakuang.working = false;
+                        $scope.xialakuang.hasNoViolation == true;
+                        $scope.$apply();
+                        clearInterval(interval);
+                    }
+                }, 250);
+
+                $scope.xialakuang.examedContext = null;
+                $scope.xialakuang.hasNoViolation = false;
+                $scope.xialakuang.working = true;
+                $scope.xialakuang.msg = null;
+                $http({
+                    method:'get',
+                    url:'/deepsearch/getSearchXialakuangxuanci', params:{"searchWords": $scope.xialakuang.searchWordsXialakuang},
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    transformRequest: function ( data ) {
+                        var str = '';
+                        for( var i in data ) {
+                            str += i + '=' + data[i] + '&';
+                        }
+                    }}
+                ).then(function successCallback(info) {
+                    if (info.data.code == 1) {
+                        // alert(info.data.msg);
+                        $scope.xialakuang.msg = info.data.msg;
+                        $scope.xialakuang.hasNoViolation = true;
+                    }else if(info.data.code == 0){
+                        var result = info.data.data;
+                        var rec = angular.fromJson(result.replace(/'/g, '"'));
+                        var list = [];
+                        for (var d in rec) {
+                            if(rec[d]==undefined){
+                                return;
+                            }
+                            // var list = [];
+                            for(var n in rec[d]){
+                                if(rec[d][n] == undefined){
+                                    return;
+                                }
+                                var node ={
+                                    'name' :rec[d][n][0],
+                                    'num' :parseInt(rec[d][n][1]),
+                                    'weizhi' :parseInt(rec[d][n][2]),
+                                    'bili' :parseInt(rec[d][n][3]),
+                                };
+                               list.push(node);
+                            }
+                        }
+                        // var dList = $filter('orderBy')( list ,'id');
+                        $scope.xialakuang.examedContext=list;
+                    }
+                    xlkvm.value = 100;
+                    clearInterval(interval);
+                    $scope.xialakuang.working = false;
+                },function errorCallback(info) {
+                    // alert("失败了");
+                    $scope.xialakuang.working = false;
+                    xlkvm.value = 100;
+                    clearInterval(interval);
+                })
+            }
+
+            //########################下拉框选词结束###############################//
+
+
 
 
     $scope.searchLogin = function () {

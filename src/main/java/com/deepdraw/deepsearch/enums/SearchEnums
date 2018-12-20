@@ -6,9 +6,12 @@ public enum SearchEnums {
     XINYU("信誉", 3),
     RECI("热词", 4),
     JIANGQUAN("降权", 5),
-    DONGTAIPINGFEN("动态评分", 6);
-    MULU("目录", 7);
-     SHANGXIAJIA("上下架", 8);
+    DONGTAIPINGFEN("动态评分", 6),
+    MULU("目录", 7),
+    SHANGXIAJIA("上下架", 8),
+    ZHISHU("指数", 9),
+    ZHANXIAN("展现", 10),
+    XIALAKUANG("下拉框", 11);
     // 成员变量
     private String name;
     private int type;

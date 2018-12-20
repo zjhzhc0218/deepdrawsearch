@@ -99,7 +99,7 @@
                         <a  role="tab" data-toggle="tab" href="#jiangquan">隐形降权查询</a>
                     </div>
                     <div class="one">
-                        <a  role="tab" data-toggle="tab" href="#">下拉框选词</a>
+                        <a  role="tab" data-toggle="tab" href="#xialakuang">下拉框选词</a>
                     </div>
                     <div class="one">
                         <a  role="tab" data-toggle="tab" href="#zhishu">指数还原</a>
@@ -602,9 +602,18 @@
             <input type="text"   ng-model="shangxiajia.searchWordsShangxiajia"  placeholder="请输入需要查询的商品ID或是商品链接 &quot;查询&quot; 按钮"/>
             <button class="btn  search-btnN" href="javascript:;" ng-click="searchShangxiajia()" ng-disabled="shangxiajia.working">查询</button>
         </div>
-        <div class="noViolation " ng-show="shangxiajia.msg != null" style=" text-align:center;color; black;font-size: 30px">
-            {{shangxiajia.msg}}
-        </div>
+
+        <div class="search-info" id="shangxiajiaRs" style="width: 75%;margin-left: 200px">
+            <div style="width: 90%" ng-if="shangxiajia.msg == null " ng-show="shangxiajia.vm.value!=0&&shangxiajia.vm.value!=100">
+                <div ng-class="{progress: true, 'progress-striped': mulu.vm.striped}">
+                    <div ng-class="['progress-bar', shangxiajia.vm.style]" ng-style="{width: shangxiajia.vm.value + '%'}">
+                        <div ng-if="shangxiajia.vm.showLabel">{{shangxiajia.vm.value}}%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="noViolation " ng-show="shangxiajia.msg != null" style="color: red;font-size: 30px">
+                {{shangxiajia.msg}}
+            </div>
 
         <!-- 查询记录开始 -->
         <div class="result-context" ng-show="shangxiajia.examedContext != null&&shangxiajia.examedContext.length>0" >
@@ -634,6 +643,90 @@
         </div>
     </div>
     <!-- 查询记录结束 -->
+            <div href="javascript:;" ng-show="shangxiajia.examedContext != null" class="info-item" style="display: block;text-align:center; color; black;font-size: 24px;margin-left: -200px">
+                <!-- 查询记录开始 -->
+                <div class="result-context" ng-show="shangxiajia.examedContext != null&&shangxiajia.examedContext.length>0" >
+                    <table class="table table-hover up_table " style="  display: block;width:100%;margin-bottom: 0px;">
+                        <thead>
+                        <tr style="width:100%">
+                            <td style="width: 30px;text-align: center"><label>商品图片</label></td>
+                            <td style="width: 120px;text-align: center"><label>宝贝名称</label></td>
+                            <td style="width: 90px;text-align: center"><label>上架时间</label></td>
+                            <td style="width: 90px;text-align: center"><label>下架时间</label></td>
+                            <td style="width: 90px;text-align: center"><label>剩余时间</label></td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="width:100%" >
+                            <td style="width: 30px;text-align: center">
+                                <img class="up_img" ng-src="{{shangxiajia.examedContext[0].value}}">
+                            <#--<b style="color:#f60"  ng-bind="shangxiajia.examedContext[0].value"></b>-->
+                            </td>
+                            <td style="width: 120px;text-align: center"><b   ng-bind="shangxiajia.examedContext[1].value"></b></td>
+                            <td style="width: 90px;text-align: center"><b   ng-bind="shangxiajia.examedContext[2].value"></b></td>
+                            <td style="width: 90px;text-align: center"><b  ng-bind="shangxiajia.examedContext[3].value"></b></td>
+                            <td style="width: 90px;text-align: center"><b  ng-bind="shangxiajia.examedContext[4].value"></b>天<b ng-bind="shangxiajia.examedContext[5].value"></b>小时</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- 查询记录结束 -->
+            </div>
+
+        </div>
+    <!-- 上下架查询结束 -->
+
+    <!-- 下拉框选词开始 -->
+    <div role="tabpanel" class="tab-pane"  class="content" id="xialakuang">
+        <div class="search-view" style="margin-top: 30px" style="margin-top: 30px" style="margin-top: 30px">
+            <input type="text"   ng-model="xialakuang.searchWordsXialakuang"  placeholder="输入您感兴趣的产品核心词，即可查看对应的下拉框推荐词，相关宝贝数和推荐属性词： &quot;查询&quot; 按钮"/>
+            <button class="btn  search-btnN" href="javascript:;" ng-click="searchXialakuang()" ng-disabled="xialakuang.working">查询</button>
+        </div>
+        <!-- 下拉框选词内容展现 -->
+        <div class="search-info" id="xialakuangrs" >
+            <div style="width: 100%" ng-if="xialakuang.msg == null " ng-show="xialakuang.vm.value!=0&&jiangquan.vm.value!=100">
+                <div ng-class="{progress: true, 'progress-striped': jiangquan.vm.striped}">
+                    <div ng-class="['progress-bar', xialakuang.vm.style]" ng-style="{width: xialakuang.vm.value + '%'}">
+                        <div ng-if="xialakuang.vm.showLabel">{{xialakuang.vm.value}}%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="noViolation " ng-show="xialakuang.msg != null" style="color: red;font-size: 30px">
+                {{xialakuang.msg}}
+            </div>
+            <div class="result-context" ng-show="xialakuang.examedContext != null&&xialakuang.examedContext.length>0" >
+                <table class="table table-hover" style="  display: block;width:100%;margin-bottom: 0;">
+                    <thead>
+                    <tr style="width:100%">
+                        <td style="width: 50px;text-align: center"><label>对应关键词</label></td>
+                        <td style="width: 50px;text-align: center"><label>对应数量</label></td>
+                        <#--<td style="width: 90px;text-align: center"><label>销量</label></td>-->
+                        <#--<td style="width: 90px;text-align: center"><label>价格</label></td>-->
+                    <#--&lt;#&ndash;<td style="width: 50px;text-align: center"><label>价格</label></td>&ndash;&gt;-->
+                        <#--<td style="width: 90px;text-align: center"><label>库存</label></td>-->
+                        <#--<td style="width: 90px;text-align: center"><label>权重值</label></td>-->
+                        <#--<td style="width: 120px;text-align: center"><label>说明</label></td>-->
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in xialakuang.examedContext " >
+                        <td >
+                            <b   ng-bind="data.name"></b>
+                        </td>
+                        <td >
+                            <b   ng-bind="data.num"></b>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- 下拉框选词内容展现结束 -->
+
+    </div>
+    <!-- 下拉框选词结束 -->
 
 
 </div>
