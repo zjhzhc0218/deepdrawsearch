@@ -6,7 +6,7 @@
     <!-- 设置文档编码 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <meta name="viewport" content="width=width,user-scalable=no">
+    <#--<meta name="viewport" content="width=width,user-scalable=no">-->
     <meta name="viewport" content="user-scalable=no">
     <meta name="viewport" content="user-scalable=yes">
     <!--  -->
@@ -40,6 +40,23 @@
     }
     .search-info p {
         margin-top: 10px;
+    }
+    .first_img,.sen_img{
+        min-height:400px;
+    }
+    #reci table{
+        width:100%;
+        margin:30px 0;
+
+    }
+    #reci table td{
+        text-align:  center;
+        line-height: 33px!important;
+    }
+    #reci table tr th{
+        line-height: 33px!important;
+        text-align:center;
+        border-bottom-width: 1px!important;
     }
 </style>
 <body ng-controller="searchController" style="">
@@ -576,7 +593,6 @@
                 <#--</div>-->
                 <#--</li>-->
                 <#--</ul>-->
-                </ul>
             </div>
         </div>
     </div>
@@ -611,8 +627,7 @@
                     <td style="width: 120px;text-align: center"><b   ng-bind="shangxiajia.examedContext[1].value"></b></td>
                     <td style="width: 90px;text-align: center"><b   ng-bind="shangxiajia.examedContext[2].value"></b></td>
                     <td style="width: 90px;text-align: center"><b  ng-bind="shangxiajia.examedContext[3].value"></b></td>
-                    <td style="width: 90px;text-align: center"><b  ng-bind="shangxiajia.examedContext[4].value"></b>天<b 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-                                                                                                                        ng-bind="shangxiajia.examedContext[5].value"></b>小时</td>
+                    <td style="width: 90px;text-align: center"><b  ng-bind="shangxiajia.examedContext[4].value"></b>天<b ng-bind="shangxiajia.examedContext[5].value"></b>小时</td>
                 </tr>
                 </tbody>
             </table>
