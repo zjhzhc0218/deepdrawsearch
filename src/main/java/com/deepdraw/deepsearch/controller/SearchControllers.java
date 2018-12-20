@@ -173,7 +173,7 @@ public class SearchControllers {
         String result = JavaToPython.getPython(args);
         if (result == null)
             throw new GlobalException(CodeMsg.SERVER_ERROR);
-        //functionUsingService.addFT(6);
+        functionUsingService.addFT(9);
         if (result!=null && result.equals("001"))
             return JsonUtil.object2Json(ResultUtil.error(1,"可能您查询的淘宝账号还没有在淘宝开店！"));
         return JsonUtil.object2Json(ResultUtil.success(result));
