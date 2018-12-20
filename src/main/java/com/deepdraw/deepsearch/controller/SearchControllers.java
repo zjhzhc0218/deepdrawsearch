@@ -202,7 +202,7 @@ public class SearchControllers {
     public String  getSearchXialakuangxuanci(HttpServletRequest request){
         String word =  request.getParameter("searchWords");
         String[]  args = new String[] { "python", pythonPath+"/down_ci.py", word };
-//        functionUsingService.addFT(9);
+        functionUsingService.addFT(11);
         return JsonUtil.object2Json(ResultUtil.success(JavaToPython.getPython(args)));
     }
 
