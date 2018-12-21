@@ -588,6 +588,22 @@
             <button class="btn  search-btnN" href="javascript:;" ng-click="searchShangxiajia()" ng-disabled="shangxiajia.working">查询</button>
         </div>
 
+        <div class="search-desc" style="margin-top: -38;margin-left: 249px;">
+            <p class="title">淘宝上下架查询</p>
+            <div>
+                <h4>淘宝上下架时间应该如何合理安排？
+                    <a href="#" style="color: #30F" ng-click="jqWords('div_pp12')" id="button1" class="glyphicon glyphicon-plus">点击查看</a></h4>
+                <p class="div_pp12" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    1、淘宝上下架尽量安排在流量高峰期。据统计，一般在<span style="color: #FE8034">早上9：00-11：00，下午14：00-17：00，晚上19：00-22：00</span>的网上人流量最多。
+                    因而，在宝贝上架时，在这些时间段，分别上些宝贝，或者用工具软件定时上架，<span style="color: #FE8034">在这个时间段每隔几分钟上一个宝贝。</span>
+                </p>
+                <p class="div_pp12" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    2、不要将宝贝设置在一天全部上架。如果将宝贝设置在一天内全部上架，那一周之内，店铺只会有一天是排名靠前的。而其他的六天时间，由于店铺没有快下架的宝贝，
+                    无法排序到前几页，掌柜们很可能就会门庭冷落了。<span style="color: #FE8034">所以，建议掌柜们把宝贝门分成7天，在7天的不同时间段内，分批上架。</span>
+                </p>
+            </div>
+        </div>
+
         <div class="search-info" id="shangxiajiaRs" style="width: 75%;margin-left: 200px">
             <div style="width: 90%" ng-if="shangxiajia.msg == null " ng-show="shangxiajia.vm.value!=0&&shangxiajia.vm.value!=100">
                 <div ng-class="{progress: true, 'progress-striped': mulu.vm.striped}">
