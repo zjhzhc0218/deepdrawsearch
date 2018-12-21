@@ -668,6 +668,18 @@
             <input type="text"   ng-model="xialakuang.searchWordsXialakuang"  placeholder="输入您感兴趣的产品核心词，即可查看对应的下拉框推荐词，相关宝贝数和推荐属性词： &quot;查询&quot; 按钮"/>
             <button class="btn  search-btnN" href="javascript:;" ng-click="searchXialakuang()" ng-disabled="xialakuang.working">查询</button>
         </div>
+
+        <div class="search-desc" style="margin-top: -38;margin-left: 249px;">
+            <p class="title">淘宝搜索下拉框选词</p>
+            <div>
+                <h4>为什么要用下拉框选词功能？<a href="#" style="color: #30F" ng-click="jqWords('div_pp11')" id="button1" class="glyphicon glyphicon-plus">点击查看</a></h4>
+                <p class="div_pp11" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FE8034">淘宝搜索下拉框选词</span>
+                    是通过淘宝、天猫、手机淘宝搜索下拉框查询淘宝搜索指数高、流量高、转化率高的关键词，并获取各关键词对应的在线相关宝贝数量及其推荐属性词。
+                    <span style="color: #FE8034">对于查询到的这些关键词</span>建议亲们使用生意参谋对其成交指数进行数据分析来选取真正适合自己宝贝的关键词，是
+                    <span style="color: #FE8034">淘宝商家标题优化和直通车选词的好助手。</span></p>
+            </div>
+        </div>
+
         <!-- 下拉框选词内容展现 -->
         <div class="search-info" id="xialakuangrs" >
             <div style="width: 100%" ng-if="xialakuang.msg == null " ng-show="xialakuang.vm.value!=0&&jiangquan.vm.value!=100">
