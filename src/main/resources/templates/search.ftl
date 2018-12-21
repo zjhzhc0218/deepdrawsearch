@@ -41,42 +41,8 @@
     .search-info p {
         margin-top: 10px;
     }
-    .first_img,.sen_img{
-        min-height:400px;
-    }
-    #reci table{
-        width:100%;
-        margin:30px 0;
 
-    }
-    #reci table td,#xialakuang table td{
-        text-align:  center;
-        line-height: 33px!important;
-    }
-    #reci table tr th,#xialakuang table tr td{
-        line-height: 33px!important;
-        text-align:center;
-        border-bottom-width: 1px!important;
-    }
-    #xialakuang  tbody{
-        /* color: #656565; */
-        font-size: 14px;
-    }
-    #xialakuang thead{
-        color: #2A6FF3;
-    }
-    #xialakuang table{
-        border-top:1px solid #AFCBFF;
-    }
-    #xialakuang table td{
-        border-color: #AFCBFF!important;
-    }
-    #xialakuang .table-striped>tbody>tr:nth-child(odd){
-        background-color: #F3F7FF;
-    }
-    #xialakuang  tbody tr td:nth-child(2){
-        color:#FE8034;
-    }
+
 </style>
 <body ng-controller="searchController" style="">
 <header>
@@ -662,11 +628,38 @@
         </div>
     </div>
     <!-- 查询记录结束 -->
-
-            <!-- 查询记录结束 -->
+            <div href="javascript:;" ng-show="shangxiajia.examedContext != null" class="info-item" style="display: block;text-align:center; color; black;font-size: 24px;margin-left: -200px">
+                <!-- 查询记录开始 -->
+                <div class="result-context" ng-show="shangxiajia.examedContext != null&&shangxiajia.examedContext.length>0" >
+                    <table class="table table-hover up_table " style="  display: block;width:100%;margin-bottom: 0px;">
+                        <thead>
+                        <tr style="width:100%">
+                            <td style="width: 30px;text-align: center"><label>商品图片</label></td>
+                            <td style="width: 120px;text-align: center"><label>宝贝名称</label></td>
+                            <td style="width: 90px;text-align: center"><label>上架时间</label></td>
+                            <td style="width: 90px;text-align: center"><label>下架时间</label></td>
+                            <td style="width: 90px;text-align: center"><label>剩余时间</label></td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="width:100%" >
+                            <td style="width: 30px;text-align: center">
+                                <img class="up_img" ng-src="{{shangxiajia.examedContext[0].value}}">
+                            <#--<b style="color:#f60"  ng-bind="shangxiajia.examedContext[0].value"></b>-->
+                            </td>
+                            <td style="width: 120px;text-align: center"><b   ng-bind="shangxiajia.examedContext[1].value"></b></td>
+                            <td style="width: 90px;text-align: center"><b   ng-bind="shangxiajia.examedContext[2].value"></b></td>
+                            <td style="width: 90px;text-align: center"><b  ng-bind="shangxiajia.examedContext[3].value"></b></td>
+                            <td style="width: 90px;text-align: center"><b  ng-bind="shangxiajia.examedContext[4].value"></b>天<b ng-bind="shangxiajia.examedContext[5].value"></b>小时</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+            <!-- 查询记录结束 -->
 
 
+        </div>
     <!-- 上下架查询结束 -->
 
     <!-- 下拉框选词开始 -->
