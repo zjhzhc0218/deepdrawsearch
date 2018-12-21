@@ -49,7 +49,7 @@
     <div class="header-content">
         <div class="header-top">
             <a class="logo" href="http://www.baimacha.com" >
-                <img style="margin-left: 100px" data-original="/codeimg/logo.png"/>
+                <img style="margin-left: 100px" src="/codeimg/logo.png"/>
                 <p>电商在线查询工具</p>
             </a>
 
@@ -89,9 +89,9 @@
                     <div class="one">
                         <a  role="tab" data-toggle="tab" href="#zhishu">指数还原</a>
                     </div>
-                    <div class="one">
+                   <#-- <div class="one">
                         <a  role="tab" data-toggle="tab" href="#">展现查询</a>
-                    </div>
+                    </div>-->
                     <div class="one ">
                         <a  role="tab" data-toggle="tab" href="#xinyu">买家信誉查询</a>
                     </div>
@@ -116,7 +116,7 @@
                         <li><a role="tab" data-toggle="tab" href="#dongtaipingfeng">动态评分查询</a></li>
                         <li><a role="tab" data-toggle="tab" href="#reci">20W热词下载</a></li>
                         <li><a role="tab" data-toggle="tab" href="#shangxiajia">上下架查询</a></li>
-                        <li><a role="tab" data-toggle="tab" href="#">历史价格查询</a></li>
+                        <#--<li><a role="tab" data-toggle="tab" href="#">历史价格查询</a></li>-->
                     </ul>
                 </div>
             </div>
@@ -372,12 +372,12 @@
                 <div class="item-left">
                     买家信用：<b style="color: green">{{xinYu.examedContext[7].value}}</b>&nbsp;
                     每周平均：<b style="color: green">&nbsp;{{xinYu.examedContext[8].value}}</b>&nbsp;
-                    <img id="dd" src="{{xinYu.examedContext[9].value}}">
+                    <img id="dd" ng-src="{{xinYu.examedContext[9].value}}">
                     &nbsp;<b style="color: red">{{xinYu.examedContext[10].value}}</b>
                 </div>
                 <div class="item-right">
                     卖家信用：<b style="color: green">{{xinYu.examedContext[11].value}}</b>
-                    &nbsp;<img ng-data-original="{{xinYu.examedContext[12].value}}">
+                    &nbsp;<img ng-src="{{xinYu.examedContext[12].value}}">
                     <b style="color: red">&nbsp;{{xinYu.examedContext[13].value}}</b>
                 </div>
             </div>
@@ -861,7 +861,7 @@
 
     //默认弹框样式
     window.alert = function (msg){
-        dialog.showTips(msg, "warn");s
+        dialog.showTips(msg, "warn");
     }
     var dialog = {
         /*
