@@ -682,7 +682,7 @@
 
         <!-- 下拉框选词内容展现 -->
         <div class="search-info" id="xialakuangrs" >
-            <div style="width: 100%" ng-if="xialakuang.msg == null " ng-show="xialakuang.vm.value!=0&&jiangquan.vm.value!=100">
+            <div style="width: 100%" ng-if="xialakuang.msg == null " ng-show="xialakuang.vm.value!=0&&xialakuang.vm.value!=100">
                 <div ng-class="{progress: true, 'progress-striped': jiangquan.vm.striped}">
                     <div ng-class="['progress-bar', xialakuang.vm.style]" ng-style="{width: xialakuang.vm.value + '%'}">
                         <div ng-if="xialakuang.vm.showLabel">{{xialakuang.vm.value}}%</div>
