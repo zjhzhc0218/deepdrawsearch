@@ -532,7 +532,7 @@
 
     <div role="tabpanel" class="tab-pane" class="content" id="zhishu">
         <div class="search-view" style="margin-top: 30px">
-            <input type="text"   ng-model="zhishu.searchWordsXy"  placeholder="请输入输入淘宝或天猫交易指数(大于2100)，然后点击 &quot;查询&quot; 按钮"/>
+            <input type="text"   ng-model="zhishu.searchWordsXy"  placeholder="请输入淘宝或天猫交易指数(大于2100)，然后点击 &quot;查询&quot; 按钮"/>
             <button class="btn  search-btnN" href="javascript:;" ng-click="searchZhishu()" ng-disabled="zhishu.working">查询</button>
         </div>
 
