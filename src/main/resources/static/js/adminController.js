@@ -11,6 +11,14 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         $scope.xinyu = null;
         $scope.reci = null;
         $scope.jiangquan = null;
+
+        $scope.dongtaipingfen = null;
+        $scope.mulu = null;
+        $scope.shangxiajia = null;
+        $scope.zhishu = null;
+        $scope.zhanxian = null;
+        $scope.xialakuang = null;
+
         /**
          * 登陆信息
          * @type {string}
@@ -330,6 +338,13 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
             $scope.xinyu = data.data.xinyu;
             $scope.reci = data.data.reci;
             $scope.jiangquan = data.data.jiangquan;
+
+            $scope.dongtaipingfen = data.data.dongtaipingfen;
+            $scope.mulu = data.data.mulu;
+            $scope.shangxiajia = data.data.shangxiajia;
+            $scope.zhishu = data.data.zhishu;
+            $scope.zhanxian = data.data.zhanxian;
+            $scope.xialakuang = data.data.xialakuang;
 
             $scope.dianjiliang =$scope.dianjiliang+"点击量为"+ data.data.count;
             });

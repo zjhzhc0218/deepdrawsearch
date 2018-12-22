@@ -68,15 +68,39 @@ public class FunctionUsingControllers {
         List<FunctionUsing> functionUsingsFour = functionUsingService.selectFTByTime(id,type,4,timeStartN,timeEndN);
         List<FunctionUsing> functionUsingsFive = functionUsingService.selectFTByTime(id,type,5,timeStartN,timeEndN);
 
+        List<FunctionUsing> functionUsingsSix = functionUsingService.selectFTByTime(id,type,6,timeStartN,timeEndN);
+        List<FunctionUsing> functionUsingsSeven = functionUsingService.selectFTByTime(id,type,7,timeStartN,timeEndN);
+        List<FunctionUsing> functionUsingsEight = functionUsingService.selectFTByTime(id,type,8,timeStartN,timeEndN);
+        List<FunctionUsing> functionUsingsNine = functionUsingService.selectFTByTime(id,type,9,timeStartN,timeEndN);
+        List<FunctionUsing> functionUsingsTen = functionUsingService.selectFTByTime(id,type,10,timeStartN,timeEndN);
+        List<FunctionUsing> functionUsingsEleven = functionUsingService.selectFTByTime(id,type,11,timeStartN,timeEndN);
+
         maps.put("paiming",functionUsingsOne==null?0:functionUsingsOne.size());
         maps.put("weijinci",functionUsingsTwo==null?0:functionUsingsTwo.size());
         maps.put("xinyu",functionUsingsTree==null?0:functionUsingsTree.size());
         maps.put("reci",functionUsingsFour==null?0:functionUsingsFour.size());
         maps.put("jiangquan",functionUsingsFive==null?0:functionUsingsFive.size());
+
+        maps.put("dongtaipingfen",functionUsingsSix==null?0:functionUsingsSix.size());
+        maps.put("mulu",functionUsingsSeven==null?0:functionUsingsSeven.size());
+        maps.put("shangxiajia",functionUsingsEight==null?0:functionUsingsEight.size());
+        maps.put("zhishu",functionUsingsNine==null?0:functionUsingsNine.size());
+        maps.put("zhanxian",functionUsingsTen==null?0:functionUsingsTen.size());
+        maps.put("xialakuang",functionUsingsEleven==null?0:functionUsingsEleven.size());
+
+
         Integer zongshu = (functionUsingsOne==null?0:functionUsingsOne.size())                  + (functionUsingsTwo==null?0:functionUsingsTwo.size())
                 +(functionUsingsTree==null?0:functionUsingsTree.size())
                 +(functionUsingsFour==null?0:functionUsingsFour.size())
-                +(functionUsingsFive==null?0:functionUsingsFive.size());
+                +(functionUsingsFive==null?0:functionUsingsFive.size())
+
+                +(functionUsingsSix==null?0:functionUsingsTree.size())
+                +(functionUsingsSeven==null?0:functionUsingsFour.size())
+                +(functionUsingsEight==null?0:functionUsingsFive.size())
+                +(functionUsingsNine==null?0:functionUsingsTree.size())
+                +(functionUsingsTen==null?0:functionUsingsFour.size())
+                +(functionUsingsEleven==null?0:functionUsingsFive.size())
+                ;
 
         message = zongshu+"次";
         maps.put("count",message);
