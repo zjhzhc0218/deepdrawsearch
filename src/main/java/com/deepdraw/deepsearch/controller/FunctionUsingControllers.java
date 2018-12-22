@@ -94,12 +94,12 @@ public class FunctionUsingControllers {
                 +(functionUsingsFour==null?0:functionUsingsFour.size())
                 +(functionUsingsFive==null?0:functionUsingsFive.size())
 
-                +(functionUsingsSix==null?0:functionUsingsTree.size())
-                +(functionUsingsSeven==null?0:functionUsingsFour.size())
-                +(functionUsingsEight==null?0:functionUsingsFive.size())
-                +(functionUsingsNine==null?0:functionUsingsTree.size())
-                +(functionUsingsTen==null?0:functionUsingsFour.size())
-                +(functionUsingsEleven==null?0:functionUsingsFive.size())
+                +(functionUsingsSix==null?0:functionUsingsSix.size())
+                +(functionUsingsSeven==null?0:functionUsingsSeven.size())
+                +(functionUsingsEight==null?0:functionUsingsEight.size())
+                +(functionUsingsNine==null?0:functionUsingsNine.size())
+                +(functionUsingsTen==null?0:functionUsingsTen.size())
+                +(functionUsingsEleven==null?0:functionUsingsEleven.size())
                 ;
 
         message = zongshu+"次";
