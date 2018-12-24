@@ -89,9 +89,9 @@
                     <div class="one">
                         <a  role="tab" data-toggle="tab" href="#zhishu">指数还原</a>
                     </div>
-                   <#-- <div class="one">
-                        <a  role="tab" data-toggle="tab" href="#">展现查询</a>
-                    </div>-->
+                    <div class="one">
+                        <a  role="tab" data-toggle="tab" href="#zhanxian">展现查询</a>
+                    </div>
                     <div class="one ">
                         <a  role="tab" data-toggle="tab" href="#xinyu">买家信誉查询</a>
                     </div>
@@ -740,7 +740,50 @@
 
     </div>
     <!-- 下拉框选词结束 -->
+
+    <!-- 淘宝展现结束 -->
+    <div role="tabpanel" class="tab-pane" class="content" id="zhanxian">
+        <div class="search-view" style="margin-top: 30px">
+            <input type="text"   ng-model="zhanxian.searchWordsXy"  placeholder="请输入需要查询的商品ID或是商品链接 &quot;查询&quot; 按钮"/>
+            <button class="btn  search-btnN" href="javascript:;" ng-click="searchZhanxian()" ng-disabled="zhanxian.working">查询</button>
+        </div>
+
+        <div class="search-desc" style="margin-top: -38;margin-left: 249px;">
+            <p class="title">根据旺旺或者宝贝ID查询电脑端或者无线端的展现词,分析同行或者自己的流量入口！</p>
+        <#-- <p>1、提高对顾客的服务态度，发货速度，完善商品的描叙。让顾客舒心购物!</p>
+         <p>2、<font>顾客收到宝贝后，主动联系顾客是否满意</font>。从而提醒顾客好评并打5分!</p>
+         <p>3、邀请你的朋友关照下你，从而获得5分好评!</p>
+         <p>4、<font>加入一些互刷平台，或是互刷团队来提高动态评分!</font>安全，方便，快捷。</p>-->
+        </div>
+
+        <div class="search-info" id="zhanxianRs" style="width: 75%;margin-left: 200px">
+            <div style="width: 90%" ng-if="zhanxian.msg == null " ng-show="zhanxian.vm.value!=0&&zhanxian.vm.value!=100">
+                <div ng-class="{progress: true, 'progress-striped': zhanxian.vm.striped}">
+                    <div ng-class="['progress-bar', zhanxian.vm.style]" ng-style="{width: zhanxian.vm.value + '%'}">
+                        <div ng-if="zhanxian.vm.showLabel">{{zhanxian.vm.value}}%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="noViolation " ng-show="zhanxian.msg != null" style="color: red;font-size: 30px">
+                {{zhanxian.msg}}
+            </div>
+            <div href="javascript:;" ng-show="zhanxian.examedContext != null" class="info-item">
+                <div class="reductionIndex" id="dsr">
+                <#-- <div>
+                        <h5 style="display: inline">销售金额：</h5>
+                        <h1 ng-if="zhishu.searchWordsXy<=2100">交易指数过小</h1>
+                        <h1 ng-if="zhishu.searchWordsXy>2100" id="item_score" ng-bind="zhishu.examedContext"></h1>
+                    </div>
+                    <h5>交易指数： <span class="count" id="item_score" ng-bind="zhishu.searchWordsXy"></span></h5>-->
+                </div>
+
+            </div>
+        </div>
     </div>
+    <!-- 淘宝展现结束 -->
+    </div>
+
+
 
 </div>
 

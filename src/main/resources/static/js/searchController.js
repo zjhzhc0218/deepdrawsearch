@@ -1068,6 +1068,107 @@ var app=angular.module('search',[])
 
             //########################下拉框选词结束###############################//
 
+            //########################展现查询###############################//
+            $scope.zhanxian = {
+                searchWordsXy : null,//查询
+                working : false,
+                hasNoViolation : false,
+                examedContext : null
+            };
+            var zhanxianvm = $scope.zhanxian.vm = {};
+            zhanxianvm.value = 0;
+            zhanxianvm.style = 'progress-bar-info';
+            zhanxianvm.showLabel = true;
+            zhanxianvm.striped = true;
+            $scope.searchZhanxian = function () {
+                if ($scope.username == null){
+                    $('#myModal').modal('show');
+                    return;
+                }
+                /*判断权限是否改变*/
+                updateGrage();
+                //判断是否注册
+                var fCount = getFTForUser();
+                if($scope.username.grade == 2) {
+                    $('#tixing').modal('show');
+                    return;
+                }
+                if( $scope.zhanxian.searchWordsXy == null) {
+                    spop({template: '<strong>请输入查询字符!</strong>',
+                        autoclose: 3000,
+                        style:'error'
+                    });
+                    return;
+                }
+                var str = angular.copy($scope.zhanxian.searchWordsXy);
+                str = str.match(/id=(\d*)/);
+                if (str) {
+                    $scope.zhanxian.searchWordsXy = str[1];
+                }
+                var reg = /^[0-9]+.?[0-9]*$/;
+                if (!reg.test($scope.zhanxian.searchWordsXy)) {
+                    spop({template: '<strong>宝贝ID或者宝贝链接输入不符合规则!</strong>',
+                        autoclose: 3000,
+                        style:'error'
+                    });
+                    return;
+                }
+                /* var reg = /^[0-9]+.?[0-9]*$/;
+                 if (!reg.test($scope.zhanxian.searchWordsXy)) {
+                     spop({template: '<strong>宝贝ID或者宝贝链接输入不符合规则!</strong>',
+                         autoclose: 3000,
+                         style:'error'
+                     });
+                     return;
+                 }*/
+
+                zhanxianvm.value = 0;
+                var interval = setInterval(function(){
+                    zhanxianvm.value++;
+                    $scope.$apply();
+                    if (zhishuvm.value == 100) {
+                        $scope.zhanxian.msg = "查询超时！请重新查询";
+                        $scope.zhanxian.working = false;
+                        $scope.zhanxian.hasNoViolation == true;
+                        $scope.$apply();
+                        clearInterval(interval);
+                    }
+                }, 400);
+
+                $scope.zhanxian.examedContext = null;
+                $scope.zhanxian.hasNoViolation = false;
+                $scope.zhanxian.working = true;
+                $scope.zhanxian.msg = null;
+                $http({
+                    method:'get',
+                    url:'/deepsearch/searchZhanXian', params:{"searchWords": $scope.zhanxian.searchWordsXy},
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    transformRequest: function ( data ) {
+                        var str = '';
+                        for( var i in data ) {
+                            str += i + '=' + data[i] + '&';
+                        }
+                    }}
+                ).then(function successCallback(info) {
+                    if (info.data.code == 1) {
+                        // alert(info.data.msg);
+                        $scope.zhanxian.msg = info.data.msg;
+                        $scope.zhanxian.hasNoViolation = true;
+                    }else if(info.data.code == 0){
+                        $scope.zhanxian.examedContext = angular.fromJson( info.data.data.replace(/'/g, '"'));
+                    }
+                    zhanxianvm.value = 100;
+                    clearInterval(interval);
+                    $scope.zhanxian.working = false;
+                },function errorCallback(info) {
+                    // alert("失败了");
+                    $scope.zhanxian.working = false;
+                    zhanxianvm.value = 100;
+                    clearInterval(interval);
+                })
+            }
+
+            //########################展现查询end###############################//
 
 
 
