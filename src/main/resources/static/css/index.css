@@ -477,14 +477,33 @@ header .header-content{
 	margin:30px 0;
 
 }
-#reci table td{
+#reci table td,#xialakuang table td{
 	text-align:  center;
 	line-height: 33px!important;
 }
-#reci table tr th{
+#reci table tr th,#xialakuang table tr td{
 	line-height: 33px!important;
 	text-align:center;
 	border-bottom-width: 1px!important;
+}
+#xialakuang  tbody{
+	/* color: #656565; */
+	font-size: 14px;
+}
+#xialakuang thead{
+	color: #2A6FF3;
+}
+#xialakuang table{
+	border-top:1px solid #AFCBFF;
+}
+#xialakuang table td{
+	border-color: #AFCBFF!important;
+}
+#xialakuang .table-striped>tbody>tr:nth-child(odd){
+	background-color: #F3F7FF;
+}
+#xialakuang  tbody tr td:nth-child(2){
+	color:#FE8034;
 }
 .search-desc .title{
 	margin-bottom: 20px;
@@ -511,4 +530,29 @@ header .header-content{
 .search-view .search-btnN,.search-view .search-btn{
 	font-size:17px!important;
 	letter-spacing: 2px;
+}
+/*12.21*/
+table.up_table thead tr td{
+	line-height: 24px!important;
+
+}
+table.up_table tr b{
+	font-weight:300;
+}
+table.up_table{
+	border-top:1px solid #cae6ff;
+}
+table.up_table  tr td{
+	text-align:  center;
+	border:1px solid #cae6ff;
+	font-size:14px;
+	vertical-align: middle;
+}
+table.up_table tbody td{
+	padding:15px;
+	background-color: #f4f8ff
+}
+.up_img{
+	width:100px;
+	margin:0 auto;
 }
