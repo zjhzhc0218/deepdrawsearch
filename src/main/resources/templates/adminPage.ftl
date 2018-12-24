@@ -10,7 +10,7 @@
     <meta name="viewport" content="user-scalable=no">
     <meta name="viewport" content="user-scalable=yes">
     <link rel="stylesheet" href="/deepsearch/css/loading/jquery.mloading.css">
-    <#--分页样式-->
+<#--分页样式-->
 
     <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
     <link rel="stylesheet" href="/deepsearch/css/reset.css" />
@@ -21,7 +21,7 @@
 
     <!-- 下面是表单的格式 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <#--  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
+<#--  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
     <!-- CSS样式 -->
     <style type="text/css">
         .panel{width:60%;margin:0 auto;text-align: center;}
@@ -75,22 +75,22 @@
                     </ul>
                 </li>
             </ul>
-            <#--<ul class="nav pull-right">-->
-                <#--<li id="fat-menu" class="dropdown">-->
-                    <#--<a style="color:white " href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">-->
-                        <#--<i style="color: white" class="icon-user"></i>-->
-                        <#--<span ng-if="username!=null" ng-bind="username.id"></span>-->
-                        <#--<span  ng-if="username==null" ng-click="signLogin()">登陆/注册</span>-->
-                        <#--<i style="color: white" class="icon-caret-down"></i>-->
-                    <#--</a>-->
+        <#--<ul class="nav pull-right">-->
+        <#--<li id="fat-menu" class="dropdown">-->
+        <#--<a style="color:white " href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">-->
+        <#--<i style="color: white" class="icon-user"></i>-->
+        <#--<span ng-if="username!=null" ng-bind="username.id"></span>-->
+        <#--<span  ng-if="username==null" ng-click="signLogin()">登陆/注册</span>-->
+        <#--<i style="color: white" class="icon-caret-down"></i>-->
+        <#--</a>-->
 
-                    <#--<ul  ng-if="username!=null" class="dropdown-menu">-->
-                        <#--<li><a tabindex="-1" href="#" ng-if="username!=null && username.grade==1" ng-click="toAdminPage()">这里可以弄个返回前台</a></li>-->
-                        <#--<li class="divider"></li>-->
-                        <#--<li><a tabindex="-1" href="#" ng-click="signLogin()">注销</a></li>-->
-                    <#--</ul>-->
-                <#--</li>-->
-            <#--</ul>-->
+        <#--<ul  ng-if="username!=null" class="dropdown-menu">-->
+        <#--<li><a tabindex="-1" href="#" ng-if="username!=null && username.grade==1" ng-click="toAdminPage()">这里可以弄个返回前台</a></li>-->
+        <#--<li class="divider"></li>-->
+        <#--<li><a tabindex="-1" href="#" ng-click="signLogin()">注销</a></li>-->
+        <#--</ul>-->
+        <#--</li>-->
+        <#--</ul>-->
         </div>
         <div class="nav-list" style="position: relative">
 
@@ -125,8 +125,8 @@
             <div style="width: 100%;height: 100%" class="Container">
                 <div class="row clearfix" style="text-align: center;min-width:1100px">
                     <div class="col-md-12 column form-inline" style="font-size: 20px">
-                            <label class="font-7">用户手机：</label>
-                            <input type="number" class="" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="id" name="id" placeholder="查询用户的手机号" required="required"/>
+                        <label class="font-7">用户手机：</label>
+                        <input type="number" class="" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="id" name="id" placeholder="查询用户的手机号" required="required"/>
                     </div>
                     <div class="col-md-12 column form-inline" style="font-size: 20px">
                         <label class="font-7">查询期限：</label>
@@ -140,7 +140,7 @@
                     </div>
                     <button  ng-click="select()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;height: 36px;">查询</button>
                     <div ng-show="type==99" class="col-md-12 column form-inline " style="margin-top:20px;font-size: 20px">
-                    <label class="font-7">开始时间：</label>
+                        <label class="font-7">开始时间：</label>
                         <input type="text" class="Wdate form-control" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="time.startTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" onchange="" "/>
                     </div></br>
                     <div ng-show="type==99" class="col-md-12 column form-inline " style="font-size: 20px">
@@ -201,19 +201,19 @@
 
 
                             <ul uib-pagination
-                                    total-items="page.totalCount"
-                                    ng-model="page.pageNo"
-                                    max-size="5"
-                                    class="samplePage pagination"
-                                    boundary-links="true"
-                                    force-ellipses="false"
-                                    first-text="首页"
-                                    last-text="末页"
-                                    previous-text="上一页"
-                                    next-text="下一页"
-                                    items-per-page="page.limit"
-                                    ng-change="pageChanged()"
-                                    boundary-link-numbers="true"
+                                total-items="page.totalCount"
+                                ng-model="page.pageNo"
+                                max-size="5"
+                                class="samplePage pagination"
+                                boundary-links="true"
+                                force-ellipses="false"
+                                first-text="首页"
+                                last-text="末页"
+                                previous-text="上一页"
+                                next-text="下一页"
+                                items-per-page="page.limit"
+                                ng-change="pageChanged()"
+                                boundary-link-numbers="true"
                             ></ul>
 
 
@@ -234,17 +234,17 @@
                         <label class="font-7">用户手机：</label>
                         <input type="number" class="" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="id" name="id" placeholder="查询用户的手机号" required="required"/>
                     </div>
-                    <#--<div class="col-md-12 column form-inline" style="font-size: 20px">-->
-                        <#--<label class="font-7">查询模块：</label>-->
-                        <#--<select ng-model="module"  style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" >-->
-                            <#--<option value="">模块不限制</option>-->
-                            <#--<option value="1">排名</option>-->
-                            <#--<option value="2">违禁词</option>-->
-                            <#--<option value="3">信誉</option>-->
-                            <#--<option value="4">热词</option>-->
-                            <#--<option value="5">降权</option>-->
-                        <#--</select>-->
-                    <#--</div>-->
+                <#--<div class="col-md-12 column form-inline" style="font-size: 20px">-->
+                <#--<label class="font-7">查询模块：</label>-->
+                <#--<select ng-model="module"  style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" >-->
+                <#--<option value="">模块不限制</option>-->
+                <#--<option value="1">排名</option>-->
+                <#--<option value="2">违禁词</option>-->
+                <#--<option value="3">信誉</option>-->
+                <#--<option value="4">热词</option>-->
+                <#--<option value="5">降权</option>-->
+                <#--</select>-->
+                <#--</div>-->
                     <div class="col-md-12 column form-inline" style="font-size: 20px">
                         <label class="font-7">查询期限：</label>
                         <select ng-model="type"  style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" >
@@ -264,10 +264,10 @@
                         <label class="font-7">结束时间：</label>
                         <input type="text" class="Wdate form-control" style="width: 190px;height: 35px;border-radius:5px ;margin-left: 119px;" ng-model="time.endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  onchange=""  "/>
                     </div></br>
-                    <#--<button  ng-click="selectFT()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;">查询</button>-->
+                <#--<button  ng-click="selectFT()" class="btn btn-primary btn-block btn-large" style="font-size: 20px;width: 190px;">查询</button>-->
 
 
-    </div>
+                </div>
                 <!--结果-->
                 <div ng-show="djl"  style="text-align: center;min-width:1100px；width:85%;height:350px;">
                     <h2>{{dianjiliang}}</h2>
@@ -323,33 +323,82 @@
                             <td>{{time.endTime}}</td>
                             <td>{{jiangquan}}</td>
                         </tr>
+
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{qixian}}</td>
+                            <td>动态评分</td>
+                            <td>{{time.startTime}}</td>
+                            <td>{{time.endTime}}</td>
+                            <td>{{dongtaipingfen}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{qixian}}</td>
+                            <td>目录</td>
+                            <td>{{time.startTime}}</td>
+                            <td>{{time.endTime}}</td>
+                            <td>{{mulu}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{qixian}}</td>
+                            <td>上下架</td>
+                            <td>{{time.startTime}}</td>
+                            <td>{{time.endTime}}</td>
+                            <td>{{shangxiajia}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{qixian}}</td>
+                            <td>指数</td>
+                            <td>{{time.startTime}}</td>
+                            <td>{{time.endTime}}</td>
+                            <td>{{zhishu}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{qixian}}</td>
+                            <td>展现</td>
+                            <td>{{time.startTime}}</td>
+                            <td>{{time.endTime}}</td>
+                            <td>{{zhanxian}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{qixian}}</td>
+                            <td>下拉框</td>
+                            <td>{{time.startTime}}</td>
+                            <td>{{time.endTime}}</td>
+                            <td>{{xialakuang}}</td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
+        </div>
     </div>
-</div>
-<!--内容-结束-->
+    <!--内容-结束-->
 
-<!--尾部-开始-->
+    <!--尾部-开始-->
 <#--<div class="footer" style="background:#777777; width:100%; padding-bottom:20px; margin-top: 23px;">-->
-    <#--<div class="container">-->
-        <#--<div class="row">-->
-            <#--&lt;#&ndash;<div class="col-sm-4">&ndash;&gt;-->
+<#--<div class="container">-->
+<#--<div class="row">-->
+<#--&lt;#&ndash;<div class="col-sm-4">&ndash;&gt;-->
 
-            <#--&lt;#&ndash;</div>&ndash;&gt;-->
-            <#--&lt;#&ndash;<div class="col-sm-4">&ndash;&gt;-->
+<#--&lt;#&ndash;</div>&ndash;&gt;-->
+<#--&lt;#&ndash;<div class="col-sm-4">&ndash;&gt;-->
 
-            <#--&lt;#&ndash;</div>&ndash;&gt;-->
-            <#--&lt;#&ndash;<div class="col-sm-4">&ndash;&gt;-->
+<#--&lt;#&ndash;</div>&ndash;&gt;-->
+<#--&lt;#&ndash;<div class="col-sm-4">&ndash;&gt;-->
 
-            <#--&lt;#&ndash;</div>&ndash;&gt;-->
-            <#--<div class="col-sm-12 text-center" style="margin-top:20px;">-->
-                <#--版权所有 Power by DeepDraw-->
-            <#--</div>-->
-        <#--</div>-->
-    <#--</div>-->
+<#--&lt;#&ndash;</div>&ndash;&gt;-->
+<#--<div class="col-sm-12 text-center" style="margin-top:20px;">-->
+<#--版权所有 Power by DeepDraw-->
+<#--</div>-->
+<#--</div>-->
+<#--</div>-->
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
@@ -373,26 +422,26 @@
 </div>
 <!--尾部-结束-->
 
-    <div class="footer" style="position:fixed;bottom:0;width:100%;background-color:#e5e5e5;height: 40px;line-height: 40px;">
-        <p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>
-    </div>
+<div class="footer" style="position:fixed;bottom:0;width:100%;background-color:#e5e5e5;height: 40px;line-height: 40px;">
+    <p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>
+</div>
 
 
 
-    <div class="modal fade" id="export" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
-        <div class="modal-dialog" role="document">
+<div class="modal fade" id="export" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="font-size: 45px">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel" style="color: #008fff;font-size: 25px">二维码上传：</h4>
             </div>
             <div class="modal-body" style="text-align: center;border: 1px solid red">
-                    <p>店铺后台截图:
-                    <div class="upload-button" type="file" capture="camera" ngf-select="shopParams.uploadFiles($file,$errorfile)" ng-model="shopParams.file" accept="image/jpg,image/JPG,image/jpeg,image/gif,image/png" ngf-max-height="2000" ngf-max-size="5MB">
-                        <img  style="height: 150px;width: 150px" class="uploadpic img-rounded" ng-src="{{shopParams.imgSrc}}" ng-model="shopParams.img"/>
-                        <div class="glyphicon glyphicon-camera uploadpic-label">点击上传照片</div>
-                    </div>
-                    </p>
+                <p>店铺后台截图:
+                <div class="upload-button" type="file" capture="camera" ngf-select="shopParams.uploadFiles($file,$errorfile)" ng-model="shopParams.file" accept="image/jpg,image/JPG,image/jpeg,image/gif,image/png" ngf-max-height="2000" ngf-max-size="5MB">
+                    <img  style="height: 150px;width: 150px" class="uploadpic img-rounded" ng-src="{{shopParams.imgSrc}}" ng-model="shopParams.img"/>
+                    <div class="glyphicon glyphicon-camera uploadpic-label">点击上传照片</div>
+                </div>
+                </p>
             </div>
 
             <div class="modal-footer">

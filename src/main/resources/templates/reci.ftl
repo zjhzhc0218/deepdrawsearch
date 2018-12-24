@@ -9,6 +9,13 @@
         </tr></thead>
         <tbody>
         <tr>
+            <td>2018-12-18 </td>
+            <td><a ng-click="reciRecord(' https://pan.baidu.com/s/1BqtAtkvAM4KASN0V0onRqw')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1q1HN134vBRlVIwLbQZo5rw')" target="_blank" href="javascript:void(0)">无线端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1J1z3Qyv33Yk2Pg_y5-cnSg')" target="_blank" href="javascript:void(0)" >潜力词表PC</a>
+                | <a ng-click="reciRecord('https://pan.baidu.com/s/1SpivSD70pLHO8NE9GQZfzQ')" target="_blank" href="javascript:void(0)">潜力词表无线端</a></td>
+        </tr>
+        <tr>
             <td>2018-12-11 </td>
             <td><a ng-click="reciRecord('https://pan.baidu.com/s/1nKOeIj250QvfRqLr_LpJ7g')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
             <td><a ng-click="reciRecord('https://pan.baidu.com/s/1fOHWyROPwYXPfMXJiAGbMA')" target="_blank" href="javascript:void(0)">无线端TOP 20W</a> </td>

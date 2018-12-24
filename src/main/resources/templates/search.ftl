@@ -49,7 +49,7 @@
     <div class="header-content">
         <div class="header-top">
             <a class="logo" href="http://www.baimacha.com" >
-                <img style="margin-left: 100px" data-original="/codeimg/logo.png"/>
+                <img style="margin-left: 100px" src="/codeimg/logo.png"/>
                 <p>电商在线查询工具</p>
             </a>
 
@@ -90,7 +90,7 @@
                         <a  role="tab" data-toggle="tab" href="#zhishu">指数还原</a>
                     </div>
                     <div class="one">
-                        <a  role="tab" data-toggle="tab" href="#">展现查询</a>
+                        <a  role="tab" data-toggle="tab" href="#zhanxian">展现查询</a>
                     </div>
                     <div class="one ">
                         <a  role="tab" data-toggle="tab" href="#xinyu">买家信誉查询</a>
@@ -116,7 +116,7 @@
                         <li><a role="tab" data-toggle="tab" href="#dongtaipingfeng">动态评分查询</a></li>
                         <li><a role="tab" data-toggle="tab" href="#reci">20W热词下载</a></li>
                         <li><a role="tab" data-toggle="tab" href="#shangxiajia">上下架查询</a></li>
-                        <li><a role="tab" data-toggle="tab" href="#">历史价格查询</a></li>
+                        <#--<li><a role="tab" data-toggle="tab" href="#">历史价格查询</a></li>-->
                     </ul>
                 </div>
             </div>
@@ -372,12 +372,12 @@
                 <div class="item-left">
                     买家信用：<b style="color: green">{{xinYu.examedContext[7].value}}</b>&nbsp;
                     每周平均：<b style="color: green">&nbsp;{{xinYu.examedContext[8].value}}</b>&nbsp;
-                    <img id="dd" src="{{xinYu.examedContext[9].value}}">
+                    <img id="dd" ng-src="{{xinYu.examedContext[9].value}}">
                     &nbsp;<b style="color: red">{{xinYu.examedContext[10].value}}</b>
                 </div>
                 <div class="item-right">
                     卖家信用：<b style="color: green">{{xinYu.examedContext[11].value}}</b>
-                    &nbsp;<img ng-data-original="{{xinYu.examedContext[12].value}}">
+                    &nbsp;<img ng-src="{{xinYu.examedContext[12].value}}">
                     <b style="color: red">&nbsp;{{xinYu.examedContext[13].value}}</b>
                 </div>
             </div>
@@ -532,7 +532,7 @@
 
     <div role="tabpanel" class="tab-pane" class="content" id="zhishu">
         <div class="search-view" style="margin-top: 30px">
-            <input type="text"   ng-model="zhishu.searchWordsXy"  placeholder="请输入输入淘宝或天猫交易指数(大于2100)，然后点击 &quot;查询&quot; 按钮"/>
+            <input type="text"   ng-model="zhishu.searchWordsXy"  placeholder="请输入淘宝或天猫交易指数(大于2100)，然后点击 &quot;查询&quot; 按钮"/>
             <button class="btn  search-btnN" href="javascript:;" ng-click="searchZhishu()" ng-disabled="zhishu.working">查询</button>
         </div>
 
@@ -586,6 +586,22 @@
         <div class="search-view" style="margin-top: 30px" style="margin-top: 30px" style="margin-top: 30px">
             <input type="text"   ng-model="shangxiajia.searchWordsShangxiajia"  placeholder="请输入需要查询的商品ID或是商品链接 &quot;查询&quot; 按钮"/>
             <button class="btn  search-btnN" href="javascript:;" ng-click="searchShangxiajia()" ng-disabled="shangxiajia.working">查询</button>
+        </div>
+
+        <div class="search-desc" style="margin-top: -38;margin-left: 249px;">
+            <p class="title">淘宝上下架查询</p>
+            <div>
+                <h4>淘宝上下架时间应该如何合理安排？
+                    <a href="#" style="color: #30F" ng-click="jqWords('div_pp12')" id="button1" class="glyphicon glyphicon-plus">点击查看</a></h4>
+                <p class="div_pp12" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    1、淘宝上下架尽量安排在流量高峰期。据统计，一般在<span style="color: #FE8034">早上9：00-11：00，下午14：00-17：00，晚上19：00-22：00</span>的网上人流量最多。
+                    因而，在宝贝上架时，在这些时间段，分别上些宝贝，或者用工具软件定时上架，<span style="color: #FE8034">在这个时间段每隔几分钟上一个宝贝。</span>
+                </p>
+                <p class="div_pp12" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    2、不要将宝贝设置在一天全部上架。如果将宝贝设置在一天内全部上架，那一周之内，店铺只会有一天是排名靠前的。而其他的六天时间，由于店铺没有快下架的宝贝，
+                    无法排序到前几页，掌柜们很可能就会门庭冷落了。<span style="color: #FE8034">所以，建议掌柜们把宝贝门分成7天，在7天的不同时间段内，分批上架。</span>
+                </p>
+            </div>
         </div>
 
         <div class="search-info" id="shangxiajiaRs" style="width: 75%;margin-left: 200px">
@@ -668,9 +684,21 @@
             <input type="text"   ng-model="xialakuang.searchWordsXialakuang"  placeholder="输入您感兴趣的产品核心词，即可查看对应的下拉框推荐词，相关宝贝数和推荐属性词： &quot;查询&quot; 按钮"/>
             <button class="btn  search-btnN" href="javascript:;" ng-click="searchXialakuang()" ng-disabled="xialakuang.working">查询</button>
         </div>
+
+        <div class="search-desc" style="margin-top: -38;margin-left: 249px;">
+            <p class="title">淘宝搜索下拉框选词</p>
+            <div>
+                <h4>为什么要用下拉框选词功能？<a href="#" style="color: #30F" ng-click="jqWords('div_pp11')" id="button1" class="glyphicon glyphicon-plus">点击查看</a></h4>
+                <p class="div_pp11" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FE8034">淘宝搜索下拉框选词</span>
+                    是通过淘宝、天猫、手机淘宝搜索下拉框查询淘宝搜索指数高、流量高、转化率高的关键词，并获取各关键词对应的在线相关宝贝数量及其推荐属性词。
+                    <span style="color: #FE8034">对于查询到的这些关键词</span>建议亲们使用生意参谋对其成交指数进行数据分析来选取真正适合自己宝贝的关键词，是
+                    <span style="color: #FE8034">淘宝商家标题优化和直通车选词的好助手。</span></p>
+            </div>
+        </div>
+
         <!-- 下拉框选词内容展现 -->
         <div class="search-info" id="xialakuangrs" >
-            <div style="width: 100%" ng-if="xialakuang.msg == null " ng-show="xialakuang.vm.value!=0&&jiangquan.vm.value!=100">
+            <div style="width: 100%" ng-if="xialakuang.msg == null " ng-show="xialakuang.vm.value!=0&&xialakuang.vm.value!=100">
                 <div ng-class="{progress: true, 'progress-striped': jiangquan.vm.striped}">
                     <div ng-class="['progress-bar', xialakuang.vm.style]" ng-style="{width: xialakuang.vm.value + '%'}">
                         <div ng-if="xialakuang.vm.showLabel">{{xialakuang.vm.value}}%</div>
@@ -712,7 +740,50 @@
 
     </div>
     <!-- 下拉框选词结束 -->
+
+    <!-- 淘宝展现结束 -->
+    <div role="tabpanel" class="tab-pane" class="content" id="zhanxian">
+        <div class="search-view" style="margin-top: 30px">
+            <input type="text"   ng-model="zhanxian.searchWordsXy"  placeholder="请输入需要查询的商品ID或是商品链接 &quot;查询&quot; 按钮"/>
+            <button class="btn  search-btnN" href="javascript:;" ng-click="searchZhanxian()" ng-disabled="zhanxian.working">查询</button>
+        </div>
+
+        <div class="search-desc" style="margin-top: -38;margin-left: 249px;">
+            <p class="title">根据旺旺或者宝贝ID查询电脑端或者无线端的展现词,分析同行或者自己的流量入口！</p>
+        <#-- <p>1、提高对顾客的服务态度，发货速度，完善商品的描叙。让顾客舒心购物!</p>
+         <p>2、<font>顾客收到宝贝后，主动联系顾客是否满意</font>。从而提醒顾客好评并打5分!</p>
+         <p>3、邀请你的朋友关照下你，从而获得5分好评!</p>
+         <p>4、<font>加入一些互刷平台，或是互刷团队来提高动态评分!</font>安全，方便，快捷。</p>-->
+        </div>
+
+        <div class="search-info" id="zhanxianRs" style="width: 75%;margin-left: 200px">
+            <div style="width: 90%" ng-if="zhanxian.msg == null " ng-show="zhanxian.vm.value!=0&&zhanxian.vm.value!=100">
+                <div ng-class="{progress: true, 'progress-striped': zhanxian.vm.striped}">
+                    <div ng-class="['progress-bar', zhanxian.vm.style]" ng-style="{width: zhanxian.vm.value + '%'}">
+                        <div ng-if="zhanxian.vm.showLabel">{{zhanxian.vm.value}}%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="noViolation " ng-show="zhanxian.msg != null" style="color: red;font-size: 30px">
+                {{zhanxian.msg}}
+            </div>
+            <div href="javascript:;" ng-show="zhanxian.examedContext != null" class="info-item">
+                <div class="reductionIndex" id="dsr">
+                <#-- <div>
+                        <h5 style="display: inline">销售金额：</h5>
+                        <h1 ng-if="zhishu.searchWordsXy<=2100">交易指数过小</h1>
+                        <h1 ng-if="zhishu.searchWordsXy>2100" id="item_score" ng-bind="zhishu.examedContext"></h1>
+                    </div>
+                    <h5>交易指数： <span class="count" id="item_score" ng-bind="zhishu.searchWordsXy"></span></h5>-->
+                </div>
+
+            </div>
+        </div>
     </div>
+    <!-- 淘宝展现结束 -->
+    </div>
+
+
 
 </div>
 
@@ -861,7 +932,7 @@
 
     //默认弹框样式
     window.alert = function (msg){
-        dialog.showTips(msg, "warn");s
+        dialog.showTips(msg, "warn");
     }
     var dialog = {
         /*
