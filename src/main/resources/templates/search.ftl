@@ -1,5 +1,5 @@
 <!DOCTYPE>
-<html ng-app="search" xmlns="http://www.w3.org/1999/html">
+<html ng-app="search" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>白马查--电商在线查询工具</title>
     <link rel="shortcut icon" href="/codeimg/baima.ico" type="image/x-icon"/>
@@ -71,7 +71,7 @@
             </ul>
         </div>
         <div class="nav-list container">
-            <div class="row">
+            <div class="row" style="text-align: center">
                 <#--<div class="col-md-12">-->
                     <div class="one active">
                         <a  class="" role="tab" data-toggle="tab" href="#guanjia" style="font-size: 14px;">白马单品管家</a>
@@ -531,19 +531,70 @@
     </div>
 
     <div role="tabpanel" class="tab-pane" class="content" id="zhishu">
-        <div class="search-view" style="margin-top: 30px">
-            <input type="text"   ng-model="zhishu.searchWordsXy"  placeholder="请输入淘宝或天猫交易指数(大于2100)，然后点击 &quot;查询&quot; 按钮"/>
-            <button class="btn  search-btnN" href="javascript:;" ng-click="searchZhishu()" ng-disabled="zhishu.working">查询</button>
-        </div>
+        <#--<div class="search-view" style="margin-top: 30px">-->
+            <#--<input type="text"   ng-model="zhishu.searchWordsXy"  placeholder="请输入淘宝或天猫交易指数(大于2100)，然后点击 &quot;查询&quot; 按钮"/>-->
+            <#--<button class="btn  search-btnN" href="javascript:;" ng-click="searchZhishu()" ng-disabled="zhishu.working">查询</button>-->
+        <#--</div>-->
 
-        <div class="search-desc" style="margin-top: -38;margin-left: 249px;">
-            <p class="title">淘宝天猫交易指数查询转换销售额工具</p>
-           <#-- <p>1、提高对顾客的服务态度，发货速度，完善商品的描叙。让顾客舒心购物!</p>
-            <p>2、<font>顾客收到宝贝后，主动联系顾客是否满意</font>。从而提醒顾客好评并打5分!</p>
-            <p>3、邀请你的朋友关照下你，从而获得5分好评!</p>
-            <p>4、<font>加入一些互刷平台，或是互刷团队来提高动态评分!</font>安全，方便，快捷。</p>-->
-        </div>
 
+        <div class="reduction_con">
+            <div class="reduction_list">
+                <span class="active">交易指数</span><span>流量指数</span><span>支付转化率指数</span><span>客群指数</span><span>搜索人气</span><span>加购人气</span><span>收藏人气</span>
+            </div>
+            <div class="reduction_explain">
+                <div class="search-desc active">
+                    <p class="title">淘宝天猫交易指数查询转换销售额工具</p>
+                    <#--<p></p>-->
+                </div>
+                <div class="search-desc">
+                    <p class="title">流量指数说明文字</p>
+                    <#--<p></p>-->
+                </div>
+                <div class="search-desc">
+                    <p class="title">支付转化率指数说明文字</p>
+                    <#--<p></p>-->
+                </div>
+                <div class="search-desc">
+                    <p class="title">客群指数说明文字</p>
+                    <#--<p></p>-->
+                </div>
+                <div class="search-desc">
+                    <p class="title">搜索人气说明文字</p>
+                    <#--<p></p>-->
+                </div>
+                <div class="search-desc">
+                    <p class="title">加购人气说明文字</p>
+                    <#--<p></p>-->
+                </div>
+                <div class="search-desc">
+                    <p class="title">收藏人气说明文字</p>
+                    <#--<p></p>-->
+                </div>
+            </div>
+            <div class="reduction_box_fa  clearfix">
+                <div class="reduction_box one">
+                    <div class="tit clearfix">
+                        <h2>交易指数</h2>
+                        <span></span>
+                    </div>
+                    <div class="reduction_box_input">
+                        <textarea placeholder="请输入您提供的数据"></textarea>
+                    </div>
+                </div>
+                <div class="reduction_bt">
+                    <span>转化成<font>交易金额</font></span>
+                </div>
+                <div class="reduction_box two">
+                    <div class="tit clearfix">
+                        <h2><font class="active">交易金额</font><font>访客人数</font><font>支付转化率</font><font>支付人数</font><font>搜索人数</font><font>加购人数</font><font>收藏人数</font></h2>
+                        <span></span>
+                    </div>
+                    <div class="reduction_box_input">
+                        <textarea disabled></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="search-info" id="zhishuRs" style="width: 75%;margin-left: 200px">
             <div style="width: 90%" ng-if="zhishu.msg == null " ng-show="zhishu.vm.value!=0&&zhishu.vm.value!=100">
                 <div ng-class="{progress: true, 'progress-striped': zhishu.vm.striped}">
@@ -604,7 +655,7 @@
             </div>
         </div>
 
-        <div class="search-info" id="shangxiajiaRs" style="width: 75%;margin-left: 200px">
+        <div class="search-info" id="shangxiajiaRs" style="width: 75%;margin:0 auto;">
             <div style="width: 90%" ng-if="shangxiajia.msg == null " ng-show="shangxiajia.vm.value!=0&&shangxiajia.vm.value!=100">
                 <div ng-class="{progress: true, 'progress-striped': mulu.vm.striped}">
                     <div ng-class="['progress-bar', shangxiajia.vm.style]" ng-style="{width: shangxiajia.vm.value + '%'}">
@@ -901,8 +952,21 @@
 
 
 <script type="text/javascript">
-    user = '${user!}';
+    //指数还原点击事件
+    $(".reduction_list span").click(function(){
+        var index=$(this).index();
+        // alert(index);
+        $(this).addClass("active").siblings().removeClass("active");
+        $(".reduction_box.two .tit h2 font").eq(index).addClass("active").siblings().removeClass("active");
+        $(".reduction_explain .search-desc").eq(index).addClass("active").siblings().removeClass("active");
+        var name=$(this).text();
+        var name2=$(".reduction_box.two .tit h2 font").eq(index).text();
+        $(".reduction_box.one .tit h2").text(name)
+        $(".reduction_bt span font").text(name2);
+    })
 
+
+    user = '${user!}';
     var activeIndex = location.search.slice(1).split('=')[1]
     $('.one').eq(activeIndex).addClass('active')
     $('.one').on('click', function () {
@@ -920,6 +984,22 @@
 
 
     })
+    $(".header_more li a").click(function(){
+
+        if($(this).attr('href')=="#")
+        {
+            alert("此功能暂未开发")
+        }
+        else{
+            $(this).parents(".one").siblings().removeClass('active')
+            $(this).parents(".one").addClass('active')
+        }
+
+    })
+    $("img").lazyload({
+        effect: "fadeIn"
+
+    });
     $(".header_more ul a").on('click', function (){
         if($(this).attr('href')=="#"){
             alert("此功能暂未开发")
