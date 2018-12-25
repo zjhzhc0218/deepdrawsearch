@@ -770,7 +770,7 @@
             <div href="javascript:;" ng-show="zhanxian.examedContext != null" class="info-item">
                 <div class="zhanxian_con">
                     <div class="zhanxian_box clearfix">
-                        <img ng-src="{{zhanxian.examedContext.img}}">
+                        <a href="{{zhanxian.examedContext.a_href}}" target="_blank" ><img ng-src="{{zhanxian.examedContext.img}}"></a>
                         <div class="zhanxian_box_text"><p  ng-bind="zhanxian.examedContext.text"></p></div>
                     </div>
                     <div class="zhanxian_list"><span ng-repeat="item in zhanxian.examedContext.content" ng-bind="item"></span></div>
