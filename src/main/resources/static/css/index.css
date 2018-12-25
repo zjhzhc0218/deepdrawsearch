@@ -230,9 +230,17 @@ header .header-content{
 	padding: 30px 0 60px;
 }
 .search-desc .title{
-	font-size: 21px;
+	font-size: 17px;
 	color: #27426e;
 	font-weight: bold;
+}
+.reduction_box_text{
+	margin-bottom:20px;
+}
+.reduction_box_text p{
+	color: #999;
+	font-size: 13px;
+	line-height: 23px;
 }
 .search-desc .txt{
 	font-size: 18px;
@@ -620,7 +628,7 @@ table.up_table tbody td{
 	margin-top: 60px;
 }
 .reduction_box{
-	width:30%;
+	width:32%;
 	float: left;
 }
 .reduction_box .tit h2{
@@ -631,7 +639,7 @@ table.up_table tbody td{
 }
 .reduction_box_input textarea{
 	width: 100%;
-	height: 200px;
+	height: 400px;
 	resize: none;
 	border-radius: 5px;
 	padding: 10px;
@@ -649,16 +657,23 @@ table.up_table tbody td{
 .reduction_box.two .tit h2 font{
 	display: none;
 }
+
+.reduction_box.two .tit h2 img{
+	display: none;
+}
+.reduction_box.two .tit h2 img.active{
+	display: inline-block;
+}
 .reduction_box.two .tit h2 font.active{
-	display: block;
+	display: inline-block;
 }
 .reduction_box.two textarea{
 	font-sie:18px;
 	color: #fe8034;
 }
 .reduction_bt{
-	padding-top: 12%;
-	width:40%;
+	padding-top: 24%;
+	width:36%;
 	float: left;
 	text-align:center;
 }
@@ -678,4 +693,8 @@ table.up_table tbody td{
 }
 .reduction_explain .search-desc.active{
 	display: block;
+}
+.reduction_box .tit h2 img{
+	display:inline-block;
+	margin-right: 7px;
 }

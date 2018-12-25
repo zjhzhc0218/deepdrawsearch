@@ -574,8 +574,11 @@
             <div class="reduction_box_fa  clearfix">
                 <div class="reduction_box one">
                     <div class="tit clearfix">
-                        <h2>交易指数</h2>
+                        <h2><img src="/deepsearch/img/pollsmall.gif" /><font>交易指数</font></h2>
                         <span></span>
+                    </div>
+                    <div class="reduction_box_text">
+                        <p>请输入要计算的<font>交易指数</font>，一行一个（支持从excel复制粘贴），单次最大支持10000个指数同时批量计算！</p>
                     </div>
                     <div class="reduction_box_input">
                         <textarea placeholder="请输入您提供的数据"></textarea>
@@ -586,8 +589,13 @@
                 </div>
                 <div class="reduction_box two">
                     <div class="tit clearfix">
-                        <h2><font class="active">交易金额</font><font>访客人数</font><font>支付转化率</font><font>支付人数</font><font>搜索人数</font><font>加购人数</font><font>收藏人数</font></h2>
+                        <h2><img src="/deepsearch/img/viewpay.gif" class="active" /><img src="/deepsearch/img/activitysmall.gif" /><img src="/deepsearch/img/viewpay.gif" /><img src="/deepsearch/img/activitysmall.gif" />
+                            <img src="/deepsearch/img/activitysmall.gif" /><img src="/deepsearch/img/tradesmall.gif" /><img src="/deepsearch/img/oshr.png" />
+                            <font class="active">交易金额</font><font>访客人数</font><font>支付转化率</font><font>支付人数</font><font>搜索人数</font><font>加购人数</font><font>收藏人数</font></h2>
                         <span></span>
+                    </div>
+                    <div class="reduction_box_text">
+                        <p>可以直接复制粘贴到excel使用，误差0.01%左右，如果需使用指导或验证帮助可联系微信！</p>
                     </div>
                     <div class="reduction_box_input">
                         <textarea disabled></textarea>
@@ -965,11 +973,14 @@
         var index=$(this).index();
         // alert(index);
         $(this).addClass("active").siblings().removeClass("active");
-        $(".reduction_box.two .tit h2 font").eq(index).addClass("active").siblings().removeClass("active");
+        $(".reduction_box.two .tit h2 font").removeClass("active");
+        $(".reduction_box.two .tit h2 font").eq(index).addClass("active");
+        $(".reduction_box.two .tit h2 img").removeClass("active");
+        $(".reduction_box.two .tit h2 img").eq(index).addClass("active");
         $(".reduction_explain .search-desc").eq(index).addClass("active").siblings().removeClass("active");
         var name=$(this).text();
         var name2=$(".reduction_box.two .tit h2 font").eq(index).text();
-        $(".reduction_box.one .tit h2").text(name)
+        $(".reduction_box.one .tit h2 font,.reduction_box_text p font").text(name)
         $(".reduction_bt span font").text(name2);
     })
 
