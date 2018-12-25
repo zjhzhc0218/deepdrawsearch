@@ -539,10 +539,10 @@ table.up_table thead tr td{
 table.up_table tr b{
 	font-weight:300;
 }
-table.up_table{
+table.up_table,.all_table{
 	border-top:1px solid #cae6ff;
 }
-table.up_table  tr td{
+table.up_table  tr td,.all_table tr td{
 	text-align:  center;
 	border:1px solid #cae6ff;
 	font-size:14px;
@@ -555,4 +555,46 @@ table.up_table tbody td{
 .up_img{
 	width:100px;
 	margin:0 auto;
+}
+/*12.43*/
+.zhanxian_box{
+	width:100%;
+	background-color: #f3f7ff;
+}
+.zhanxian_box img{
+	width: 100px;
+	height: 100px;
+	float: left;
+}
+.zhanxian_box_text{
+	width: 60%;
+	float: left;
+	padding: 0 15px;
+	height: 100px;
+	margin-left: 15px;
+	padding-top: 3%;
+	border-left: 1px solid #cae6ff;
+}
+.zhanxian_box_text p{
+	font-size: 14px;
+	line-height: 26px;
+	margin: 0px;
+}
+.zhanxian_box{
+	border:1px solid #cae6ff;
+	padding: 15px;
+}
+.zhanxian_list{
+	margin-top: 30px;
+	width: 100%;
+	border: 1px solid #cae6ff;
+	border-radius:3px;
+	background-color: #f3f7ff;
+	padding: 10px;
+}
+.zhanxian_list span{
+	width: 20%;
+	padding:10px;
+	font-size: 12px;
+	display: inline-block;
 }
