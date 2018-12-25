@@ -807,7 +807,7 @@
          <p>4、<font>加入一些互刷平台，或是互刷团队来提高动态评分!</font>安全，方便，快捷。</p>-->
         </div>
 
-        <div class="search-info" id="zhanxianRs" style="width: 75%;margin-left: 200px">
+        <div class="search-info" id="zhanxianRs" style="width: 75%;margin:0 auto">
             <div style="width: 90%" ng-if="zhanxian.msg == null " ng-show="zhanxian.vm.value!=0&&zhanxian.vm.value!=100">
                 <div ng-class="{progress: true, 'progress-striped': zhanxian.vm.striped}">
                     <div ng-class="['progress-bar', zhanxian.vm.style]" ng-style="{width: zhanxian.vm.value + '%'}">
@@ -819,14 +819,22 @@
                 {{zhanxian.msg}}
             </div>
             <div href="javascript:;" ng-show="zhanxian.examedContext != null" class="info-item">
-                <div class="reductionIndex" id="dsr">
+                <div class="zhanxian_con">
+                    <div class="zhanxian_box clearfix">
+                        <a href="{{zhanxian.examedContext.a_href}}" target="_blank" ><img ng-src="{{zhanxian.examedContext.img}}"></a>
+                        <div class="zhanxian_box_text"><p  ng-bind="zhanxian.examedContext.text"></p></div>
+                    </div>
+                    <div class="zhanxian_list"><span ng-repeat="item in zhanxian.examedContext.content" ng-bind="item"></span></div>
+                </div>
+                <#--<div class="reductionIndex" id="dsr">-->
+
                 <#-- <div>
                         <h5 style="display: inline">销售金额：</h5>
                         <h1 ng-if="zhishu.searchWordsXy<=2100">交易指数过小</h1>
                         <h1 ng-if="zhishu.searchWordsXy>2100" id="item_score" ng-bind="zhishu.examedContext"></h1>
                     </div>
                     <h5>交易指数： <span class="count" id="item_score" ng-bind="zhishu.searchWordsXy"></span></h5>-->
-                </div>
+                <#--</div>-->
 
             </div>
         </div>
@@ -1064,6 +1072,22 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
+
+    function changeURLArg(url,arg,arg_val){
+        var pattern=arg+'=([^&]*)';
+        var replaceText=arg+'='+arg_val;
+        if(url.match(pattern)){
+            var tmp='/('+ arg+'=)([^&]*)/gi';
+            tmp=url.replace(eval(tmp),replaceText);
+            return tmp;
+        }else{
+            if(url.match('[\?]')){
+                return url+'&'+replaceText;
+            }else{
+                return url+'?'+replaceText;
+            }
+        }
+    }
 </script>
 
 </html>
