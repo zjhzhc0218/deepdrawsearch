@@ -169,7 +169,8 @@ public class SearchControllers {
     @GetMapping(value="/searchZhishu")
     public String  searchZhishu(HttpServletRequest request){
         String word =  request.getParameter("searchWords");
-        String[]  args = new String[] { "python", pythonPath+"/hand_query.py", word};
+        String type =  request.getParameter("type");
+        String[]  args = new String[] { "python", pythonPath+"/hand_query.py", type,word};
         String result = JavaToPython.getPython(args);
         if (result == null)
             throw new GlobalException(CodeMsg.SERVER_ERROR);
