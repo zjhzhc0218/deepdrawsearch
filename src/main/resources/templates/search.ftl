@@ -597,7 +597,7 @@
                         <p>可以直接复制粘贴到excel使用，误差0.01%左右，如果需使用指导或验证帮助可联系微信！</p>
                     </div>
                     <div class="reduction_box_input">
-                        <textarea disabled >{{zhishu.examedContext}}
+                        <textarea disabled>{{zhishu.examedContext}}
                         </textarea>
                     </div>
                 </div>
