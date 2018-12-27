@@ -42,6 +42,9 @@
         margin-top: 10px;
     }
 
+    body {
+        padding-bottom: 54px;
+    }
 
 </style>
 <body ng-controller="searchController" style="">
@@ -584,7 +587,7 @@
                     </div>
                 </div>
                 <div class="reduction_bt" >
-                    <span ng-click="searchZhishu()">转化成<font>交易金额</font></span>
+                    <span ng-click="searchZhishu()" ng-disabled="zhishus.working" >转化成<font>交易金额</font></span>
                 </div>
                 <div class="reduction_box two">
                     <div class="tit clearfix">
