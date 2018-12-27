@@ -811,6 +811,7 @@ var app=angular.module('search',[])
                     });
                     return;
                 }
+                $scope.zhishu.working = true;
                 var str = $scope.zhishu.searchWordsXy;
                 var temp = str.split(/[\n,]/g);
               /*  for(var i =0;i<temp.length;i++){

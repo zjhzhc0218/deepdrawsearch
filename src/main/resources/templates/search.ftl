@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="one">
-                        <a  class="" role="tab" data-toggle="tab" href="#paimin" style="font-size: 14px;">宝贝无线排名查询</a>
+                        <a  class="" role="tab" data-toggle="tab" href="#paimin" style="font-size: 14px;">宝贝无线排名</a>
                     </div>
                     <div class="one">
                         <a  role="tab" data-toggle="tab" href="#jiangquan">隐形降权查询</a>
@@ -99,6 +99,9 @@
                         <a  role="tab" data-toggle="tab" href="#xinyu">买家信誉查询</a>
                     </div>
 
+                    <div class="one ">
+                        <a href="http://www.daoliuliang365.com" target="_blank" style="color: #fff;font-size: 14px">导    流    量</a>
+                    </div>
                 <#--<div class="one">-->
                 <#--<a  role="tab" data-toggle="tab" href="#weijin">违禁词查询</a>-->
                 <#--</div>-->
@@ -112,13 +115,13 @@
                 <#--<a  role="tab" data-toggle="tab" href="#reci" >20W热词下载</a>-->
                 <#--</div>-->
                 <div class="one header_more">
-                    <a  role="tab" data-toggle="tab" href="#">更多</a>
+                    <a  role="tab" data-toggle="tab" href="#">更多功能</a>
                     <ul>
-                        <li><a role="tab" data-toggle="tab" href="#weijin">违禁词查询</a></li>
-                        <li><a role="tab" data-toggle="tab" href="#mulu">目录查询</a></li>
                         <li><a role="tab" data-toggle="tab" href="#dongtaipingfeng">动态评分查询</a></li>
-                        <li><a role="tab" data-toggle="tab" href="#reci">20W热词下载</a></li>
                         <li><a role="tab" data-toggle="tab" href="#shangxiajia">上下架查询</a></li>
+                        <li><a role="tab" data-toggle="tab" href="#mulu">目录查询</a></li>
+                        <li><a role="tab" data-toggle="tab" href="#weijin">违禁词查询</a></li>
+                        <li><a role="tab" data-toggle="tab" href="#reci">20W热词下载</a></li>
                         <#--<li><a role="tab" data-toggle="tab" href="#">历史价格查询</a></li>-->
                     </ul>
                 </div>

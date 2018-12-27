@@ -8,6 +8,15 @@
             <th>潜力词表</th>
         </tr></thead>
         <tbody>
+
+        <tr>
+            <td>2018-12-26 </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1e4aFFC_J5BU7IEdU3jfWPg')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1qQJHwM98nzYSN-sb5STzjA')" target="_blank" href="javascript:void(0)">无线端TOP 20W</a> </td>
+            <td><a ng-click="reciRecord('https://pan.baidu.com/s/1OAQ3XVaLhVWKZydCEraFOw')" target="_blank" href="javascript:void(0)" >潜力词表PC</a>
+                | <a ng-click="reciRecord('https://pan.baidu.com/s/1bg-OVvu8d2aFxDIYeBnbfg')" target="_blank" href="javascript:void(0)">潜力词表无线端</a></td>
+        </tr>
+
         <tr>
             <td>2018-12-18 </td>
             <td><a ng-click="reciRecord(' https://pan.baidu.com/s/1BqtAtkvAM4KASN0V0onRqw')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
