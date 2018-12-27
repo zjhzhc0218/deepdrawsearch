@@ -100,6 +100,7 @@
                     </div>
 
                     <div class="one ">
+                        <img class="header_hotIcon" src="/deepsearch/img/hot.gif">
                         <a href="http://www.daoliuliang365.com" target="_blank" style="color: #fff;font-size: 14px">导    流    量</a>
                     </div>
                 <#--<div class="one">-->
