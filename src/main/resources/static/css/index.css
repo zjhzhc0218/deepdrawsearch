@@ -53,6 +53,12 @@ header .header-content{
 	margin-right: 30px;
 	padding-bottom: 0px;
 	display: inline-block;
+	position: relative;
+}
+.header_hotIcon{
+	position: absolute;
+	top: -15px;
+	left: 15px;
 }
 .nav-list div>a[data-toggle="tab"]{
 	font-size: 14px;

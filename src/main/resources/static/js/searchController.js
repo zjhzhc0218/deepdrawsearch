@@ -14,6 +14,7 @@ var app=angular.module('search',[])
                 $('#tixing').modal('show');
             }
     }
+            // window.location.href = changeURLArg(window.location.href,'name',123)
 
     var updateGrage = function () {
         if($scope.username.grade != 2){
@@ -783,16 +784,13 @@ var app=angular.module('search',[])
 
         //########################指数查询###############################//
             $scope.zhishu = {
+                type : 'jyzs',
                 searchWordsXy : null,//查询
                 working : false,
                 hasNoViolation : false,
                 examedContext : null
             };
-            var zhishuvm = $scope.zhishu.vm = {};
-            zhishuvm.value = 0;
-            zhishuvm.style = 'progress-bar-info';
-            zhishuvm.showLabel = true;
-            zhishuvm.striped = true;
+
             $scope.searchZhishu = function () {
                 if ($scope.username == null){
                     $('#myModal').modal('show');
@@ -813,59 +811,77 @@ var app=angular.module('search',[])
                     });
                     return;
                 }
-                var reg = /^[0-9]+.?[0-9]*$/;
-                if (!reg.test($scope.zhishu.searchWordsXy)) {
-                    spop({template: '<strong>宝贝ID或者宝贝链接输入不符合规则!</strong>',
-                        autoclose: 3000,
-                        style:'error'
-                    });
-                    return;
-                }
-
-                zhishuvm.value = 0;
-                var interval = setInterval(function(){
-                    zhishuvm.value++;
-                    $scope.$apply();
-                    if (zhishuvm.value == 100) {
-                        $scope.zhishu.msg = "查询超时！请重新查询";
-                        $scope.zhishu.working = false;
-                        $scope.zhishu.hasNoViolation == true;
-                        $scope.$apply();
-                        clearInterval(interval);
-                    }
-                }, 250);
-
-                $scope.zhishu.examedContext = null;
-                $scope.zhishu.hasNoViolation = false;
                 $scope.zhishu.working = true;
-                $scope.zhishu.msg = null;
-                $http({
-                    method:'get',
-                    url:'/deepsearch/searchZhishu', params:{"searchWords": $scope.zhishu.searchWordsXy},
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    transformRequest: function ( data ) {
-                        var str = '';
-                        for( var i in data ) {
-                            str += i + '=' + data[i] + '&';
-                        }
-                    }}
-                ).then(function successCallback(info) {
-                    if (info.data.code == 1) {
-                        // alert(info.data.msg);
-                        $scope.zhishu.msg = info.data.msg;
-                        $scope.zhishu.hasNoViolation = true;
-                    }else if(info.data.code == 0){
-                        $scope.zhishu.examedContext = info.data.data;
+                var str = $scope.zhishu.searchWordsXy;
+                var temp = str.split(/[\n,]/g);
+              /*  for(var i =0;i<temp.length;i++){
+                    if(temp[i] == ""){
+                        temp.splice(i, 1);
+                        //删除数组索引位置应保持不变
+                        i--;
                     }
-                    zhishuvm.value = 100;
-                    clearInterval(interval);
-                    $scope.zhishu.working = false;
-                },function errorCallback(info) {
-                    // alert("失败了");
-                    $scope.zhishu.working = false;
-                    zhishuvm.value = 100;
-                    clearInterval(interval);
-                })
+                }*/
+                console.log(temp);
+
+                /*    zhishuvm.value = 0;
+var reg = /^[0-9]+.?[0-9]*$/;
+     if (!reg.test($scope.zhishu.searchWordsXy)) {
+         spop({template: '<strong>宝贝ID或者宝贝链接输入不符合规则!</strong>',
+             autoclose: 3000,
+             style:'error'
+         });
+         return;
+     }
+     var interval = setInterval(function(){
+         zhishuvm.value++;
+         $scope.$apply();
+         if (zhishuvm.value == 100) {
+             $scope.zhishu.msg = "查询超时！请重新查询";
+             $scope.zhishu.working = false;
+             $scope.zhishu.hasNoViolation == true;
+             $scope.$apply();
+             clearInterval(interval);
+         }
+     }, 250);*/
+
+         $http({
+             method:'get',
+             url:'/deepsearch/searchZhishu', params:{"searchWords": temp.toString(),"type": $scope.zhishu.type},
+             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+             transformRequest: function ( data ) {
+                 var str = '';
+                 for( var i in data ) {
+                     str += i + '=' + data[i] + '&';
+                 }
+             }}
+         ).then(function successCallback(info) {
+             if (info.data.code == 1) {
+                 // alert(info.data.msg);
+                 $scope.zhishu.msg = info.data.msg;
+                 // $scope.zhishu.hasNoViolation = true;
+             }else if(info.data.code == 0){
+                 var str = info.data.data.replace(/'/g, '"');
+                 var listZs= angular.fromJson(str);
+                 $scope.zhishu.examedContext= "";
+                 for (var i = 0; i < listZs.length; i++) {
+                     $scope.zhishu.examedContext += listZs[i]  + '\n';
+                 }
+             }
+             $scope.zhishu.working = false;
+         },function errorCallback(info) {
+             // alert("失败了");
+             $scope.zhishu.working = false;
+         })
+        }
+
+            $scope.checkZhiShu = function(type) {
+                $scope.zhishu = {
+                    type : type,
+                    searchWordsXy : null,//查询
+                    working : false,
+                    hasNoViolation : false,
+                    examedContext : null
+                };
             }
 
             //########################指数查询end###############################//

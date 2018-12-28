@@ -42,6 +42,9 @@
         margin-top: 10px;
     }
 
+    body {
+        padding-bottom: 54px;
+    }
 
 </style>
 <body ng-controller="searchController" style="">
@@ -78,7 +81,7 @@
                     </div>
 
                     <div class="one">
-                        <a  class="" role="tab" data-toggle="tab" href="#paimin" style="font-size: 14px;">宝贝无线排名查询</a>
+                        <a  class="" role="tab" data-toggle="tab" href="#paimin" style="font-size: 14px;">宝贝无线排名</a>
                     </div>
                     <div class="one">
                         <a  role="tab" data-toggle="tab" href="#jiangquan">隐形降权查询</a>
@@ -96,6 +99,10 @@
                         <a  role="tab" data-toggle="tab" href="#xinyu">买家信誉查询</a>
                     </div>
 
+                    <div class="one ">
+                        <img class="header_hotIcon" src="/deepsearch/img/hot.gif">
+                        <a href="http://www.daoliuliang365.com" target="_blank" style="color: #fff;font-size: 14px">导    流    量</a>
+                    </div>
                 <#--<div class="one">-->
                 <#--<a  role="tab" data-toggle="tab" href="#weijin">违禁词查询</a>-->
                 <#--</div>-->
@@ -109,13 +116,13 @@
                 <#--<a  role="tab" data-toggle="tab" href="#reci" >20W热词下载</a>-->
                 <#--</div>-->
                 <div class="one header_more">
-                    <a  role="tab" data-toggle="tab" href="#">更多</a>
+                    <a  role="tab" data-toggle="tab" href="#">更多功能</a>
                     <ul>
-                        <li><a role="tab" data-toggle="tab" href="#weijin">违禁词查询</a></li>
-                        <li><a role="tab" data-toggle="tab" href="#mulu">目录查询</a></li>
                         <li><a role="tab" data-toggle="tab" href="#dongtaipingfeng">动态评分查询</a></li>
-                        <li><a role="tab" data-toggle="tab" href="#reci">20W热词下载</a></li>
                         <li><a role="tab" data-toggle="tab" href="#shangxiajia">上下架查询</a></li>
+                        <li><a role="tab" data-toggle="tab" href="#mulu">目录查询</a></li>
+                        <li><a role="tab" data-toggle="tab" href="#weijin">违禁词查询</a></li>
+                        <li><a role="tab" data-toggle="tab" href="#reci">20W热词下载</a></li>
                         <#--<li><a role="tab" data-toggle="tab" href="#">历史价格查询</a></li>-->
                     </ul>
                 </div>
@@ -536,10 +543,9 @@
             <#--<button class="btn  search-btnN" href="javascript:;" ng-click="searchZhishu()" ng-disabled="zhishu.working">查询</button>-->
         <#--</div>-->
 
-
         <div class="reduction_con">
             <div class="reduction_list">
-                <span class="active">交易指数</span><span>流量指数</span><span>支付转化率指数</span><span>客群指数</span><span>搜索人气</span><span>加购人气</span><span>收藏人气</span>
+                <span class="active" ng-click="checkZhiShu('jyzs')">交易指数</span><span ng-click="checkZhiShu('llzs')">流量指数</span><span ng-click="checkZhiShu('zfzhlzs')">支付转化率指数</span><span ng-click="checkZhiShu('kqzs')">客群指数</span><span ng-click="checkZhiShu('ssrq')">搜索人气</span><span ng-click="checkZhiShu('jgrq')">加购人气</span><span ng-click="checkZhiShu('scrq')">收藏人气</span>
             </div>
             <div class="reduction_explain">
                 <div class="search-desc active">
@@ -581,11 +587,11 @@
                         <p>请输入要计算的<font>交易指数</font>，一行一个（支持从excel复制粘贴），单次最大支持10000个指数同时批量计算！</p>
                     </div>
                     <div class="reduction_box_input">
-                        <textarea placeholder="请输入您提供的数据"></textarea>
+                        <textarea placeholder="请输入您提供的数据" ng-model="zhishu.searchWordsXy"></textarea>
                     </div>
                 </div>
-                <div class="reduction_bt">
-                    <span>转化成<font>交易金额</font></span>
+                <div class="reduction_bt" >
+                    <span ng-click="searchZhishu()" ng-disabled="zhishus.working" >转化成<font>交易金额</font></span>
                 </div>
                 <div class="reduction_box two">
                     <div class="tit clearfix">
@@ -598,12 +604,13 @@
                         <p>可以直接复制粘贴到excel使用，误差0.01%左右，如果需使用指导或验证帮助可联系微信！</p>
                     </div>
                     <div class="reduction_box_input">
-                        <textarea disabled></textarea>
+                        <textarea disabled>{{zhishu.examedContext}}
+                        </textarea>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="search-info" id="zhishuRs" style="width: 75%;margin-left: 200px">
+       <#-- <div class="search-info" id="zhishuRs" style="width: 75%;margin-left: 200px">
             <div style="width: 90%" ng-if="zhishu.msg == null " ng-show="zhishu.vm.value!=0&&zhishu.vm.value!=100">
                 <div ng-class="{progress: true, 'progress-striped': zhishu.vm.striped}">
                     <div ng-class="['progress-bar', zhishu.vm.style]" ng-style="{width: zhishu.vm.value + '%'}">
@@ -625,20 +632,20 @@
                     <h5>交易指数： <span class="count" id="item_score" ng-bind="zhishu.searchWordsXy"></span></h5>
                 </div>
 
-                <#--<ul class="dsr-info" id="dsr" style="">-->
-                <#--<li class="J_RateInfoTrigger dsr-item selected">-->
-                <#--<div class="item-scrib">-->
-                <#--<span class="title" style="">销售金额：</span>-->
-                <#--<em style="color:#f60" class="count" id="item_score" ng-bind="zhishu.examedContext"></em>-->
-                <#--</div>-->
-                <#--<div class="item-scrib">-->
-                <#--<span class="title" style="">交易指数：</span>-->
-                <#--<em style="color:#f60" class="count" id="item_score" ng-bind="zhishu.searchWordsXy"></em>-->
-                <#--</div>-->
-                <#--</li>-->
-                <#--</ul>-->
+                &lt;#&ndash;<ul class="dsr-info" id="dsr" style="">&ndash;&gt;
+                &lt;#&ndash;<li class="J_RateInfoTrigger dsr-item selected">&ndash;&gt;
+                &lt;#&ndash;<div class="item-scrib">&ndash;&gt;
+                &lt;#&ndash;<span class="title" style="">销售金额：</span>&ndash;&gt;
+                &lt;#&ndash;<em style="color:#f60" class="count" id="item_score" ng-bind="zhishu.examedContext"></em>&ndash;&gt;
+                &lt;#&ndash;</div>&ndash;&gt;
+                &lt;#&ndash;<div class="item-scrib">&ndash;&gt;
+                &lt;#&ndash;<span class="title" style="">交易指数：</span>&ndash;&gt;
+                &lt;#&ndash;<em style="color:#f60" class="count" id="item_score" ng-bind="zhishu.searchWordsXy"></em>&ndash;&gt;
+                &lt;#&ndash;</div>&ndash;&gt;
+                &lt;#&ndash;</li>&ndash;&gt;
+                &lt;#&ndash;</ul>&ndash;&gt;
             </div>
-        </div>
+        </div>-->
     </div>
 
     <div role="tabpanel" class="tab-pane"  class="content" id="shangxiajia">
