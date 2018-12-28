@@ -1079,7 +1079,7 @@
     var _hmt = _hmt || [];
     (function() {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?cd0084c107ed760839e9ae15fe18c8f9";
+        hm.src = "https://hm.baidu.com/hm.js?60c29ab7479bfdc45d717f03b3cce9b5";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
