@@ -107,4 +107,72 @@ public class LoginControllers {
         return mv;
     }
 
+    /**
+     * 首页
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/index")
+    public ModelAndView index(ModelAndView mv) {
+        //mv.addObject("name", "测试1");
+        mv.setViewName("index");
+        return mv;
+    }
+    /**
+     * 资讯页面
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/tool")
+    public ModelAndView tool(ModelAndView mv) {
+        //mv.addObject("name", "测试1");
+        mv.setViewName("tool");
+        return mv;
+    }
+    /**
+     * 资讯详情
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/tool_details")
+    public ModelAndView tool_details(ModelAndView mv) {
+        //mv.addObject("name", "测试1");
+        mv.setViewName("tool_details");
+        return mv;
+    }
+
+    /**
+     * 公告
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/notice")
+    public ModelAndView notice(ModelAndView mv) {
+        //mv.addObject("name", "测试1");
+        mv.setViewName("notice");
+        return mv;
+    }
+    /**
+     * 公共头部
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/header")
+    public ModelAndView header(ModelAndView mv) {
+        //mv.addObject("name", "测试1");
+        mv.setViewName("header");
+        return mv;
+    }
+    /**
+     * 公共底部
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/footer")
+    public ModelAndView footer(ModelAndView mv) {
+        //mv.addObject("name", "测试1");
+        mv.setViewName("footer");
+        return mv;
+    }
+
 }
