@@ -871,7 +871,7 @@
                 <h4 class="modal-title" id="myModalLabel">提示</h4>
             </div>
             <div class="modal-body" style="text-align: center">
-                <label style="font-size: 25px ;color: red;text-align: center">请登陆后进行查询！</label>
+                <label style="font-size: 25px ;color: black;text-align: center">注册或登录后可<span style="font-size: 25px ;color: red">免费</span>查询呦！</label>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
