@@ -69,7 +69,7 @@
 </div>
 <script>
 
-    if (sessionStorage.getItem("user") !=''){
+    if (sessionStorage.getItem("user") !=null){
         var user=JSON.parse(sessionStorage.getItem("user"));
         $(".header_before").stop(true).fadeOut(0);
         $(".header_on").stop(true).fadeIn(0);

@@ -70,18 +70,6 @@
 
                         </div>
 
-                        <div class="search-desc" style="margin-top: -38px;margin-left: 249px">
-                            <p class="title" style=""> 宝贝排名查询</p>
-                            <div>
-                                <h4>为什么要用宝贝排名查询功能？<a href="#" style="color: #30F" ng-click="jqWords('div_pp1')" id="button1" class="glyphicon glyphicon-plus">点击查看</a></h4>
-                                <p class="div_pp1" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FE8034">宝贝的排名</span>决定了宝贝的展现量，也就影响了宝贝的流量及成交量，所以运营在做推广的时候非常关注 宝贝的排名变化。但是由于淘宝的千人千面导致我们在本地电脑上看不到宝贝的<span style="color: #FE8034">客观排名</span>，其次本地查 询需要手工去一页一页查询，非常耗时。</p>
-                            </div>
-                            <div>
-                                <h4>为什么要用白马查的宝贝排名查询？<a href="#" style="color: #30F" ng-click="jqWords('div_pp2')" id="button1" class="glyphicon glyphicon-plus">点击查看</a></h4>
-                                <p class="div_pp2" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;白马查采用目前最先进的<span style="color: #FE8034">分布式云服务器查询模式</span>，模拟了无痕用户的搜索结果，采用<span style="color: #FE8034">大数据技术</span>客观展现宝贝在全网的排名情况，让您更了解自己宝贝的<span style="color: #FE8034">真实排名</span>。</p>
-                            </div>
-                        </div>
-
                         <div class="search-info" id="pmrs" >
                             <div style="width: 100%" ng-if="bbPaiMing.msg == null " ng-show="bbPaiMing.vm.value!=0&&bbPaiMing.vm.value!=100">
                                 <div ng-class="{progress: true, 'progress-striped': bbPaiMing.vm.striped}">
@@ -116,7 +104,20 @@
                         </div>
 
                     </div>
-
+                    <div class="toolALL_info">
+                        <div class="toolALL_info_box">
+                            <h5 class="toolALL_info_tit">为什么要用宝贝排名查询功能</h5>
+                            <div class="toolALL_info_text">
+                                <p><font class="text_protant">宝贝的排名</font>决定了宝贝的展现量，也就影响了宝贝的流量及成交量，所以运营在做推广的时候非常关注 宝贝的排名变化。但是由于淘宝的千人千面导致我们在本地电脑上看不到宝贝的<font class="text_protant">客观排名</font>，其次本地查 询需要手工去一页一页查询，非常耗时。</p>
+                            </div>
+                        </div>
+                        <div class="toolALL_info_box">
+                            <h5 class="toolALL_info_tit">为什么要用宝贝排名查询功能</h5>
+                            <div class="toolALL_info_text">
+                                <p>白马查采用目前最先进的<font class="text_protant">分布式云服务器查询模式</font>，模拟了无痕用户的搜索结果，采用<font class="text_protant">大数据技术</font>客观展现宝贝在全网的排名情况，让您更了解自己宝贝的<font class="text_protant">真实排名</font>。</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
