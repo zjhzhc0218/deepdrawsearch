@@ -8,6 +8,7 @@ body{
 }
 .container{
 	width:1200px;
+	padding: 0px;
 }
 body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, img, div {
 	margin: 0;
@@ -25,6 +26,9 @@ a{
 	display: none;
 }
 /*****header*******/
+.header_on{
+	display: none;
+}
 .header{
 	border-bottom: 2px solid #fc6c0e;
 	background-color:#fff;
@@ -46,7 +50,7 @@ a{
 	color: #666;
 	display: inline-block;
 }
-.header_gary a{
+.header_gary .head_portant{
 	color: #fc6d0b;
 	display: inline-block;
 
@@ -767,11 +771,26 @@ a{
 	-webkit-line-clamp: 1;
 	overflow:hidden;
 }
-.notice_ccontent_box h6{
-	color:#999;
+.notice_ccontent_box h6 {
+	color: #999;
+}
 /*notice*/
-	
-	
+/*toolall*/
+.toolALL_con{
+	background-color: #fff;
+	border:1px solid #ddd;
+	border-top: 1px solid #fb6c0e;
+	padding: 30px;
+}
+.toolALL_nav p{
+	display: inline-block;
+	padding: 7px 28px;
+	background-color: #fb6c0e;
+	color: #fff;
+	font-size: 17px;
+	border-radius: 5px 5px 0 0;
+}
+/*toolall*/
 	
 	
 	

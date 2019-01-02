@@ -1,7 +1,10 @@
 <div class="header header_all">
 	<div  class="header_gary">
-		<div class="container">
-			<span>亲，欢迎进入白马查</span><a href="##">登录</a><span>免费注册</span>
+		<div class="container header_before">
+			<span>亲，欢迎进入白马查</span><a href="sign" class="head_portant">登录</a><a class="signup">免费注册</a>
+		</div>
+		<div class="container header_on">
+			<span>亲爱的<font class="head_portant"></font>，欢迎进入白马查
 		</div>
 	</div>
 	<div class="header_center">
@@ -64,3 +67,13 @@
 		</div>
 	</div>
 </div>
+<script>
+
+    if (sessionStorage.getItem("user") !=''){
+        var user=JSON.parse(sessionStorage.getItem("user"));
+        $(".header_before").stop(true).fadeOut(0);
+        $(".header_on").stop(true).fadeIn(0);
+        console.log(user["id"])
+        $(".header_on .head_portant").text(user["id"]);
+    }
+</script>
