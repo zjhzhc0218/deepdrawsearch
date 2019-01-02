@@ -15,7 +15,6 @@
         <script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
         <script src="/deepsearch/js/bootstrap/bootstrap.js"></script>
         <script src="/deepsearch/js/jquery-ui.min.js"></script>
-        <script src="/deepsearch/js/index.js"></script>
 
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/index.css">
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
@@ -134,4 +133,5 @@
 <script src="/deepsearch/js/loading/jquery.mloading.js"></script>
 <script src="/deepsearch/js/searchController.js"></script>
 <script src="/deepsearch/js/jquery.scrollstop.min.js"></script>
+<script src="/deepsearch/js/index.js"></script>
 </html>

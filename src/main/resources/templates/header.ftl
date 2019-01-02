@@ -73,7 +73,7 @@
         var user=JSON.parse(sessionStorage.getItem("user"));
         $(".header_before").stop(true).fadeOut(0);
         $(".header_on").stop(true).fadeIn(0);
-        console.log(user["id"])
+        // console.log(user["id"])
         $(".header_on .head_portant").text(user["id"]);
     }
 </script>
