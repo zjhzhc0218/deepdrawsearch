@@ -115,6 +115,12 @@ public class LoginControllers {
     @RequestMapping("/index")
     public ModelAndView index(ModelAndView mv) {
         //mv.addObject("name", "测试1");
+        SHUser shUser = ContextHolder.getSessionSHUser();
+        if (shUser == null) {
+            mv.addObject("user",null);
+        }else {
+            mv.addObject("user",JsonUtil.object2Json(shUser));
+        }
         mv.setViewName("index");
         return mv;
     }
