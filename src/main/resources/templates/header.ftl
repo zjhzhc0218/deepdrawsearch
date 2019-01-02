@@ -55,13 +55,13 @@
 			</div>
 			<div class="right_menu">
 				<ul class="clearfix">
-					<li><a href="##">首页</a></li>
-					<li><a href="##">查排名</a></li>
-					<li><a href="##">查降权</a></li>
-					<li><a href="##">查信誉</a></li>
-					<li><a href="##">下拉框选词</a></li>
-					<li><a href="##">单品管家</a></li>
-					<li><a href="##">白马流量</a></li>
+                    <li><a href="##">首页</a></li>
+                    <li><a href="ranking">查排名</a></li>
+                    <li><a href="authority">查降权</a></li>
+                    <li><a href="##">查信誉</a></li>
+                    <li><a href="drop">下拉框选词</a></li>
+                    <li><a href="##">单品管家</a></li>
+                    <li><a href="##">白马流量</a></li>
 				</ul>
 			</div>
 		</div>

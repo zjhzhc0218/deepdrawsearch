@@ -130,10 +130,12 @@
 			<div class="index_ser1_right">
 				<div class="index_login">
 					<div class="img"><img src="/deepsearch/images/login_hearder.jpg" width="100%"></div>
-					<h5 class="index_login_ttis">HI, 你还没有登录哦?</h5>
-					<a href="signup" class="index_login_ttis2">没有账号？免费注册</a>
+					<h5 class="index_login_ttis" >HI, {{userInfo==""?"你还没有登录哦?":userInfo.id}}</h5>
+					<a href="signup" class="index_login_ttis2" v-if="userInfo==''">没有账号？免费注册</a>
+                    <p class="index_login_ttis2" v-if="userInfo!=''">会员等级：试用版</p>
 					<div class="index_login_box">
-						<a href="signup">免费注册</a><a href="sign">会员登录</a>
+						<a href="signup" v-if="userInfo==''">免费注册</a><a href="sign" v-if="userInfo==''">会员登录</a>
+                        <a v-if="userInfo!=''">退出登录</a>
 					</div>
 				</div>
 				<div class="index_notice">
