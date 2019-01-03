@@ -115,6 +115,12 @@ public class LoginControllers {
     @RequestMapping("/index")
     public ModelAndView index(ModelAndView mv) {
         //mv.addObject("name", "测试1");
+        SHUser shUser = ContextHolder.getSessionSHUser();
+        if (shUser == null) {
+            mv.addObject("user",null);
+        }else {
+            mv.addObject("user",JsonUtil.object2Json(shUser));
+        }
         mv.setViewName("index");
         return mv;
     }
@@ -175,4 +181,48 @@ public class LoginControllers {
         return mv;
     }
 
+    /**
+     * 无线排名
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/ranking")
+    public ModelAndView ranking(ModelAndView mv) {
+        //mv.addObject("ranking", "测试1");
+        mv.setViewName("tool/ranking");
+        return mv;
+    }
+    /**
+     * 隐形降权查询
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/authority")
+    public ModelAndView authority(ModelAndView mv) {
+        //mv.addObject("ranking", "测试1");
+        mv.setViewName("tool/authority");
+        return mv;
+    }
+    /**
+     * 下拉框选词
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/drop")
+    public ModelAndView drop(ModelAndView mv) {
+        //mv.addObject("ranking", "测试1");
+        mv.setViewName("tool/drop");
+        return mv;
+    }
+    /**
+     * 指数还原
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/reduction")
+    public ModelAndView reduction(ModelAndView mv) {
+        //mv.addObject("ranking", "测试1");
+        mv.setViewName("tool/reduction");
+        return mv;
+    }
 }

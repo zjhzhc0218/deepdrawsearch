@@ -221,7 +221,7 @@ public class SearchControllers {
             throw new GlobalException(CodeMsg.SERVER_ERROR);
         functionUsingService.addFT(10);
         if (result!=null && result.equals("001"))
-            return JsonUtil.object2Json(ResultUtil.error(1,"可能您查询的淘宝账号还没有在淘宝开店！"));
+            return JsonUtil.object2Json(ResultUtil.error(1,"暂未查询到该宝贝有关键词展现，请继续优化哦。"));
         return JsonUtil.object2Json(ResultUtil.success(result));
     }
 

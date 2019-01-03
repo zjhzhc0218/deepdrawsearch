@@ -130,9 +130,9 @@ header .header-content{
 }
 
 
-.container{
-	background: #fff;
-}
+/*.container{*/
+/*background: #fff;*/
+/*}*/
 .content{
 	width: 1200px;
 	margin: 0 auto;
@@ -191,10 +191,9 @@ header .header-content{
 	color: #fff;
 	background-color: #fe8034;
 	display: block;
-	line-height: 50px;
+	line-height: 48px;
 	padding: 0 30px;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
+	border-radius: 0px 5px 5px 0;
 }
 .search-view .search-btnB{
 	font-size: 24px;
@@ -263,7 +262,7 @@ header .header-content{
 }
 
 .search-info{
-	padding-bottom: 100px;
+	padding-bottom:50px;
 }
 .info-item{
 	display: flex;
@@ -312,16 +311,16 @@ header .header-content{
 /*color: #ff0000;*/
 /*}*/
 
-.footer{
-	background-color: #e5e5e5;
-	text-align: center;
-}
-.footer p{
-	font-size: 12px;
-	color: #999999;
-	line-height: 35px;
-	margin-bottom: 0;
-}
+/*.footer{*/
+/*background-color: #e5e5e5;*/
+/*text-align: center;*/
+/*}*/
+/*.footer p{*/
+/*font-size: 12px;*/
+/*color: #999999;*/
+/*line-height: 35px;*/
+/*margin-bottom: 0;*/
+/*}*/
 
 .dsr-info .dsr-item {
 	width: 382px;
@@ -527,6 +526,7 @@ header .header-content{
 }
 .search-desc>div>h4{
 	font-size:15px;
+	margin-bottom: 10px;
 }
 .search-desc>div>h4>a{
 	color:#296bf3!important;
@@ -534,8 +534,8 @@ header .header-content{
 	margin-left:5px;
 }
 .search-desc>div>p{
-	font-size:14px;
-	line-height:24px;
+	font-size: 13px;
+	line-height: 23px;
 }
 .search-view input,.search-view textarea{
 	font-size:15px!important;
@@ -624,8 +624,8 @@ table.up_table tbody td{
 	font-size:  15px;
 }
 .reduction_list span.active{
-	color: #2271f2;
-	border-bottom-color: #246ef1;
+	color: #fb6c0e;
+	border-bottom-color: #fb6c0e;
 }
 .reduction_con{
 	margin-top:30px;
@@ -652,10 +652,10 @@ table.up_table tbody td{
 	font-size:15px;
 	letter-spacing:1px;
 	line-height:24px;
-	border: 2px solid #5b93ff;
+	border: 2px solid #fb6c0e;
 	background-color: #f8fbff;
 	outline: none;
-	box-shadow: 0px 0px 18px 8px rgba(78, 142, 255, 0.13);
+	box-shadow: 0px 0px 18px 8px rgba(251, 108, 14, 0.08);
 }
 .reduction_box.two{
 	float: right;

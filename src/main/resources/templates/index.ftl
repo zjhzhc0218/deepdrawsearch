@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="renderer" content="webkit"> 
-<meta http-equiv="X-UA-Compatible" content="IE=8,IE=9,IE=10,IE=11">
-<meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"> 
-<meta name="format-detection" content="telephone=no" /> 
-<link rel="shortcut icon" href="/deepsearch/images/dzlogo.ico" />
-<title>index</title>
-<meta name="keywords" content=" " />
-<meta name="description" content=" " />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=8,IE=9,IE=10,IE=11">
+	<meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="shortcut icon" href="/deepsearch/images/dzlogo.ico" />
+	<title>index</title>
+	<meta name="keywords" content=" " />
+	<meta name="description" content=" " />
 	<link rel="stylesheet" href="/deepsearch/css/bootstrap/bootstrap.css">
 	<script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
 	<script src="/deepsearch/js/bootstrap/bootstrap.js"></script>
@@ -35,9 +35,12 @@
 <!--  / header  -->
 <div class="header">
 	<div  class="header_gary">
-		<div class="container">
-			<span>亲，欢迎进入白马查</span><a href="##">登录</a><span>免费注册</span>
+		<div class="container" v-if="userInfo==''">
+			<span>亲，欢迎进入白马查</span><a href="sign" class="head_portant">登录</a><a href="signup">免费注册</a>
 		</div>
+        <div class="container" v-if="userInfo!=''">
+            <span>亲爱的 <font class="head_portant">{{userInfo.id}}</font>，欢迎进入白马查</span>
+        </div>
 	</div>
 	<div class="header_center">
 		<div class="container clearfix">
@@ -88,10 +91,10 @@
 			<div class="right_menu">
 				<ul class="clearfix">
 					<li><a href="##">首页</a></li>
-					<li><a href="##">查排名</a></li>
-					<li><a href="##">查降权</a></li>
+					<li><a href="ranking">查排名</a></li>
+					<li><a href="authority">查降权</a></li>
 					<li><a href="##">查信誉</a></li>
-					<li><a href="##">下拉框选词</a></li>
+					<li><a href="drop">下拉框选词</a></li>
 					<li><a href="##">单品管家</a></li>
 					<li><a href="##">白马流量</a></li>
 				</ul>
@@ -127,10 +130,12 @@
 			<div class="index_ser1_right">
 				<div class="index_login">
 					<div class="img"><img src="/deepsearch/images/login_hearder.jpg" width="100%"></div>
-					<h5 class="index_login_ttis">HI, 你还没有登录哦?</h5>
-					<a href="signup" class="index_login_ttis2">没有账号？免费注册</a>
+					<h5 class="index_login_ttis" >HI, {{userInfo==""?"你还没有登录哦?":userInfo.id}}</h5>
+					<a href="signup" class="index_login_ttis2" v-if="userInfo==''">没有账号？免费注册</a>
+                    <p class="index_login_ttis2" v-if="userInfo!=''">会员等级：试用版</p>
 					<div class="index_login_box">
-						<a href="signup">免费注册</a><a href="sign">会员登录</a>
+						<a href="signup" v-if="userInfo==''">免费注册</a><a href="sign" v-if="userInfo==''">会员登录</a>
+                        <a v-if="userInfo!=''">退出登录</a>
 					</div>
 				</div>
 				<div class="index_notice">
@@ -258,7 +263,8 @@
 	$(function(){
 		var app=new Vue({
 			el: '#app',
-			data: { 
+			data: {
+			    userInfo:[],
 				listType:0,
 				listTit:[
 					'数据化运营',
@@ -292,7 +298,7 @@
 						image:'/deepsearch/images/index3_5.jpg'
 					},
 					{
-						link:'',
+						link:'reduction',
 						title:'淘宝指数还原',
 						image:'/deepsearch/images/index3_6.jpg'
 					},
@@ -384,7 +390,8 @@
 				
 				_this.$nextTick(function () {
                 	index();
-                	all()
+                	all();
+                	console.log(_this.userInfo);
                 })
 
 			},
@@ -398,7 +405,11 @@
 	        },
 
 		})
-
+        user = '${user!}';
+        if(user!=''){
+            app.userInfo=JSON.parse(user);
+            sessionStorage.setItem("user",user);
+        }
 		function index(){
 			var swiper = new Swiper('.swiper_banner', {
 		        pagination: '.pagination_banner',
@@ -426,8 +437,8 @@
 		    	var leftWdith=($(window).width()-1200)/2+1200;
 		    	$(".index_core").css("left",leftWdith)
 		    })
-		}
-		
+            //判断用户是否存在
+        }
 	})
 
 	
