@@ -30,13 +30,13 @@
 					<div class="left_menu_box">
 						<h5 class="title"><img src="images/menu1.png"><span>查排名工具</span></h5>
 						<div class="left_menu_link">
-							<a href="##">无线排名查询</a><a href="##">关键词展现查询  </a><a href="##">上下架查询</a><a href="##">历史价格查询 </a>
+							<a href="ranking">无线排名查询</a><a href="show">关键词展现查询  </a><a href="##">上下架查询</a><a href="##">历史价格查询 </a>
 						</div>
 					</div>
 					<div class="left_menu_box">
 						<h5 class="title"><img src="images/menu2.png"><span>排名优化工具</span></h5>
 						<div class="left_menu_link">
-							<a href="##">买家信誉查询 </a><a href="##">动态评分查询</a><a href="##">隐形降权查询 </a><a href="##">下拉框选词查询 </a>
+							<a href="reputation">买家信誉查询 </a><a href="score">动态评分查询</a><a href="authority">隐形降权查询 </a><a href="drop">下拉框选词查询 </a>
 						</div>
 					</div>
 					<div class="left_menu_box">
@@ -58,7 +58,7 @@
                     <li><a href="##">首页</a></li>
                     <li><a href="ranking">查排名</a></li>
                     <li><a href="authority">查降权</a></li>
-                    <li><a href="##">查信誉</a></li>
+                    <li><a href="reputation">查信誉</a></li>
                     <li><a href="drop">下拉框选词</a></li>
                     <li><a href="##">单品管家</a></li>
                     <li><a href="##">白马流量</a></li>
