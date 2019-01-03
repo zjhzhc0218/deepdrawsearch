@@ -249,7 +249,7 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
                     });
                     return;
                 }
-                //注册成功跳转到登录页面 
+                //注册成功跳转到登录页面
                 var url='/deepsearch/searchIndex?ON=N';
                 // var url='/deepsearch/changeName';
                 location.href = url;
