@@ -1,5 +1,5 @@
 <div >
-    <table class="table table-bordered table-hover" style="width: 1000px" >
+    <table class="table table-bordered table-hover" style="width: 1000px;margin: 0 auto" >
         <thead>
         <tr>
             <th>更新日期</th>

@@ -63,40 +63,40 @@
 				<h2 class="left_menu_tit">白马查 · 功能导航</h2>
 				<div class="left_menu_con">
 					<div class="left_menu_box">
-						<h5 class="title"><img src="/deepsearch/images/menu1.png"><span>查排名工具</span></h5>
+						<h5 class="title"><img src="images/menu1.png"><span>查排名工具</span></h5>
 						<div class="left_menu_link">
-							<a href="##">无线排名查询</a><a href="##">关键词展现查询  </a><a href="##">上下架查询</a><a href="##">历史价格查询 </a>
+							<a href="ranking">无线排名查询</a><a href="show">关键词展现查询  </a><a href="updown">上下架查询</a><a href="##">历史价格查询 </a>
 						</div>
 					</div>
 					<div class="left_menu_box">
-						<h5 class="title"><img src="/deepsearch/images/menu2.png"><span>排名优化工具</span></h5>
+						<h5 class="title"><img src="images/menu2.png"><span>排名优化工具</span></h5>
 						<div class="left_menu_link">
-							<a href="##">买家信誉查询 </a><a href="##">动态评分查询</a><a href="##">隐形降权查询 </a><a href="##">下拉框选词查询 </a>
+							<a href="reputation">买家信誉查询 </a><a href="score">动态评分查询</a><a href="authority">隐形降权查询 </a><a href="drop">下拉框选词查询 </a>
 						</div>
 					</div>
 					<div class="left_menu_box">
-						<h5 class="title"><img src="/deepsearch/images/menu3.png"><span>流量提升工具</span></h5>
+						<h5 class="title"><img src="images/menu3.png"><span>流量提升工具</span></h5>
 						<div class="left_menu_link">
-							<a href="##">白马单品管家  </a><a href="##">白马流量</a>
+							<a href="##">白马单品管家  </a><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a>
 						</div>
 					</div>
 					<div class="left_menu_box">
-						<h5 class="title"><img src="/deepsearch/images/menu4.png"><span>卖家实用工具</span></h5>
+						<h5 class="title"><img src="images/menu4.png"><span>卖家实用工具</span></h5>
 						<div class="left_menu_link">
-							<a href="##">宝贝类目查询 </a><a href="##">20w热词</a><a href="##">淘宝指数还原 </a><a href="##">违禁词查询  </a>
+							<a href="catalog">宝贝类目查询 </a><a href="hotwords">20w热词</a><a href="reduction">淘宝指数还原 </a><a href="prohibited">违禁词查询  </a>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="right_menu">
 				<ul class="clearfix">
-					<li><a href="##">首页</a></li>
+					<li><a href="index">首页</a></li>
 					<li><a href="ranking">查排名</a></li>
 					<li><a href="authority">查降权</a></li>
-					<li><a href="##">查信誉</a></li>
+					<li><a href="reputation">查信誉</a></li>
 					<li><a href="drop">下拉框选词</a></li>
 					<li><a href="##">单品管家</a></li>
-					<li><a href="##">白马流量</a></li>
+					<li><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a></li>
 				</ul>
 			</div>
 		</div>
@@ -293,7 +293,7 @@
 						image:'/deepsearch/images/index3_4.jpg'
 					},
 					{
-						link:'',
+						link:'http://www.daoliuliang365.com/',
 						title:'白马流量',
 						image:'/deepsearch/images/index3_5.jpg'
 					},
@@ -303,12 +303,12 @@
 						image:'/deepsearch/images/index3_6.jpg'
 					},
 					{
-						link:'',
+						link:'prohibited',
 						title:'违禁词查询',
 						image:'/deepsearch/images/index3_7.jpg'
 					},
 					{
-						link:'',
+						link:'catalog',
 						title:'宝贝类目查询',
 						image:'/deepsearch/images/index3_8.jpg'
 					}

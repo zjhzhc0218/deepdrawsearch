@@ -30,7 +30,7 @@
 					<div class="left_menu_box">
 						<h5 class="title"><img src="images/menu1.png"><span>查排名工具</span></h5>
 						<div class="left_menu_link">
-							<a href="ranking">无线排名查询</a><a href="show">关键词展现查询  </a><a href="##">上下架查询</a><a href="##">历史价格查询 </a>
+							<a href="ranking">无线排名查询</a><a href="show">关键词展现查询  </a><a href="updown">上下架查询</a><a href="##">历史价格查询 </a>
 						</div>
 					</div>
 					<div class="left_menu_box">
@@ -42,26 +42,26 @@
 					<div class="left_menu_box">
 						<h5 class="title"><img src="images/menu3.png"><span>流量提升工具</span></h5>
 						<div class="left_menu_link">
-							<a href="##">白马单品管家  </a><a href="##">白马流量</a>
+							<a href="##">白马单品管家  </a><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a>
 						</div>
 					</div>
 					<div class="left_menu_box">
 						<h5 class="title"><img src="images/menu4.png"><span>卖家实用工具</span></h5>
 						<div class="left_menu_link">
-							<a href="##">宝贝类目查询 </a><a href="##">20w热词</a><a href="##">淘宝指数还原 </a><a href="##">违禁词查询  </a>
+							<a href="catalog">宝贝类目查询 </a><a href="hotwords">20w热词</a><a href="reduction">淘宝指数还原 </a><a href="prohibited">违禁词查询  </a>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="right_menu">
 				<ul class="clearfix">
-                    <li><a href="##">首页</a></li>
+                    <li><a href="index">首页</a></li>
                     <li><a href="ranking">查排名</a></li>
                     <li><a href="authority">查降权</a></li>
                     <li><a href="reputation">查信誉</a></li>
                     <li><a href="drop">下拉框选词</a></li>
                     <li><a href="##">单品管家</a></li>
-                    <li><a href="##">白马流量</a></li>
+                    <li><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a></li>
 				</ul>
 			</div>
 		</div>

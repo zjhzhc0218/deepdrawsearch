@@ -225,4 +225,81 @@ public class LoginControllers {
         mv.setViewName("tool/reduction");
         return mv;
     }
+    /**
+     * 展现查询
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/show")
+    public ModelAndView show(ModelAndView mv) {
+        //mv.addObject("ranking", "测试1");
+        mv.setViewName("tool/show");
+        return mv;
+    }
+    /**
+     * 买家信誉查询
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/reputation")
+    public ModelAndView reputation(ModelAndView mv) {
+        //mv.addObject("ranking", "测试1");
+        mv.setViewName("tool/reputation");
+        return mv;
+    }
+    /**
+     * 动态评分查询
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/score")
+    public ModelAndView score(ModelAndView mv) {
+        //mv.addObject("ranking", "测试1");
+        mv.setViewName("tool/score");
+        return mv;
+    }
+    /**
+     * 上下架查询
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/updown")
+    public ModelAndView updown(ModelAndView mv) {
+        //mv.addObject("ranking", "测试1");
+        mv.setViewName("tool/updown");
+        return mv;
+    }
+    /**
+     * 宝贝类目查询
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/catalog")
+    public ModelAndView catalog(ModelAndView mv) {
+        //mv.addObject("ranking", "测试1");
+        mv.setViewName("tool/catalog");
+        return mv;
+    }
+    /**
+     * 违禁词查询
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/prohibited")
+    public ModelAndView prohibited(ModelAndView mv) {
+        //mv.addObject("ranking", "测试1");
+        mv.setViewName("tool/prohibited");
+        return mv;
+    }
+    /**
+     * 热词
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/hotwords")
+    public ModelAndView hotwords(ModelAndView mv) {
+        //mv.addObject("ranking", "测试1");
+        mv.setViewName("tool/hotwords");
+        return mv;
+    }
 }
