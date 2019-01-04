@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.deepdraw.deepsearch.dao.FileDownloadMapper" >
-  <resultMap id="BaseResultMap" type="com.deepdraw.deepsearch.entity..FileDownload" >
+  <resultMap id="BaseResultMap" type="com.deepdraw.deepsearch.entity.FileDownload" >
     <id column="file_id" property="fileId" jdbcType="INTEGER" />
     <result column="file_type" property="fileType" jdbcType="INTEGER" />
     <result column="file_name" property="fileName" jdbcType="VARCHAR" />
@@ -21,13 +21,13 @@
     delete from file_download
     where file_id = #{fileId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="deepdraw.saleterrace.entity.shop.FileDownload" >
+  <insert id="insert" parameterType="com.deepdraw.deepsearch.entity.FileDownload" >
     insert into file_download (file_id, file_type, file_name, 
       file_picture, file_downloadPath)
     values (#{fileId,jdbcType=INTEGER}, #{fileType,jdbcType=INTEGER}, #{fileName,jdbcType=VARCHAR}, 
       #{filePicture,jdbcType=VARCHAR}, #{fileDownloadpath,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="deepdraw.saleterrace.entity.shop.FileDownload" >
+  <insert id="insertSelective" parameterType="com.deepdraw.deepsearch.entity.FileDownload" >
     insert into file_download
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="fileId != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="deepdraw.saleterrace.entity.shop.FileDownload" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.deepdraw.deepsearch.entity.FileDownload" >
     update file_download
     <set >
       <if test="fileType != null" >
@@ -82,7 +82,7 @@
     </set>
     where file_id = #{fileId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="deepdraw.saleterrace.entity.shop.FileDownload" >
+  <update id="updateByPrimaryKey" parameterType="com.deepdraw.deepsearch.entity.FileDownload" >
     update file_download
     set file_type = #{fileType,jdbcType=INTEGER},
       file_name = #{fileName,jdbcType=VARCHAR},
