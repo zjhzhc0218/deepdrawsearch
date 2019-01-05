@@ -6,11 +6,13 @@ import com.deepdraw.deepsearch.dao.FileDownloadDao;
 import com.deepdraw.deepsearch.entity.FileDownload;
 import com.deepdraw.deepsearch.service.FileDownloadService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * @author
  * @create 2019-01-04 11:08
  **/
+@Component
 public class FileDownloadServiceImpl implements FileDownloadService{
 
     @Autowired

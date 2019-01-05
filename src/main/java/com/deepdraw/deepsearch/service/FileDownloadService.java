@@ -3,11 +3,13 @@ package com.deepdraw.deepsearch.service;/**
  */
 
 import com.deepdraw.deepsearch.entity.FileDownload;
+import org.springframework.stereotype.Service;
 
 /**
  * @author
  * @create 2019-01-04 11:07
  **/
+@Service
 public interface FileDownloadService {
 
     /**
