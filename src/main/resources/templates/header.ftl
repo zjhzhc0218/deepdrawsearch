@@ -42,7 +42,7 @@
 					<div class="left_menu_box">
 						<h5 class="title"><img src="images/menu3.png"><span>流量提升工具</span></h5>
 						<div class="left_menu_link">
-							<a href="##">白马单品管家  </a><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a>
+							<a href="butler">白马单品管家  </a><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a>
 						</div>
 					</div>
 					<div class="left_menu_box">
@@ -60,7 +60,7 @@
                     <li><a href="authority">查降权</a></li>
                     <li><a href="reputation">查信誉</a></li>
                     <li><a href="drop">下拉框选词</a></li>
-                    <li><a href="##">单品管家</a></li>
+                    <li><a href="butler">单品管家</a></li>
                     <li><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a></li>
 				</ul>
 			</div>
