@@ -370,13 +370,15 @@ a{
     width: 100%;
     border:1px solid #fb6c0e;
     margin-bottom: 20px;
+    display:  flex;
 }
 .index_ser4_tit span{
-    width: 33.33333%;
+    /*min-width: 33.33333%;*/
     display: block;
     float: left;
     font-size:  16px;
     height: 48px;
+    flex-grow: 1;
     line-height: 48px;
     color: #fb6c0e;
     cursor:pointer;
@@ -801,21 +803,34 @@ a{
     border: 1px solid #e4e4e4;
     border-radius: 5px;
 }
+.toolALL_info a{
+    color: #fb6c0e;
+}
 .toolALL_info_tit{
-    font-size: 14px;
-    color: #27426e;
+    font-size: 16px;
+    color: #5a3817;
     font-weight: bold;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 }
 .toolALL_info_text p{
     font-size: 13px;
     line-height: 23px;
+    margin-bottom: 10px;
+}
+.toolALL_info_text img{
+    width: 100%;
 }
 .toolALL_info_box{
     margin-bottom: 25px;
 }
 .toolALL_info_box:last-child{
     margin-bottom: 0px;
+}
+.hotwords_box{
+    display: none;
+}
+.hotwords_box.active{
+    display: block;
 }
 /*toolall*/
 	

@@ -63,17 +63,17 @@
                                 {{jiangquan.msg}}
                             </div>
                             <div class="result-context" ng-show="jiangquan.examedContext != null&&jiangquan.examedContext.length>0" >
-                                <table class="table table-hover" style="  display: block;width:100%;margin-bottom: 0;">
+                                <table class="all_table table  table-hover" style=" width:100%;margin-bottom: 0;">
                                     <thead>
                                     <tr style="width:100%">
-                                        <td style="width: 30px;text-align: center"><label>图片</label></td>
-                                        <td style="width: 120px;text-align: center"><label>标题</label></td>
-                                        <td style="width: 90px;text-align: center"><label>销量</label></td>
-                                        <td style="width: 90px;text-align: center"><label>价格</label></td>
+                                        <td><label>图片</label></td>
+                                        <td><label>标题</label></td>
+                                        <td><label>销量</label></td>
+                                        <td><label>价格</label></td>
                                         <#--<td style="width: 50px;text-align: center"><label>价格</label></td>-->
-                                        <td style="width: 90px;text-align: center"><label>库存</label></td>
-                                        <td style="width: 90px;text-align: center"><label>权重值</label></td>
-                                        <td style="width: 120px;text-align: center"><label>说明</label></td>
+                                        <td><label>库存</label></td>
+                                        <td><label>权重值</label></td>
+                                        <td><label>说明</label></td>
 
                                     </tr>
                                     </thead>
@@ -81,8 +81,8 @@
                                     <tr ng-repeat="data in jiangquan.examedContext " >
                                         <td ng-repeat="node in data | orderBy:'id'"  style="text-align: center">
                                             <a href="{{node.href}}" target="_blank" style="text-decoration:none" ><img style="width: 100px;height: 100px;margin-top: 10px" ng-if="node.name=='img'" ng-src="{{node.value}}"></a>
-                                            <span style="font-size: 18px;line-height: 120px" ng-if="node.name!='img'&&node.name!='title'">{{node.value}}</span>
-                                            <a ng-if="node.name ==  'title'"  href="{{node.href}}"  target="_blank" style="text-decoration:none;line-height: 120px">{{node.value}}</a>
+                                            <span style="font-size: 15px;" ng-if="node.name!='img'&&node.name!='title'">{{node.value}}</span>
+                                            <a ng-if="node.name ==  'title'"  href="{{node.href}}"  target="_blank">{{node.value}}</a>
                                         </td>
                                     </tr>
                                     </tbody>

@@ -96,7 +96,7 @@
 						<div class="row">
 							<div class="col-md-4" v-for="item2 in tool">
 								<div class="hot_tool_box">
-									<a :href="item2.link">
+									<a :href="item2.link" target="_blank">
 										<h5><img :src="item2.image"></h5>
 										<p>{{item2.title}}</p>
 									</a>
@@ -122,42 +122,42 @@
 			data:{
                 tool:[
                     {
-                        link:'',
+                        link:'code',
                         title:'二维码卡首屏',
                         image:'/deepsearch/images/index3_1.jpg'
                     },
                     {
-                        link:'',
+                        link:'code',
                         title:'淘口令卡首屏',
                         image:'/deepsearch/images/index3_2.jpg'
                     },
                     {
-                        link:'',
+                        link:'http://www.daoliuliang365.com/douyin',
                         title:'抖音流量',
                         image:'/deepsearch/images/index3_3.jpg'
                     },
                     {
-                        link:'',
+                        link:'spell',
                         title:'拼多多流量',
                         image:'/deepsearch/images/index3_4.jpg'
                     },
                     {
-                        link:'',
+                        link:'http://www.daoliuliang365.com/',
                         title:'白马流量',
                         image:'/deepsearch/images/index3_5.jpg'
                     },
                     {
-                        link:'',
+                        link:'reduction',
                         title:'淘宝指数还原',
                         image:'/deepsearch/images/index3_6.jpg'
                     },
                     {
-                        link:'',
+                        link:'prohibited',
                         title:'违禁词查询',
                         image:'/deepsearch/images/index3_7.jpg'
                     },
                     {
-                        link:'',
+                        link:'catalog',
                         title:'宝贝类目查询',
                         image:'/deepsearch/images/index3_8.jpg'
                     }

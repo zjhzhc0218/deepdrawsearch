@@ -25,7 +25,12 @@
         margin-left: 100px;
         color: #0366D6;
     }
-
+    /*手机以及ipad隐藏*/
+    @media (max-width: 1024px){
+        .huakuai{
+            display: none;
+        }
+    }
 </style>
 </head>
 <style type="text/css">
@@ -68,7 +73,7 @@
                             <input type="password" ng-model="passwordAgain"  class="required password" name="p" placeholder="请重复输入密码" required="required" style="width: 310px"/>
                         </div>
 
-                        <div class="container" style="margin-left: 70px;margin-bottom: 10px;height: 200px;width: 345px;">
+                        <div class="container huakuai" style="margin-left: 70px;margin-bottom: 10px;height: 200px;width: 345px;">
                             <div id="captcha" style="position: relative;"></div>
                             <div id="msg" style=""></div>
                         </div>
@@ -105,8 +110,17 @@
 <script src="/deepsearch/js/signupController.js"></script>
 <script src="/deepsearch/js/jigsaw.js"></script>
 <script>
+    //判断是否为ie浏览器
+    var navigatorName = "Microsoft Internet Explorer";
+    var isIE = false;
+    if( navigator.appName == navigatorName ){
+        isIE = true;
+        $(".huakuai").stop(true).fadeOut(0)
+    }
     jigsaw.init(document.getElementById('captcha'), function () {
         document.getElementById('msg').innerHTML = '登录成功！'
     })
+
+
 </script>
 </html>

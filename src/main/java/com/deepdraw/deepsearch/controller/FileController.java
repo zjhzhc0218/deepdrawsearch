@@ -82,7 +82,7 @@ public class FileController {
             }
             fileDownload.setFileDownloadpath(fileName);
             fileDownloadService.insertSelective(fileDownload);
-            
+
             return "上传成功";
         } catch (IllegalStateException e) {
             e.printStackTrace();

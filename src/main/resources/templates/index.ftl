@@ -63,40 +63,40 @@
 				<h2 class="left_menu_tit">白马查 · 功能导航</h2>
 				<div class="left_menu_con">
 					<div class="left_menu_box">
-						<h5 class="title"><img src="/deepsearch/images/menu1.png"><span>查排名工具</span></h5>
+						<h5 class="title"><img src="images/menu1.png"><span>查排名工具</span></h5>
 						<div class="left_menu_link">
-							<a href="##">无线排名查询</a><a href="##">关键词展现查询  </a><a href="##">上下架查询</a><a href="##">历史价格查询 </a>
+							<a href="ranking">无线排名查询</a><a href="show">关键词展现查询  </a><a href="updown">上下架查询</a><a href="##">历史价格查询 </a>
 						</div>
 					</div>
 					<div class="left_menu_box">
-						<h5 class="title"><img src="/deepsearch/images/menu2.png"><span>排名优化工具</span></h5>
+						<h5 class="title"><img src="images/menu2.png"><span>排名优化工具</span></h5>
 						<div class="left_menu_link">
-							<a href="##">买家信誉查询 </a><a href="##">动态评分查询</a><a href="##">隐形降权查询 </a><a href="##">下拉框选词查询 </a>
+							<a href="reputation">买家信誉查询 </a><a href="score">动态评分查询</a><a href="authority">隐形降权查询 </a><a href="drop">下拉框选词查询 </a>
 						</div>
 					</div>
 					<div class="left_menu_box">
-						<h5 class="title"><img src="/deepsearch/images/menu3.png"><span>流量提升工具</span></h5>
+						<h5 class="title"><img src="images/menu3.png"><span>流量提升工具</span></h5>
 						<div class="left_menu_link">
-							<a href="##">白马单品管家  </a><a href="##">白马流量</a>
+							<a href="butler">白马单品管家  </a><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a>
 						</div>
 					</div>
 					<div class="left_menu_box">
-						<h5 class="title"><img src="/deepsearch/images/menu4.png"><span>卖家实用工具</span></h5>
+						<h5 class="title"><img src="images/menu4.png"><span>卖家实用工具</span></h5>
 						<div class="left_menu_link">
-							<a href="##">宝贝类目查询 </a><a href="##">20w热词</a><a href="##">淘宝指数还原 </a><a href="##">违禁词查询  </a>
+							<a href="catalog">宝贝类目查询 </a><a href="hotwords">20w热词</a><a href="reduction">淘宝指数还原 </a><a href="prohibited">违禁词查询  </a>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="right_menu">
 				<ul class="clearfix">
-					<li><a href="##">首页</a></li>
+					<li><a href="index">首页</a></li>
 					<li><a href="ranking">查排名</a></li>
 					<li><a href="authority">查降权</a></li>
-					<li><a href="##">查信誉</a></li>
+					<li><a href="reputation">查信誉</a></li>
 					<li><a href="drop">下拉框选词</a></li>
-					<li><a href="##">单品管家</a></li>
-					<li><a href="##">白马流量</a></li>
+					<li><a href="butler">单品管家</a></li>
+					<li><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a></li>
 				</ul>
 			</div>
 		</div>
@@ -113,13 +113,13 @@
 				<div class="swiper-container swiper_banner">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
-							<div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner1.jpg);"></div>
+							<a target="_blank"><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner1.jpg);"></div></a>
 						</div>
 						<div class="swiper-slide">
-							<div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner1.jpg);"></div>
+							<a target="_blank"><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner1.jpg);"></div></a>
 						</div>
 						<div class="swiper-slide">
-							<div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner1.jpg);"></div>
+							<a target="_blank"><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner1.jpg);"></div></a>
 						</div>
 					</div>
 				</div>
@@ -158,16 +158,16 @@
 			<div class="swiper-container swiper_list swiper-no-swiping">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<a href="##"><div class="index_ser2_box"><img src="/deepsearch/images/index2_1.jpg" width="100%"></a></div></a>
+						<a href="##" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_1.jpg" width="100%"></a></div></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="##"><div class="index_ser2_box"><img src="/deepsearch/images/index2_2.jpg" width="100%"></a></div></a>
+						<a href="##" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_2.jpg" width="100%"></a></div></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="##"><div class="index_ser2_box"><img src="/deepsearch/images/index2_3.jpg" width="100%"></a></div></a>
+						<a href="##" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_3.jpg" width="100%"></a></div></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="##"><div class="index_ser2_box"><img src="/deepsearch/images/index2_4.jpg" width="100%"></a></div></a>
+						<a href="##" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_4.jpg" width="100%"></a></div></a>
 					</div>
 				</div>
 			</div>
@@ -177,7 +177,7 @@
 		<div class="index_ser3 all_mar">
 			<div class="index_ser3_son clearfix">
 				<div class="index_ser3_box" v-for="(item,index) in tool">
-					<a :href="item.link">
+					<a :href="item.link" target="_blank">
 						<div class="img">
 							<img :src="item.image">
 						</div>
@@ -193,7 +193,7 @@
 			</div>
 			<div class="index_ser4_more clearfix">	
 				<div class="index_ser4_left"><img src="/deepsearch/images/new.png"><span>最新上传资源</span></div>
-				<div class="index_ser4_right"><a :href="'tool?id='+listType">更多>></a:></div>
+				<div class="index_ser4_right"><a :href="'tool?id='+listType" target="_blank">更多>></a:></div>
 			</div>	
 			<div class="index_ser4_con1" v-show="listType==0?true:false">
 				<div class="row">
@@ -211,7 +211,7 @@
 				<div class="row">
 					<div class="col-sm-6" v-for="item2 in retailers">
 						<div class="index_ser4_box2 clearfix">
-							<a :href="'tool_details'+item2.link">
+							<a :href="'tool_details'+item2.link" target="_blank">
 								<div class="img" :style="'background-image:url('+item2.image+');'"></div>
 								<div class="text">
 									<h5>{{item2.title}}</h5>
@@ -227,7 +227,7 @@
 				<div class="row">
 					<div class="col-sm-6" v-for="item2 in retailers">
 						<div class="index_ser4_box2 clearfix">
-							<a :href="'tool_details'+item2.link">
+							<a :href="'tool_details'+item2.link" target="_blank">
 								<div class="img" :style="'background-image:url('+item2.image+');'"></div>
 								<div class="text">
 									<h5>{{item2.title}}</h5>
@@ -273,27 +273,27 @@
 				],
 				tool:[
 					{
-						link:'',
+						link:'code',
 						title:'二维码卡首屏',
 						image:'/deepsearch/images/index3_1.jpg'
 					},
 					{
-						link:'',
+						link:'code',
 						title:'淘口令卡首屏',
 						image:'/deepsearch/images/index3_2.jpg'
 					},
 					{
-						link:'',
+						link:'http://www.daoliuliang365.com/douyin',
 						title:'抖音流量',
 						image:'/deepsearch/images/index3_3.jpg'
 					},
 					{
-						link:'',
+						link:'spell',
 						title:'拼多多流量',
 						image:'/deepsearch/images/index3_4.jpg'
 					},
 					{
-						link:'',
+						link:'http://www.daoliuliang365.com/',
 						title:'白马流量',
 						image:'/deepsearch/images/index3_5.jpg'
 					},
@@ -303,12 +303,12 @@
 						image:'/deepsearch/images/index3_6.jpg'
 					},
 					{
-						link:'',
+						link:'prohibited',
 						title:'违禁词查询',
 						image:'/deepsearch/images/index3_7.jpg'
 					},
 					{
-						link:'',
+						link:'catalog',
 						title:'宝贝类目查询',
 						image:'/deepsearch/images/index3_8.jpg'
 					}

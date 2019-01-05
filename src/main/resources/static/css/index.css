@@ -264,7 +264,7 @@ header .header-content{
 .search-info{
 	width: 100%;
 	margin: 0 auto;
-	text-align: center;
+	/* text-align: center; */
 	padding-bottom:50px;
 }
 .info-item{
@@ -308,7 +308,7 @@ header .header-content{
 }
 
 .search-info .active{
-	background-color: #d0dded;
+	background-color: #f4f7e4;
 }
 /*.search-info .active span, .search-info .active p{*/
 /*color: #ff0000;*/
@@ -498,7 +498,7 @@ header .header-content{
 	line-height: 33px!important;
 }
 #reci table tr th,#xialakuang table tr td{
-	line-height: 33px!important;
+	line-height: 37px!important;
 	text-align:center;
 	border-bottom-width: 1px!important;
 }
@@ -507,13 +507,13 @@ header .header-content{
 	font-size: 14px;
 }
 #xialakuang thead{
-	color: #2A6FF3;
+	color: #fe8034;
 }
 #xialakuang table{
-	border-top:1px solid #AFCBFF;
+	border-top: 1px solid #ffc19b;
 }
 #xialakuang table td{
-	border-color: #AFCBFF!important;
+	border-color: #ffc19b!important;
 }
 #xialakuang .table-striped>tbody>tr:nth-child(odd){
 	background-color: #F3F7FF;
@@ -548,7 +548,7 @@ header .header-content{
 	letter-spacing: 2px;
 }
 /*12.21*/
-table.up_table thead tr td{
+table.up_table thead tr td ,.all_table thead tr td {
 	line-height: 24px!important;
 
 }
@@ -556,17 +556,17 @@ table.up_table tr b{
 	font-weight:300;
 }
 table.up_table,.all_table{
-	border-top:1px solid #cae6ff;
+	border-top:1px solid #ffc19b;
 }
 table.up_table  tr td,.all_table tr td{
 	text-align:  center;
-	border:1px solid #cae6ff;
+	border:1px solid #ffc19b;
 	font-size:14px;
-	vertical-align: middle;
+	vertical-align: middle!important;
 }
-table.up_table tbody td{
+table.up_table tbody td,.all_table tbody td{
 	padding:15px;
-	background-color: #f4f8ff
+	background-color: #fff9f5
 }
 .up_img{
 	width:100px;
@@ -575,7 +575,7 @@ table.up_table tbody td{
 /*12.24*/
 .zhanxian_box{
 	width:100%;
-	background-color: #f3f7ff;
+	background-color: #fff9f5;
 }
 .zhanxian_box img{
 	width: 100px;
@@ -589,7 +589,7 @@ table.up_table tbody td{
 	height: 100px;
 	margin-left: 15px;
 	padding-top: 3%;
-	border-left: 1px solid #cae6ff;
+	border-left: 1px solid #ffc19b;
 }
 .zhanxian_box_text p{
 	font-size: 14px;
@@ -597,15 +597,15 @@ table.up_table tbody td{
 	margin: 0px;
 }
 .zhanxian_box{
-	border:1px solid #cae6ff;
+	border: 1px solid #ffc19b;
 	padding: 15px;
 }
 .zhanxian_list{
 	margin-top: 30px;
 	width: 100%;
-	border: 1px solid #cae6ff;
+	border: 1px solid #ffc19b;
 	border-radius:3px;
-	background-color: #f3f7ff;
+	background-color: #fff9f5;
 	padding: 10px;
 }
 .zhanxian_list span{
