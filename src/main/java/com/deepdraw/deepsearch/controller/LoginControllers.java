@@ -302,4 +302,37 @@ public class LoginControllers {
         mv.setViewName("tool/hotwords");
         return mv;
     }
+    /**
+     * 二维码卡首屏
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/code")
+    public ModelAndView code(ModelAndView mv) {
+        //mv.addObject("ranking", "测试1");
+        mv.setViewName("tool/code");
+        return mv;
+    }
+    /**
+     * 拼多多流量
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/spell")
+    public ModelAndView spell(ModelAndView mv) {
+        //mv.addObject("ranking", "测试1");
+        mv.setViewName("tool/spell");
+        return mv;
+    }
+    /**
+     * 白马单品管家
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/butler")
+    public ModelAndView butler(ModelAndView mv) {
+        //mv.addObject("ranking", "测试1");
+        mv.setViewName("tool/butler");
+        return mv;
+    }
 }
