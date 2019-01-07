@@ -88,6 +88,20 @@ public class UserControllers {
         return JsonUtil.object2Json(ResultUtil.success(message));
     }
 
+    //    后台提升权限 通过前端页面输入
+    @RequestMapping("/updateGradeNow")
+    @ResponseBody
+        public String updateGradeNow(HttpServletRequest request,Long id,String inviteCode ) throws IOException {
+        String message =  "";
+//        传入用户手机号，升权限还是降权限   type 3 就是升权限   type2 就是降权限
+        if("123456".equals(inviteCode)){
+        message = shUserService.updataGrade(id, 3);}else{
+            message = "邀请码不正确，请重新获取";
+        }
+        return JsonUtil.object2Json(ResultUtil.success(message));
+    }
+
+
     @RequestMapping("/saveShopRecord")
     public String saveShopRecord(HttpServletRequest request) {
         //try {
