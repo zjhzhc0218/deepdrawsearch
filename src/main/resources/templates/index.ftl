@@ -39,7 +39,7 @@
 			<span>亲，欢迎进入白马查</span><a href="sign" class="head_portant">登录</a><a href="signup">免费注册</a>
 		</div>
         <div class="container" v-if="userInfo!=''">
-            <span>亲爱的 <font class="head_portant">{{userInfo.id}}</font>，欢迎进入白马查</span>
+            <span>亲爱的 <font class="head_portant">{{userInfo.id}}</font>，欢迎进入白马查</span><a href="adminPage" class="head_portant" v-if="userInfo.grade==1">后台管理</a>
         </div>
 	</div>
 	<div class="header_center">
@@ -252,7 +252,17 @@
 </div>
 <!--  / warpper  -->
 
-
+<div class="index_frame" v-show="codeType==1?false:true">
+	<div class="index_frame_box">
+		<div class="index_frame_close" @click="codeHide"><img src="/deepsearch/images/close.png"> </div>
+		<img src="/deepsearch/images/frame.png" width="100%">
+		<div class="index_frame_code"><img src="/deepsearch/images/codeImg.jpg"></div>
+		<div class="index_frame_input">
+			<input type="text">
+			<span></span>
+		</div>
+	</div>
+</div>
 <!--  / footer  -->
 	<#include "//footer.ftl">
 <!--  / footer  -->
@@ -264,6 +274,7 @@
 		var app=new Vue({
 			el: '#app',
 			data: {
+			    codeType:0,
 			    userInfo:[],
 				listType:0,
 				listTit:[
@@ -401,7 +412,11 @@
 	        	getList:function(index){
 	        		var _this=this;
 	        		_this.listType=index;
-	        	}
+	        	},
+                codeHide:function () {
+                    var _this=this;
+                    _this.codeType=1;
+                }
 	        },
 
 		})
