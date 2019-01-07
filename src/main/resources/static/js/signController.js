@@ -72,7 +72,8 @@ app.controller('signController',['$scope','$http', '$document','Md5','Base64','S
                     });
                     return;
                 }
-                var url='/deepsearch/searchIndex?ON=O';
+                // var url='/deepsearch/searchIndex?ON=O';
+                var url='/deepsearch/index?ON=O';
                 // var url='/deepsearch/changeName';
                 location.href = url;
             }).error(function (data) {

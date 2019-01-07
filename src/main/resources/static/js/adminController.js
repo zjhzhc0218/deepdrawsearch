@@ -454,12 +454,12 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         },*/
         'editShop' : function () { //修改
             // console.log( $scope.editshopParams);
-            var data = new FormData();
+            // var data = new FormData();
             if(!$scope.shopParams.file) {
                 alert("请上传图片");
                 return ;
             }
-            data.append("params", angular.toJson($scope.shopParams));
+            // data.append("params", angular.toJson($scope.shopParams));
             var data = new FormData();
             data.append("img", $scope.shopParams.file);
             $http({
@@ -482,6 +482,72 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
 
         }
     };
+
+
+    /**
+     * 上传资讯
+     */
+    $scope.page = {
+
+        'text':editor.txt.html(),//内容
+        'title':null,
+        'author':null,
+        'select':null,
+        'words':null,
+        'reader':new FileReader(), //创建一个FileReader接口
+        'form' : { //用于绑定提交内容，图片或其他数据
+            image: {},
+        },
+        'thumb':null, //用于存放图片的base64
+        'shopStoreUrl':null,//url
+        'imgSrc':null,//imgSrc
+        'file':null,//file
+        'img':null,//状态
+        'uploadFiles' : function (file, errorFile) {
+            if ( file ) {
+                $scope.page.reader.onload = function(ev) {
+                    $scope.$apply(function() {
+                        $scope.page.thumb = ev.target.result; //接收base64
+                    });
+                    $scope.page.imgSrc = $scope.page.thumb;
+                };
+            }
+            $scope.page.reader.readAsDataURL(file); //FileReader的方法，把图片转成base64
+        }
+
+    };
+
+    $scope.infosum =function () {
+
+        if($scope.page.author==null||$scope.page.title==null||$scope.page.select==null||$scope.page.words==null){
+            alert('缺少内容');
+        }
+        var data = new FormData();
+        data.append("img", $scope.page.file);
+        data.append("title", $scope.page.title);
+        data.append("author", $scope.page.author);
+        data.append("select", $scope.page.select);
+        data.append("words", $scope.page.words);
+        data.append("text", editor.txt.html());
+        $http({
+            method: "POST",
+            url: "/deepsearch/File/uploadWords",
+            data: data,
+            headers: {
+                'Content-Type': undefined
+            },
+            transformRequest: angular.identity
+
+        }).then(function successCallback(response) {
+                // console.log(response.data)
+                // alert("上传成功，请刷新页面")
+            },
+            function errorCallback(response) {
+                console.log("error");
+                // alert("上传成功，请刷新页面");
+            });
+
+    }
 
 
 

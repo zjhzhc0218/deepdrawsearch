@@ -34,6 +34,10 @@
             font-weight: bold;
             font-size: 30px;
         }
+        .one a {
+            font-size: 22px;
+        }
+
         .error{
             color:red;
         }
@@ -92,14 +96,18 @@
         <#--</li>-->
         <#--</ul>-->
         </div>
-        <div class="nav-list" style="position: relative">
+        <div class="nav-list" style="position: relative;text-align: center">
 
             <div class="one active">
-                <a  class="" role="tab" data-toggle="tab"href="#renyuan">人员详情</a>
+                <a  class="" role="tab" data-toggle="tab" href="#renyuan" style="font-size: 22px">人员详情</a>
             </div>
 
             <div class="one">
-                <a  role="tab" data-toggle="tab" href="#cishu">使用次数</a>
+                <a  role="tab" data-toggle="tab" href="#cishu" style="font-size: 22px">使用次数</a>
+            </div>
+
+            <div class="one">
+                <a  role="tab" data-toggle="tab" href="#zixun" style="font-size: 22px">上传资讯</a>
             </div>
 
             <div style="position: absolute;right: 0">
@@ -378,6 +386,39 @@
             </div>
  
         </div>
+
+        <#--上传资讯-->
+
+        <div  role="tabpanel" class="tab-pane " id="zixun" style="width: 50%;margin-left: 33%">
+            <div style="margin-bottom: 24px;font-size: 19px"">标<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>题：<input placeholder="请输入资讯标题" type="text" style="width: 45%" ng-model="page.title"></div>
+            <div style="margin-bottom: 24px;font-size: 19px"">作<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>者：<input placeholder="请输入作者" type="text" style="width: 45%" ng-model="page.author"></div>
+            <div style="margin-bottom: 24px;font-size: 19px">
+                <span>
+                    资讯类型：
+                    <select ng-model="page.select" style="width: 10%">
+                        <option value ="1">电商实战宝箱</option>
+                        <option value ="2">电商头条</option>
+                    </select>
+                </span>
+            </div>
+            <div style="margin-bottom: 24px;font-size: 19px"><span>
+                上传封面：
+                    <div  class="upload-button" type="file" capture="camera" ngf-select="page.uploadFiles($file,$errorfile)" ng-model="page.file" accept="image/jpg,image/JPG,image/jpeg,image/gif,image/png" ngf-max-height="2000" ngf-max-size="5MB">
+                        <img  style="height: 30px;width: 30px;float: right" class="uploadpic img-rounded" ng-src="{{page.imgSrc}}" ng-model="page.img"/>
+                        <div style="margin-left: 0px;margin-right: 0px;" class="glyphicon glyphicon-camera uploadpic-label">点击上传</div>
+                    </div>
+            </span></div>
+            <div style="margin-bottom: 24px;font-size: 19px">描<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>述：<input placeholder="请输入描述内容" type="text" style="width: 45%" ng-model="page.words"></div>
+            <div id="editor" style="margin-bottom: 24px;font-size: 15px">内<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>容：<#--<textarea style="width: 45%;height: 20%"></textarea>--></div>
+            <div style="margin-left: 20%">
+                <button class="btn btn-primary" style="display: inline;width: 60px" ng-click="infosum();">提<span>&nbsp;&nbsp;&nbsp;</span>交</button>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <button class="btn btn-primary" style="display: inline;width: 60px">重<span>&nbsp;&nbsp;&nbsp;</span>置</button>
+            </div>
+        </div>
+
+
+
     </div>
     <!--内容-结束-->
 
@@ -482,7 +523,7 @@
 <#--<script src="/deepsearch/js/index.js"></script>-->
 <script type="text/javascript" src="/deepsearch/js/angular/ng-file-upload.js"></script>
 <script src="https://cdn.bootcss.com/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
-
+<script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
 
 
 
@@ -501,6 +542,11 @@
         $('.content').hide();
         $($(this).attr('data-id')).show()
     })
+    var E = window.wangEditor;
+    var editor = new E('#editor')
+    editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+    // 或者 var editor = new E( document.getElementById('editor') )
+    editor.create()
 </script>
 
 </html>

@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.util.List;
 
 /**
  * @author
@@ -90,6 +92,22 @@ public class FileController {
             e.printStackTrace();
         }
         return "上传失败";
+    }
+
+    //文件上传相关代码
+    @RequestMapping(value = "uploadWords")
+    public String uploadWords(HttpServletRequest request){
+
+        String title =request.getParameter("title");//标题
+        String author =request.getParameter("author");//作者
+        List<MultipartFile> list = ((MultipartHttpServletRequest) request)
+                .getFiles("img");
+        MultipartFile img = list.get(0);//封面
+        String select =request.getParameter("select");//类型
+        String words =request.getParameter("words");//描述
+        String text =request.getParameter("text");//内容
+
+        return "";
     }
 
 //    //文件下载相关代码
