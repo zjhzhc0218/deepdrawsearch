@@ -335,4 +335,16 @@ public class LoginControllers {
         mv.setViewName("tool/butler");
         return mv;
     }
+
+    /**
+     * 登陆
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/down")
+    public ModelAndView down(ModelAndView mv) {
+        //mv.addObject("name", "测试1");
+        mv.setViewName("down");
+        return mv;
+    }
 }

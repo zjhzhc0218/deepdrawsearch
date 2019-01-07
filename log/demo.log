@@ -1,6 +1,6 @@
-2018-12-28 10:32:28,936 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT id,nickname,password,salt,head,register_date,last_login_date,login_count,grade,ban FROM shenhui_user WHERE id = ? order by register_date 
-2018-12-28 10:32:28,989 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 17858947539(Long)
-2018-12-28 10:32:29,141 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
-2018-12-28 10:32:29,189 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: UPDATE shenhui_user SET nickname = ?, password = ?, grade = ?, ban = ?, last_login_date = now(), login_count = login_count+1 WHERE id = ? 
-2018-12-28 10:32:29,190 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 浙江宁波移动(String), 0f27f0c4d6ca2e574e034481812033ce(String), 1(Integer), 1(Integer), 17858947539(Long)
-2018-12-28 10:32:29,293 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2019-01-05 14:13:04,629 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: insert into file_download ( file_name, file_downloadPath ) values ( ?, ? ) 
+2019-01-05 14:13:04,690 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 《将夜》全文精校.txt(String), 《将夜》全文精校.txt(String)
+2019-01-05 14:13:04,792 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1
+2019-01-05 14:24:52,451 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: insert into file_download ( file_type, file_name, file_downloadPath ) values ( ?, ?, ? ) 
+2019-01-05 14:24:52,493 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 4(Integer), 未来商业模式：系统、融合与特征.pdf(String), 未来商业模式：系统、融合与特征.pdf(String)
+2019-01-05 14:24:52,600 DEBUG (BaseJdbcLogger.java:159)- <==    Updates: 1

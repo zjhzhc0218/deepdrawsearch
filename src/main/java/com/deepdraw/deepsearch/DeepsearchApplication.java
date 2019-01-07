@@ -10,3 +10,4 @@ public class DeepsearchApplication {
         SpringApplication.run(DeepsearchApplication.class, args);
     }
 }
+
