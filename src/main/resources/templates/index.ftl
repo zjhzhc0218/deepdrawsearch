@@ -258,8 +258,8 @@
 		<img src="/deepsearch/images/frame.png" width="100%">
 		<div class="index_frame_code"><img src="/deepsearch/images/codeImg.jpg"></div>
 		<div class="index_frame_input">
-			<input type="text">
-			<span></span>
+			<input type="text" v-model="form.inviteCode">
+			<span @click="codeCheck"></span>
 		</div>
 	</div>
 </div>
@@ -274,6 +274,10 @@
 		var app=new Vue({
 			el: '#app',
 			data: {
+			    form:{
+                    Longid:'',
+            		inviteCode:''
+				},
 			    codeType:0,
 			    userInfo:[],
 				listType:0,
@@ -402,10 +406,10 @@
 				_this.$nextTick(function () {
                 	index();
                 	all();
-                	console.log(_this.userInfo);
+                	// console.log(_this.userInfo);
                 })
 
-			},
+            },
 			mounted: function () { //页面渲染完成后执行，不包括需要请求的数据
 	        },
 	        methods: { //专用于定义方法
@@ -416,6 +420,28 @@
                 codeHide:function () {
                     var _this=this;
                     _this.codeType=1;
+                },
+				//矫验邀请码
+                codeCheck:function () {
+                    var _this=this;
+                    if(_this.userInfo==''){
+                        alert("请登陆后再来输入！")
+					}else{
+                        _this.form.Longid=_this.userInfo.id;
+                        console.log(_this.userInfo)
+                        $.ajax({
+                            type: 'POST',
+                            url:Url+ 'User/updateGradeNow',
+                            dataType: 'json',
+                            data:_this.form,
+                            success: function (data) {
+                                alert(data.data)
+                                if(data.code==0){
+
+                                }
+                            }
+                        })
+					}
                 }
 	        },
 
