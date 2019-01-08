@@ -95,10 +95,14 @@ public class UserControllers {
         String message =  "";
 //        传入用户手机号，升权限还是降权限   type 3 就是升权限   type2 就是降权限
         if("123456".equals(inviteCode)){
-        message = shUserService.updataGrade(id, 3);}else{
-            message = "邀请码不正确，请重新获取";
+        message = shUserService.updataGrade(id, 3);
+            return JsonUtil.object2Json(ResultUtil.success(message));
+        }else{
+            return JsonUtil.object2Json(ResultUtil.error(2,"邀请码不正确，请重新获取"));
+//            message = "邀请码不正确，请重新获取";
+
         }
-        return JsonUtil.object2Json(ResultUtil.success(message));
+//        return JsonUtil.object2Json(ResultUtil.success(message));
     }
 
 
