@@ -275,7 +275,7 @@
 			el: '#app',
 			data: {
 			    form:{
-                    Longid:'',
+			        id:'',
             		inviteCode:''
 				},
 			    codeType:0,
@@ -427,7 +427,7 @@
                     if(_this.userInfo==''){
                         alert("请登陆后再来输入！")
 					}else{
-                        _this.form.Longid=_this.userInfo.id;
+                        _this.form.id=_this.userInfo.id;
                         console.log(_this.userInfo)
                         $.ajax({
                             type: 'POST',
