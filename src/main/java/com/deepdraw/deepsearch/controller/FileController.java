@@ -2,8 +2,10 @@ package com.deepdraw.deepsearch.controller;/**
  * Created by hasee on 2019/1/2.
  */
 
+import com.deepdraw.deepsearch.entity.ArticleInformation;
 import com.deepdraw.deepsearch.entity.FileDownload;
 import com.deepdraw.deepsearch.enums.DownEnums;
+import com.deepdraw.deepsearch.service.ArticleInformationService;
 import com.deepdraw.deepsearch.service.FileDownloadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,6 +35,12 @@ public class FileController {
 
     @Autowired
     private FileDownloadService fileDownloadService;
+
+    /**
+     * 文章资讯
+     */
+    @Autowired
+    private ArticleInformationService articleInformationService;
 
 
     @Value("${file.uploadFolder}")
@@ -98,14 +106,55 @@ public class FileController {
     @RequestMapping(value = "uploadWords")
     public String uploadWords(HttpServletRequest request){
 
+        ArticleInformation articleInformation =  new ArticleInformation();
+        articleInformation.setOrder(0);
         String title =request.getParameter("title");//标题
+        articleInformation.setTitle(title);
         String author =request.getParameter("author");//作者
+
+        articleInformation.setTitle(title);
+        articleInformation.setAuthor(author);
         List<MultipartFile> list = ((MultipartHttpServletRequest) request)
                 .getFiles("img");
         MultipartFile img = list.get(0);//封面
+
+//        if (img.isEmpty()) {
+//            return "文件为空";
+//        }
+        // 获取文件名
+        String fileName = img.getOriginalFilename();
+        System.out.println("上传的文件名为：" + fileName);
+        // 获取文件的后缀名
+        String suffixName = fileName.substring(fileName.lastIndexOf("."));
+        System.out.println("上传的后缀名为：" + suffixName);
+        // 文件上传后的路径
+//        String filePath = "E://test//";
+        String filePath = uploadFolder;
+        // 解决中文问题，liunx下中文路径，图片显示问题
+        // fileName = UUID.randomUUID() + suffixName;
+        File dest = new File(filePath + fileName);
+        // 检测是否存在目录
+        if (!dest.getParentFile().exists()) {
+            dest.getParentFile().mkdirs();
+        }
+        try {
+            img.transferTo(dest);
+
+            articleInformation.setCover(uploadFolder+fileName);
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         String select =request.getParameter("select");//类型
         String words =request.getParameter("words");//描述
         String text =request.getParameter("text");//内容
+
+        articleInformation.setType(Integer.parseInt(select));
+        articleInformation.setDescribe(words);
+        articleInformation.setSpecificContent(text);
+        articleInformationService.insertSelective(articleInformation);
 
         return "";
     }

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.deepdraw.deepsearch.dao.ArticleInformationDao" >
+  <resultMap id="BaseResultMap" type="com.deepdraw.deepsearch.entity.ArticleInformation" >
+    <id column="serial_number" property="serialNumber" jdbcType="INTEGER" />
+    <result column="order" property="order" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column=" cover" property="cover" jdbcType="VARCHAR" />
+    <result column="describe" property="describe" jdbcType="VARCHAR" />
+    <result column=" creation_time" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column=" creation_people" property="creationPeople" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.deepdraw.deepsearch.entity.ArticleInformation" extends="BaseResultMap" >
+    <result column=" specific_content" property="specificContent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    serial_number, order, title, author, type, " cover", describe, " creation_time", 
+    " creation_people", state
+  </sql>
+  <sql id="Blob_Column_List" >
+    " specific_content"
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article_information
+    where serial_number = #{serialNumber,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from article_information
+    where serial_number = #{serialNumber,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.deepdraw.deepsearch.entity.ArticleInformation" >
+    insert into article_information (serial_number, order, title, 
+      author, type, " cover", 
+      describe, " creation_time", " creation_people", 
+      state, " specific_content")
+    values (#{serialNumber,jdbcType=INTEGER}, #{order,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{author,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{cover,jdbcType=VARCHAR}, 
+      #{describe,jdbcType=VARCHAR},now(), #{creationPeople,jdbcType=VARCHAR},
+      #{state,jdbcType=INTEGER}, #{specificContent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.deepdraw.deepsearch.entity.ArticleInformation" >
+    insert into article_information
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="serialNumber != null" >
+        serial_number,
+      </if>
+      <if test="order != null" >
+        order,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="cover != null" >
+        " cover",
+      </if>
+      <if test="describe != null" >
+        describe,
+      </if>
+
+        " creation_time",
+
+      <if test="creationPeople != null" >
+        " creation_people",
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="specificContent != null" >
+        " specific_content",
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="serialNumber != null" >
+        #{serialNumber,jdbcType=INTEGER},
+      </if>
+      <if test="order != null" >
+        #{order,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="cover != null" >
+        #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="describe != null" >
+        #{describe,jdbcType=VARCHAR},
+      </if>
+      now(),
+      <if test="creationPeople != null" >
+        #{creationPeople,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="specificContent != null" >
+        #{specificContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.deepdraw.deepsearch.entity.ArticleInformation" >
+    update article_information
+    <set >
+      <if test="order != null" >
+        order = #{order,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="cover != null" >
+        " cover" = #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="describe != null" >
+        describe = #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="creationTime != null" >
+        " creation_time" = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creationPeople != null" >
+        " creation_people" = #{creationPeople,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="specificContent != null" >
+        " specific_content" = #{specificContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where serial_number = #{serialNumber,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.deepdraw.deepsearch.entity.ArticleInformation" >
+    update article_information
+    set order = #{order,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      " cover" = #{cover,jdbcType=VARCHAR},
+      describe = #{describe,jdbcType=VARCHAR},
+      " creation_time" = #{creationTime,jdbcType=TIMESTAMP},
+      " creation_people" = #{creationPeople,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      " specific_content" = #{specificContent,jdbcType=LONGVARCHAR}
+    where serial_number = #{serialNumber,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.deepdraw.deepsearch.entity.ArticleInformation" >
+    update article_information
+    set order = #{order,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      " cover" = #{cover,jdbcType=VARCHAR},
+      describe = #{describe,jdbcType=VARCHAR},
+      " creation_time" = #{creationTime,jdbcType=TIMESTAMP},
+      " creation_people" = #{creationPeople,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER}
+    where serial_number = #{serialNumber,jdbcType=INTEGER}
+  </update>
+</mapper>
