@@ -39,7 +39,7 @@
 			<span>亲，欢迎进入白马查</span><a href="sign" class="head_portant">登录</a><a href="signup">免费注册</a>
 		</div>
         <div class="container" v-if="userInfo!=''">
-            <span>亲爱的 <font class="head_portant">{{userInfo.id}}</font>，欢迎进入白马查</span><a href="adminPage" class="head_portant" v-if="userInfo.grade==1">后台管理</a>
+            <span>亲爱的 <font class="head_portant">{{userInfo.id}}</font>，欢迎进入白马查</span><a href="adminPage" class="head_portant" v-if="userInfo.grade==1">后台管理</a><span class="head_portant heade_cu" @click="outSign">退出登录</span>
         </div>
 	</div>
 	<div class="header_center">
@@ -110,16 +110,16 @@
 	<div class="container">
 		<div class="index_ser1 all_mar clearfix">
 			<div class="index_banner">
-				<div class="swiper-container swiper_banner">
+				<div class="swiper-container swiper_banner swiper-no-swiping">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
-							<a target="_blank"><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner1.jpg);"></div></a>
+							<a target="_blank"  href="sign" ><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner1.jpg);"></div></a>
 						</div>
 						<div class="swiper-slide">
-							<a target="_blank"><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner1.jpg);"></div></a>
+							<a target="_blank"><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner2.jpg);"></div></a>
 						</div>
 						<div class="swiper-slide">
-							<a target="_blank"><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner1.jpg);"></div></a>
+							<a target="_blank"><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner3.jpg);"></div></a>
 						</div>
 					</div>
 				</div>
@@ -132,10 +132,10 @@
 					<div class="img"><img src="/deepsearch/images/login_hearder.jpg" width="100%"></div>
 					<h5 class="index_login_ttis" >HI, {{userInfo==""?"你还没有登录哦?":userInfo.id}}</h5>
 					<a href="signup" class="index_login_ttis2" v-if="userInfo==''">没有账号？免费注册</a>
-                    <p class="index_login_ttis2" v-if="userInfo!=''">会员等级：试用版</p>
+                    <p class="index_login_ttis2" v-if="userInfo!=''">会员等级：{{userInfo.grade==2?'试用版':'正式版'}}</p>
 					<div class="index_login_box">
 						<a href="signup" v-if="userInfo==''">免费注册</a><a href="sign" v-if="userInfo==''">会员登录</a>
-                        <a v-if="userInfo!=''">退出登录</a>
+                        <a v-if="userInfo!=''" @click="outSign">退出登录</a>
 					</div>
 				</div>
 				<div class="index_notice">
@@ -158,7 +158,7 @@
 			<div class="swiper-container swiper_list swiper-no-swiping">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<a href="##" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_1.jpg" width="100%"></a></div></a>
+						<a target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_1.jpg" width="100%"></a></div></a>
 					</div>
 					<div class="swiper-slide">
 						<a href="##" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_2.jpg" width="100%"></a></div></a>
@@ -278,7 +278,7 @@
 			        id:'',
             		inviteCode:''
 				},
-			    codeType:0,
+			    codeType:1,
 			    userInfo:[],
 				listType:0,
 				listTit:[
@@ -406,8 +406,18 @@
 				_this.$nextTick(function () {
                 	index();
                 	all();
-                	// console.log(_this.userInfo);
+                    // console.log(_this.userInfo);
+
+                    if(this.userInfo==''){
+                        _this.codeType=0;
+                    }
+                    else{
+                        if(this.userInfo.grade==2){
+                            _this.codeType=0;
+                        }
+                    }
                 })
+
 
             },
 			mounted: function () { //页面渲染完成后执行，不包括需要请求的数据
@@ -421,11 +431,13 @@
                     var _this=this;
                     _this.codeType=1;
                 },
-				//矫验邀请码
+				//验证邀请码
                 codeCheck:function () {
                     var _this=this;
                     if(_this.userInfo==''){
                         alert("请登陆后再来输入！")
+                        setTimeout(function(){ window.location.href="sign"; },1000);
+
 					}else{
                         _this.form.id=_this.userInfo.id;
                         console.log(_this.userInfo)
@@ -435,33 +447,53 @@
                             dataType: 'json',
                             data:_this.form,
                             success: function (data) {
-                                alert(data.data)
+                                alert(data.msg)
                                 if(data.code==0){
-
+                                    _this.codeType=1;
                                 }
                             }
                         })
 					}
+                },
+				//退出登录
+                outSign:function () {
+                    var _this=this;
+                    $.ajax({
+                        type: 'POST',
+                        url:Url+ 'removeSession',
+                        dataType: 'json',
+                        success: function (data) {
+                        }
+                    })
+                    _this.$nextTick(function () {
+                        sessionStorage.setItem("user",null);
+                        alert("退出成功")
+                        setTimeout(function(){ window.location.href="sign"; },1000);
+
+                    })
+
                 }
 	        },
 
 		})
-        user = '${user!}';
-        if(user!=''){
-            app.userInfo=JSON.parse(user);
-            sessionStorage.setItem("user",user);
-        }
+
 		function index(){
+            user = '${user!}';
+            if(user!=''){
+                app.userInfo=JSON.parse(user);
+                sessionStorage.setItem("user",user);
+            }else{
+                sessionStorage.setItem("user",null);
+            }
 			var swiper = new Swiper('.swiper_banner', {
-		        pagination: '.pagination_banner',
-		        paginationClickable: true,
-		        nextButton: '.index_banner_bt_one.right',
-		        prevButton: '.index_banner_bt_one.left',
-		        autoplay:3000,
-		        speed: 1000,
-		        loop: true,
-				grabCursor: true,
-		    });
+                pagination: '.pagination_banner',
+                paginationClickable: true,
+                nextButton: '.index_banner_bt_one.right',
+                prevButton: '.index_banner_bt_one.left',
+                autoplay:3000,
+                speed: 1000,
+                loop: true,
+            });
 		    var swiper2 = new Swiper('.swiper_list', {
 		        paginationClickable: true,
 		        spaceBetween: 20,

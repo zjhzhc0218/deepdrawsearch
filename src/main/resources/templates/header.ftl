@@ -1,10 +1,12 @@
+<script src="/deepsearch/js/vue.min.js"></script>
+
 <div class="header header_all">
 	<div  class="header_gary">
 		<div class="container header_before">
 			<span>亲，欢迎进入白马查</span><a href="sign" class="head_portant">登录</a><a class="signup">免费注册</a>
 		</div>
 		<div class="container header_on">
-			<span>亲爱的<font class="head_portant"></font>，欢迎进入白马查
+			<div id="app"><span>亲爱的<font class="head_portant head_name"></font>，欢迎进入白马查</span><a href="adminPage" class="head_portant head_ht" style="display:none">后台管理</a><span class="head_portant heade_cu " @click="outSign">退出登录</span></div>
 		</div>
 	</div>
 	<div class="header_center">
@@ -67,13 +69,52 @@
 		</div>
 	</div>
 </div>
-<script>
 
-    if (sessionStorage.getItem("user") !=null){
+<script>
+	$(function(){
+        var app=new Vue({
+            el: '#app',
+			data:[],
+            created:function () {
+				
+            },
+            methods:{
+                //退出登录
+                outSign:function () {
+                    var _this=this;
+                    $.ajax({
+                        type: 'POST',
+                        url:Url+ 'removeSession',
+                        dataType: 'json',
+                        success: function (data) {
+                        }
+                    })
+                    _this.$nextTick(function () {
+                        sessionStorage.setItem("user",null);
+                        alert("退出成功")
+                        setTimeout(function(){ window.location.href="sign"; },1000);
+                    })
+
+                }
+			}
+
+        })
+
+	})
+    if (sessionStorage.getItem("user") ==null || sessionStorage.getItem("user")=='null'){
+        $(".header_on").stop(true).fadeOut(0);
+        $(".header_before").stop(true).fadeIn(0);
+    }
+    else{
         var user=JSON.parse(sessionStorage.getItem("user"));
         $(".header_before").stop(true).fadeOut(0);
         $(".header_on").stop(true).fadeIn(0);
         // console.log(user["id"])
-        $(".header_on .head_portant").text(user["id"]);
+        $(".header_on .head_name").text(user["id"]);
+		if(user["grade"]==1){
+            $(".head_ht").stop(true).fadeIn(0);
+		}
     }
+
+
 </script>
