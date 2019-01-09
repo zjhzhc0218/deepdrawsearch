@@ -9,9 +9,9 @@ public class ArticleInformation {
     private Integer serialNumber;
 
     /**
-     * 排序(默认是0) 数据库字段是：order  <br>
+     * 排序(默认是0) 数据库字段是：orderN  <br>
      */
-    private Integer order;
+    private Integer orderN;
 
     /**
      * 标题 数据库字段是：title  <br>
@@ -24,9 +24,9 @@ public class ArticleInformation {
     private String author;
 
     /**
-     * 资讯类型 数据库字段是：type  <br>
+     * 资讯类型 数据库字段是：typeN  <br>
      */
-    private Integer type;
+    private Integer typeN;
 
     /**
      * 封面（存放对应路径） 数据库字段是： cover  <br>
@@ -34,9 +34,9 @@ public class ArticleInformation {
     private String cover;
 
     /**
-     * 描述 数据库字段是：describe  <br>
+     * 描述 数据库字段是：describeN  <br>
      */
-    private String describe;
+    private String describeN;
 
     /**
      * 创建时间 数据库字段是： creation_time  <br>
@@ -76,18 +76,18 @@ public class ArticleInformation {
 
     /**
      * 获取排序(默认是0)
-     * @return article_information.order
+     * @return article_information.orderN
      */
-    public Integer getOrder() {
-        return order;
+    public Integer getOrderN() {
+        return orderN;
     }
 
     /**
      * 设置排序(默认是0)
-     * @param order 排序(默认是0)
+     * @param orderN 排序(默认是0)
      */
-    public void setOrder(Integer order) {
-        this.order = order;
+    public void setOrderN(Integer orderN) {
+        this.orderN = orderN;
     }
 
     /**
@@ -124,18 +124,18 @@ public class ArticleInformation {
 
     /**
      * 获取资讯类型
-     * @return article_information.type
+     * @return article_information.typeN
      */
-    public Integer getType() {
-        return type;
+    public Integer getTypeN() {
+        return typeN;
     }
 
     /**
      * 设置资讯类型
-     * @param type 资讯类型
+     * @param typeN 资讯类型
      */
-    public void setType(Integer type) {
-        this.type = type;
+    public void setTypeN(Integer typeN) {
+        this.typeN = typeN;
     }
 
     /**
@@ -156,18 +156,18 @@ public class ArticleInformation {
 
     /**
      * 获取描述
-     * @return article_information.describe
+     * @return article_information.describeN
      */
-    public String getDescribe() {
-        return describe;
+    public String getDescribeN() {
+        return describeN;
     }
 
     /**
      * 设置描述
-     * @param describe 描述
+     * @param describeN 描述
      */
-    public void setDescribe(String describe) {
-        this.describe = describe == null ? null : describe.trim();
+    public void setDescribeN(String describeN) {
+        this.describeN = describeN == null ? null : describeN.trim();
     }
 
     /**

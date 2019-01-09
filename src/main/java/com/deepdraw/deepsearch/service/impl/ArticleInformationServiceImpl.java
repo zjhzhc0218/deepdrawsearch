@@ -30,7 +30,7 @@ public class ArticleInformationServiceImpl  implements ArticleInformationService
 
     @Override
     public int insertSelective(ArticleInformation record) {
-        return 0;
+        return articleInformationDao.insertSelective(record);
     }
 
     @Override
