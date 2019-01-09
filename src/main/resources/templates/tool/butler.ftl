@@ -138,7 +138,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="pagination pagination_banner1"></div>
+                            <div class="pagination pagination_banner1 pagination_banner"></div>
                             <div class="index_banner_bt left index_banner_bt_two"><i class="fa fa-angle-left"></i></div>
                             <div class="index_banner_bt right index_banner_bt_two"><i class="fa fa-angle-right"></i></div>
                         </div>
@@ -204,7 +204,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="pagination pagination_banner2"></div>
+                            <div class="pagination pagination_banner2 pagination_banner"></div>
                             <div class="index_banner_bt left index_banner_bt_three"><i class="fa fa-angle-left"></i></div>
                             <div class="index_banner_bt right index_banner_bt_three"><i class="fa fa-angle-right"></i></div>
                         </div>
