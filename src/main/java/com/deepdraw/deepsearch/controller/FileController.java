@@ -110,7 +110,7 @@ public class FileController {
 
     //文件上传相关代码
     @RequestMapping(value = "uploadWords")
-    public String uploadWords(HttpServletRequest request) throws IOException {
+    public int uploadWords(HttpServletRequest request) throws IOException {
 
         ArticleInformation articleInformation =  new ArticleInformation();
         articleInformation.setOrderN(0);
@@ -125,18 +125,6 @@ public class FileController {
         List<MultipartFile> list = ((MultipartHttpServletRequest) request)
                 .getFiles("img");
         MultipartFile img = list.get(0);//封面
-//        // 获取文件名
-//        String fileName = img.getOriginalFilename();
-
-
-//            File imagefile = ExportUtil.convert(img);
-//            try {
-//                FileInputStream in=new FileInputStream(imagefile);
-//                boolean flag = FtpClientUtils.uploadFile("132.232.178.236", 22, "ubutu", "64JWrjAL9E9tEaL", "/home/deep/app/img/", fileName, in);
-//                articleInformation.setCover("/deepsearch/images/"+fileName);
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
 
         // 获取文件名
         String fileName = img.getOriginalFilename();
@@ -163,8 +151,6 @@ public class FileController {
             e.printStackTrace();
         }
 
-
-
         String select =request.getParameter("select");//类型
         String words =request.getParameter("words");//描述
         String text =request.getParameter("text");//内容
@@ -173,18 +159,17 @@ public class FileController {
         articleInformation.setDescribeN(words);
         articleInformation.setSpecificContent(text);
 
-        articleInformationService.insertSelective(articleInformation);
-        System.out.println("上传成功？");
-
-
-        return "";
+        return articleInformationService.insertSelective(articleInformation);
     }
 
         /*文章资讯查询AritleInformation*/
         @RequestMapping("/getAI")
         @ResponseBody
-        public Object getAI(HttpServletRequest request, String title, Integer typeN) throws IOException {
+        public Object getAI(HttpServletRequest request,String title, Integer typeN) throws IOException {
             Map<String,Object> maps = new HashMap<>();
+            if(typeN==0) {
+                typeN = null;
+            }
             List<ArticleInformation> list = articleInformationService.selectBytitleS(title,typeN);
             maps.put("list",list);
             return JsonUtil.object2Json(ResultUtil.success(maps));

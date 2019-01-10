@@ -830,7 +830,7 @@
 
 
 
-</div>
+
 
 
 <!-- Modal -->
@@ -842,11 +842,8 @@
                 <h4 class="modal-title" id="myModalLabel">提示</h4>
             </div>
             <div class="modal-body" style="text-align: center">
-<<<<<<< HEAD
                 <label style="font-size: 25px ;color: black;text-align: center">注册或登录后可<span style="font-size: 25px ;color: red">免费</span>查询呦！</label>
-=======
                 <label style="font-size: 25px ;color: red;text-align: center">注册或登录后可免费查询呦！</label>
->>>>>>> 6d726da2c90b833c892a3bd2aadd81a80fd5e5cf
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
