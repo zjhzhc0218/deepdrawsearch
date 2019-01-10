@@ -5,6 +5,8 @@ package com.deepdraw.deepsearch.service;/**
 import com.deepdraw.deepsearch.entity.ArticleInformation;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author
  * @create 2019-01-09 14:50
@@ -53,4 +55,10 @@ public interface ArticleInformationService {
      * @mbggenerated 2019-01-09
      */
     int updateByPrimaryKey(ArticleInformation record);
+
+    /**
+     * 根据对应标题关键词跟类型查询数据
+     * @mbggenerated 2019-01-09
+     */
+    List<ArticleInformation> selectBytitleS(String title, Integer typeN);
 }

@@ -8,6 +8,8 @@ import com.deepdraw.deepsearch.service.ArticleInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * @author
  * @create 2019-01-09 15:17
@@ -51,5 +53,10 @@ public class ArticleInformationServiceImpl  implements ArticleInformationService
     @Override
     public int updateByPrimaryKey(ArticleInformation record) {
         return articleInformationDao.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<ArticleInformation> selectBytitleS(String title, Integer typeN) {
+        return articleInformationDao.selectBytitleS(title,typeN);
     }
 }

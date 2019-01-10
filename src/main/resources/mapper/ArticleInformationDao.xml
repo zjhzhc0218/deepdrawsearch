@@ -176,4 +176,20 @@
       state = #{state,jdbcType=INTEGER}
     where serial_number = #{serialNumber,jdbcType=INTEGER}
   </update>
+
+  <select id="selectBytitleS" resultMap="ResultMapWithBLOBs" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article_information
+    where 1=1
+    <if test="title != null" >
+     AND title like   CONCAT(CONCAT('%', #{title,jdbcType=VARCHAR}), '%')
+    </if>
+    <if test="typeN != null" >
+     AND typeN = #{typeN,jdbcType=INTEGER}
+    </if>
+  </select>
+
 </mapper>

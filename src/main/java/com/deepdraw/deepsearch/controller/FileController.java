@@ -9,6 +9,8 @@ import com.deepdraw.deepsearch.service.ArticleInformationService;
 import com.deepdraw.deepsearch.service.FileDownloadService;
 import com.deepdraw.deepsearch.util.ExportUtil;
 import com.deepdraw.deepsearch.util.FtpClientUtils;
+import com.deepdraw.deepsearch.util.JsonUtil;
+import com.deepdraw.deepsearch.util.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -22,7 +24,9 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author
@@ -116,21 +120,50 @@ public class FileController {
 
         articleInformation.setTitle(title);
         articleInformation.setAuthor(author);
+
+
         List<MultipartFile> list = ((MultipartHttpServletRequest) request)
                 .getFiles("img");
         MultipartFile img = list.get(0);//封面
+//        // 获取文件名
+//        String fileName = img.getOriginalFilename();
+
+
+//            File imagefile = ExportUtil.convert(img);
+//            try {
+//                FileInputStream in=new FileInputStream(imagefile);
+//                boolean flag = FtpClientUtils.uploadFile("132.232.178.236", 22, "ubutu", "64JWrjAL9E9tEaL", "/home/deep/app/img/", fileName, in);
+//                articleInformation.setCover("/deepsearch/images/"+fileName);
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            }
+
         // 获取文件名
         String fileName = img.getOriginalFilename();
+        System.out.println("上传的文件名为：" + fileName);
+        // 获取文件的后缀名
+        String suffixName = fileName.substring(fileName.lastIndexOf("."));
+        System.out.println("上传的后缀名为：" + suffixName);
+        // 文件上传后的路径
+//        String filePath = "E://test//";
+        String filePath = uploadFolder;
+        // 解决中文问题，liunx下中文路径，图片显示问题
+        // fileName = UUID.randomUUID() + suffixName;
+        File dest = new File(filePath + fileName);
+        // 检测是否存在目录
+        if (!dest.getParentFile().exists()) {
+            dest.getParentFile().mkdirs();
+        }
+        try {
+            img.transferTo(dest);
+            articleInformation.setCover(uploadFolder+fileName);
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
-            File imagefile = ExportUtil.convert(img);
-            try {
-                FileInputStream in=new FileInputStream(imagefile);
-                boolean flag = FtpClientUtils.uploadFile("132.232.178.236", 22, "ubutu", "64JWrjAL9E9tEaL", "/home/deep/app/img/", fileName, in);
-                articleInformation.setCover("/deepsearch/images/"+fileName);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
 
         String select =request.getParameter("select");//类型
         String words =request.getParameter("words");//描述
@@ -142,89 +175,20 @@ public class FileController {
 
         articleInformationService.insertSelective(articleInformation);
         System.out.println("上传成功？");
+
+
         return "";
     }
 
-//    //文件下载相关代码
-//    @RequestMapping("/download")
-//    public String downloadFile(org.apache.catalina.servlet4preview.http.HttpServletRequest request, HttpServletResponse response){
-//        String fileName = "FileUploadTests.java";
-//        if (fileName != null) {
-//            //当前是从该工程的WEB-INF//File//下获取文件(该目录可以在下面一行代码配置)然后下载到C:\\users\\downloads即本机的默认下载的目录
-//            String realPath = request.getServletContext().getRealPath(
-//                    "//WEB-INF//");
-//            File file = new File(realPath, fileName);
-//            if (file.exists()) {
-//                response.setContentType("application/force-download");// 设置强制下载不打开
-//                response.addHeader("Content-Disposition",
-//                        "attachment;fileName=" + fileName);// 设置文件名
-//                byte[] buffer = new byte[1024];
-//                FileInputStream fis = null;
-//                BufferedInputStream bis = null;
-//                try {
-//                    fis = new FileInputStream(file);
-//                    bis = new BufferedInputStream(fis);
-//                    OutputStream os = response.getOutputStream();
-//                    int i = bis.read(buffer);
-//                    while (i != -1) {
-//                        os.write(buffer, 0, i);
-//                        i = bis.read(buffer);
-//                    }
-//                    System.out.println("success");
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                } finally {
-//                    if (bis != null) {
-//                        try {
-//                            bis.close();
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                    if (fis != null) {
-//                        try {
-//                            fis.close();
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        return null;
-//    }
-
-
-    //多文件上传
-//    @RequestMapping(value = "/batch/upload", method = RequestMethod.POST)
-//    @ResponseBody
-//    public String handleFileUpload(HttpServletRequest request) {
-//        List<MultipartFile> files = ((MultipartHttpServletRequest) request)
-//                .getFiles("file");
-//        MultipartFile file = null;
-//        BufferedOutputStream stream = null;
-//        for (int i = 0; i < files.size(); ++i) {
-//            file = files.get(i);
-//            if (!file.isEmpty()) {
-//                try {
-//                    byte[] bytes = file.getBytes();
-//                    stream = new BufferedOutputStream(new FileOutputStream(
-//                            new File(file.getOriginalFilename())));
-//                    stream.write(bytes);
-//                    stream.close();
-//
-//                } catch (Exception e) {
-//                    stream = null;
-//                    return "You failed to upload " + i + " => "
-//                            + e.getMessage();
-//                }
-//            } else {
-//                return "You failed to upload " + i
-//                        + " because the file was empty.";
-//            }
-//        }
-//        return "upload successful";
-//    }
+        /*文章资讯查询AritleInformation*/
+        @RequestMapping("/getAI")
+        @ResponseBody
+        public Object getAI(HttpServletRequest request, String title, Integer typeN) throws IOException {
+            Map<String,Object> maps = new HashMap<>();
+            List<ArticleInformation> list = articleInformationService.selectBytitleS(title,typeN);
+            maps.put("list",list);
+            return JsonUtil.object2Json(ResultUtil.success(maps));
+        }
 
 
 
