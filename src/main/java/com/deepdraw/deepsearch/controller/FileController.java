@@ -7,6 +7,8 @@ import com.deepdraw.deepsearch.entity.FileDownload;
 import com.deepdraw.deepsearch.enums.DownEnums;
 import com.deepdraw.deepsearch.service.ArticleInformationService;
 import com.deepdraw.deepsearch.service.FileDownloadService;
+import com.deepdraw.deepsearch.util.ExportUtil;
+import com.deepdraw.deepsearch.util.FtpClientUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -104,7 +106,7 @@ public class FileController {
 
     //文件上传相关代码
     @RequestMapping(value = "uploadWords")
-    public String uploadWords(HttpServletRequest request){
+    public String uploadWords(HttpServletRequest request) throws IOException {
 
         ArticleInformation articleInformation =  new ArticleInformation();
         articleInformation.setOrderN(0);
@@ -117,15 +119,18 @@ public class FileController {
         List<MultipartFile> list = ((MultipartHttpServletRequest) request)
                 .getFiles("img");
         MultipartFile img = list.get(0);//封面
-
-        if (img.isEmpty()) {
-            return "文件为空";
-        }
         // 获取文件名
         String fileName = img.getOriginalFilename();
-        System.out.println("上传的文件名为：" + fileName);
 
-            articleInformation.setCover(uploadFolder+fileName);
+
+            File imagefile = ExportUtil.convert(img);
+            try {
+                FileInputStream in=new FileInputStream(imagefile);
+                boolean flag = FtpClientUtils.uploadFile("132.232.178.236", 22, "ubutu", "64JWrjAL9E9tEaL", "/home/deep/app/img/", fileName, in);
+                articleInformation.setCover("/deepsearch/images/"+fileName);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
 
         String select =request.getParameter("select");//类型
         String words =request.getParameter("words");//描述
