@@ -108,9 +108,14 @@ public class FileController {
         return "上传失败";
     }
 
-    //文件上传相关代码
+    //文章资讯上传相关代码
     @RequestMapping(value = "uploadWords")
     public int uploadWords(HttpServletRequest request) throws IOException {
+
+        String id = request.getParameter("id");//id
+        if(id!=null){  //如果id存在 就认为是修改，那么删除原先的，再新增一个新的
+            articleInformationService.deleteByPrimaryKey(Integer.parseInt(id));
+        }
 
         ArticleInformation articleInformation =  new ArticleInformation();
         articleInformation.setOrderN(0);
