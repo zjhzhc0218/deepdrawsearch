@@ -59,6 +59,11 @@ public class ArticleInformation {
     private String specificContent;
 
     /**
+     * 图片base64的保存 数据库字段是：imgs  <br>
+     */
+    private byte[] imgs;
+
+    /**
      * 获取文章资讯序号（自动生成）
      * @return article_information.serial_number
      */
@@ -232,5 +237,21 @@ public class ArticleInformation {
      */
     public void setSpecificContent(String specificContent) {
         this.specificContent = specificContent == null ? null : specificContent.trim();
+    }
+
+    /**
+     * 获取图片base64的保存
+     * @return article_information.imgs
+     */
+    public byte[] getImgs() {
+        return imgs;
+    }
+
+    /**
+     * 设置图片base64的保存
+     * @param imgs 图片base64的保存
+     */
+    public void setImgs(byte[] imgs) {
+        this.imgs = imgs;
     }
 }

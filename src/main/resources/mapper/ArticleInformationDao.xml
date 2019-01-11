@@ -15,12 +15,13 @@
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.deepdraw.deepsearch.entity.ArticleInformation" extends="BaseResultMap" >
     <result column="specific_content" property="specificContent" jdbcType="LONGVARCHAR" />
+    <result column="imgs" property="imgs" jdbcType="LONGVARBINARY" />
   </resultMap>
   <sql id="Base_Column_List" >
     serial_number, orderN, title, author,typeN,cover,describeN,creation_time,creation_people, state
   </sql>
   <sql id="Blob_Column_List" >
-   specific_content
+   specific_content,imgs
   </sql>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
@@ -38,11 +39,11 @@
     insert into article_information (serial_number, orderN, title,
       author,typeN,cover,
       describeN,creation_time,creation_people,
-      state,specific_content)
+      state,specific_content,imgs)
     values (#{serialNumber,jdbcType=INTEGER}, #{orderN,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR},
       #{author,jdbcType=VARCHAR}, #{typeN,jdbcType=INTEGER}, #{cover,jdbcType=VARCHAR},
       #{describeN,jdbcType=VARCHAR},now(), #{creationPeople,jdbcType=VARCHAR},
-      #{state,jdbcType=INTEGER}, #{specificContent,jdbcType=LONGVARCHAR})
+      #{state,jdbcType=INTEGER}, #{specificContent,jdbcType=LONGVARCHAR}, #{imgs,jdbcType=LONGVARBINARY})
   </insert>
   <insert id="insertSelective" parameterType="com.deepdraw.deepsearch.entity.ArticleInformation" >
     insert into article_information
@@ -78,6 +79,9 @@
       <if test="specificContent != null" >
         specific_content,
       </if>
+      <if test="imgs != null" >
+        imgs,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="serialNumber != null" >
@@ -110,6 +114,9 @@
       </if>
       <if test="specificContent != null" >
         #{specificContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="imgs != null" >
+        #{imgs,jdbcType=LONGVARBINARY},
       </if>
     </trim>
   </insert>
@@ -146,6 +153,9 @@
       <if test="specificContent != null" >
         specific_content = #{specificContent,jdbcType=LONGVARCHAR},
       </if>
+      <if test="imgs != null" >
+        imgs = #{imgs,jdbcType=LONGVARBINARY},
+      </if>
     </set>
     where serial_number = #{serialNumber,jdbcType=INTEGER}
   </update>
@@ -160,7 +170,8 @@
       creation_time = #{creationTime,jdbcType=TIMESTAMP},
       creation_people = #{creationPeople,jdbcType=VARCHAR},
       state = #{state,jdbcType=INTEGER},
-      specific_content = #{specificContent,jdbcType=LONGVARCHAR}
+      specific_content = #{specificContent,jdbcType=LONGVARCHAR},
+      imgs = #{imgs,jdbcType=LONGVARBINARY}
     where serial_number = #{serialNumber,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.deepdraw.deepsearch.entity.ArticleInformation" >
@@ -173,7 +184,9 @@
       describeN = #{describeN,jdbcType=VARCHAR},
       creation_time = #{creationTime,jdbcType=TIMESTAMP},
       creation_people = #{creationPeople,jdbcType=VARCHAR},
-      state = #{state,jdbcType=INTEGER}
+      state = #{state,jdbcType=INTEGER},
+      specific_content = #{specificContent,jdbcType=LONGVARCHAR},
+      imgs = #{imgs,jdbcType=LONGVARBINARY}
     where serial_number = #{serialNumber,jdbcType=INTEGER}
   </update>
 

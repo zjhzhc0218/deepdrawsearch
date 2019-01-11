@@ -7,10 +7,7 @@ import com.deepdraw.deepsearch.entity.FileDownload;
 import com.deepdraw.deepsearch.enums.DownEnums;
 import com.deepdraw.deepsearch.service.ArticleInformationService;
 import com.deepdraw.deepsearch.service.FileDownloadService;
-import com.deepdraw.deepsearch.util.ExportUtil;
-import com.deepdraw.deepsearch.util.FtpClientUtils;
-import com.deepdraw.deepsearch.util.JsonUtil;
-import com.deepdraw.deepsearch.util.ResultUtil;
+import com.deepdraw.deepsearch.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -131,6 +128,12 @@ public class FileController {
                 .getFiles("img");
         MultipartFile img = list.get(0);//封面
 
+        if (img.getSize() < 1 * 1024 * 1024){
+            //获取图片的字节流
+            byte[] bytePhoto = FileUtils.file2Byte(img);
+            articleInformation.setImgs(bytePhoto);
+        }
+        
         // 获取文件名
         String fileName = img.getOriginalFilename();
         System.out.println("上传的文件名为：" + fileName);
