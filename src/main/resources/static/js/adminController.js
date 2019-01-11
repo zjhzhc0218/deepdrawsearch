@@ -488,6 +488,7 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
      * 上传资讯
      */
     var initPage = function() {
+        editor.txt.html('');
         $scope.page = {
 
             'text':editor.txt.html(),//内容
@@ -526,6 +527,7 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         }
         var data = new FormData();
         data.append("img", $scope.page.file);
+        data.append("imgSrc", $scope.page.imgSrc);
         data.append("title", $scope.page.title);
         data.append("author", $scope.page.author);
         data.append("select", $scope.page.select);
