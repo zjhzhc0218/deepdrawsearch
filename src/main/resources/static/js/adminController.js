@@ -548,9 +548,11 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         }).then(function successCallback(response) {
                 // console.log(response.data)
                 // alert("上传成功，请刷新页面")
+                $('#zixun').modal('hide');
             },
             function errorCallback(response) {
                 console.log("error");
+                $('#zixun').modal('hide');
                 // alert("上传成功，请刷新页面");
             });
 
@@ -631,7 +633,7 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
             },
             'thumb':null, //用于存放图片的base64
             'shopStoreUrl':null,//url
-            'imgSrc':null,//imgSrc
+            'imgSrc':'data:image/jpeg;base64,'+params.imgs,//imgSrc
             'file':params.cover,//file
             'img':null,//状态
             'uploadFiles' : function (file, errorFile) {
