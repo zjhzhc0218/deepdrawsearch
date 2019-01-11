@@ -531,6 +531,9 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         data.append("select", $scope.page.select);
         data.append("words", $scope.page.words);
         data.append("text", editor.txt.html());
+        if($scope.page.id){
+            data.append("id", $scope.page.id);
+        }
         $http({
             method: "POST",
             url: "/deepsearch/File/uploadWords",
