@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,7 +61,7 @@ public class FileController {
     //文件上传相关代码
     @RequestMapping(value = "upload")
     @ResponseBody
-    public String upload(@RequestParam("test") MultipartFile file) {
+    public String upload(@RequestParam("test") MultipartFile file)  {
         if (file.isEmpty()) {
             return "文件为空";
         }
@@ -72,7 +73,14 @@ public class FileController {
         System.out.println("上传的后缀名为：" + suffixName);
         // 文件上传后的路径
 //        String filePath = "E://test//";
-        String filePath = uploadFolder;
+//        String filePath = uploadFolder;
+        String filePath = null;
+        try {
+            filePath = changeWJJ();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         // 解决中文问题，liunx下中文路径，图片显示问题
         // fileName = UUID.randomUUID() + suffixName;
         File dest = new File(filePath + fileName);
@@ -105,9 +113,20 @@ public class FileController {
         return "上传失败";
     }
 
+//    文章资讯删除相关代码 TODO 这部分传值有问题
+    @RequestMapping(value = "deleteWords")
+public Object deleteWords(HttpServletRequest request) throws IOException {
+        String ids = request.getParameter("ids[]");
+        if(ids!=null){  //如果id存在 就认为是修改，那么删除原先的，再新增一个新的
+            articleInformationService.deleteByPrimaryKey(Integer.parseInt(ids));
+        }
+        return JsonUtil.object2Json(ResultUtil.success("删除成功"));
+}
+
+
     //文章资讯上传相关代码
     @RequestMapping(value = "uploadWords")
-    public int uploadWords(HttpServletRequest request) throws IOException {
+    public Object uploadWords(HttpServletRequest request) throws IOException {
 
         String id = request.getParameter("id");//id
         if(id!=null){  //如果id存在 就认为是修改，那么删除原先的，再新增一个新的
@@ -133,7 +152,7 @@ public class FileController {
             byte[] bytePhoto = FileUtils.file2Byte(img);
             articleInformation.setImgs(bytePhoto);
         }
-        
+
         // 获取文件名
         String fileName = img.getOriginalFilename();
         System.out.println("上传的文件名为：" + fileName);
@@ -142,7 +161,12 @@ public class FileController {
         System.out.println("上传的后缀名为：" + suffixName);
         // 文件上传后的路径
 //        String filePath = "E://test//";
-        String filePath = uploadFolder;
+        String filePath = null;
+        try {
+            filePath = changeWJJ();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         // 解决中文问题，liunx下中文路径，图片显示问题
         // fileName = UUID.randomUUID() + suffixName;
         File dest = new File(filePath + fileName);
@@ -152,7 +176,7 @@ public class FileController {
         }
         try {
             img.transferTo(dest);
-            articleInformation.setCover(uploadFolder+fileName);
+            articleInformation.setCover(filePath+fileName);
         } catch (IllegalStateException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -184,6 +208,25 @@ public class FileController {
         }
 
 
+        /*上传文件的查看*/
+        @RequestMapping("/getFD")
+        @ResponseBody
+        public Object getFD(HttpServletRequest request) throws IOException {
+            Map<String,Object> maps = new HashMap<>();
+            List<FileDownload> fds =  fileDownloadService.selectFDS();
+            maps.put("list",fds);
+            return JsonUtil.object2Json(ResultUtil.success(maps));
+        }
+
+
+        /*上传文件的删除*/
+        @RequestMapping("/deleteFD")
+        @ResponseBody
+        public Object getAI(HttpServletRequest request) throws IOException {
+            String id =request.getParameter("id");//对应id
+            fileDownloadService.deleteByPrimaryKey(Integer.parseInt(id));
+            return JsonUtil.object2Json(ResultUtil.success("成功"));
+        }
 
     // 文件下载相关代码
     @RequestMapping("/downfile/{id}")
@@ -241,6 +284,23 @@ public class FileController {
         return null;
     }
 
+
+//    上传文件时自动生成文件夹
+private String changeWJJ() throws Exception {
+            /*1.获取当前时间年月日时分秒*/
+         Date date = new Date();
+         String dateString = DateUtils.dateToStrTime(date);
+        String dateStringNew = dateString.replace(":","-");
+         String filePath = uploadFolder + dateStringNew;
+         File fp = new File(filePath);
+         // 目录已存在创建文件夹
+         if (!fp.exists()) {
+             // 目录不存在的情况下，会抛出异常
+             fp.mkdir();
+         }
+         System.out.println("执行结束" + filePath);
+        return filePath+"/";
+     }
 }
 
 

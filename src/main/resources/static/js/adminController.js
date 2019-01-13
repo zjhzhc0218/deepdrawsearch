@@ -593,7 +593,7 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
             }
         }
         $.ajax({
-            url: '/deepsearch/File/getAI', data: {"ids":list},
+            url: '/deepsearch/File/deleteWords', data: {"ids":list},
             dataType: 'json',
             method: 'GET',
             success: function (data) {
@@ -605,7 +605,7 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         var list = [];
         list.push(id);
         $.ajax({
-            url: '/deepsearch/File/getAI', data: {"ids":list},
+            url: '/deepsearch/File/deleteWords', data: {"ids":list},
             dataType: 'json',
             method: 'GET',
             success: function (data) {
