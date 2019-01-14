@@ -80,8 +80,8 @@
 						<a href="javascript:history.back(-1)">返回列表</a>
 					</div>
 					<div class="toolDetails_go">
-						<p>上一条：<a :href="'tool_details?id='+toolUp.serialNumber">{{toolUp.title}}</a></p>
-						<p>下一条：<a :href="'tool_details?id='+toolDown.serialNumber">{{toolDown.title}}</a></p>
+						<p v-if="toolUp!='null'">上一条：<a :href="'tool_details?id='+toolUp.serialNumber">{{toolUp.title}}</a></p>
+						<p v-if="toolDown!='null'">下一条：<a :href="'tool_details?id='+toolDown.serialNumber">{{toolDown.title}}</a></p>
 					</div>
 				</div>
 			</div>

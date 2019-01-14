@@ -28,6 +28,9 @@ function all(){
     //
     // })
 }
+$(".index_his").click(function () {
+    alert("该功能正在维护中！")
+})
 //二维码位置
 var leftWdith=($(window).width()-1200)/2+1215;
 $(".index_core").css("left",leftWdith)
