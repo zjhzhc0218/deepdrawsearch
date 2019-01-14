@@ -1254,6 +1254,15 @@ var reg = /^[0-9]+.?[0-9]*$/;
                 });*/
             }
 
+    var   getQueryString = function(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+    var urlParams = getQueryString("name");
+    if(urlParams) {
+        $scope.zhanxian.searchWordsXy =urlParams;
+    }
             init();
     }]
 
