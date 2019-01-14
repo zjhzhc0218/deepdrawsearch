@@ -270,10 +270,11 @@
 		</div>
 	</div>
 </div>
+</div>
 <!--  / footer  -->
 	<#include "//footer.ftl">
 <!--  / footer  -->
-</div>
+
 </body>
 <script>
 
