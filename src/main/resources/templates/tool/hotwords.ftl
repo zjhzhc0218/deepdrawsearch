@@ -67,11 +67,18 @@
                                     <tbody>
 
                                     <tr>
-                                        <td>2019-01-04 </td>
+                                        <td>2019-01-03 </td>
                                         <td><a ng-click="reciRecord('https://pan.baidu.com/s/15nFKJxlNorDtG4Agc2O8sA')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
                                         <td><a ng-click="reciRecord('https://pan.baidu.com/s/1fV2DszPbDQEnfUmZms-G7w')" target="_blank" href="javascript:void(0)">无线端TOP 20W</a> </td>
                                         <td><a ng-click="reciRecord('https://pan.baidu.com/s/1L9xDZ-ay-NqnkPWDPootcw')" target="_blank" href="javascript:void(0)" >潜力词表PC</a>
                                             | <a ng-click="reciRecord('https://pan.baidu.com/s/1HGunM6t9hrpDIcbEuVyceg')" target="_blank" href="javascript:void(0)">潜力词表无线端</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2019-01-09 </td>
+                                        <td><a ng-click="reciRecord('https://pan.baidu.com/s/1hThK3pZ7KbxhpXZSgWc7Ig')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
+                                        <td><a ng-click="reciRecord('https://pan.baidu.com/s/1XG63lgXamIW8C7-RKURj-g')" target="_blank" href="javascript:void(0)">无线端TOP 20W</a> </td>
+                                        <td><a ng-click="reciRecord('https://pan.baidu.com/s/1epEt8WEQwEoe-r7zn2vi8g')" target="_blank" href="javascript:void(0)" >潜力词表PC</a>
+                                            | <a ng-click="reciRecord('https://pan.baidu.com/s/1MOwwYWeDeQkqhbTc4wo88Q')" target="_blank" href="javascript:void(0)">潜力词表无线端</a></td>
                                     </tr>
                                     </tbody>
                                 </table>
