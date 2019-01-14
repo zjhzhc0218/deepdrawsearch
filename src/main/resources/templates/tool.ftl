@@ -49,12 +49,12 @@
 				<div class="index_ser4_con1">
 					<div class="row">
 						<div class="col-sm-3" v-for="item1 in datamation">
-							<div class="index_ser4_box1">
-								<a :href="item1.link">
-									<div class="img"><img :src="item1.image" width="100%"></div>
-									<p>{{item1.text}}</p>
-								</a>
-							</div>
+                            <div class="index_ser4_box1">
+                                <a :href="item1.fileDownloadpath" :download="item1.fileDownloadpath">
+                                    <div class="img" style="'background-image: url('+item1.filePicture+')'"><span class="index_ser4_box1_tips">{{item1.fileType==1?'txt':(item1.fileTyp==2?'word':(item1.fileTyp==3?'pdf':'excel'))}}</span></div>
+                                    <p>{{item1.fileName}}</p>
+                                </a>
+                            </div>
 						</div>
 					</div>
 				</div>
@@ -81,60 +81,59 @@
 					// '电商实战宝箱',
 					// '电商头条'
 				],
-				datamation:[
-					{
-						link:'',
-						image:'images/index_4_1.jpg',
-						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-					},
-					{
-						link:'',
-						image:'images/index_4_1.jpg',
-						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-					},
-					{
-						link:'',
-						image:'images/index_4_1.jpg',
-						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-					},
-					{
-						link:'',
-						image:'images/index_4_1.jpg',
-						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-					},
-					{
-						link:'',
-						image:'images/index_4_1.jpg',
-						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-					},
-					{
-						link:'',
-						image:'images/index_4_1.jpg',
-						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-					},
-					{
-						link:'',
-						image:'images/index_4_1.jpg',
-						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-					},
-					{
-						link:'',
-						image:'images/index_4_1.jpg',
-						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-					},
-					{
-						link:'',
-						image:'images/index_4_1.jpg',
-						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-					},
-					{
-						link:'',
-						image:'images/index_4_1.jpg',
-						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-					},
-				],
-                retailers:[],
-                retailers2:[],
+                datamation:[],
+				// datamation:[
+				// 	{
+				// 		link:'',
+				// 		image:'images/index_4_1.jpg',
+				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
+				// 	},
+				// 	{
+				// 		link:'',
+				// 		image:'images/index_4_1.jpg',
+				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
+				// 	},
+				// 	{
+				// 		link:'',
+				// 		image:'images/index_4_1.jpg',
+				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
+				// 	},
+				// 	{
+				// 		link:'',
+				// 		image:'images/index_4_1.jpg',
+				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
+				// 	},
+				// 	{
+				// 		link:'',
+				// 		image:'images/index_4_1.jpg',
+				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
+				// 	},
+				// 	{
+				// 		link:'',
+				// 		image:'images/index_4_1.jpg',
+				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
+				// 	},
+				// 	{
+				// 		link:'',
+				// 		image:'images/index_4_1.jpg',
+				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
+				// 	},
+				// 	{
+				// 		link:'',
+				// 		image:'images/index_4_1.jpg',
+				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
+				// 	},
+				// 	{
+				// 		link:'',
+				// 		image:'images/index_4_1.jpg',
+				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
+				// 	},
+				// 	{
+				// 		link:'',
+				// 		image:'images/index_4_1.jpg',
+				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
+				// 	},
+				// ],
 
 			},
 			created: function (){
@@ -145,22 +144,13 @@
                     _this.listType=listnum;
 				}
 
+                //数据化运营
                 $.ajax({
                     type: 'POST',
-                    url:Url+ 'File/getAI',
+                    url:Url+ 'File/getFD',
                     dataType: 'json',
-                    data:{
-                        title:null,
-                        typeN:_this.listType
-                    },
                     success: function (data) {
-                        if(_this.listType==1){
-                            _this.retailers=data.data.list;
-                        }
-                        else{
-                            _this.retailers2=data.data.list;
-                        }
-                        console.log(_this.retailers)
+                        _this.datamation=data.data.list;
                     }
                 })
                 _this.$nextTick(function () {
@@ -172,31 +162,31 @@
 			mounted: function () { //页面渲染完成后执行，不包括需要请求的数据
 	        },
 	        methods: { //专用于定义方法
-	        	getList:function(index){
-	        		var _this=this;
-	        		_this.listType=index;
-                    if(index!=0){
-                        //电商实战宝箱
-                        $.ajax({
-                            type: 'POST',
-                            url:Url+ 'File/getAI',
-                            dataType: 'json',
-                            data:{
-                                title:null,
-                                typeN:index
-                            },
-                            success: function (data) {
-                                if(index==1){
-                                    _this.retailers=data.data.list;
-                                }
-                                else{
-                                    _this.retailers2=data.data.list;
-                                }
-                                console.log(_this.retailers)
-                            }
-                        })
-                    }
-	        	}
+	        	// getList:function(index){
+	        	// 	var _this=this;
+	        	// 	_this.listType=index;
+                //     if(index!=0){
+                //         //电商实战宝箱
+                //         $.ajax({
+                //             type: 'POST',
+                //             url:Url+ 'File/getAI',
+                //             dataType: 'json',
+                //             data:{
+                //                 title:null,
+                //                 typeN:index
+                //             },
+                //             success: function (data) {
+                //                 if(index==1){
+                //                     _this.retailers=data.data.list;
+                //                 }
+                //                 else{
+                //                     _this.retailers2=data.data.list;
+                //                 }
+                //                 console.log(_this.retailers)
+                //             }
+                //         })
+                //     }
+	        	// }
 	        },
 
 		})

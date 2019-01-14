@@ -51,10 +51,10 @@
                 <div class="col-md-10">
                     <div class="notice_ccontent">
                         <div class="notice_ccontent_box" v-for="item in notice">
-                            <a :href="item.link">
+                            <a :href="'tool_details?='+item.serialNumber">
                                 <h5>{{item.title}}</h5>
-                                <p>{{item.content}}</p>
-                                <h6>{{item.time}}</h6>
+                                <p>{{item.describeN}}</p>
+                                <h6>{{item.creationTime}}</h6>
                             </a>
                         </div>
                     </div>
@@ -73,32 +73,33 @@
         var app=new Vue({
             el: '#app',
             data:{
-                notice:[
-                    {
-                        link:'tool_details',
-                        title:'人民的宝贝，双12投票功能已就位！',
-                        content:'距离双12倒计时还剩下100个小时不到啦，抓紧上车吧~~服务详询客服哦',
-                        time:'2018-12-23 10:34'
-                    },
-                    {
-                        link:'tool_details',
-                        title:'人民的宝贝，双12投票功能已就位！',
-                        content:'距离双12倒计时还剩下100个小时不到啦，抓紧上车吧~~服务详询客服哦',
-                        time:'2018-12-23 10:34'
-                    },
-                    {
-                        link:'tool_details',
-                        title:'人民的宝贝，双12投票功能已就位！',
-                        content:'距离双12倒计时还剩下100个小时不到啦，抓紧上车吧~~服务详询客服哦',
-                        time:'2018-12-23 10:34'
-                    },
-                    {
-                        link:'tool_details',
-                        title:'人民的宝贝，双12投票功能已就位！',
-                        content:'距离双12倒计时还剩下100个小时不到啦，抓紧上车吧~~服务详询客服哦',
-                        time:'2018-12-23 10:34'
-                    },
-                ],
+                notice:[]
+                // notice:[
+                //     {
+                //         link:'tool_details',
+                //         title:'人民的宝贝，双12投票功能已就位！',
+                //         content:'距离双12倒计时还剩下100个小时不到啦，抓紧上车吧~~服务详询客服哦',
+                //         time:'2018-12-23 10:34'
+                //     },
+                //     {
+                //         link:'tool_details',
+                //         title:'人民的宝贝，双12投票功能已就位！',
+                //         content:'距离双12倒计时还剩下100个小时不到啦，抓紧上车吧~~服务详询客服哦',
+                //         time:'2018-12-23 10:34'
+                //     },
+                //     {
+                //         link:'tool_details',
+                //         title:'人民的宝贝，双12投票功能已就位！',
+                //         content:'距离双12倒计时还剩下100个小时不到啦，抓紧上车吧~~服务详询客服哦',
+                //         time:'2018-12-23 10:34'
+                //     },
+                //     {
+                //         link:'tool_details',
+                //         title:'人民的宝贝，双12投票功能已就位！',
+                //         content:'距离双12倒计时还剩下100个小时不到啦，抓紧上车吧~~服务详询客服哦',
+                //         time:'2018-12-23 10:34'
+                //     },
+                // ],
             },
             created: function (){
                 var _this=this;
@@ -108,12 +109,15 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: Url + '/Indexs/banner',
+                    url: Url + '/File/getAI',
                     dataType: 'json',
+                    data:{
+                        title:null,
+                        typeN:0
+                    },
                     success: function (data) {
-                        $_this.$nextTick(function () {
+                        _this.notice=data.data.list;
 
-                        })
                     }
                 })
 

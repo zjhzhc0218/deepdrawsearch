@@ -301,6 +301,7 @@ a{
 }
 .index_notice_list{
     padding: 7px 0;
+    height: 110px;
 }
 .all_mar{
     margin-bottom: 20px;
@@ -404,6 +405,31 @@ a{
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     top: 0px;
+}
+.index_ser4_box1 .img{
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 140px;
+    position: relative;
+    overflow: hidden;
+}
+.index_ser4_box1_tips{
+    position: absolute;
+    top: 5px;
+    left: -37px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #fb6c0e;
+    text-align: center;
+    width: 124px;
+    color: #fff;
+    transform: rotate(-45deg);
+    -ms-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -webkit-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
 }
 .index_ser4_box1:hover{
     top: -5px;
@@ -544,6 +570,7 @@ a{
 .index_ser4_right a:hover{
     color: #fb6c0e;
 }
+
 /*index*/
 /*tool*/
 .header_all .left_menu_con{
@@ -690,7 +717,7 @@ a{
     line-height:  16px;
 }
 .hot_tool{
-    margin-top: 20px;
+    /*margin-top: 20px;*/
 }
 .hot_tool_con{
     padding: 30px 25px 15px 25px;
@@ -2064,6 +2091,7 @@ a{
     padding: 0 17px;
     font-size: 16px;
     border-radius: 3px;
+    cursor: pointer;
 }
 .prohibited_left_tit .box img{
     width: 24px;
