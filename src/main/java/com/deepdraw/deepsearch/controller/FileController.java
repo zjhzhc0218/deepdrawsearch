@@ -117,7 +117,7 @@ public class FileController {
     @RequestMapping(value = "deleteWords")
 public Object deleteWords(HttpServletRequest request) throws IOException {
         String ids = request.getParameter("ids");
-        List list = JsonUtil.json2Object(ids, List.class);
+        List list = JsonUtil.json2Object(ids,List.class);
         if(ids!=null){  //如果id存在 就认为是修改，那么删除原先的，再新增一个新的
             //articleInformationService.deleteByPrimaryKey(Integer.parseInt(ids));
         }

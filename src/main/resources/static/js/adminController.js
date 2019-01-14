@@ -659,7 +659,9 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
 
 
     $scope.showZxModal = function (name) {
-        initPage();
+        if(!name =="wendang") {
+            initPage();
+        }
         $('#'+ name).modal('show');
     }
 
