@@ -203,6 +203,7 @@
     <if test="typeN != null" >
      AND typeN = #{typeN,jdbcType=INTEGER}
     </if>
+    order by  serial_number
   </select>
 
 </mapper>

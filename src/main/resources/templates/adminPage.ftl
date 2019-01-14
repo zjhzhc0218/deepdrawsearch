@@ -487,7 +487,7 @@
                     <td ng-bind="data.fileName"></td>
                     <td ng-bind="data.filePicture"></td>
                     <td ng-bind="data.fileDownloadpath"></td>
-                    <td><a ng-click="edit(data)">删除</a></td>
+                    <td><a ng-click="deleteOneWJ(data.fileId)">删除</a></td>
                 </tr>
                 </tbody>
             </table>
