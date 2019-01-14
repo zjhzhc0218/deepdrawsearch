@@ -98,16 +98,16 @@ var app=angular.module('search',[])
         ).then(function successCallback(info) {
             if(info.data.data) {
                 var resultWjc = info.data.data;
-                
-                if (resultWjc.indexOf('small') !=-1) {
+             /*   if (resultWjc.indexOf('small') !=-1) {
                     $scope.app.hasNoViolation = false;
                     $scope.app.examedContext =  resultWjc;
                 }else {
                     $scope.app.hasNoViolation = true;
                     $scope.app.examedContext ="<span style='color: green;font-size: 22px' >恭喜你，没有发现任何禁用词／敏感词！</span>";
-                }
-                $scope.app.hideDetail = true;
-                $scope.app.working = false;
+                }*/
+                $scope.app.examedContext =info.data.data;
+                // $scope.app.hideDetail = true;
+                // $scope.app.working = false;
                 appvm.value = 100;
                 clearInterval(interval);
                 // $("#wjcrs").mLoading("hide");

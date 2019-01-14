@@ -33,7 +33,7 @@ public class SearchControllers {
     @GetMapping(value="/getSearchWjc")
     public String  findOneUser(HttpServletRequest request){
         String word =  request.getParameter("searchWords");
-        String[]  args = new String[] { "python", pythonPath+"/dangerous_words.py", word };
+        String[]  args = new String[] { "python", pythonPath+"/weijin.py", word };
         functionUsingService.addFT(2);
         return JsonUtil.object2Json(ResultUtil.success(JavaToPython.getPython(args)));
     }

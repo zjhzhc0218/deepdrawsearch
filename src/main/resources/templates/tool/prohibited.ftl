@@ -54,19 +54,20 @@
                 <div class="toolALL_con">
                     <div class="prohibited_con clearfix">
                         <div class="prohibited_left">
-                            <div class="prohibited_left_tit">
-                                <h5 class="box"><img src="/deepsearch/images/search2.png"> <span>禁用词查询</span></h5>
+                            <div class="prohibited_left_tit" >
+                                <h5 class="box" ng-click="searchWjc()"><img src="/deepsearch/images/search2.png"> <span>禁用词查询</span></h5>
                             </div>
                             <div class="prohibited_box left">
-                                <textarea placeholder="在此粘贴文案,按动上方按钮后，根据文稿长短，请您耐心等待5-45秒"></textarea>
+                                <textarea ng-model="searchWordsWjc" placeholder="在此粘贴文案,按动上方按钮后，根据文稿长短，请您耐心等待5-45秒"></textarea>
+
                             </div>
                         </div>
                         <div class="prohibited_left">
                             <div class="prohibited_left_tit">
-                                <h5 class="box2"><img src="/deepsearch/images/tips.png"> 新广告法禁用词已用<span>红色</span>高亮字体标出,请您参考修改，审慎发布</h5>
+                                <h5 class="box2"><img src="/deepsearch/images/tips.png"> 新广告法禁用词已用<span style="color: #ff4800">橙色</span>高亮字体标出,请您参考修改，审慎发布</h5>
                             </div>
                             <div class="prohibited_box right">
-                                <textarea disabled></textarea>
+                                <div style="width: 567px;height: 148px;border: 1px solid #fb6c0e;margin-left: 1%;font-size: 14px;padding-top: 15px;padding-left: 12px" ng-bind-html="app.examedContext | to_trusted" disabled></div>
                             </div>
                         </div>
                     </div>
@@ -81,16 +82,15 @@
                         <#--</div>-->
 
 
-                        <#--<div class="search-info" id="wjcrs" >-->
-                            <#--<div style="width: 100%" ng-if="app.msg == null " ng-show="app.vm.value!=0&&app.vm.value!=100">-->
-                                <#--<div ng-class="{progress: true, 'progress-striped': app.vm.striped}">-->
-                                    <#--<div ng-class="['progress-bar', app.vm.style]" ng-style="{width: app.vm.value + '%'}">-->
-                                        <#--<div ng-if="app.vm.showLabel">{{app.vm.value}}%</div>-->
-                                    <#--</div>-->
-                                <#--</div>-->
-                            <#--</div>-->
-
-                        <#--</div>-->
+                        <div class="search-info" id="wjcrs" >
+                            <div style="width: 100%"  ng-show="app.vm.value!=0&&app.vm.value!=100">
+                                <div ng-class="{progress: true, 'progress-striped': app.vm.striped}">
+                                    <div ng-class="['progress-bar', app.vm.style]" ng-style="{width: app.vm.value + '%'}">
+                                        <div ng-if="app.vm.showLabel">{{app.vm.value}}%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     <#--</div>-->
                     <div class="toolALL_info">
                         <div class="toolALL_info_box">
