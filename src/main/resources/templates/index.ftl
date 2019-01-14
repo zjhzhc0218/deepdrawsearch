@@ -158,10 +158,10 @@
 			<div class="swiper-container swiper_list swiper-no-swiping">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<a target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_1.jpg" width="100%"></div></a>
+						<a target="_blank" href="reputation"><div class="index_ser2_box"><img src="/deepsearch/images/index2_1.jpg" width="100%"></div></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="##" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_2.jpg" width="100%"></div></a>
+						<a href="http://www.daoliuliang365.com" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_2.jpg" width="100%"></div></a>
 					</div>
 					<div class="swiper-slide">
 						<a href="train" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_3.jpg" width="100%"></div></a>
@@ -211,12 +211,16 @@
 				<div class="row">
 					<div class="col-sm-6" v-for="item2 in retailers">
 						<div class="index_ser4_box2 clearfix">
-							<a :href="'tool_details'+item2.link" target="_blank">
+							<a :href="'tool_details?id='+item2.serialNumber" target="_blank">
 								<div class="img" :style="'background-image:url('+item2.image+');'"></div>
 								<div class="text">
 									<h5>{{item2.title}}</h5>
-									<p>{{item2.text}}</p>
-									<h6><i class="fa fa-clock-o"></i>{{item2.date}}<span>浏览（{{item2.browse}}）</span></h6>
+									<p>{{item2.describeN}}</p>
+                                    <h6>
+                                        <i class="fa fa-clock-o"></i>{{item2.creationTime}}
+                                        <#--<span>浏览（{{item2.browse}}）</span>-->
+                                    </h6>
+
 								</div>
 							</a>
 						</div>
@@ -225,14 +229,17 @@
 			</div>
 			<div class="index_ser4_con2" v-show="listType==2?true:false">
 				<div class="row">
-					<div class="col-sm-6" v-for="item2 in retailers">
+					<div class="col-sm-6" v-for="item2 in retailers2">
 						<div class="index_ser4_box2 clearfix">
-							<a :href="'tool_details'+item2.link" target="_blank">
-								<div class="img" :style="'background-image:url('+item2.image+');'"></div>
+							<a :href="'tool_details?id='+item2.serialNumber" target="_blank">
+								<div class="img" :style="'background-image:url('+item2.cover+');'"></div>
 								<div class="text">
 									<h5>{{item2.title}}</h5>
 									<p>{{item2.text}}</p>
-									<h6><i class="fa fa-clock-o"></i>{{item2.date}}<span>浏览（{{item2.browse}}）</span></h6>
+                                    <h6>
+                                        <i class="fa fa-clock-o"></i>{{item2.creationTime}}
+                                        <#--<span>浏览（{{item2.browse}}）</span>-->
+                                    </h6>
 								</div>
 							</a>
 						</div>
@@ -283,8 +290,8 @@
 				listType:0,
 				listTit:[
 					'数据化运营',
-					'电商实战宝箱',
-					'电商头条'
+					// '电商实战宝箱',
+					// '电商头条'
 				],
 				tool:[
 					{
@@ -356,32 +363,32 @@
 						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
 					},
 				],
-				retailers:[
-					{
-						link:'',
-						image:'/deepsearch/images/index5_1.jpg',
-						title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
-						text:'就此现象，业内专家们展开了诸多探讨，并表示，即使由于退换货引发的包装贬损理应由消费者买单，商家也应尽到提前告知义务。',
-						date:'2018-12-23',
-						browse:'1322'
-					},
-					{
-						link:'',
-						image:'/deepsearch/images/index5_1.jpg',
-						title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
-						text:'就此现象，业内专家们展开了诸多探讨，并表示，即使由于退换货引发的包装贬损理应由消费者买单，商家也应尽到提前告知义务。',
-						date:'2018-12-23',
-						browse:'1322'
-					},
-					{
-						link:'',
-						image:'/deepsearch/images/index5_1.jpg',
-						title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
-						text:'就此现象，业内专家们展开了诸多探讨，并表示，即使由于退换货引发的包装贬损理应由消费者买单，商家也应尽到提前告知义务。',
-						date:'2018-12-23',
-						browse:'1322'
-					}
-				],
+				// retailers1:[
+				// 	{
+				// 		link:'',
+				// 		image:'/deepsearch/images/index5_1.jpg',
+				// 		title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
+				// 		text:'就此现象，业内专家们展开了诸多探讨，并表示，即使由于退换货引发的包装贬损理应由消费者买单，商家也应尽到提前告知义务。',
+				// 		date:'2018-12-23',
+				// 		browse:'1322'
+				// 	},
+				// 	{
+				// 		link:'',
+				// 		image:'/deepsearch/images/index5_1.jpg',
+				// 		title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
+				// 		text:'就此现象，业内专家们展开了诸多探讨，并表示，即使由于退换货引发的包装贬损理应由消费者买单，商家也应尽到提前告知义务。',
+				// 		date:'2018-12-23',
+				// 		browse:'1322'
+				// 	},
+				// 	{
+				// 		link:'',
+				// 		image:'/deepsearch/images/index5_1.jpg',
+				// 		title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
+				// 		text:'就此现象，业内专家们展开了诸多探讨，并表示，即使由于退换货引发的包装贬损理应由消费者买单，商家也应尽到提前告知义务。',
+				// 		date:'2018-12-23',
+				// 		browse:'1322'
+				// 	}
+				// ],
 				brand:[
 					'/deepsearch/images/index6_1.png',
 					'/deepsearch/images/index6_2.png',
@@ -397,7 +404,9 @@
 					'/deepsearch/images/index6_12.png',
 					'/deepsearch/images/index6_13.png',
 					'/deepsearch/images/index6_14.png',
-				]
+				],
+                retailers:[],
+                retailers2:[]
 
 			},
 			created: function (){
@@ -418,14 +427,35 @@
                     }
                 })
 
-
             },
 			mounted: function () { //页面渲染完成后执行，不包括需要请求的数据
 	        },
 	        methods: { //专用于定义方法
+			    //tab切换点击事件
 	        	getList:function(index){
 	        		var _this=this;
 	        		_this.listType=index;
+	        		if(index!=0){
+                        //电商实战宝箱
+                        $.ajax({
+                            type: 'POST',
+                            url:Url+ 'File/getAI',
+                            dataType: 'json',
+                            data:{
+                                title:null,
+                                typeN:index
+                            },
+                            success: function (data) {
+                                if(index==1){
+                                    _this.retailers=data.data.list;
+                                }
+                                else{
+                                    _this.retailers2=data.data.list;
+                                }
+                                console.log(_this.retailers)
+                            }
+                        })
+                    }
 	        	},
                 codeHide:function () {
                     var _this=this;
