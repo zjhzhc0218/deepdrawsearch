@@ -116,9 +116,10 @@ public class FileController {
 //    文章资讯删除相关代码 TODO 这部分传值有问题
     @RequestMapping(value = "deleteWords")
 public Object deleteWords(HttpServletRequest request) throws IOException {
-        String ids = request.getParameter("ids[]");
+        String ids = request.getParameter("ids");
+        List list = JsonUtil.json2Object(ids, List.class);
         if(ids!=null){  //如果id存在 就认为是修改，那么删除原先的，再新增一个新的
-            articleInformationService.deleteByPrimaryKey(Integer.parseInt(ids));
+            //articleInformationService.deleteByPrimaryKey(Integer.parseInt(ids));
         }
         return JsonUtil.object2Json(ResultUtil.success("删除成功"));
 }
