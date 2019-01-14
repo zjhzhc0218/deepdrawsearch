@@ -434,7 +434,7 @@
                         <td ng-bind="data.cover"></td>
                         <td ng-bind="data.describeN"></td>
                         <td ng-bind="data._creationTime"></td>
-                        <td><a ng-click="edit(data)">编辑</a>&nbsp;&nbsp;<a>删除</a></td>
+                        <td><a ng-click="edit(data)">编辑</a>&nbsp;&nbsp;<a ng-click="deleteOne(data.serialNumber)">删除</a></td>
                     </tr>
                 </tbody>
             </table>
