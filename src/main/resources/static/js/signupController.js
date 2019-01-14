@@ -231,39 +231,44 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
         // }
 
             console.log('ok');
-            $http({
-                method: 'GET',
-                // url:'/deepsearch/registered',
-                url: '/deepsearch/login/userRegistered',
-                params: {
-                    // 'name':$scope.name,
-                    'id': $scope.name,
-                    'password': $scope.password,
-                    'mobileCode':$scope.showAuthCode,
-                    'signCode':$scope.signCode
-                }
-            }).success(function (data) {
-                if(data.code!=0){
-                    spop({template: '<strong>' +data.msg+
-                    '</strong>',
-                        autoclose: 3000,
-                        style:'error'
-                    });
-                    return;
-                }
-                //注册成功跳转到登录页面
-                // var url='/deepsearch/searchIndex?ON=N';
-                var url='/deepsearch/index?ON=N';
-                // var url='/deepsearch/changeName';
-                location.href = url;
-            }).error(function (data) {
-                spop({template: '<strong>' +data.msg+
-                '</strong>',
-                    autoclose: 3000,
-                    style:'error'
-                });
-                return;
-            });
+        var url='/deepsearch/index?ON=N';
+        // var url='/deepsearch/changeName';
+        location.href = url;
+
+
+            // $http({
+            //     method: 'GET',
+            //     // url:'/deepsearch/registered',
+            //     url: '/deepsearch/login/userRegistered',
+            //     params: {
+            //         // 'name':$scope.name,
+            //         'id': $scope.name,
+            //         'password': $scope.password,
+            //         'mobileCode':$scope.showAuthCode,
+            //         'signCode':$scope.signCode
+            //     }
+            // }).success(function (data) {
+            //     if(data.code!=0){
+            //         spop({template: '<strong>' +data.msg+
+            //         '</strong>',
+            //             autoclose: 3000,
+            //             style:'error'
+            //         });
+            //         return;
+            //     }
+            //     //注册成功跳转到登录页面
+            //     // var url='/deepsearch/searchIndex?ON=N';
+            //     var url='/deepsearch/index?ON=N';
+            //     // var url='/deepsearch/changeName';
+            //     location.href = url;
+            // }).error(function (data) {
+            //     spop({template: '<strong>' +data.msg+
+            //     '</strong>',
+            //         autoclose: 3000,
+            //         style:'error'
+            //     });
+            //     return;
+            // });
 
     }
 

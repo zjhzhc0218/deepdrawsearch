@@ -17,6 +17,14 @@
     from file_download
     where file_id = #{fileId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectFDS" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from file_download
+
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from file_download
     where file_id = #{fileId,jdbcType=INTEGER}

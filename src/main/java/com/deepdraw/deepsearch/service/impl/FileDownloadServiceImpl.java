@@ -8,6 +8,8 @@ import com.deepdraw.deepsearch.service.FileDownloadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * @author
  * @create 2019-01-04 11:08
@@ -46,5 +48,10 @@ public class FileDownloadServiceImpl implements FileDownloadService{
     @Override
     public int updateByPrimaryKey(FileDownload record) {
         return fileDownloadDao.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<FileDownload> selectFDS() {
+        return fileDownloadDao.selectFDS();
     }
 }

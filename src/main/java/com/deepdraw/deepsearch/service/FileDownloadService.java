@@ -5,6 +5,8 @@ package com.deepdraw.deepsearch.service;/**
 import com.deepdraw.deepsearch.entity.FileDownload;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author
  * @create 2019-01-04 11:07
@@ -48,6 +50,10 @@ public interface FileDownloadService {
      */
     int updateByPrimaryKey(FileDownload record);
 
-
+    /**
+     * 查询对应的上传文件
+     * @return
+     */
+    List<FileDownload> selectFDS();
 
 }

@@ -487,36 +487,39 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
     /**
      * 上传资讯
      */
-    $scope.page = {
+    var initPage = function() {
+        editor.txt.html('');
+        $scope.page = {
 
-        'text':editor.txt.html(),//内容
-        'title':null,
-        'author':null,
-        'select':null,
-        'words':null,
-        'reader':new FileReader(), //创建一个FileReader接口
-        'form' : { //用于绑定提交内容，图片或其他数据
-            image: {},
-        },
-        'thumb':null, //用于存放图片的base64
-        'shopStoreUrl':null,//url
-        'imgSrc':null,//imgSrc
-        'file':null,//file
-        'img':null,//状态
-        'uploadFiles' : function (file, errorFile) {
-            if ( file ) {
-                $scope.page.reader.onload = function(ev) {
-                    $scope.$apply(function() {
-                        $scope.page.thumb = ev.target.result; //接收base64
-                    });
-                    $scope.page.imgSrc = $scope.page.thumb;
-                };
+            'text':editor.txt.html(),//内容
+            'title':'',
+            'author':null,
+            'select':1,
+            'words':null,
+            'reader':new FileReader(), //创建一个FileReader接口
+            'form' : { //用于绑定提交内容，图片或其他数据
+                image: {},
+            },
+            'thumb':null, //用于存放图片的base64
+            'shopStoreUrl':null,//url
+            'imgSrc':null,//imgSrc
+            'file':null,//file
+            'img':null,//状态
+            'uploadFiles' : function (file, errorFile) {
+                if ( file ) {
+                    $scope.page.reader.onload = function(ev) {
+                        $scope.$apply(function() {
+                            $scope.page.thumb = ev.target.result; //接收base64
+                        });
+                        $scope.page.imgSrc = $scope.page.thumb;
+                    };
+                }
+                $scope.page.reader.readAsDataURL(file); //FileReader的方法，把图片转成base64
             }
-            $scope.page.reader.readAsDataURL(file); //FileReader的方法，把图片转成base64
-        }
-
-    };
-
+        };
+    }
+    initPage();
+    //
     $scope.infosum =function () {
 
         if($scope.page.author==null||$scope.page.title==null||$scope.page.select==null||$scope.page.words==null){
@@ -524,11 +527,15 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         }
         var data = new FormData();
         data.append("img", $scope.page.file);
+        data.append("imgSrc", $scope.page.imgSrc);
         data.append("title", $scope.page.title);
         data.append("author", $scope.page.author);
         data.append("select", $scope.page.select);
         data.append("words", $scope.page.words);
         data.append("text", editor.txt.html());
+        if($scope.page.id){
+            data.append("id", $scope.page.id);
+        }
         $http({
             method: "POST",
             url: "/deepsearch/File/uploadWords",
@@ -541,14 +548,132 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         }).then(function successCallback(response) {
                 // console.log(response.data)
                 // alert("上传成功，请刷新页面")
+                $('#zixun').modal('hide');
             },
             function errorCallback(response) {
                 console.log("error");
+                $('#zixun').modal('hide');
                 // alert("上传成功，请刷新页面");
             });
 
     }
 
+    /**
+     * 查询资讯
+     */
+    $scope.queryparam = {
+        'title': null,
+        'type': 0
+    };
+    $scope.queryinfo = function () {
+        $.ajax({
+            url: '/deepsearch/File/getAI', data: {"title": $scope.queryparam.title,"typeN": $scope.queryparam.type},
+            dataType: 'json',
+            method: 'GET',
+            success: function (data) {
+                $scope.zixunrecord =  data.data.list;
+                for (var i=0;i<$scope.zixunrecord.length;i++) {
+                    $scope.zixunrecord[i].checked = false;
+                    $scope.zixunrecord[i]._creationTime = $filter('date')($scope.zixunrecord[i].creationTime,'yyyy-MM-dd HH:mm:ss');
+                    $scope.$apply();
+                }
+            }
+        })
+    }
+
+    /**
+     * 批量删除
+     * @param name
+     */
+    $scope.deleteAll = function() {
+        var list = [];
+        for (var i=0;i<$scope.zixunrecord.length;i++)  {
+            if ($scope.zixunrecord[i].checked) {
+                list.push($scope.zixunrecord[i].serialNumber);
+            }
+        }
+        $.ajax({
+            url: '/deepsearch/File/deleteWords', data: {"ids":angular.toJson(list)},
+            dataType: 'json',
+            method: 'GET',
+            success: function (data) {
+               alert("删除成功");
+            }
+        })
+    };
+    $scope.deleteOne = function(id) {
+        var list = [];
+        list.push(id);
+        $.ajax({
+            url: '/deepsearch/File/deleteWords', data: {"ids":angular.toJson(list)},
+            dataType: 'json',
+            method: 'GET',
+            success: function (data) {
+                alert("删除成功");
+            }
+        })
+    };
+
+    /**
+     * 编辑
+     * @param name
+     */
+    $scope.edit = function(params) {
+        editor.txt.html(params.specificContent);
+        var fileP = null;
+        if(params.imgs){
+            fileP = dataURLtoFile('data:image/jpeg;base64,'+params.imgs,'fengmian.jpg');
+        }
+        $scope.page = {
+            'id':params.serialNumber,//
+            'text':params.specificContent,//内容
+            'title':params.title,
+            'author':params.author,
+            'select':params.typeN,
+            'words':params.describeN,
+            'reader':new FileReader(), //创建一个FileReader接口
+            'form' : { //用于绑定提交内容，图片或其他数据
+                image: {},
+            },
+            'thumb':null, //用于存放图片的base64
+            'shopStoreUrl':null,//url
+            'imgSrc':'data:image/jpeg;base64,'+params.imgs,//imgSrc
+            'file': fileP,//file
+            'img':null,//状态
+            'uploadFiles' : function (file, errorFile) {
+                if ( file ) {
+                    $scope.page.reader.onload = function(ev) {
+                        $scope.$apply(function() {
+                            $scope.page.thumb = ev.target.result; //接收base64
+                        });
+                        $scope.page.imgSrc = $scope.page.thumb;
+                    };
+                }
+                $scope.page.reader.readAsDataURL(file); //FileReader的方法，把图片转成base64
+            }
+        };
+
+        $('#zixun').modal('show');
+    }
+
+
+
+    $scope.showZxModal = function (name) {
+        if(!name =="wendang") {
+            initPage();
+        }
+        $('#'+ name).modal('show');
+    }
+
+
+        var dataURLtoFile = function (dataurl, filename) {//将base64转换为文件
+            var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+                bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+            while(n--){
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new File([u8arr], filename, {type:mime});
+        }
 
 
     }]

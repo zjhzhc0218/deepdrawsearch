@@ -2,6 +2,8 @@ package com.deepdraw.deepsearch.dao;
 
 import com.deepdraw.deepsearch.entity.FileDownload;
 
+import java.util.List;
+
 public interface FileDownloadDao {
     /**
      *
@@ -38,4 +40,10 @@ public interface FileDownloadDao {
      * @mbggenerated 2019-01-04
      */
     int updateByPrimaryKey(FileDownload record);
+
+    /**
+     * 查询对应的上传文件
+     * @return
+     */
+    List<FileDownload> selectFDS();
 }
