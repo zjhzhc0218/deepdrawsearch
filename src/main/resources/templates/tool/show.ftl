@@ -111,13 +111,13 @@
 <script src="/deepsearch/js/jquery.scrollstop.min.js"></script>
 <script src="/deepsearch/js/index.js"></script>
 <script>
-    var str =window.location.href;
+  /*  var str =window.location.href;
     str2 = str.match(/id=(\d*)/);
     // alert(str2[1])
     if(str2){
         var str3=str2;
         $("#showinput").val(str3)
-    }
+    }*/
 
     // document.getElementById('#showinput').value=str2[1];
 </script>
