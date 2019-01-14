@@ -657,6 +657,60 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
     }
 
 
+        /**--------------- 文件上传部分开始  ----------------- **/
+        /**
+         * 查询资讯
+         */
+        $scope.queryinfoWJ = function () {
+            $.ajax({
+                url: '/deepsearch/File/getFD', data: {},
+                dataType: 'json',
+                method: 'GET',
+                success: function (data) {
+                    $scope.wenjianrecord =  data.data.list;
+                    for (var i=0;i<$scope.wenjianrecord.length;i++) {
+                        $scope.wenjianrecord[i].checked = false;
+                        $scope.$apply();
+                    }
+                }
+            })
+        }
+
+        /**
+         * 批量删除
+         * @param name
+         */
+        $scope.deleteAllWJ = function() {
+            var list = [];
+            for (var i=0;i<$scope.wenjianrecord.length;i++)  {
+                if ($scope.wenjianrecord[i].checked) {
+                    list.push($scope.wenjianrecord[i].fileId);
+                }
+            }
+            $.ajax({
+                url: '/deepsearch/File/deleteFD', data: {"ids":angular.toJson(list)},
+                dataType: 'json',
+                method: 'GET',
+                success: function (data) {
+                    alert("删除成功");
+                }
+            })
+        };
+        $scope.deleteOneWJ = function(id) {
+            var list = [];
+            list.push(id);
+            $.ajax({
+                url: '/deepsearch/File/deleteFD', data: {"ids":angular.toJson(list)},
+                dataType: 'json',
+                method: 'GET',
+                success: function (data) {
+                    alert("删除成功");
+                }
+            })
+        };
+
+        /**----------------  文件上传部分结束 -----------**/
+
 
     $scope.showZxModal = function (name) {
         if(!name =="wendang") {

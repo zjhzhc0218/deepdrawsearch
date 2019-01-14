@@ -76,7 +76,7 @@ public class FileController {
 //        String filePath = uploadFolder;
         String filePath = null;
         try {
-            filePath = changeWJJ();
+            filePath = changeWJJ("wenjian");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -113,16 +113,110 @@ public class FileController {
         return "上传失败";
     }
 
-//    文章资讯删除相关代码 TODO 这部分传值有问题
+    //文件上传相关代码 版本2.0
+    @RequestMapping(value = "uploadNew")
+    @ResponseBody
+    public String upload(@RequestParam("test") MultipartFile file,@RequestParam("testTu") MultipartFile fileTu)  {
+        if (fileTu.isEmpty()) {
+            return "图片为空";
+        }
+        // 获取文件名
+        String fileNameT = fileTu.getOriginalFilename();
+        System.out.println("上传的图片名为：" + fileNameT);
+        String filePathTu = null;
+        try {
+            filePathTu = changeWJJ("tupian");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // 解决中文问题，liunx下中文路径，图片显示问题
+        // fileName = UUID.randomUUID() + suffixName;
+        File destT = new File(filePathTu + fileNameT);
+        // 检测是否存在目录
+        if (!destT.getParentFile().exists()) {
+            destT.getParentFile().mkdirs();
+        }
+        try {
+            fileTu.transferTo(destT);
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+        if (file.isEmpty()) {
+            return "文件为空";
+        }
+        // 获取文件名
+        String fileName = file.getOriginalFilename();
+        System.out.println("上传的文件名为：" + fileName);
+        // 获取文件的后缀名
+        String suffixName = fileName.substring(fileName.lastIndexOf("."));
+        System.out.println("上传的后缀名为：" + suffixName);
+        // 文件上传后的路径
+//        String filePath = "E://test//";
+//        String filePath = uploadFolder;
+        String filePath = null;
+        try {
+            filePath = changeWJJ("wenjian");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        // 解决中文问题，liunx下中文路径，图片显示问题
+        // fileName = UUID.randomUUID() + suffixName;
+        File dest = new File(filePath + fileName);
+        // 检测是否存在目录
+        if (!dest.getParentFile().exists()) {
+            dest.getParentFile().mkdirs();
+        }
+        try {
+            file.transferTo(dest);
+
+           /*这里应该把数据保存到数据库中*/
+            FileDownload fileDownload = new FileDownload();
+            fileDownload.setFileName(fileName);
+            /*对应数据后缀去划分对应内容  后续还要加TODO*/
+            switch (suffixName){
+                case ".txt":fileDownload.setFileType(1);
+                case ".word":fileDownload.setFileType(2);
+                case ".pdf":fileDownload.setFileType(3);
+                case ".excel":fileDownload.setFileType(4);
+            }
+            fileDownload.setFileDownloadpath(filePath + fileName);
+            fileDownload.setFilePicture(filePathTu + fileNameT);
+            fileDownloadService.insertSelective(fileDownload);
+
+            return "上传成功";
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "上传失败";
+    }
+
+
+//    文章资讯删除相关代码
     @RequestMapping(value = "deleteWords")
 public Object deleteWords(HttpServletRequest request) throws IOException {
         String ids = request.getParameter("ids");
         List list = JsonUtil.json2Object(ids,List.class);
-        if(ids!=null){  //如果id存在 就认为是修改，那么删除原先的，再新增一个新的
-            //articleInformationService.deleteByPrimaryKey(Integer.parseInt(ids));
+        if(list.size()>0){  //如果id存在 就认为是修改，那么删除原先的，再新增一个新的
+           for(Integer y=0;y<list.size();y++){
+               Integer z = (Integer) (list.get(y));
+              articleInformationService.deleteByPrimaryKey(z);
+           }
+            return JsonUtil.object2Json(ResultUtil.success("删除成功"));
+            }else{
+            return JsonUtil.object2Json(ResultUtil.error(2,"没有对应id"));
         }
-        return JsonUtil.object2Json(ResultUtil.success("删除成功"));
-}
+        }
+
 
 
     //文章资讯上传相关代码
@@ -164,7 +258,7 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
 //        String filePath = "E://test//";
         String filePath = null;
         try {
-            filePath = changeWJJ();
+            filePath = changeWJJ("zixun");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -208,8 +302,16 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
             return JsonUtil.object2Json(ResultUtil.success(maps));
         }
 
+    /*文章资讯查询AritleInformation 单个*/
+    @RequestMapping("/getAIById")
+    @ResponseBody
+    public Object getAIById(HttpServletRequest request,Integer id) throws IOException {
+        ArticleInformation articleInformation = articleInformationService.selectByPrimaryKey(id);
+        return JsonUtil.object2Json(ResultUtil.success(articleInformation));
+    }
 
-        /*上传文件的查看*/
+
+        /*上传文件的查看 查看全部 */
         @RequestMapping("/getFD")
         @ResponseBody
         public Object getFD(HttpServletRequest request) throws IOException {
@@ -219,14 +321,31 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
             return JsonUtil.object2Json(ResultUtil.success(maps));
         }
 
+    /*上传文件的查看 查看单个 */
+    @RequestMapping("/getFDById")
+    @ResponseBody
+    public Object getFDById(HttpServletRequest request,Integer id) throws IOException {
+        FileDownload fileDownload =  fileDownloadService.selectByPrimaryKey(id);
+        return JsonUtil.object2Json(ResultUtil.success(fileDownload));
+    }
+
 
         /*上传文件的删除*/
         @RequestMapping("/deleteFD")
         @ResponseBody
         public Object getAI(HttpServletRequest request) throws IOException {
-            String id =request.getParameter("id");//对应id
-            fileDownloadService.deleteByPrimaryKey(Integer.parseInt(id));
-            return JsonUtil.object2Json(ResultUtil.success("成功"));
+
+            String ids = request.getParameter("ids");
+            List list = JsonUtil.json2Object(ids,List.class);
+            if(list.size()>0){  //如果id存在 就认为是修改，那么删除原先的，再新增一个新的
+                for(Integer y=0;y<list.size();y++){
+                    Integer z = (Integer) (list.get(y));
+                    fileDownloadService.deleteByPrimaryKey(z);
+                }
+                return JsonUtil.object2Json(ResultUtil.success("删除成功"));
+            }else{
+                return JsonUtil.object2Json(ResultUtil.error(2,"没有对应id"));
+            }
         }
 
     // 文件下载相关代码
@@ -287,12 +406,18 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
 
 
 //    上传文件时自动生成文件夹
-private String changeWJJ() throws Exception {
+private String changeWJJ(String lujing) throws Exception {
             /*1.获取当前时间年月日时分秒*/
          Date date = new Date();
          String dateString = DateUtils.dateToStrTime(date);
         String dateStringNew = dateString.replace(":","-");
-         String filePath = uploadFolder + dateStringNew;
+    String filePath = null;
+    if(lujing==null){
+             filePath = uploadFolder + dateStringNew;
+        }else{
+             filePath = uploadFolder + lujing +"/" + dateStringNew;
+        }
+//         String filePath = uploadFolder + dateStringNew;
          File fp = new File(filePath);
          // 目录已存在创建文件夹
          if (!fp.exists()) {
