@@ -118,11 +118,17 @@ public class FileController {
 public Object deleteWords(HttpServletRequest request) throws IOException {
         String ids = request.getParameter("ids");
         List list = JsonUtil.json2Object(ids,List.class);
-        if(ids!=null){  //如果id存在 就认为是修改，那么删除原先的，再新增一个新的
-            //articleInformationService.deleteByPrimaryKey(Integer.parseInt(ids));
+        if(list.size()>0){  //如果id存在 就认为是修改，那么删除原先的，再新增一个新的
+           for(Integer y=0;y<list.size();y++){
+               Integer z = (Integer) (list.get(y));
+              articleInformationService.deleteByPrimaryKey(z);
+           }
+            return JsonUtil.object2Json(ResultUtil.success("删除成功"));
+            }else{
+            return JsonUtil.object2Json(ResultUtil.error(2,"没有对应id"));
         }
-        return JsonUtil.object2Json(ResultUtil.success("删除成功"));
-}
+        }
+
 
 
     //文章资讯上传相关代码
