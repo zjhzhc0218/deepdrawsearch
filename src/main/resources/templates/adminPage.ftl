@@ -447,13 +447,21 @@
         <#--<b style="font-size: 26px">资讯管理</b>-->
         <#--第二行-->
             <div style="margin-top: 35px;font-size: 20px">
-                <#--<div style="display: inline">-->
-                    <#--<span>标题：</span>-->
-                    <#--<input style="width: 15%" >-->
+                <div style="display: inline">
+                    <span>标题：</span>
+                    <input style="width: 15%" >
+                </div>
+
+                <#--<div style="display: inline;margin-left: 4%">-->
+                    <#--<span>资讯类型：</span>-->
+                    <#--<select style="" ng-model="queryparam.type">-->
+                        <#--<option value ="0">全部</option>-->
+                        <#--&lt;#&ndash;<option value ="1">电商实战宝箱</option>&ndash;&gt;-->
+                        <#--&lt;#&ndash;<option value ="2">电商头条</option>&ndash;&gt;-->
+                    <#--</select>-->
                 <#--</div>-->
 
-
-                <div style="display: inline;margin-left: 4%"><button class="btn btn-primary" style="display: inline;width: 90px" ng-click="">查<span>&nbsp;&nbsp;&nbsp;</span>询</button></div>
+                <div style="display: inline;margin-left: 4%"><button class="btn btn-primary" style="display: inline;width: 90px" ng-click="queryinfoWJ()">查<span>&nbsp;&nbsp;&nbsp;</span>询</button></div>
             </div>
         <#--第三行-->
             <div style="margin-top: 15px;">
@@ -473,13 +481,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr >
+                <tr ng-repeat="data in wenjianrecord">
                     <td><input type="checkbox" ng-model="data.checked"></td>
-                    <td ng-bind="data.serialNumber"></td>
                     <td ng-bind="data.title"></td>
                     <td ng-bind="data.author"></td>
                     <td ng-bind="data.typeN"></td>
-                    <td><a ng-click="edit(data)">编辑</a>&nbsp;&nbsp;<a>删除</a></td>
+                    <td><a>删除</a></td>
                 </tr>
                 </tbody>
             </table>
@@ -560,10 +567,10 @@
                 <div class="modal-body" style="">
 
                     <div  role="tabpanel" class="tab-pane " id="wenzhang" style="margin-left: 10%">
-                        <form action="/deepsearch/File/uploadNew" method="POST" enctype="multipart/form-data">
-                            图片：<input type="file" name="testTu"/>
-                            文件：<input type="file" name="test"/>
-                            <input type="submit" />
+                        <form action="/deepsearch/File/uploadNew" method="POST" enctype="multipart/form-data" style="font-size: 19px">
+                            <div style="margin-top: 20px;margin-bottom: 20px">图片：<input type="file" name="testTu" style="display: inline"/></div>
+                            <div style="margin-bottom: 20px">文件：<input type="file" name="test" style="display: inline"/></div>
+                            <div style="margin-bottom: 20px"><button class="btn btn-primary" style="display: inline;width: 90px" type="submit">提交</button></div>
                         </form>
                         <#--<div style="margin-bottom: 24px;font-size: 19px;margin-top: 24px">标<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>题：<input placeholder="请输入文章标题" type="text" style="display: inline;width: 77%"  ></div>-->
                         <#--&lt;#&ndash;<div style="margin-bottom: 24px;font-size: 19px">作<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>者：<input placeholder="请输入作者" type="text" style="display: inline;width: 77%" ></div>&ndash;&gt;-->

@@ -667,10 +667,9 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
                 dataType: 'json',
                 method: 'GET',
                 success: function (data) {
-                    $scope.zixunrecord =  data.data.list;
-                    for (var i=0;i<$scope.zixunrecord.length;i++) {
-                        $scope.zixunrecord[i].checked = false;
-                        $scope.zixunrecord[i]._creationTime = $filter('date')($scope.zixunrecord[i].creationTime,'yyyy-MM-dd HH:mm:ss');
+                    $scope.wenjianrecord =  data.data.list;
+                    for (var i=0;i<$scope.wenjianrecord.length;i++) {
+                        $scope.wenjianrecord[i].checked = false;
                         $scope.$apply();
                     }
                 }
