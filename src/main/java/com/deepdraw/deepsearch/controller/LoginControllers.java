@@ -347,4 +347,37 @@ public class LoginControllers {
         mv.setViewName("down");
         return mv;
     }
+    /**
+     * 7天冲首页
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/seven")
+    public ModelAndView seven(ModelAndView mv) {
+        //mv.addObject("name", "测试1");
+        mv.setViewName("tool/seven");
+        return mv;
+    }
+    /**
+     * 21天流量爆款
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/twentyone")
+    public ModelAndView twentyone(ModelAndView mv) {
+        //mv.addObject("name", "测试1");
+        mv.setViewName("tool/twentyone");
+        return mv;
+    }
+    /**
+     * 21天流量爆款
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/train")
+    public ModelAndView train(ModelAndView mv) {
+        //mv.addObject("name", "测试1");
+        mv.setViewName("tool/train");
+        return mv;
+    }
 }

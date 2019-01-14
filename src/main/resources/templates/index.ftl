@@ -116,10 +116,10 @@
 							<a target="_blank"  href="sign" ><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner1.jpg);"></div></a>
 						</div>
 						<div class="swiper-slide">
-							<a target="_blank"><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner2.jpg);"></div></a>
+							<a target="_blank" href="seven"><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner2.jpg);"></div></a>
 						</div>
 						<div class="swiper-slide">
-							<a target="_blank"><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner3.jpg);"></div></a>
+							<a target="_blank" href="twentyone"><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner3.jpg);"></div></a>
 						</div>
 					</div>
 				</div>
@@ -158,16 +158,16 @@
 			<div class="swiper-container swiper_list swiper-no-swiping">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<a target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_1.jpg" width="100%"></a></div></a>
+						<a target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_1.jpg" width="100%"></div></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="##" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_2.jpg" width="100%"></a></div></a>
+						<a href="##" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_2.jpg" width="100%"></div></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="##" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_3.jpg" width="100%"></a></div></a>
+						<a href="train" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_3.jpg" width="100%"></div></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="##" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_4.jpg" width="100%"></a></div></a>
+						<a href="seven" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_4.jpg" width="100%"></div></a>
 					</div>
 				</div>
 			</div>
