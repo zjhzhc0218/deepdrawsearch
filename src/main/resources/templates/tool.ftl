@@ -46,7 +46,7 @@
 				<div class="index_ser4_tit clearfix">
 					<span :class="index==listType?'active':''" v-for='(items,index) in listTit' @click="getList(index)">{{items}}</span>
 				</div>
-				<div class="index_ser4_con1" v-show="listType==0?true:false">
+				<div class="index_ser4_con1">
 					<div class="row">
 						<div class="col-sm-3" v-for="item1 in datamation">
 							<div class="index_ser4_box1">
@@ -58,38 +58,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="index_ser4_con2" v-show="listType==1?true:false">
-					<div class="row">
-						<div class="col-sm-6" v-for="item2 in retailers">
-							<div class="index_ser4_box2 clearfix">
-								<a :href="item2.link">
-									<div class="img" :style="'background-image:url('+item2.image+');'"></div>
-									<div class="text">
-										<h5>{{item2.title}}</h5>
-										<p>{{item2.text}}</p>
-										<h6><i class="fa fa-clock-o"></i>{{item2.date}}<span>浏览（{{item2.browse}}）</span></h6>
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="index_ser4_con2" v-show="listType==2?true:false">
-					<div class="row">
-						<div class="col-sm-6" v-for="item2 in retailers">
-							<div class="index_ser4_box2 clearfix">
-								<a :href="item2.link">
-									<div class="img" :style="'background-image:url('+item2.image+');'"></div>
-									<div class="text">
-										<h5>{{item2.title}}</h5>
-										<p>{{item2.text}}</p>
-										<h6><i class="fa fa-clock-o"></i>{{item2.date}}<span>浏览（{{item2.browse}}）</span></h6>
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
+
 			</div>
 		</div>
 	</div>
@@ -109,8 +78,8 @@
 				listType:0,
 				listTit:[
 					'数据化运营',
-					'电商实战宝箱',
-					'电商头条'
+					// '电商实战宝箱',
+					// '电商头条'
 				],
 				datamation:[
 					{
@@ -164,56 +133,8 @@
 						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
 					},
 				],
-				retailers:[
-					{
-						link:'tool_details',
-						image:'images/index5_1.jpg',
-						title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
-						text:'就此现象，业内专家们展开了诸多探讨，并表示，即使由于退换货引发的包装贬损理应由消费者买单，商家也应尽到提前告知义务。',
-						date:'2018-12-23',
-						browse:'1322'
-					},
-					{
-						link:'tool_details',
-						image:'images/index5_1.jpg',
-						title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
-						text:'就此现象，业内专家们展开了诸多探讨，并表示，即使由于退换货引发的包装贬损理应由消费者买单，商家也应尽到提前告知义务。',
-						date:'2018-12-23',
-						browse:'1322'
-					},
-					{
-						link:'tool_details',
-						image:'images/index5_1.jpg',
-						title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
-						text:'就此现象，业内专家们展开了诸多探讨，并表示，即使由于退换货引发的包装贬损理应由消费者买单，商家也应尽到提前告知义务。',
-						date:'2018-12-23',
-						browse:'1322'
-					},
-					{
-						link:'tool_details',
-						image:'images/index5_1.jpg',
-						title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
-						text:'就此现象，业内专家们展开了诸多探讨，并表示，即使由于退换货引发的包装贬损理应由消费者买单，商家也应尽到提前告知义务。',
-						date:'2018-12-23',
-						browse:'1322'
-					},
-					{
-						link:'tool_details',
-						image:'images/index5_1.jpg',
-						title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
-						text:'就此现象，业内专家们展开了诸多探讨，并表示，即使由于退换货引发的包装贬损理应由消费者买单，商家也应尽到提前告知义务。',
-						date:'2018-12-23',
-						browse:'1322'
-					},
-					{
-						link:'tool_details',
-						image:'images/index5_1.jpg',
-						title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
-						text:'就此现象，业内专家们展开了诸多探讨，并表示，即使由于退换货引发的包装贬损理应由消费者买单，商家也应尽到提前告知义务。',
-						date:'2018-12-23',
-						browse:'1322'
-					}
-				]
+                retailers:[],
+                retailers2:[],
 
 			},
 			created: function (){
@@ -223,6 +144,25 @@
 				if(listnum>0){
                     _this.listType=listnum;
 				}
+
+                $.ajax({
+                    type: 'POST',
+                    url:Url+ 'File/getAI',
+                    dataType: 'json',
+                    data:{
+                        title:null,
+                        typeN:_this.listType
+                    },
+                    success: function (data) {
+                        if(_this.listType==1){
+                            _this.retailers=data.data.list;
+                        }
+                        else{
+                            _this.retailers2=data.data.list;
+                        }
+                        console.log(_this.retailers)
+                    }
+                })
                 _this.$nextTick(function () {
                 	all()
 					console.log(_this.listType)
@@ -235,6 +175,27 @@
 	        	getList:function(index){
 	        		var _this=this;
 	        		_this.listType=index;
+                    if(index!=0){
+                        //电商实战宝箱
+                        $.ajax({
+                            type: 'POST',
+                            url:Url+ 'File/getAI',
+                            dataType: 'json',
+                            data:{
+                                title:null,
+                                typeN:index
+                            },
+                            success: function (data) {
+                                if(index==1){
+                                    _this.retailers=data.data.list;
+                                }
+                                else{
+                                    _this.retailers2=data.data.list;
+                                }
+                                console.log(_this.retailers)
+                            }
+                        })
+                    }
 	        	}
 	        },
 

@@ -2047,6 +2047,67 @@ a{
     background-repeat: no-repeat;
 }
 /********直通车**********/
+/********违禁词**********/
+.prohibited_con{
+    margin-bottom: 40px;
+}
+.prohibited_left{
+    float: left;
+    width: 50%;
+}
+.prohibited_left_tit .box{
+    display: inline-block;
+    background-color: #fb6c0e;
+    color: #fff;
+    height: 40px;
+    line-height:  40px;
+    padding: 0 17px;
+    font-size: 16px;
+    border-radius: 3px;
+}
+.prohibited_left_tit .box img{
+    width: 24px;
+    display: inline-block;
+    vertical-align:  middle;
+    margin-top: -3px;
+}
+.prohibited_left_tit{
+    margin-bottom: 20px;
+}
+.prohibited_box.left{
+    border:1px solid #fb6c0e;
+
+}
+.prohibited_box{
+    height: 150px;
+}
+.prohibited_box textarea{
+    border:0px;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 24px;
+    height: 100%;
+    width: 100%;
+    resize: none;
+}
+.prohibited_box.right textarea{
+    background-color: #f5f5f5;
+}
+.prohibited_left_tit{
+    height:40px;
+}
+.prohibited_left_tit .box2 img{
+    width: 23px;
+}
+.prohibited_left_tit .box2  span{
+    color: #ff4800;
+}
+.prohibited_left_tit .box2{
+    color: #666;
+    position:  relative;
+    top: 11px;
+}
+/********违禁词**********/
 
 
 
