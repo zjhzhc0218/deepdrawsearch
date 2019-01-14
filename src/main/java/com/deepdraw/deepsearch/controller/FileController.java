@@ -361,7 +361,7 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
 
         Map<String,Object> maplistN =  new HashMap<>();
         if(maplist.get("shang")==null){
-            maplistN.put("shang",null);
+            maplistN.put("shang","null");
         }else{
             Map<String,String> maplistShang =  new HashMap<>();
             maplistShang.put("serialNumber",maplist.get("shang").getSerialNumber().toString());
@@ -371,7 +371,7 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
         maplistN.put("now",maplist.get("now"));
 
         if(maplist.get("xia")==null){
-            maplistN.put("xia",null);
+            maplistN.put("xia","null");
         }else{
             Map<String,String> maplistXia =  new HashMap<>();
             maplistXia.put("serialNumber",maplist.get("xia").getSerialNumber().toString());
