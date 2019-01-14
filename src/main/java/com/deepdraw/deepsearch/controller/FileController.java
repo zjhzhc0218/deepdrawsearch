@@ -214,6 +214,14 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
             return JsonUtil.object2Json(ResultUtil.success(maps));
         }
 
+    /*文章资讯查询AritleInformation 单个*/
+    @RequestMapping("/getAIById")
+    @ResponseBody
+    public Object getAIById(HttpServletRequest request,Integer id) throws IOException {
+        ArticleInformation articleInformation = articleInformationService.selectByPrimaryKey(id);
+        return JsonUtil.object2Json(ResultUtil.success(articleInformation));
+    }
+
 
         /*上传文件的查看*/
         @RequestMapping("/getFD")
