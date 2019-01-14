@@ -358,7 +358,29 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
                 maplist.put("xia",map.get(x+1));
             }
         }
-        return JsonUtil.object2Json(ResultUtil.success(maplist));
+
+        Map<String,Object> maplistN =  new HashMap<>();
+        if(maplist.get("shang")==null){
+            maplistN.put("shang",null);
+        }else{
+            Map<String,String> maplistShang =  new HashMap<>();
+            maplistShang.put("serialNumber",maplist.get("shang").getSerialNumber().toString());
+            maplistShang.put("describeN",maplist.get("shang").getDescribeN());
+            maplistN.put("shang",maplistShang);
+        }
+        maplistN.put("now",maplist.get("now"));
+
+        if(maplist.get("xia")==null){
+            maplistN.put("xia",null);
+        }else{
+            Map<String,String> maplistXia =  new HashMap<>();
+            maplistXia.put("serialNumber",maplist.get("xia").getSerialNumber().toString());
+            maplistXia.put("describeN",maplist.get("xia").getDescribeN());
+            maplistN.put("xia",maplistXia);
+        }
+
+
+        return JsonUtil.object2Json(ResultUtil.success(maplistN));
     }
 
 
