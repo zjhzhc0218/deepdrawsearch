@@ -8,6 +8,7 @@ import com.deepdraw.deepsearch.enums.DownEnums;
 import com.deepdraw.deepsearch.service.ArticleInformationService;
 import com.deepdraw.deepsearch.service.FileDownloadService;
 import com.deepdraw.deepsearch.util.*;
+import jnr.ffi.annotations.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -297,10 +298,13 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
             if(typeN==0) {
                 typeN = null;
             }
+
             List<ArticleInformation> list = articleInformationService.selectBytitleS(title,typeN);
             maps.put("list",list);
             return JsonUtil.object2Json(ResultUtil.success(maps));
         }
+
+
 
     /*文章资讯查询AritleInformation 单个*/
     @RequestMapping("/getAIById")
@@ -308,6 +312,53 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
     public Object getAIById(HttpServletRequest request,Integer id) throws IOException {
         ArticleInformation articleInformation = articleInformationService.selectByPrimaryKey(id);
         return JsonUtil.object2Json(ResultUtil.success(articleInformation));
+    }
+
+    /*文章资讯查询AritleInformation 单个以及它的前一个跟后一个 连续的*/
+    @RequestMapping("/getAIByIdContinuous")
+    @ResponseBody
+    public Object getAIByIdContinuous(HttpServletRequest request,Integer id) throws IOException {
+        Map<Integer,ArticleInformation> map =  new HashMap<>();
+        List<ArticleInformation> list = articleInformationService.selectBytitleS(null,null);
+        if(list.size()==0){
+            return JsonUtil.object2Json(ResultUtil.error(2,"数据库没数据"));
+        }
+        Integer x = -1;
+        Integer y = 0;
+        for(ArticleInformation listNew:list){
+            if(listNew.getSerialNumber().equals(id)){
+                x = y;
+            }
+            map.put(y,listNew);
+            y++;
+        }
+
+        if(x.equals(-1)){
+            return JsonUtil.object2Json(ResultUtil.error(3,"数据库没匹配该数据"));
+        }
+
+        Map<String,ArticleInformation> maplist =  new HashMap<>();
+        if(x==0){
+            maplist.put("shang",null);
+            maplist.put("now",map.get(x));
+            if(y==0){
+                maplist.put("xia",null);
+            }else{
+                maplist.put("xia",map.get(x+1));
+            }
+        }
+        if(x>0){
+            if(x.equals(y)){
+                maplist.put("shang",map.get(x-1));
+                maplist.put("now",map.get(x));
+                maplist.put("xia",null);
+            }else{
+                maplist.put("shang",map.get(x-1));
+                maplist.put("now",map.get(x));
+                maplist.put("xia",map.get(x+1));
+            }
+        }
+        return JsonUtil.object2Json(ResultUtil.success(maplist));
     }
 
 
@@ -427,6 +478,12 @@ private String changeWJJ(String lujing) throws Exception {
          System.out.println("执行结束" + filePath);
         return filePath+"/";
      }
+
+//    public static void main(String[] args) {
+//
+//
+//    }
+
 }
 
 
