@@ -777,9 +777,9 @@ var app=angular.module('search',[])
             })
         }
 
-        $scope.hideDetail = function () {
+       /* $scope.hideDetail = function () {
             $scope.mulu.hideDetail = false;
-        }
+        }*/
         //########################目录查询###############################//
 
         //########################指数查询###############################//

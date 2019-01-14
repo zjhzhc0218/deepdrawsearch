@@ -31,6 +31,12 @@
         <![endif]-->
 
     </head>
+    <style type="text/css">
+        .error{
+            font-size: 22px;
+            color:red;
+        }
+    </style>
 <body ng-app="search" ng-controller="searchController">
 <!--  / header  -->
 <#include "//header.ftl">
