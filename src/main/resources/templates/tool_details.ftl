@@ -30,10 +30,11 @@
 
 </head>
 <body>
-<div id="app">
+
 <!--  / header  -->
 <#include "//header.ftl">
 <!--  / header  -->
+<div id="app">
 <!--  / warpper  -->
 <div class="warpper">
 	<div class="container">
@@ -111,10 +112,11 @@
 	</div>
 </div>
 <!--  / warpper  -->
+</div>
 <!--  / footer  -->
 	<#include "//footer.ftl">
 <!--  / footer  -->
-</div>
+
 </body>
 <script type="text/javascript">
 	$(function(){

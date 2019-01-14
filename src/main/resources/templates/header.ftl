@@ -1,12 +1,13 @@
 <script src="/deepsearch/js/vue.min.js"></script>
 
 <div class="header header_all">
+	<div id="app1">
 	<div  class="header_gary">
 		<div class="container header_before">
 			<span>亲，欢迎进入白马查</span><a href="sign" class="head_portant">登录</a><a class="signup">免费注册</a>
 		</div>
 		<div class="container header_on">
-			<div id="app1"><span>亲爱的<font class="head_portant head_name"></font>，欢迎进入白马查</span><a href="adminPage" class="head_portant head_ht" style="display:none">后台管理</a><span class="head_portant heade_cu " @click="outSign">退出登录</span></div>
+			<span>亲爱的<font class="head_portant head_name"></font>，欢迎进入白马查</span><a href="adminPage" class="head_portant head_ht" style="display:none">后台管理</a><span class="head_portant heade_cu " @click="outSign">退出登录</span>
 		</div>
 	</div>
 	<div class="header_center">
@@ -19,10 +20,11 @@
 			</div>
 			<div class="header_center_search clearfix">
 				<span class="search_icon"><img src="images/search.png"></span>
-				<input type="text" name="" placeholder="输入宝贝链接或ID，即可查看该宝贝的展现关键词/上下架/类目/历史价格等...">
-				<span class="header_search_bt">查排名</span>
+				<input type="text" name="" v-model="inputVal" placeholder="输入宝贝链接或ID，即可查看该宝贝的展现关键词...">
+				<span class="header_search_bt" @click="search(inputVal)">展现查询</span>
 			</div>
 		</div>
+	</div>
 	</div>
 	<div class="header_bottom">
 		<div class="container clearfix">
@@ -32,7 +34,7 @@
 					<div class="left_menu_box">
 						<h5 class="title"><img src="images/menu1.png"><span>查排名工具</span></h5>
 						<div class="left_menu_link">
-							<a href="ranking">无线排名查询</a><a href="show">关键词展现查询  </a><a href="updown">上下架查询</a><a href="##">历史价格查询 </a>
+							<a href="ranking">无线排名查询</a><a href="show">关键词展现查询  </a><a href="updown">上下架查询</a><a href="history">历史价格查询 </a>
 						</div>
 					</div>
 					<div class="left_menu_box">
@@ -73,12 +75,24 @@
 <script>
 	$(function(){
         var app=new Vue({
+
             el: '#app1',
-			data:[],
+			data:{
+                inputVal:''
+            },
             created:function () {
 				
             },
             methods:{
+                //头部跳转
+                search:function(headerval){
+                    if(headerval==''){
+                        alert("请输入宝贝链接或者id");
+                        //location.reload();
+                    }else{
+                        window.location.href="show?name="+headerval;
+                    }
+                },
                 //退出登录
                 outSign:function () {
                     var _this=this;

@@ -49,7 +49,7 @@
                     <!-- 淘宝展现结束 -->
                     <div role="tabpanel" class="tab-pane" class="content" id="zhanxian">
                         <div class="search-view" style="margin-top: 30px">
-                            <input type="text"   ng-model="zhanxian.searchWordsXy"  placeholder="请输入需要查询的商品ID或是商品链接 &quot;查询&quot; 按钮"/>
+                            <input type="text"   ng-model="zhanxian.searchWordsXy" id="showinput"  placeholder="请输入需要查询的商品ID或是商品链接 &quot;查询&quot; 按钮"/>
                             <button class="btn  search-btnN" href="javascript:;" ng-click="searchZhanxian()" ng-disabled="zhanxian.working">查询</button>
                         </div>
 
@@ -111,6 +111,14 @@
 <script src="/deepsearch/js/jquery.scrollstop.min.js"></script>
 <script src="/deepsearch/js/index.js"></script>
 <script>
+    var str =window.location.href;
+    str2 = str.match(/id=(\d*)/);
+    // alert(str2[1])
+    if(str2){
+        var str3=str2;
+        $("#showinput").val(str3)
+    }
 
+    // document.getElementById('#showinput').value=str2[1];
 </script>
 </html>

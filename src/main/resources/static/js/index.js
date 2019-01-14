@@ -14,7 +14,19 @@ function all(){
     	var leftWdith=($(window).width()-1200)/2+1215;
     	$(".index_core").css("left",leftWdith)
     })
-
+    $(".index_his").click(function () {
+        alert("该功能正在维护中！")
+    })
+    // $(".header_search_bt").click(function(){
+    //     var headerval=$(".header_center_search").val();
+    //     if(headerval==''){
+    //         alert("请输入宝贝链接或者id");
+    //         //location.reload();
+    //     }else{
+    //         window.location.href="show?name="+headerval;
+    //     }
+    //
+    // })
 }
 //二维码位置
 var leftWdith=($(window).width()-1200)/2+1215;

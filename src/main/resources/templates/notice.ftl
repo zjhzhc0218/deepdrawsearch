@@ -31,10 +31,11 @@
 </head>
 
 <body >
-<div id="app" v-clock>
+
 <!--  / header  -->
     <#include "//header.ftl">
 <!--  / header  -->
+    <div id="app" v-clock>
 <!--  / warpper  -->
 <div class="warpper allhear_mar">
     <div class="container">
@@ -63,10 +64,11 @@
         </div>
     </div>
 </div>
+</div>
 <!--  / footer  -->
     <#include "//footer.ftl">
 <!--  / footer  -->
-</div>
+
 </body>
 <script type="text/javascript">
     $(function(){

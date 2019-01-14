@@ -811,6 +811,7 @@ a{
     border:1px solid #ddd;
     border-top: 1px solid #fb6c0e;
     padding: 30px;
+    min-height: 550px;
 }
 .toolALL_nav p{
     display: inline-block;
@@ -2118,7 +2119,8 @@ a{
     width: 100%;
     resize: none;
 }
-.prohibited_box.right textarea{
+.prohibited_box_son{
+    height: 100%;
     background-color: #f5f5f5;
 }
 .prohibited_left_tit{
@@ -2134,6 +2136,9 @@ a{
     color: #666;
     position:  relative;
     top: 11px;
+}
+.index_his{
+    cursor: pointer;
 }
 /********违禁词**********/
 

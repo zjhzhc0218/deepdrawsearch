@@ -52,8 +52,8 @@
 			</div>
 			<div class="header_center_search clearfix">
 				<span class="search_icon"><img src="/deepsearch/images/search.png"></span>
-				<input type="text" name="" placeholder="输入宝贝链接或ID，即可查看该宝贝的展现关键词/上下架/类目/历史价格等...">
-				<span class="header_search_bt">查排名</span>
+				<input type="text" name="" v-model="inputVal" placeholder="输入宝贝链接或ID，即可查看该宝贝的展现关键词...">
+				<span class="header_search_bt" @click="search(inputVal)">展现查询</span>
 			</div>
 		</div>
 	</div>
@@ -65,7 +65,7 @@
 					<div class="left_menu_box">
 						<h5 class="title"><img src="images/menu1.png"><span>查排名工具</span></h5>
 						<div class="left_menu_link">
-							<a href="ranking">无线排名查询</a><a href="show">关键词展现查询  </a><a href="updown">上下架查询</a><a href="##">历史价格查询 </a>
+							<a href="ranking">无线排名查询</a><a href="show">关键词展现查询  </a><a href="updown">上下架查询</a><a href="history">历史价格查询 </a>
 						</div>
 					</div>
 					<div class="left_menu_box">
@@ -281,6 +281,7 @@
 		var app=new Vue({
 			el: '#app',
 			data: {
+			    inputVal:'',
 			    form:{
 			        id:'',
             		inviteCode:''
@@ -454,6 +455,15 @@
 			mounted: function () { //页面渲染完成后执行，不包括需要请求的数据
 	        },
 	        methods: { //专用于定义方法
+			    //头部跳转
+                search:function(headerval){
+                    if(headerval==''){
+                        alert("请输入宝贝链接或者id");
+                        //location.reload();
+                    }else{
+                        window.location.href="show?name="+headerval;
+                    }
+                },
 			    //tab切换点击事件
 	        	getList:function(index){
 	        		var _this=this;
