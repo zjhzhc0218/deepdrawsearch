@@ -145,10 +145,10 @@
 					</div>
 					<div class="index_notice_list">
 						<ul>
-							<li><a href="##">人民的宝贝，双12投票功能已就位！</a></li>
-							<li><a href="##">匹配人群标签，提升宝贝转化</a></li>
-							<li><a href="##">流量捕手、白拿拿得到省商务厅厅长点赞</a></li>
-							<li><a href="##">查排名使用教程</a></li>
+							<li v-for="(item,index) in retailers" v-if="index<4"><a :href="'tool_details?='+item.serialNumber">{{item.title}}</a></li>
+							<#--<li><a href="##">匹配人群标签，提升宝贝转化</a></li>-->
+							<#--<li><a href="##">流量捕手、白拿拿得到省商务厅厅长点赞</a></li>-->
+							<#--<li><a href="##">查排名使用教程</a></li>-->
 						</ul>
 					</div>
 				</div>
@@ -193,59 +193,59 @@
 			</div>
 			<div class="index_ser4_more clearfix">	
 				<div class="index_ser4_left"><img src="/deepsearch/images/new.png"><span>最新上传资源</span></div>
-				<div class="index_ser4_right"><a :href="'tool?id='+listType" target="_blank">更多>></a:></div>
+				<div class="index_ser4_right"><a :href="'tool?id='+listType" target="_blank">更多>></a></div>
 			</div>	
 			<div class="index_ser4_con1" v-show="listType==0?true:false">
 				<div class="row">
-					<div class="col-sm-3" v-for="item1 in datamation">
+					<div class="col-sm-3" v-for="(item1,index) in datamation" v-if="index<12">
 						<div class="index_ser4_box1">
-							<a :href="item1.link">
-								<div class="img"><img :src="item1.image" width="100%"></div>
-								<p>{{item1.text}}</p>
+							<a :href="item1.fileDownloadpath" :download="item1.fileDownloadpath">
+								<div class="img" style="'background-image: url('+item1.filePicture+')'"><span class="index_ser4_box1_tips">{{item1.fileType==1?'txt':(item1.fileTyp==2?'word':(item1.fileTyp==3?'pdf':'excel'))}}</span></div>
+								<p>{{item1.fileName}}</p>
 							</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="index_ser4_con2" v-show="listType==1?true:false">
-				<div class="row">
-					<div class="col-sm-6" v-for="item2 in retailers">
-						<div class="index_ser4_box2 clearfix">
-							<a :href="'tool_details?id='+item2.serialNumber" target="_blank">
-								<div class="img" :style="'background-image:url('+item2.image+');'"></div>
-								<div class="text">
-									<h5>{{item2.title}}</h5>
-									<p>{{item2.describeN}}</p>
-                                    <h6>
-                                        <i class="fa fa-clock-o"></i>{{item2.creationTime}}
-                                        <#--<span>浏览（{{item2.browse}}）</span>-->
-                                    </h6>
+			<#--<div class="index_ser4_con2" v-show="listType==1?true:false">-->
+				<#--<div class="row">-->
+					<#--<div class="col-sm-6" v-for="item2 in retailers">-->
+						<#--<div class="index_ser4_box2 clearfix">-->
+							<#--<a :href="'tool_details?id='+item2.serialNumber" target="_blank">-->
+								<#--<div class="img" :style="'background-image:url('+item2.image+');'"></div>-->
+								<#--<div class="text">-->
+									<#--<h5>{{item2.title}}</h5>-->
+									<#--<p>{{item2.describeN}}</p>-->
+                                    <#--<h6>-->
+                                        <#--<i class="fa fa-clock-o"></i>{{item2.creationTime}}-->
+                                        <#--&lt;#&ndash;<span>浏览（{{item2.browse}}）</span>&ndash;&gt;-->
+                                    <#--</h6>-->
 
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="index_ser4_con2" v-show="listType==2?true:false">
-				<div class="row">
-					<div class="col-sm-6" v-for="item2 in retailers2">
-						<div class="index_ser4_box2 clearfix">
-							<a :href="'tool_details?id='+item2.serialNumber" target="_blank">
-								<div class="img" :style="'background-image:url('+item2.cover+');'"></div>
-								<div class="text">
-									<h5>{{item2.title}}</h5>
-									<p>{{item2.text}}</p>
-                                    <h6>
-                                        <i class="fa fa-clock-o"></i>{{item2.creationTime}}
-                                        <#--<span>浏览（{{item2.browse}}）</span>-->
-                                    </h6>
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
+								<#--</div>-->
+							<#--</a>-->
+						<#--</div>-->
+					<#--</div>-->
+				<#--</div>-->
+			<#--</div>-->
+			<#--<div class="index_ser4_con2" v-show="listType==2?true:false">-->
+				<#--<div class="row">-->
+					<#--<div class="col-sm-6" v-for="item2 in retailers2">-->
+						<#--<div class="index_ser4_box2 clearfix">-->
+							<#--<a :href="'tool_details?id='+item2.serialNumber" target="_blank">-->
+								<#--<div class="img" :style="'background-image:url('+item2.cover+');'"></div>-->
+								<#--<div class="text">-->
+									<#--<h5>{{item2.title}}</h5>-->
+									<#--<p>{{item2.text}}</p>-->
+                                    <#--<h6>-->
+                                        <#--<i class="fa fa-clock-o"></i>{{item2.creationTime}}-->
+                                        <#--&lt;#&ndash;<span>浏览（{{item2.browse}}）</span>&ndash;&gt;-->
+                                    <#--</h6>-->
+								<#--</div>-->
+							<#--</a>-->
+						<#--</div>-->
+					<#--</div>-->
+				<#--</div>-->
+			<#--</div>-->
 		</div>
 		<div class="index_ser5">
 			<div class="index_ser5_title">
@@ -336,33 +336,33 @@
 					}
 
 				],
-				datamation:[
-					{
-						link:'',
-						image:'/deepsearch/images/index_4_1.jpg',
-						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-					},
-					{
-						link:'',
-						image:'/deepsearch/images/index_4_1.jpg',
-						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-					},
-					{
-						link:'',
-						image:'/deepsearch/images/index_4_1.jpg',
-						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-					},
-					{
-						link:'',
-						image:'/deepsearch/images/index_4_1.jpg',
-						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-					},
-					{
-						link:'',
-						image:'/deepsearch/images/index_4_1.jpg',
-						text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-					},
-				],
+				// datamation:[
+				// 	{
+				// 		link:'',
+				// 		image:'/deepsearch/images/index_4_1.jpg',
+				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
+				// 	},
+				// 	{
+				// 		link:'',
+				// 		image:'/deepsearch/images/index_4_1.jpg',
+				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
+				// 	},
+				// 	{
+				// 		link:'',
+				// 		image:'/deepsearch/images/index_4_1.jpg',
+				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
+				// 	},
+				// 	{
+				// 		link:'',
+				// 		image:'/deepsearch/images/index_4_1.jpg',
+				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
+				// 	},
+				// 	{
+				// 		link:'',
+				// 		image:'/deepsearch/images/index_4_1.jpg',
+				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
+				// 	},
+				// ],
 				// retailers1:[
 				// 	{
 				// 		link:'',
@@ -406,7 +406,8 @@
 					'/deepsearch/images/index6_14.png',
 				],
                 retailers:[],
-                retailers2:[]
+                retailers2:[],
+                datamation:[]
 
 			},
 			created: function (){
@@ -416,7 +417,6 @@
                 	index();
                 	all();
                     // console.log(_this.userInfo);
-
                     if(this.userInfo==''){
                         _this.codeType=0;
                     }
@@ -424,6 +424,29 @@
                         if(this.userInfo.grade==2){
                             _this.codeType=0;
                         }
+                    }
+                })
+                //数据化运营
+                $.ajax({
+                    type: 'POST',
+                    url:Url+ 'File/getFD',
+                    dataType: 'json',
+                    success: function (data) {
+                        _this.datamation=data.data.list;
+                    }
+                })
+                //头条
+                $.ajax({
+                    type: 'POST',
+                    url:Url+ 'File/getAI',
+                    dataType: 'json',
+                    data:{
+                        title:null,
+                        typeN:0
+                    },
+                    success: function (data) {
+                        _this.retailers=data.data.list;
+
                     }
                 })
 
