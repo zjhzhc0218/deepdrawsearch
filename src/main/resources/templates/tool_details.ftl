@@ -80,8 +80,8 @@
 						<a href="javascript:history.back(-1)">返回列表</a>
 					</div>
 					<div class="toolDetails_go">
-						<p>上一条：<a href="##">比利时争做eWTP标杆，将建欧洲首个ehub</a></p>
-						<p>下一条：<a href="##">蒙牛拥抱天猫新零售</a></p>
+						<p>上一条：<a :href="'tool_details?id='+toolUp.serialNumber">{{toolUp.title}}</a></p>
+						<p>下一条：<a :href="'tool_details?id='+toolDown.serialNumber">{{toolDown.title}}</a></p>
 					</div>
 				</div>
 			</div>
@@ -169,55 +169,8 @@
                     }
 
                 ],
-				// hotnews:[
-				// 	{
-				// 		num1:'1',
-				// 		link:'',
-				// 		title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
-				// 		date:'2018-12-23'
-				// 	},
-				// 	{
-				// 		num1:'2',
-				// 		link:'',
-				// 		title:'竞品的坑产&关键词坑产&词根坑产如何计算，如何安排？ 竞品的坑产&关键词坑产&词根坑产如何计算，如何安排？',
-				// 		date:'2018-12-23'
-				// 	},
-				// 	{
-				// 		num1:'3',
-				// 		link:'',
-				// 		title:'直通车如何快速降低PPC 直通车如何快速降低PPC',
-				// 		date:'2018-12-23'
-				// 	},
-				// 	{
-				// 		num1:'4',
-				// 		link:'',
-				// 		title:'7天引爆搜索流量，40天打造盈利爆款 7天引爆搜索流量，40天打造盈利爆款',
-				// 		date:'2018-12-23'
-				// 	},
-				// 	{
-				// 		num1:'5',
-				// 		link:'',
-				// 		title:'揭秘搜索流量倍增的本质原理 揭秘搜索流量倍增的本质原理',
-				// 		date:'2018-12-23'
-				// 	},
-				// 	{
-				// 		num1:'6',
-				// 		link:'',
-				// 		title:'如何利用淘宝规则进行高效测款? 如何利用淘宝规则进行高效测款?',
-				// 		date:'2018-12-23'
-				// 	},{
-				// 		num1:'7',
-				// 		link:'',
-				// 		title:'淘宝搜索排名规则,淘宝搜索排名规则解读 淘宝搜索排名规则,淘宝搜索排名规则解读',
-				// 		date:'2018-12-23'
-				// 	},
-				// 	{
-				// 		num1:'8',
-				// 		link:'',
-				// 		title:'店铺毁灭性打击之流量攻击篇 店铺毁灭性打击之流量攻击篇',
-				// 		date:'2018-12-23'
-				// 	},
-				// ]
+				toolUp:[],
+                toolDown:[],
 			},
 			created: function (){
                 var _this = this; //将this赋给一个自定义变量，以免在后面用this的时候混淆,专用于指向vue实例
@@ -234,31 +187,18 @@
 				//调用详情接口
                 $.ajax({
                     type: 'POST',
-                    url:Url+ 'File/getAIById ',
+                    url:Url+ 'File/getAIByIdContinuous ',
                     dataType: 'json',
                     data:{
                         id:_this.toolid,
                     },
                     success: function (data) {
-                        _this.toolDeatails=data.data;
-
+                        _this.toolDeatails=data.data.now;
+                        _this.toolUp=data.data.shang;
+                        _this.toolDown=data.data.xia;
                     }
                 })
 
-				//头条列表
-                $.ajax({
-                    type: 'POST',
-                    url: Url + '/File/getAI',
-                    dataType: 'json',
-                    data:{
-                        title:null,
-                        typeN:0
-                    },
-                    success: function (data) {
-                        _this.notice=data.data.list;
-
-                    }
-                })
 
 			},
 			mounted: function () { //页面渲染完成后执行，不包括需要请求的数据

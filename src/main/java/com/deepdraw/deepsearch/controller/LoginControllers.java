@@ -370,7 +370,7 @@ public class LoginControllers {
         return mv;
     }
     /**
-     * 21天流量爆款
+     * 直通车
      * @param mv
      * @return
      */
@@ -378,6 +378,18 @@ public class LoginControllers {
     public ModelAndView train(ModelAndView mv) {
         //mv.addObject("name", "测试1");
         mv.setViewName("tool/train");
+        return mv;
+    }
+
+    /**
+     * 历史价格查询
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/history")
+    public ModelAndView history(ModelAndView mv) {
+        //mv.addObject("name", "测试1");
+        mv.setViewName("tool/history");
         return mv;
     }
 }
