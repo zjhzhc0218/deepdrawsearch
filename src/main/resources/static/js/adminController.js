@@ -682,9 +682,9 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
          */
         $scope.deleteAllWJ = function() {
             var list = [];
-            for (var i=0;i<$scope.zixunrecord.length;i++)  {
-                if ($scope.zixunrecord[i].checked) {
-                    list.push($scope.zixunrecord[i].serialNumber);
+            for (var i=0;i<$scope.wenjianrecord.length;i++)  {
+                if ($scope.wenjianrecord[i].checked) {
+                    list.push($scope.wenjianrecord[i].fileId);
                 }
             }
             $.ajax({

@@ -465,7 +465,7 @@
             </div>
         <#--第三行-->
             <div style="margin-top: 15px;">
-                <button class="btn btn-primary" style="display: inline;width: 120px;height: 40px;" ng-click="">批量删除</button>
+                <button class="btn btn-primary" style="display: inline;width: 120px;height: 40px;" ng-click="deleteAllWJ()">批量删除</button>
                 <button class="btn btn-primary" style="display: inline;margin-left: 5%;width: 120px;height: 40px;" ng-click="showZxModal('wendang')">新增文件</button>
             </div>
         <#--表格-->
@@ -483,10 +483,11 @@
                 <tbody>
                 <tr ng-repeat="data in wenjianrecord">
                     <td><input type="checkbox" ng-model="data.checked"></td>
-                    <td ng-bind="data.title"></td>
-                    <td ng-bind="data.author"></td>
-                    <td ng-bind="data.typeN"></td>
-                    <td><a>删除</a></td>
+                    <td ng-bind="data.fileId"></td>
+                    <td ng-bind="data.fileName"></td>
+                    <td ng-bind="data.filePicture"></td>
+                    <td ng-bind="data.fileDownloadpath"></td>
+                    <td><a ng-click="edit(data)">删除</a></td>
                 </tr>
                 </tbody>
             </table>
