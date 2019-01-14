@@ -7,8 +7,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 	<meta name="format-detection" content="telephone=no" />
-	<link rel="shortcut icon" href="/deepsearch/images/dzlogo.ico" />
-	<title>index</title>
+	<link rel="shortcut icon" href="/codeimg/baima.ico" />
+	<title>白马查--电商在线查询工具</title>
 	<meta name="keywords" content=" " />
 	<meta name="description" content=" " />
 	<link rel="stylesheet" href="/deepsearch/css/bootstrap/bootstrap.css">

@@ -7,8 +7,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 	<meta name="format-detection" content="telephone=no" />
-	<link rel="shortcut icon" href="/deepsearch/images/dzlogo.ico" />
-	<title>index</title>
+	<link rel="shortcut icon" href="/codeimg/baima.ico" />
+	<title>白马查--电商在线查询工具</title>
 	<meta name="keywords" content=" " />
 	<meta name="description" content=" " />
 	<link rel="stylesheet" href="/deepsearch/css/bootstrap/bootstrap.css">
@@ -132,7 +132,7 @@
 					<div class="img"><img src="/deepsearch/images/login_hearder.jpg" width="100%"></div>
 					<h5 class="index_login_ttis" >HI, {{userInfo==""?"你还没有登录哦?":userInfo.id}}</h5>
 					<a href="signup" class="index_login_ttis2" v-if="userInfo==''">没有账号？免费注册</a>
-                    <p class="index_login_ttis2" v-if="userInfo!=''">会员等级：{{userInfo.grade==2?'试用版':'正式版'}}</p>
+                    <p class="index_login_ttis2" v-if="userInfo!=''">会员等级：{{userInfo.grade==2?'普通会员':'VIP会员'}}</p>
 					<div class="index_login_box">
 						<a href="signup" v-if="userInfo==''">免费注册</a><a href="sign" v-if="userInfo==''">会员登录</a>
                         <a v-if="userInfo!=''" @click="outSign">退出登录</a>
