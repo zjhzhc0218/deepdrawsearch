@@ -296,6 +296,7 @@
 					// '电商实战宝箱',
 					// '电商头条'
 				],
+                alllink:'',
 				tool:[
 					{
 						link:'code',
@@ -468,26 +469,9 @@
 								alert("请登陆之后再下载！")
 							}else{
                                 if(data.code==0){
-                                    $.ajax({
-                                        type: 'POST',
-                                        url:Url+ 'File/downfile',
-                                        dataType: 'json',
-                                        data:{
-                                            id:fileId
-                                        },
-                                        success: function (data) {
-                                            _this.$nextTick(function (){
 
-                                                var form=$("<form>");//定义form表单,通过表单发送请求
-                                                form.attr("style","display:none");//设置为不显示
-                                                form.attr("target","");
-                                                form.attr("method",downlink);//设置请求类型
-                                                form.attr("action",url);//设置请求路径
-                                                $("body").append(form);//添加表单到页面(body)中
-                                                form.submit();//表单提交
-                                            })
-                                        }
-                                    })
+                                    location.href = '/deepsearch/File/downfile/'+fileId;
+
 
                                 }else{
                                     alert("今日下载次数已用完！")
