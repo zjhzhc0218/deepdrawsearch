@@ -336,17 +336,17 @@ public class LoginControllers {
         return mv;
     }
 
-//    /**
-//     * 登陆
-//     * @param mv
-//     * @return
-//     */
-//    @RequestMapping("/down")
-//    public ModelAndView down(ModelAndView mv) {
-//        //mv.addObject("name", "测试1");
-//        mv.setViewName("down");
-//        return mv;
-//    }
+    /**
+     * 登陆
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/down")
+    public ModelAndView down(ModelAndView mv) {
+        //mv.addObject("name", "测试1");
+        mv.setViewName("down");
+        return mv;
+    }
     /**
      * 7天冲首页
      * @param mv
