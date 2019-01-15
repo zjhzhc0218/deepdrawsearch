@@ -35,11 +35,11 @@
     <div class="bk20"></div>
     <div class="wrapper">
         <div id="cas" class="main">
-            <div id="content" class="main-body" style="width: 100%;height: 800px" >
-                <div class="float_weixin" style="right: 2%;position: absolute;">
-                    <h4 style="margin-top: 35%">客服微信号：</h4>
-                    <img src="/codeimg/codeImg.jpg" style="width: 110px">
-                </div>
+            <div id="content" class="main-body" style="width: 100%;height: 600px" >
+                <#--<div class="float_weixin" style="right: 2%;position: absolute;">-->
+                    <#--<h4 style="margin-top: 35%">客服微信号：</h4>-->
+                    <#--<img src="/codeimg/codeImg.jpg" style="width: 110px">-->
+                <#--</div>-->
                 <div style="width: 43%;height: 500px;background-color: white;text-align: center;position: relative;float: left;top: 40px;left: 9%;">
                     <img src="/codeimg/6.jpg" style="width: 450px;padding-top: 18%;">
                 </div>
@@ -76,9 +76,12 @@
     </div>
     <div class="bk20"></div>
 </div>
-<div class="footer" style="position:fixed;bottom:0;width:100%;background-color:#e5e5e5;height: 40px;line-height: 40px;padding: 0">
-    <p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>
-</div>
+<#--<div class="footer" style="position:fixed;bottom:0;width:100%;background-color:#e5e5e5;height: 40px;line-height: 40px;padding: 0">-->
+    <#--<p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>-->
+<#--</div>-->
+    <!--  / footer  -->
+<#include "//footer.ftl">
+<!--  / footer  -->
 </body>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="/deepsearch/js/angular/angular.min.js"></script>

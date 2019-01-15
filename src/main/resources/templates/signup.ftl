@@ -58,7 +58,7 @@
     <div class="bk20"></div>
     <div class="wrapper">
         <div id="cas" class="main">
-            <div id="content" class="main-body" style="width: 100%;height: 800px;" >
+            <div id="content" class="main-body" style="width: 100%;height: 600px;" >
                 <div style="width: 43%;height:580px;background-color: white;text-align: center;position: relative;float: left;top: 40px;left: 9%">
                     <img src="/codeimg/6.jpg" style="width: 450px;padding-top: 150px;">
                 </div>
@@ -102,10 +102,14 @@
     <div class="bk20"></div>
 </div>
 
-<div class="footer" style="position:fixed;bottom:0;width:100%;background-color:#e5e5e5;height: 40px;line-height: 40px;padding: 0">
-    <p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>
+<#--<div class="footer" style="position:fixed;bottom:0;width:100%;background-color:#e5e5e5;height: 40px;line-height: 40px;padding: 0">-->
+    <#--<p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>-->
+<#--</div>-->
+        <!--  / footer  -->
+    <#include "//footer.ftl">
+    <!--  / footer  -->
 </div>
-</div>
+
 </body>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="/deepsearch/js/angular/angular.min.js"></script>

@@ -400,7 +400,7 @@
                         _this.datamation=data.data.list;
                         _this.$nextTick(function () {
                             for (var i=0;i < _this.datamation.length ;i++) {
-                                datamation[i].filePicture.replace('/home/deep/uploadfile', '/picture');
+                                _this.datamation[i].filePicture= _this.datamation[i].filePicture.replace('/home/deep/uploadfile', '/picture');
                             }
                         })
 
