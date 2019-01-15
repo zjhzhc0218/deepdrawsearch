@@ -258,6 +258,15 @@
 		</div>
 	</div>
 </div>
+<div class="index_Tips wap_tanc">
+	<div class="wap_tanc_bg"></div>
+	<div class="wap_tanc_con">
+		<h5>是否消耗一次机会下载！(每日两次下载机会)</h5>
+		<div class="wap_tanc_btn clearfix">
+			<span style="border-right: 1px solid #EBEBEB;" @click="sureDown(alllink)">确认</span><span @click="surennoDown">取消</span>
+		</div>
+	</div>
+</div>
 <!--  / warpper  -->
 
 <div class="index_frame" v-show="codeType==1?false:true">
@@ -296,6 +305,7 @@
 					// '电商实战宝箱',
 					// '电商头条'
 				],
+                alllink:'',
 				tool:[
 					{
 						link:'code',
@@ -468,26 +478,8 @@
 								alert("请登陆之后再下载！")
 							}else{
                                 if(data.code==0){
-                                    $.ajax({
-                                        type: 'POST',
-                                        url:Url+ 'File/downfile',
-                                        dataType: 'json',
-                                        data:{
-                                            id:fileId
-                                        },
-                                        success: function (data) {
-                                            _this.$nextTick(function (){
-
-                                                var form=$("<form>");//定义form表单,通过表单发送请求
-                                                form.attr("style","display:none");//设置为不显示
-                                                form.attr("target","");
-                                                form.attr("method",downlink);//设置请求类型
-                                                form.attr("action",url);//设置请求路径
-                                                $("body").append(form);//添加表单到页面(body)中
-                                                form.submit();//表单提交
-                                            })
-                                        }
-                                    })
+                                    downshow()
+									_this.alllink=fileId;
 
                                 }else{
                                     alert("今日下载次数已用完！")
@@ -495,6 +487,15 @@
 							}
                         }
                     })
+				},
+				//确认下载
+                sureDown:function(id){
+                    location.href = '/deepsearch/File/downfile/'+id;
+                    downhide()
+				},
+				//取消下载
+                surennoDown:function(){
+                    downhide()
 				},
 			    //头部跳转
                 search:function(headerval){
@@ -580,6 +581,12 @@
 	        },
 
 		})
+		function downshow(){
+			$(".index_Tips").stop(true).fadeIn(300);
+		}
+        function downhide(){
+            $(".index_Tips").stop(true).fadeOut(0);
+        }
 
 		function index(){
             user = '${user!}';

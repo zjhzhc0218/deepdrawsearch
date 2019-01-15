@@ -50,8 +50,8 @@
 				<div class="index_ser4_con1">
 					<div class="row">
 						<div class="col-sm-3" v-for="item1 in datamation">
-                            <div class="index_ser4_box1">
-                                <a :href="item1.fileDownloadpath" :download="item1.fileDownloadpath">
+                            <div class="index_ser4_box1" @click="downTy(item1.fileDownloadpath,item1.fileId)">
+                                <a >
                                     <div class="img" style="'background-image: url('+item1.filePicture+')'"><span class="index_ser4_box1_tips">{{item1.fileType==1?'txt':(item1.fileTyp==2?'word':(item1.fileTyp==3?'pdf':'excel'))}}</span></div>
                                     <p>{{item1.fileName}}</p>
                                 </a>
@@ -61,6 +61,15 @@
 				</div>
 
 			</div>
+		</div>
+	</div>
+</div>
+<div class="index_Tips wap_tanc">
+	<div class="wap_tanc_bg"></div>
+	<div class="wap_tanc_con">
+		<h5>是否消耗一次机会下载！(每日两次下载机会)</h5>
+		<div class="wap_tanc_btn clearfix">
+			<span style="border-right: 1px solid #EBEBEB;" @click="sureDown(alllink)">确认</span><span @click="surennoDown">取消</span>
 		</div>
 	</div>
 </div>
@@ -84,58 +93,7 @@
 					// '电商头条'
 				],
                 datamation:[],
-				// datamation:[
-				// 	{
-				// 		link:'',
-				// 		image:'images/index_4_1.jpg',
-				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-				// 	},
-				// 	{
-				// 		link:'',
-				// 		image:'images/index_4_1.jpg',
-				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-				// 	},
-				// 	{
-				// 		link:'',
-				// 		image:'images/index_4_1.jpg',
-				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-				// 	},
-				// 	{
-				// 		link:'',
-				// 		image:'images/index_4_1.jpg',
-				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-				// 	},
-				// 	{
-				// 		link:'',
-				// 		image:'images/index_4_1.jpg',
-				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-				// 	},
-				// 	{
-				// 		link:'',
-				// 		image:'images/index_4_1.jpg',
-				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-				// 	},
-				// 	{
-				// 		link:'',
-				// 		image:'images/index_4_1.jpg',
-				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-				// 	},
-				// 	{
-				// 		link:'',
-				// 		image:'images/index_4_1.jpg',
-				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-				// 	},
-				// 	{
-				// 		link:'',
-				// 		image:'images/index_4_1.jpg',
-				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-				// 	},
-				// 	{
-				// 		link:'',
-				// 		image:'images/index_4_1.jpg',
-				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-				// 	},
-				// ],
+                alllink:'',
 
 			},
 			created: function (){
@@ -164,6 +122,37 @@
 			mounted: function () { //页面渲染完成后执行，不包括需要请求的数据
 	        },
 	        methods: { //专用于定义方法
+                //判断是否可以下载
+                downTy:function(downlink,fileId){
+                    var _this=this;
+                    $.ajax({
+                        type: 'POST',
+                        url:Url+ 'File/getFDNumber',
+                        dataType: 'json',
+                        success: function (data) {
+
+                            if(_this.userInfo==''){
+                                alert("请登陆之后再下载！")
+                            }else{
+                                if(data.code==0){
+                                    downshow()
+                                    _this.alllink=fileId;
+                                }else{
+                                    alert("今日下载次数已用完！")
+                                }
+                            }
+                        }
+                    })
+                },
+                //确认下载
+                sureDown:function(id){
+                    location.href = '/deepsearch/File/downfile/'+id;
+                    downhide()
+                },
+                //取消下载
+                surennoDown:function(){
+                    downhide()
+                },
 	        	// getList:function(index){
 	        	// 	var _this=this;
 	        	// 	_this.listType=index;
@@ -192,7 +181,12 @@
 	        },
 
 		})
-		
+        function downshow(){
+            $(".index_Tips").stop(true).fadeIn(300);
+        }
+        function downhide(){
+            $(".index_Tips").stop(true).fadeOut(0);
+        }
 	})
 
 	

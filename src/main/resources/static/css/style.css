@@ -430,6 +430,7 @@ a{
     -moz-transform:rotate(-45deg);
     -webkit-transform:rotate(-45deg);
     -o-transform:rotate(-45deg);
+    text-transform: uppercase;
 }
 .index_ser4_box1:hover{
     top: -5px;
@@ -1179,9 +1180,11 @@ a{
 .wap_tanc{
     width:100%;
     height:100%;
-    position:fixed; top:0; left:0;
+    position:fixed;
+    top:0;
+    left:0;
     z-index:99999;
-    display:none;
+     display:none;
 }
 .wap_tanc_bg{
     width:100%;
@@ -1202,10 +1205,12 @@ a{
     padding-bottom: 0;
     background-color: rgba(255,255,255,0.96);
     border-radius:15px;
-    position:absolute; left:50%; top:50%;
+    position:absolute;
+    left:50%;
+    top:50%;
     margin-top:-55px;
     margin-left:-125px;
-    display:none;
+    /* display:none; */
     z-index:9;
 }
 .wap_tanc_con h5{
@@ -2159,6 +2164,20 @@ a{
     }
 }
 /********违禁词**********/
+.index_Tips .wap_tanc_con{
+    width: 350px;
+    margin-left: -175px;
+}
+.index_Tips .wap_tanc_btn span{
+    float: left;
+    width: 50%;
+    line-height:50px;
+    text-align:center;
+    letter-spacing:1px;
+    font-size:14px;
+    color:#006fff;
+    cursor:  pointer;
+}
 
 
 
