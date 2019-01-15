@@ -103,9 +103,20 @@ public class FileController {
             /*对应数据后缀去划分对应内容  后续还要加TODO*/
             switch (suffixName){
                 case ".txt":fileDownload.setFileType(1);
-                case ".word":fileDownload.setFileType(2);
-                case ".pdf":fileDownload.setFileType(3);
-                case ".excel":fileDownload.setFileType(4);
+                case ".pdf":fileDownload.setFileType(2);
+                case ".dox":fileDownload.setFileType(3);
+                case ".docx":fileDownload.setFileType(3);
+                case ".wps":fileDownload.setFileType(3);
+                case ".xlsx":fileDownload.setFileType(4);
+                case ".xls":fileDownload.setFileType(4);
+                case ".xlt":fileDownload.setFileType(4);
+                case ".ppt":fileDownload.setFileType(5);
+                case ".pptx":fileDownload.setFileType(5);
+                case ".jpg":fileDownload.setFileType(6);
+                case ".png":fileDownload.setFileType(6);
+                case ".html":fileDownload.setFileType(7);
+                case ".htm":fileDownload.setFileType(7);
+                default:fileDownload.setFileType(99);
             }
             fileDownload.setFileDownloadpath(fileName);
             fileDownloadService.insertSelective(fileDownload);
@@ -188,21 +199,21 @@ public class FileController {
             fileDownload.setFileName(fileName);
             /*对应数据后缀去划分对应内容  后续还要加TODO*/
             switch (suffixName){
-                case ".txt":fileDownload.setFileType(1);
-                case ".pdf":fileDownload.setFileType(2);
-                case ".dox":fileDownload.setFileType(3);
-                case ".docx":fileDownload.setFileType(3);
-                case ".wps":fileDownload.setFileType(3);
-                case ".xlsx":fileDownload.setFileType(4);
-                case ".xls":fileDownload.setFileType(4);
-                case ".xlt":fileDownload.setFileType(4);
-                case ".ppt":fileDownload.setFileType(5);
-                case ".pptx":fileDownload.setFileType(5);
-                case ".jpg":fileDownload.setFileType(6);
-                case ".png":fileDownload.setFileType(6);
-                case ".html":fileDownload.setFileType(7);
-                case ".htm":fileDownload.setFileType(7);
-                default:fileDownload.setFileType(99);
+                case ".txt":{fileDownload.setFileType(1);break; }
+                case ".pdf":{fileDownload.setFileType(2);break; }
+                case ".dox":{fileDownload.setFileType(3);break; }
+                case ".docx":{fileDownload.setFileType(3);break; }
+                case ".wps":{fileDownload.setFileType(3);break; }
+                case ".xlsx":{fileDownload.setFileType(4);break; }
+                case ".xls":{fileDownload.setFileType(4);break; }
+                case ".xlt":{fileDownload.setFileType(4);break; }
+                case ".ppt":{fileDownload.setFileType(5);break; }
+                case ".pptx":{fileDownload.setFileType(5);break; }
+                case ".jpg":{fileDownload.setFileType(6);break; }
+                case ".png":{fileDownload.setFileType(6);break; }
+                case ".html":{fileDownload.setFileType(7);break; }
+                case ".htm":{fileDownload.setFileType(7);break; }
+                default:{fileDownload.setFileType(99);break; }
             }
             fileDownload.setFileDownloadpath(filePath + fileName);
             fileDownload.setFilePicture(filePathTu + fileNameT);
@@ -257,44 +268,45 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
 
         List<MultipartFile> list = ((MultipartHttpServletRequest) request)
                 .getFiles("img");
-        MultipartFile img = list.get(0);//封面
+        if(list.size()>0) {
+            MultipartFile img = list.get(0);//封面
 
-        if (img.getSize() < 1 * 1024 * 1024){
-            //获取图片的字节流
-            byte[] bytePhoto = FileUtils.file2Byte(img);
-            articleInformation.setImgs(bytePhoto);
-        }
+            if (img.getSize() < 1 * 1024 * 1024) {
+                //获取图片的字节流
+                byte[] bytePhoto = FileUtils.file2Byte(img);
+                articleInformation.setImgs(bytePhoto);
+            }
 
-        // 获取文件名
-        String fileName = img.getOriginalFilename();
-        System.out.println("上传的文件名为：" + fileName);
-        // 获取文件的后缀名
-        String suffixName = fileName.substring(fileName.lastIndexOf("."));
-        System.out.println("上传的后缀名为：" + suffixName);
-        // 文件上传后的路径
+            // 获取文件名
+            String fileName = img.getOriginalFilename();
+            System.out.println("上传的文件名为：" + fileName);
+            // 获取文件的后缀名
+            String suffixName = fileName.substring(fileName.lastIndexOf("."));
+            System.out.println("上传的后缀名为：" + suffixName);
+            // 文件上传后的路径
 //        String filePath = "E://test//";
-        String filePath = null;
-        try {
-            filePath = changeWJJ("zixun");
-        } catch (Exception e) {
-            e.printStackTrace();
+            String filePath = null;
+            try {
+                filePath = changeWJJ("zixun");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            // 解决中文问题，liunx下中文路径，图片显示问题
+            // fileName = UUID.randomUUID() + suffixName;
+            File dest = new File(filePath + fileName);
+            // 检测是否存在目录
+            if (!dest.getParentFile().exists()) {
+                dest.getParentFile().mkdirs();
+            }
+            try {
+                img.transferTo(dest);
+                articleInformation.setCover(filePath + fileName);
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        // 解决中文问题，liunx下中文路径，图片显示问题
-        // fileName = UUID.randomUUID() + suffixName;
-        File dest = new File(filePath + fileName);
-        // 检测是否存在目录
-        if (!dest.getParentFile().exists()) {
-            dest.getParentFile().mkdirs();
-        }
-        try {
-            img.transferTo(dest);
-            articleInformation.setCover(filePath+fileName);
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         String select =request.getParameter("select");//类型
         String words =request.getParameter("words");//描述
         String text =request.getParameter("text");//内容
