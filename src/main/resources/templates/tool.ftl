@@ -50,7 +50,10 @@
                                 <a >
                                     <div class="img">
 										<img :src="item1.filePicture" >
-										<span class="index_ser4_box1_tips">{{item1.fileType==1?'txt':(item1.fileTyp==2?'word':(item1.fileTyp==3?'pdf':'excel'))}}</span></div>
+                                        <span class="index_ser4_box1_tips" v-if="item1.fileType<8" :class="item1.fileType==1?'tips1':(item1.fileType==2?'tips2':(item1.fileType==3?'tips1':(item1.fileType==4?'tips3':(item1.fileType==5?'tips4':(item1.fileType==6?'tips5':'tips6')))))">
+										{{item1.fileType==1?'word':(item1.fileType==2?'pdf':(item1.fileType==3?'word':(item1.fileType==4?'excel':(item1.fileType==5?'ppt':(item1.fileType==6?'picture':'web')))))}}
+									</span>
+                                    </div>
                                     <p>{{item1.fileName}}</p>
                                 </a>
                             </div>
@@ -113,6 +116,11 @@
                     dataType: 'json',
                     success: function (data) {
                         _this.datamation=data.data.list;
+                        _this.$nextTick(function () {
+                            for (var i=0;i < _this.datamation.length ;i++) {
+                                datamation[i].filePicture.replace('/home/deep/uploadfile', '/picture');
+                            }
+                        })
                     }
                 })
                 _this.$nextTick(function () {

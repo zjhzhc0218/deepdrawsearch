@@ -14,9 +14,9 @@
 
 </head>
 <style type="text/css">
-   /* body {
-        color: black;
-    }*/
+   .index_frame{
+       display: none!important;
+   }
 </style>
 <!--  / header  -->
 <#include "//header.ftl">

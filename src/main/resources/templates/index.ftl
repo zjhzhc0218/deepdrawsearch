@@ -199,7 +199,9 @@
 							<#--<a>-->
 								<div class="img" >
 									<img :src="item1.filePicture" >
-									<span class="index_ser4_box1_tips" v-if="item1.fileType<8">{{item1.fileType==1?'txt':(item1.fileType==2?'pdf':(item1.fileType==3?'word':(item1.fileType==4?'excel':(item1.fileType==5?'ppt':(item1.fileType==6?'picture':'web')))))}}</span>
+									<span class="index_ser4_box1_tips" v-if="item1.fileType<8" :class="item1.fileType==1?'tips1':(item1.fileType==2?'tips2':(item1.fileType==3?'tips1':(item1.fileType==4?'tips3':(item1.fileType==5?'tips4':(item1.fileType==6?'tips5':'tips6')))))">
+										{{item1.fileType==1?'word':(item1.fileType==2?'pdf':(item1.fileType==3?'word':(item1.fileType==4?'excel':(item1.fileType==5?'ppt':(item1.fileType==6?'picture':'web')))))}}
+									</span>
 								</div>
 								<p>{{item1.fileName}}</p>
 							<#--</a>-->
@@ -352,59 +354,6 @@
 					}
 
 				],
-				// datamation:[
-				// 	{
-				// 		link:'',
-				// 		image:'/deepsearch/images/index_4_1.jpg',
-				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-				// 	},
-				// 	{
-				// 		link:'',
-				// 		image:'/deepsearch/images/index_4_1.jpg',
-				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-				// 	},
-				// 	{
-				// 		link:'',
-				// 		image:'/deepsearch/images/index_4_1.jpg',
-				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-				// 	},
-				// 	{
-				// 		link:'',
-				// 		image:'/deepsearch/images/index_4_1.jpg',
-				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-				// 	},
-				// 	{
-				// 		link:'',
-				// 		image:'/deepsearch/images/index_4_1.jpg',
-				// 		text:'谁说菜鸟不会数据分析(入门篇）谁说菜鸟不会数据分析(入门篇)'
-				// 	},
-				// ],
-				// retailers1:[
-				// 	{
-				// 		link:'',
-				// 		image:'/deepsearch/images/index5_1.jpg',
-				// 		title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
-				// 		text:'就此现象，业内专家们展开了诸多探讨，并表示，即使由于退换货引发的包装贬损理应由消费者买单，商家也应尽到提前告知义务。',
-				// 		date:'2018-12-23',
-				// 		browse:'1322'
-				// 	},
-				// 	{
-				// 		link:'',
-				// 		image:'/deepsearch/images/index5_1.jpg',
-				// 		title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
-				// 		text:'就此现象，业内专家们展开了诸多探讨，并表示，即使由于退换货引发的包装贬损理应由消费者买单，商家也应尽到提前告知义务。',
-				// 		date:'2018-12-23',
-				// 		browse:'1322'
-				// 	},
-				// 	{
-				// 		link:'',
-				// 		image:'/deepsearch/images/index5_1.jpg',
-				// 		title:'七天无理由退换货，但是包装贬损，消费者该赔吗？',
-				// 		text:'就此现象，业内专家们展开了诸多探讨，并表示，即使由于退换货引发的包装贬损理应由消费者买单，商家也应尽到提前告知义务。',
-				// 		date:'2018-12-23',
-				// 		browse:'1322'
-				// 	}
-				// ],
 				brand:[
 					'/deepsearch/images/index6_1.png',
 					'/deepsearch/images/index6_2.png',
@@ -449,6 +398,12 @@
                     dataType: 'json',
                     success: function (data) {
                         _this.datamation=data.data.list;
+                        _this.$nextTick(function () {
+                            for (var i=0;i < _this.datamation.length ;i++) {
+                                datamation[i].filePicture.replace('/home/deep/uploadfile', '/picture');
+                            }
+                        })
+
                     }
                 })
                 //头条
