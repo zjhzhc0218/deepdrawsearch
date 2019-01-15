@@ -55,7 +55,7 @@
                     <div class="prohibited_con clearfix">
                         <div class="prohibited_left">
                             <div class="prohibited_left_tit" >
-                                <h5 class="box" ng-click="searchWjc()"><img src="/deepsearch/images/search2.png"> <span>禁用词查询</span></h5>
+                                <h5 class="box" ng-click="searchWjc()"><img src="/deepsearch/images/search2.png"> <span>违禁词查询</span></h5>
                             </div>
                             <div class="prohibited_box left">
                                 <textarea ng-model="searchWordsWjc" placeholder="在此粘贴文案,按动上方按钮后，根据文稿长短，请您耐心等待5-45秒"></textarea>
