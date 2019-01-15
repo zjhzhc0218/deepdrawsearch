@@ -20,7 +20,7 @@ public class UserControllers {
 
 //    private final static Logger logger = (Logger) LoggerFactory.getLogger(LoginUserControllers.class);
 
-    @Value("sign.url.cod")
+    @Value("sign.url.code")
     private String code;
 
     @Autowired
