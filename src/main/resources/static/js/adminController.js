@@ -684,7 +684,7 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
             var list = [];
             for (var i=0;i<$scope.wenjianrecord.length;i++)  {
                 if ($scope.wenjianrecord[i].checked) {
-                    list.push($scope.zixunrecord[i].serialNumber);
+                    list.push($scope.wenjianrecord[i].fileId);
                 }
             }
             $.ajax({

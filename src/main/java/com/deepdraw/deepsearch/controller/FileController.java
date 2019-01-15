@@ -189,21 +189,32 @@ public class FileController {
             /*对应数据后缀去划分对应内容  后续还要加TODO*/
             switch (suffixName){
                 case ".txt":fileDownload.setFileType(1);
-                case ".word":fileDownload.setFileType(2);
-                case ".pdf":fileDownload.setFileType(3);
-                case ".excel":fileDownload.setFileType(4);
+                case ".pdf":fileDownload.setFileType(2);
+                case ".dox":fileDownload.setFileType(3);
+                case ".docx":fileDownload.setFileType(3);
+                case ".wps":fileDownload.setFileType(3);
+                case ".xlsx":fileDownload.setFileType(4);
+                case ".xls":fileDownload.setFileType(4);
+                case ".xlt":fileDownload.setFileType(4);
+                case ".ppt":fileDownload.setFileType(5);
+                case ".pptx":fileDownload.setFileType(5);
+                case ".jpg":fileDownload.setFileType(6);
+                case ".png":fileDownload.setFileType(6);
+                case ".html":fileDownload.setFileType(7);
+                case ".htm":fileDownload.setFileType(7);
+                default:fileDownload.setFileType(99);
             }
             fileDownload.setFileDownloadpath(filePath + fileName);
             fileDownload.setFilePicture(filePathTu + fileNameT);
             fileDownloadService.insertSelective(fileDownload);
 
-            return "上传成功";
+            return JsonUtil.object2Json(ResultUtil.success("上传成功"));
         } catch (IllegalStateException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "上传失败";
+        return JsonUtil.object2Json(ResultUtil.error(2,"上传成功"));
     }
 
 
@@ -457,6 +468,8 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
     @RequestMapping("/downfile/{id}")
     public String downloadFile(HttpServletRequest request, HttpServletResponse response,  @PathVariable  String id) throws Exception {
 
+//        @RequestMapping("/downfile")
+//        public String downloadFile(HttpServletRequest request, HttpServletResponse response,   String id) throws Exception {
 //        String fileName = DownEnums.getFileName(Integer.parseInt(id));// 设置文件名，根据业务需要替换成要下载的文件名
         String fileName = fileDownloadService.selectByPrimaryKey(Integer.parseInt(id)).getFileDownloadpath();// 设置文件名，根据业务需要替换成要下载的文件名
         if (fileName != null) {
@@ -465,8 +478,8 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
             File file = new File(fileName);
             if (file.exists()) {
                 response.setContentType("application/force-download");// 设置强制下载不打开
-//                //response.addHeader("Content-Disposition", "attachment;fileName=" + fileName);// 设置文件名
-//                //response.setContentType("multipart/form-data;charset=UTF-8");也可以明确的设置一下UTF-8，测试中不设置也可以。
+               response.addHeader("Content-Disposition", "attachment;fileName=" + fileName);// 设置文件名
+                response.setContentType("multipart/form-data;charset=UTF-8");//也可以明确的设置一下UTF-8，测试中不设置也可以。
                 response.setHeader("Content-Disposition", "attachment;fileName=" + new String(fileName.getBytes("GB2312"), "ISO-8859-1"));
 
 //                response.setHeader("content-type", "application/octet-stream");
