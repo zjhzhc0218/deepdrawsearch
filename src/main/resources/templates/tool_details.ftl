@@ -34,47 +34,24 @@
 <!--  / header  -->
 <#include "//header.ftl">
 <!--  / header  -->
-<div id="app">
+<div id="app" v-clock>
 <!--  / warpper  -->
 <div class="warpper">
 	<div class="container">
 		<div class="all_nav">
-			您当前的位置：<a href="index">白马查</a>><a href="tool">电商资讯</a>><a>胡歌力挺中国质造，城市地标T恤成热潮</a>
+			您当前的位置：<a href="index">白马查</a>><a href="tool">电商资讯</a>><a>{{toolDeatails.title}}</a>
 		</div>
 		<div class="row">
 			<div class="col-md-8">
 				<div class="toolDetails_con">
 					<div class="toolDetails_tit">
 						<h2>{{toolDeatails.title}}</h2>
-						<p><span>2230人浏览</span> <span>白马查</span><span>2018-07-04</span></p>
+						<p>
+							<#--<span>2230人浏览</span>-->
+							<span>白马查</span><span>{{toolDeatails.creationTime}}</span></p>
 					</div>
 					<div class="toolDetails_box" v-html="toolDeatails.specificContent">
-						<#--<p>潮流总是不断地循环，穿着风格则代表了每一代的文化特色，能猫商店就是一间时光商店，让人走进80年代。不要以为只有走过的人才想回当代怀念，现在的90后、00后这些年轻人也会对80年代的这种文化特别的感兴趣，能猫商店让80后怀念过去，90后了解以前。</p>-->
 
-						<#--<p>&nbsp;</p>-->
-
-						<#--<p><img src="https://img.alicdn.com/bao/upload///img.alicdn.com/imgextra/i3/3470520596/TB2ALaQChSYBuNjSsphXXbGvVXa_!!3470520596-2-daren.png" /></p>-->
-
-						<#--<p>&nbsp;</p>-->
-
-						<#--<p>他是能猫商店的创始人&mdash;嘻嘻， 从上大学那会儿开始，他就特别喜欢咱们中国80年代的文化。 &ldquo;因为我从小就特别喜欢穿，当时我喜欢这种风格的衣服，根本就买不到，我在淘宝上面去找也没有，所以07年的时候我创办了这样一个品牌，到08年正好是奥运会，那段时间中国国货风一下就起来了，特别的火，各种媒体都来采访﹑报道，我的品牌一下子就被很多人所接受﹑认识，并且喜欢，包括很多明星他们都自己买来穿。&rdquo; 嘻嘻很高兴地说起了能猫商店的来由。</p>-->
-
-						<#--<p>&nbsp;</p>-->
-
-						<#--<p><img src="https://img.alicdn.com/bao/upload///img.alicdn.com/imgextra/i1/3470520596/TB2vLOwt_dYBeNkSmLyXXXfnVXa_!!3470520596-0-daren.jpg" /></p>-->
-
-						<#--<p>&nbsp;</p>-->
-
-						<#--<p>能猫商店的名气可不是盖的，很多电影﹑视频也曾出现他的产品，这是电影《全城热恋》的片段，井柏然穿的那件&ldquo;青春&rdquo;两个字的那个T恤也是能猫商店的。包括还有郑恺，他自己买了好多，包括去拍一些电影都会穿着。嘻嘻跟胡歌也是朋友，他们是通过骑摩托车认识的。胡歌作为上海的形象大使，去年拍了一个宣传片，他专门穿了嘻嘻的T恤，就&ldquo;上海&rdquo;字样的，有四个款。这可成为现今最能代表80年代的商店了。甚至袁弘买了20多件去给他的发小，然后他还跟他媳妇张歆艺一齐穿着，专门发到微博让嘻嘻看。</p>-->
-
-						<#--<p>&nbsp;</p>-->
-
-						<#--<p><img src="https://img.alicdn.com/bao/upload///img.alicdn.com/imgextra/i2/3470520596/TB2pnO1t2uSBuNkHFqDXXXfhVXa_!!3470520596-2-daren.png" /></p>-->
-
-						<#--<p>&nbsp;</p>-->
-
-						<#--<p>近些年随着实体经济的下滑，网购逐渐流行，所以能猫商店的实体店就开始陆陆续续的就关了，后来嘻嘻就开始转战淘宝。这几年，年轻人们会去淘宝找一些特别新鲜，特别有设计感的东西，他们能很快的在网络上，在淘宝上找到一些不一样的心头号。 「视觉上面是好的，有我们中国特点的，做工一定要精良。这样的，我觉得才是真正的&ldquo;中国质造&rdquo;」嘻嘻感叹的说着对中国制的期望。</p>-->
-					<#---->
 					</div>
 					<div class="toolDetails_bt">
 						<a href="javascript:history.back(-1)">返回列表</a>
@@ -194,6 +171,16 @@
                     },
                     success: function (data) {
                         _this.toolDeatails=data.data.now;
+                            // alert(2)
+						var date=new Date(_this.toolDeatails.creationTime);
+						var Y = date.getFullYear() + '-';
+						var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+						var D = date.getDate() + ' ';
+						var h = date.getHours() + ':';
+						var m = date.getMinutes() + ':';
+						var s = date.getSeconds();
+						_this.toolDeatails.creationTime =Y+M+D+h+m+s;
+						console.log(_this.notice[i].creationTime);
                         _this.toolUp=data.data.shang;
                         _this.toolDown=data.data.xia;
                     }

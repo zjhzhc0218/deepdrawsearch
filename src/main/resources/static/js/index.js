@@ -31,7 +31,7 @@ function all(){
         $("#tellweModal").addClass("in")
         $(".all_bg").stop(true).fadeIn(500);
     })
-    $(".button.close,.modal-footer button").click(function(){
+    $("button.close,.modal-footer button").click(function(){
         $(".modal").stop(true).fadeOut(0);
         $(".modal").removeClass("in")
         $(".all_bg").stop(true).fadeOut(0);

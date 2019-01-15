@@ -93,7 +93,24 @@
                         typeN:0
                     },
                     success: function (data) {
-                        _this.notice=data.data.list;
+                        _this.$nextTick(function () {
+                            // alert(1)
+                            _this.notice=data.data.list;
+                            for (var i=0;i < _this.notice.length ;i++) {
+                                // alert(2)
+                                var date=new Date(_this.notice[i].creationTime);
+                                var Y = date.getFullYear() + '-';
+                                var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+                                var D = date.getDate() + ' ';
+                                var h = date.getHours() + ':';
+                                var m = date.getMinutes() + ':';
+                                var s = date.getSeconds();
+                                _this.notice[i].creationTime =Y+M+D+h+m+s;
+                                console.log(_this.notice[i].creationTime);
+
+                            }
+
+                        })
 
                     }
                 })
