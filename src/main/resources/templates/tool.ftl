@@ -36,7 +36,7 @@
 <div class="warpper ">
 	<div class="container">
 		<div class="all_nav">
-			您当前的位置：<a href="index">白马查</a>><a>电商资讯</a>
+			您当前的位置：<a href="index">白马查</a>><a>数据化运营</a>
 		</div>
 		<div class="tool_con ">
 			<div class="index_ser4 all_mar">
