@@ -10,8 +10,10 @@
     <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/deepsearch/css/loading/jquery.mloading.css">
     <link rel="stylesheet" href="/deepsearch/css/jigsaw.css">
+    <link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
+    <script src="/deepsearch/js/vue.min.js"></script>
 <style>
-    .container {
+    .conta {
         width: 310px;
         margin:  auto;
     }
@@ -21,10 +23,10 @@
         font-size: 14px;
         text-align: center;
     }
-    a:link,a:visited,a:hover,a:active {
-        margin-left: 100px;
-        color: #0366D6;
-    }
+    /*a:link,a:visited,a:hover,a:active {*/
+        /*margin-left: 100px;*/
+        /*color: #0366D6;*/
+    /*}*/
     /*手机以及ipad隐藏*/
     @media (max-width: 1024px){
         .huakuai{
@@ -38,16 +40,20 @@
         /*color: black;*/
     /*}*/
 </style>
-<body ng-app="signup" ng-controller="signupController">
 
-<div class="header" style="background-color: #3367ef">
-    <div class="header-wrapper" style="margin-left: 5%">
-        <a class="left"  href="http://www.baimacha.com"><div class="logo"></div></a>
-        <span class="header-title">用户中心</span>
-    </div>
+<body>
+<!--  / header  -->
+<#include "//header.ftl">
+<!--  / header  -->
+<div  ng-app="signup" ng-controller="signupController">
+<#--<div class="header" style="background-color: #3367ef">-->
+    <#--<div class="header-wrapper" style="margin-left: 5%">-->
+        <#--<a class="left"  href="http://www.baimacha.com"><div class="logo"></div></a>-->
+        <#--<span class="header-title">用户中心</span>-->
+    <#--</div>-->
 
 
-</div>
+<#--</div>-->
 <div class="passport">
     <div class="bk20"></div>
     <div class="wrapper">
@@ -73,7 +79,7 @@
                             <input type="password" ng-model="passwordAgain"  class="required password" name="p" placeholder="请重复输入密码" required="required" style="width: 310px"/>
                         </div>
 
-                        <div class="container huakuai" style="margin-left: 70px;margin-bottom: 10px;height: 200px;width: 345px;">
+                        <div class="conta huakuai" style="margin-left: 70px;margin-bottom: 10px;height: 200px;width: 345px;">
                             <div id="captcha" style="position: relative;"></div>
                             <div id="msg" style=""></div>
                         </div>
@@ -99,7 +105,7 @@
 <div class="footer" style="position:fixed;bottom:0;width:100%;background-color:#e5e5e5;height: 40px;line-height: 40px;padding: 0">
     <p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>
 </div>
-
+</div>
 </body>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="/deepsearch/js/angular/angular.min.js"></script>
@@ -109,6 +115,7 @@
 <script src="/deepsearch/js/angular/encrypt.js"></script>
 <script src="/deepsearch/js/signupController.js"></script>
 <script src="/deepsearch/js/jigsaw.js"></script>
+<script src="/deepsearch/js/index.js"></script>
 <script>
     //判断是否为ie浏览器
     var navigatorName = "Microsoft Internet Explorer";

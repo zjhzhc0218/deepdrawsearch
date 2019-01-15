@@ -97,7 +97,7 @@ var app=angular.module('search',[])
             }}
         ).then(function successCallback(info) {
             if(info.data.data) {
-                var resultWjc = info.data.data;
+                var resultWjc = angular.fromJson(info.data.data);
              /*   if (resultWjc.indexOf('small') !=-1) {
                     $scope.app.hasNoViolation = false;
                     $scope.app.examedContext =  resultWjc;
@@ -105,7 +105,7 @@ var app=angular.module('search',[])
                     $scope.app.hasNoViolation = true;
                     $scope.app.examedContext ="<span style='color: green;font-size: 22px' >恭喜你，没有发现任何禁用词／敏感词！</span>";
                 }*/
-                $scope.app.examedContext =info.data.data;
+                $scope.app.examedContext =resultWjc.data;
                 // $scope.app.hideDetail = true;
                 // $scope.app.working = false;
                 appvm.value = 100;
@@ -313,7 +313,7 @@ var app=angular.module('search',[])
                 // if($scope.jiangquan.isNormal==1){
                 //     $scope.jiangquan.msg = "很抱歉！检测到您店铺宝贝有被降权。请选择上方异常按钮点击查询。";
                 // }else{
-                    $scope.jiangquan.msg = "查询该旺旺号不存在。";
+                    $scope.jiangquan.msg = info.data.msg;
                 // }
             }else if(info.data.code == 0){
                 var result = info.data.data;

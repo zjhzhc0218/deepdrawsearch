@@ -74,12 +74,12 @@ body { font-family: ΢���ź�, ����, "Helvetica Neue", Helvetica,
     padding: 10px;
 }
 #cas #content #m_login #fm1 .row .btn-submit { outline: none; -webkit-appearance: none; -webkit-border-radius: 0; border: 0; background: #04c; color: white; font-weight: bold; padding: 10px 20px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
-.footer{text-align: center;padding: 20px;}
-.footer p {text-align: center;padding: 0 6px;color: #999;}
+/*.footer{text-align: center;padding: 20px;}*/
+/*.footer p {text-align: center;padding: 0 6px;color: #999;}*/
 .logo{background: url(/deepsearch/img/logo.png) no-repeat;width: 131px;height: 75px;float:left;}
-.header{text-align:center;height:75px;}
+/*.header{text-align:center;height:75px;}*/
 .header-wrapper{width:990px;margin:auto;}
-.header .header-title{float:left;font-size: 26px;font-family: Microsoft YaHei,Hiragino Sans GB,\5b8b\4f53;color: #fff;line-height:75px;margin-left:20px;}
+/*.header .header-title{float:left;font-size: 26px;font-family: Microsoft YaHei,Hiragino Sans GB,\5b8b\4f53;color: #fff;line-height:75px;margin-left:20px;}*/
 .nav{float: right;height: 75px;line-height:75px;font: normal 12px/75px Verdana,Arial,\5b8b\4f53,sans-serif;}
 .nav a{color: #666;text-decoration:none;}
 .nav a:hover{text-decoration:underline;}
