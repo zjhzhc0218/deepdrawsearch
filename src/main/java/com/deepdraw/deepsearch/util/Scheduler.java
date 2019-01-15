@@ -2,6 +2,9 @@ package com.deepdraw.deepsearch.util;/**
  * Created by hasee on 2019/1/15.
  */
 
+import com.deepdraw.deepsearch.dao.DownloadsDao;
+import com.deepdraw.deepsearch.service.DownloadsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -13,19 +16,28 @@ import org.springframework.stereotype.Component;
 @Component
 public class Scheduler {
 
-    @Scheduled(cron="0 0/1 * * * ?") //每分钟执行一次
+
+    @Autowired
+    private DownloadsService downloadsService;
+
+    @Scheduled(cron="0 0 0 * * ?") //每分钟执行一次
     public void statusCheck() {
        System.out.println("------123----");
-
+        downloadsService.updateByNumber();
         System.out.println("------321----");
     }
 
-    @Scheduled(fixedRate=20000)
-    public void testTasks() {
-        System.out.println("每20秒执行一次。开始……");
-        //statusTask.healthCheck();
-        System.out.println("每20秒执行一次。结束。");
-    }
+//    @Scheduled(fixedRate=20000)
+//    public void testTasks() {
+//        System.out.println("每20秒执行一次。开始……");
+//        //statusTask.healthCheck();
+//        System.out.println("每20秒执行一次。结束。");
+//    }
+
+//    @Scheduled(cron="0 0 0 * * ？") //每24点执行一次
+//    public void statusCheckTime() {
+//        downloadsService.updateByNumber();
+//    }
 
 
 }

@@ -48,4 +48,17 @@ public interface DownloadsService {
      */
     int updateByPrimaryKey(Downloads record);
 
+    /**
+     * 将次数置0
+     * @mbggenerated 2019-01-15
+     */
+    int updateByNumber();
+
+    /**
+     * 判断是否可以下载（0不行 1可以）
+     * @param id
+     * @return
+     */
+    int judee(Long id);
+
 }

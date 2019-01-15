@@ -5,7 +5,9 @@ package com.deepdraw.deepsearch.controller;/**
 import com.deepdraw.deepsearch.entity.ArticleInformation;
 import com.deepdraw.deepsearch.entity.FileDownload;
 import com.deepdraw.deepsearch.enums.DownEnums;
+import com.deepdraw.deepsearch.handler.ContextHolder;
 import com.deepdraw.deepsearch.service.ArticleInformationService;
+import com.deepdraw.deepsearch.service.DownloadsService;
 import com.deepdraw.deepsearch.service.FileDownloadService;
 import com.deepdraw.deepsearch.util.*;
 import jnr.ffi.annotations.In;
@@ -40,6 +42,9 @@ public class FileController {
 
     @Autowired
     private FileDownloadService fileDownloadService;
+
+    @Autowired
+    private DownloadsService downloadsService;
 
     /**
      * 文章资讯
@@ -421,14 +426,44 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
             }
         }
 
+    /* 文件是否可以下载 */
+    @RequestMapping("/getFDNumber")
+    @ResponseBody
+    public Object getFDNumber(HttpServletRequest request) throws IOException {
+        /*判断是否可以下载*/
+        Long useId = ContextHolder.getSessionSHUser().getId();
+        if(useId==null){
+            return JsonUtil.object2Json(ResultUtil.error(2,"没有用户登录"));
+        }
+        int judge =downloadsService.judee(useId);
+        if(judge==0){
+            return JsonUtil.object2Json(ResultUtil.error(3,"用户下载已经到上线"));
+        }
+        return JsonUtil.object2Json(ResultUtil.success("可以下载"));
+    }
+
+
     // 文件下载相关代码
     @RequestMapping("/downfile/{id}")
     public String downloadFile(HttpServletRequest request, HttpServletResponse response,  @PathVariable  String id) throws Exception {
+
+        /*判断是否可以下载*/
+        Long useId = ContextHolder.getSessionSHUser().getId();
+        if(useId==null){
+            return JsonUtil.object2Json(ResultUtil.error(2,"下载成功"));
+        }
+        int judge =downloadsService.judee(useId);
+        if(judge==0){
+            return JsonUtil.object2Json(ResultUtil.error(3,"下载成功"));
+        }
+
+
 //        String fileName = DownEnums.getFileName(Integer.parseInt(id));// 设置文件名，根据业务需要替换成要下载的文件名
         String fileName = fileDownloadService.selectByPrimaryKey(Integer.parseInt(id)).getFileDownloadpath();// 设置文件名，根据业务需要替换成要下载的文件名
         if (fileName != null) {
             //设置文件路径
-            String realPath = uploadFolder;
+//            String realPath = uploadFolder;
+            String realPath = ""; //现在是放纯路径
             File file = new File(realPath, fileName);
             if (file.exists()) {
                 response.setContentType("application/force-download");// 设置强制下载不打开
@@ -453,7 +488,7 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
                         os.write(buffer, 0, i);
                         i = bis.read(buffer);
                     }
-                    System.out.println("下载成功");
+                    return JsonUtil.object2Json(ResultUtil.success("下载成功"));
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
@@ -474,7 +509,7 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
                 }
             }
         }
-        return null;
+        return JsonUtil.object2Json(ResultUtil.error(4,"下载失败"));
     }
 
 

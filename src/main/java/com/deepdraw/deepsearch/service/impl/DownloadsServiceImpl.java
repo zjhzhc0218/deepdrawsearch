@@ -49,5 +49,29 @@ public class DownloadsServiceImpl implements DownloadsService {
         return downloadsDao.updateByPrimaryKey(record);
     }
 
+    @Override
+    public int updateByNumber() {
+        return downloadsDao.updateByNumber();
+    }
+
+    @Override
+    public int judee(Long id) {
+        Downloads downloads = downloadsDao.selectByPrimaryKey(id);
+        if (downloads == null){
+            Downloads downloadNew = new Downloads();
+            downloadNew.setId(id);
+            downloadNew.setNumber(1);
+            downloadsDao.insertSelective(downloadNew);
+            return 1;
+        }else{
+            Integer y = downloads.getNumber();
+            if(y<2){
+                downloadsDao.updateByNumberAdd(downloads);
+                return 1;
+            }
+        }
+        return 0;
+    }
+
 
 }
