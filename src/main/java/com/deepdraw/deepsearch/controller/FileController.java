@@ -424,8 +424,8 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
     // 文件下载相关代码
     @RequestMapping("/downfile/{id}")
     public String downloadFile(HttpServletRequest request, HttpServletResponse response,  @PathVariable  String id) throws Exception {
-        String fileName = DownEnums.getFileName(Integer.parseInt(id));// 设置文件名，根据业务需要替换成要下载的文件名
-
+//        String fileName = DownEnums.getFileName(Integer.parseInt(id));// 设置文件名，根据业务需要替换成要下载的文件名
+        String fileName = fileDownloadService.selectByPrimaryKey(Integer.parseInt(id)).getFileDownloadpath();// 设置文件名，根据业务需要替换成要下载的文件名
         if (fileName != null) {
             //设置文件路径
             String realPath = uploadFolder;
