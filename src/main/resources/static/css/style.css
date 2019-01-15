@@ -547,6 +547,7 @@ a{
     padding: 10px 15px;
     background-color:  #fff;
     text-align:  center;
+    z-index:999;
 }
 .index_core h5{
     font-size: 12px;
@@ -1121,7 +1122,7 @@ a{
     height: 100%;
     background-color: rgba(0,0,0,0.5);
     z-index: 999;
-    /*display: none;*/
+    display: none;
 }
 .index_frame_box{
     position: absolute;
@@ -2163,7 +2164,7 @@ a{
     background-color: rgba(0,0,0,0.5);
 }
 
-@media (max-width: 1200px){
+@media (max-width: 1500px){
     .index_core{
         left: auto!important;
         right: 0px;

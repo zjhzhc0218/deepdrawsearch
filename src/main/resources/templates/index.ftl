@@ -434,11 +434,11 @@
                 	all();
                     // console.log(_this.userInfo);
                     if(this.userInfo==''){
-                        _this.codeType=0;
+                        coresh()
                     }
                     else{
                         if(this.userInfo.grade==2){
-                            _this.codeType=0;
+                            coresh()
                         }
                     }
                 })
@@ -537,7 +537,7 @@
 	        	},
                 codeHide:function () {
                     var _this=this;
-                    _this.codeType=1;
+                    corehi();
                 },
 				//验证邀请码
                 codeCheck:function () {
@@ -557,7 +557,7 @@
                             success: function (data) {
                                 alert(data.msg)
                                 if(data.code==0){
-                                    _this.codeType=1;
+                                    corehi();
                                 }
                             }
                         })
@@ -590,7 +590,14 @@
         function downhide(){
             $(".index_Tips").stop(true).fadeOut(0);
         }
-
+        function coresh() {
+            setTimeout(function () {
+                $(".index_frame").stop(true).fadeIn(300);
+            },1000)
+        }
+        function corehi() {
+            $(".index_frame").stop(true).fadeOut(0);
+        }
 		function index(){
             user = '${user!}';
             if(user!=''){

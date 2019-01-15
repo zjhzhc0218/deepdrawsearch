@@ -9,7 +9,7 @@ var Url = window.Url();
 
 function all(){
     //二维码位置
-    if($(window).width()>1200){
+    if($(window).width()>1500){
         var leftWdith=($(window).width()-1200)/2+1215;
         $(".index_core").css("left",leftWdith)
         $(window).resize(function(){
