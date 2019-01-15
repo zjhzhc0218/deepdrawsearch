@@ -198,8 +198,9 @@
 			<div class="index_ser4_con1" v-show="listType==0?true:false">
 				<div class="row">
 					<div class="col-sm-3" v-for="(item1,index) in datamation" v-if="index<12">
-						<div class="index_ser4_box1">
-							<a :href="item1.fileDownloadpath" :download="item1.fileDownloadpath">
+						<div class="index_ser4_box1" @click="downTy(item1.fileDownloadpath)">
+							<#--<a :href="item1.fileDownloadpath" :download="item1.fileDownloadpath">-->
+							<a>
 								<div class="img" style="'background-image: url('+item1.filePicture+')'"><span class="index_ser4_box1_tips">{{item1.fileType==1?'txt':(item1.fileTyp==2?'word':(item1.fileTyp==3?'pdf':'excel'))}}</span></div>
 								<p>{{item1.fileName}}</p>
 							</a>
@@ -448,14 +449,42 @@
                     },
                     success: function (data) {
                         _this.retailers=data.data.list;
-
                     }
                 })
-
             },
 			mounted: function () { //页面渲染完成后执行，不包括需要请求的数据
 	        },
 	        methods: { //专用于定义方法
+			    //判断是否可以下载
+                downTy:function(downlink){
+                    var _this=this;
+                    $.ajax({
+                        type: 'POST',
+                        url:Url+ 'File/getFDNumber',
+                        dataType: 'json',
+                        success: function (data) {
+
+                            if(_this.userInfo==''){
+								alert("请登陆之后再下载！")
+							}else{
+                                if(data.code==0){
+                                    _this.$nextTick(function (){
+                                    var form=$("<form>");//定义form表单,通过表单发送请求
+                                    form.attr("style","display:none");//设置为不显示
+                                    form.attr("target","");
+                                    form.attr("method",downlink);//设置请求类型
+                                    form.attr("action",url);//设置请求路径
+                                    $("body").append(form);//添加表单到页面(body)中
+                                    form.submit();//表单提交
+                                    })
+                                }else{
+                                    alert("今日下载次数已用完！")
+                                }
+							}
+
+                        }
+                    })
+				},
 			    //头部跳转
                 search:function(headerval){
                     if(headerval==''){
