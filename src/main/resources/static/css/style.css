@@ -409,12 +409,17 @@ a{
 }
 .index_ser4_box1 .img{
     width: 100%;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    /*background-position: center center;*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
     height: 140px;
+    overflow: hidden;
     position: relative;
     overflow: hidden;
+
+}
+.index_ser4_box1 .img img{
+    height: 100%;
 }
 .index_ser4_box1_tips{
     position: absolute;

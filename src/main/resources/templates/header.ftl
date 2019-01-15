@@ -4,7 +4,7 @@
 	<div id="app1">
 	<div  class="header_gary">
 		<div class="container header_before">
-			<span>亲，欢迎进入白马查</span><a href="sign" class="head_portant">登录</a><a class="signup">免费注册</a>
+			<span>亲，欢迎进入白马查</span><a href="sign" class="head_portant">登录</a><a href="signup">免费注册</a>
 		</div>
 		<div class="container header_on">
 			<span>亲爱的 <font class="head_portant head_name"></font>，欢迎进入白马查</span><a href="adminPage" class="head_portant head_ht" style="display:none">后台管理</a><span class="head_portant heade_cu " @click="outSign">退出登录</span>

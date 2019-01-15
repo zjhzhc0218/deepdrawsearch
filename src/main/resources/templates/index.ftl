@@ -12,10 +12,6 @@
 	<meta name="keywords" content=" " />
 	<meta name="description" content=" " />
 	<link rel="stylesheet" href="/deepsearch/css/bootstrap/bootstrap.css">
-	<script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
-	<script src="/deepsearch/js/bootstrap/bootstrap.js"></script>
-	<script src="/deepsearch/js/jquery-ui.min.js"></script>
-	<script src="/deepsearch/js/index.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/deepsearch/css/common.css">
@@ -24,8 +20,8 @@
 	<script src="/deepsearch/js/swiper-3.4.1.min.js"></script>
 	<script src="/deepsearch/js/vue.min.js"></script>
 	<!--[if lte IE 9]>
-	   <script src="/deepsearch/js/respond.min.js"></script>
-	   <script src="/deepsearch/js/html5shiv.js"></script>
+	<script src="/deepsearch/js/respond.min.js"></script>
+	<script src="/deepsearch/js/html5shiv.js"></script>
 	<![endif]-->
 
 </head>
@@ -200,10 +196,13 @@
 					<div class="col-sm-3" v-for="(item1,index) in datamation" v-if="index<12">
 						<div class="index_ser4_box1" @click="downTy(item1.fileDownloadpath,item1.fileId)">
 							<#--<a :href="item1.fileDownloadpath" :download="item1.fileDownloadpath">-->
-							<a>
-								<div class="img" style="'background-image: url('+item1.filePicture+')'"><span class="index_ser4_box1_tips">{{item1.fileType==1?'txt':(item1.fileTyp==2?'word':(item1.fileTyp==3?'pdf':'excel'))}}</span></div>
+							<#--<a>-->
+								<div class="img" >
+									<img :src="item1.filePicture" >
+									<span class="index_ser4_box1_tips">{{item1.fileType==1?'txt':(item1.fileTyp==2?'word':(item1.fileTyp==3?'pdf':'excel'))}}</span>
+								</div>
 								<p>{{item1.fileName}}</p>
-							</a>
+							<#--</a>-->
 						</div>
 					</div>
 				</div>
@@ -261,7 +260,7 @@
 <div class="index_Tips wap_tanc">
 	<div class="wap_tanc_bg"></div>
 	<div class="wap_tanc_con">
-		<h5>是否消耗一次机会下载！(每日两次下载机会)</h5>
+		<h5> 本次点击会消耗一次下载机会（每天有2次下载权限）</h5>
 		<div class="wap_tanc_btn clearfix">
 			<span style="border-right: 1px solid #EBEBEB;" @click="sureDown(alllink)">确认</span><span @click="surennoDown">取消</span>
 		</div>
@@ -286,6 +285,10 @@
 <!--  / footer  -->
 
 </body>
+<script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
+<script src="/deepsearch/js/bootstrap/bootstrap.js"></script>
+<script src="/deepsearch/js/jquery-ui.min.js"></script>
+<script src="/deepsearch/js/index.js"></script>
 <script>
 
 	$(function(){

@@ -9,21 +9,25 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
     <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
+    <script src="/deepsearch/js/vue.min.js"></script>
 </head>
 <style type="text/css">
    /* body {
         color: black;
     }*/
 </style>
-
+<!--  / header  -->
+<#include "//header.ftl">
+<!--  / header  -->
 <body ng-app="sign" ng-controller="signController">
 
 
-<div class="header" style="background-color: #3367ef">
-    <div class="header-wrapper" style="margin-left: 5%">
-    <a class="left"  href="http://www.baimacha.com"><div class="logo"></div></a>
-    <span class="header-title">用户中心</span>
-</div>
+<#--<div class="header" style="background-color: #3367ef">-->
+    <#--<div class="header-wrapper" style="margin-left: 5%">-->
+    <#--<a class="left"  href="http://www.baimacha.com"><div class="logo"></div></a>-->
+    <#--<span class="header-title">用户中心</span>-->
+<#--</div>-->
 
 </div>
 <div class="passport">
@@ -80,6 +84,7 @@
 <script src="/deepsearch/js/spop/spop.js"></script>
 <script src="/deepsearch/js/angular/encrypt.js"></script>
 <script src="/deepsearch/js/signController.js"></script>
+<script src="/deepsearch/js/index.js"></script>
 <script>
     var _hmt = _hmt || [];
     (function() {
