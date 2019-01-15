@@ -199,7 +199,7 @@
 							<#--<a>-->
 								<div class="img" >
 									<img :src="item1.filePicture" >
-									<span class="index_ser4_box1_tips">{{item1.fileType==1?'txt':(item1.fileTyp==2?'word':(item1.fileTyp==3?'pdf':'excel'))}}</span>
+									<span class="index_ser4_box1_tips" v-if="item1.fileType<8">{{item1.fileType==1?'txt':(item1.fileType==2?'pdf':(item1.fileType==3?'word':(item1.fileType==4?'excel':(item1.fileType==5?'ppt':(item1.fileType==6?'picture':'web')))))}}</span>
 								</div>
 								<p>{{item1.fileName}}</p>
 							<#--</a>-->
