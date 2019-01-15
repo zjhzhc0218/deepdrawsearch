@@ -499,8 +499,8 @@
             <div  class="upload-button" type="file" capture="camera" ngf-select="shopParams.uploadFiles($file,$errorfile)" ng-model="shopParams.file" accept="image/jpg,image/JPG,image/jpeg,image/gif,image/png" ngf-max-height="2000" ngf-max-size="5MB" >
                 <img style="height: 30px;width: 30px;display: inline" class="uploadpic img-rounded" ng-src="{{shopParams.imgSrc}}" ng-model="shopParams.img"/>
                 <div style="" class="glyphicon glyphicon-camera uploadpic-label">点击上传</div>
-                <button  ng-click="shopParams.editShop()" class="btn btn-primary btn-block btn-large" style="display: inline;width: 90px">确认上传</button>
             </div>
+            <button  ng-click="shopParams.editShop()" class="btn btn-primary btn-block btn-large" style="display: inline;width: 90px">确认上传</button>
         </div>
     </div>
     <!--内容-结束-->

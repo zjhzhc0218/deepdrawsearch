@@ -70,7 +70,9 @@ public class SearchControllers {
             throw new GlobalException(CodeMsg.SERVER_ERROR);
         functionUsingService.addFT(5);
         if (result!=null && result.equals("002"))
-            return JsonUtil.object2Json(ResultUtil.error(1,"没有获取到此用户的宝贝信息！请稍后重试，谢谢！"));
+            return JsonUtil.object2Json(ResultUtil.error(1,"输入的旺旺账号不存在或该旺旺未上传宝贝！或因淘宝封店和降权处罚等原因无法查询。"));
+        if (result!=null && result.equals("003"))
+            return JsonUtil.object2Json(ResultUtil.error(1,"当前店铺无降权信息！"));
         return JsonUtil.object2Json(ResultUtil.success(result));
     }
 
