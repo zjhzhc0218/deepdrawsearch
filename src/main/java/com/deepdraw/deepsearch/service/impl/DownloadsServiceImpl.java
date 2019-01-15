@@ -60,17 +60,27 @@ public class DownloadsServiceImpl implements DownloadsService {
         if (downloads == null){
             Downloads downloadNew = new Downloads();
             downloadNew.setId(id);
-            downloadNew.setNumber(1);
+            downloadNew.setNumber(0);
             downloadsDao.insertSelective(downloadNew);
             return 1;
         }else{
             Integer y = downloads.getNumber();
             if(y<2){
-                downloadsDao.updateByNumberAdd(downloads);
                 return 1;
             }
         }
         return 0;
+    }
+
+    /**
+     * 下载成功 次数+1
+     * @param id
+     * @return
+     */
+    @Override
+    public int judeeByid(Long id) {
+        Downloads downloads = downloadsDao.selectByPrimaryKey(id);
+        return downloadsDao.updateByNumberAdd(downloads);
     }
 
 

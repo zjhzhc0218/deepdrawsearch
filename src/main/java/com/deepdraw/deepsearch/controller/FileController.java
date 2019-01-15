@@ -442,29 +442,27 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
         return JsonUtil.object2Json(ResultUtil.success("可以下载"));
     }
 
+    /* 文件是否可以次数+1 */
+    @RequestMapping("/getFDNumberAdd")
+    @ResponseBody
+    public Object getFDNumberAdd(HttpServletRequest request) throws IOException {
+        /*判断是否可以下载*/
+        Long useId = ContextHolder.getSessionSHUser().getId();
+        downloadsService.judeeByid(useId);
+        return JsonUtil.object2Json(ResultUtil.success("可以下载"));
+    }
+
 
     // 文件下载相关代码
     @RequestMapping("/downfile/{id}")
     public String downloadFile(HttpServletRequest request, HttpServletResponse response,  @PathVariable  String id) throws Exception {
-
-        /*判断是否可以下载*/
-        Long useId = ContextHolder.getSessionSHUser().getId();
-        if(useId==null){
-            return JsonUtil.object2Json(ResultUtil.error(2,"下载成功"));
-        }
-        int judge =downloadsService.judee(useId);
-        if(judge==0){
-            return JsonUtil.object2Json(ResultUtil.error(3,"下载成功"));
-        }
-
 
 //        String fileName = DownEnums.getFileName(Integer.parseInt(id));// 设置文件名，根据业务需要替换成要下载的文件名
         String fileName = fileDownloadService.selectByPrimaryKey(Integer.parseInt(id)).getFileDownloadpath();// 设置文件名，根据业务需要替换成要下载的文件名
         if (fileName != null) {
             //设置文件路径
 //            String realPath = uploadFolder;
-            String realPath = ""; //现在是放纯路径
-            File file = new File(realPath, fileName);
+            File file = new File(fileName);
             if (file.exists()) {
                 response.setContentType("application/force-download");// 设置强制下载不打开
 //                //response.addHeader("Content-Disposition", "attachment;fileName=" + fileName);// 设置文件名
@@ -488,6 +486,9 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
                         os.write(buffer, 0, i);
                         i = bis.read(buffer);
                     }
+                     /*判断是否可以下载*/
+                    Long useId = ContextHolder.getSessionSHUser().getId();
+                    downloadsService.judeeByid(useId);
                     return JsonUtil.object2Json(ResultUtil.success("下载成功"));
                 } catch (Exception e) {
                     e.printStackTrace();

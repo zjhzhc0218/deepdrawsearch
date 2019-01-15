@@ -61,4 +61,11 @@ public interface DownloadsService {
      */
     int judee(Long id);
 
+    /**
+     * 下载成功次数+1（0不行 1可以）
+     * @param id
+     * @return
+     */
+    int judeeByid(Long id);
+
 }
