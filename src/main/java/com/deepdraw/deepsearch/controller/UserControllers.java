@@ -3,6 +3,7 @@ package com.deepdraw.deepsearch.controller;
 import com.deepdraw.deepsearch.service.SHUserService;
 import com.deepdraw.deepsearch.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,6 +19,9 @@ public class UserControllers {
 
 
 //    private final static Logger logger = (Logger) LoggerFactory.getLogger(LoginUserControllers.class);
+
+    @Value("sign.url.cod")
+    private String code;
 
     @Autowired
     private SHUserService shUserService;
@@ -94,7 +98,7 @@ public class UserControllers {
         public String updateGradeNow(HttpServletRequest request,Long id,String inviteCode ) throws IOException {
         String message =  "";
 //        传入用户手机号，升权限还是降权限   type 3 就是升权限   type2 就是降权限
-        if("123456".equals(inviteCode)){
+        if(code.equals(inviteCode)){
         message = shUserService.updataGrade(id, 3);
             return JsonUtil.object2Json(ResultUtil.success(message));
         }else{
