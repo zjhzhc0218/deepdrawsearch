@@ -158,6 +158,7 @@ a{
 }
 .right_menu li{
     float: left;
+    list-style: none;
 }
 .right_menu li a{
     display: inline-block;
@@ -2165,8 +2166,8 @@ a{
 }
 /********违禁词**********/
 .index_Tips .wap_tanc_con{
-    width: 350px;
-    margin-left: -175px;
+    width: 400px;
+    margin-left: -200px;
 }
 .index_Tips .wap_tanc_btn span{
     float: left;
@@ -2177,6 +2178,9 @@ a{
     font-size:14px;
     color:#006fff;
     cursor:  pointer;
+}
+.index_Tips .wap_tanc_con h5{
+    color: #fb6c0e;
 }
 
 

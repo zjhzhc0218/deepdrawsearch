@@ -8,6 +8,7 @@ window.Url=function(){
 var Url = window.Url();
 
 function all(){
+    //二维码位置
     if($(window).width()>1200){
         var leftWdith=($(window).width()-1200)/2+1215;
         $(".index_core").css("left",leftWdith)
@@ -40,14 +41,8 @@ all();
 $(".index_his").click(function () {
     alert("该功能正在维护中！")
 })
-//二维码位置
-// var leftWdith=($(window).width()-1200)/2+1215;
-// $(".index_core").css("left",leftWdith)
-// $(window).resize(function(){
-//     var leftWdith=($(window).width()-1200)/2+1215;
-//     $(".index_core").css("left",leftWdith)
-// })
-console.log(sessionStorage.getItem("user"))
+
+// console.log(sessionStorage.getItem("user"))
 
 
 
