@@ -39,32 +39,29 @@
     <div class="warpper">
         <div class="container">
             <div class="all_nav">
-                    您当前的位置：<a href="index">白马查</a>><a>二维码卡屏&淘口令卡首屏</a>
+                您当前的位置：<a href="index">白马查</a>><a>历史价格查询</a>
             </div>
             <div class="toolALL">
                 <div class="toolALL_nav">
-                    <p>二维码卡屏&淘口令卡首屏</p>
+                    <p>历史价格查询</p>
                 </div>
                 <div class="toolALL_con">
+                    <!-- 历史价格查询 -->
+                    <div role="tabpanel" class="tab-pane" class="content">
+                        <div class="search-view" style="margin-top: 30px">
+                            <input type="text"   ng-model="zhanxian.searchWordsXy" id="showinput"  placeholder="请输入需要查询的商品ID或是商品链接 &quot;查询&quot; 按钮"/>
+                            <button class="btn  index_his search-btnN"  >查询</button>
+                        </div>
+
+
+                    </div>
+                    <!-- 历史价格查询 -->
                     <div class="toolALL_info">
                         <div class="toolALL_info_box">
-                            <h5 class="toolALL_info_tit">1.登陆白马流量网站(没有账号可以直接注册）<a href="http://www.daoliuliang365.com/member/#/login" target="_blank">http://www.daoliuliang365.com/member/#/login</a></h5>
-                            <div class="toolALL_info_text">
-                                <p><img src="/deepsearch/images/code1.jpg" width="100%"></p>
-                            </div>
-                        </div>
-                        <div class="toolALL_info_box">
-                            <h5 class="toolALL_info_tit">2.登陆之后会自动进入操作页面，先点击左侧的“淘宝任务”，再选中右侧的“卡首屏”即可进行操作</h5>
-                            <div class="toolALL_info_text">
-                                <p><img src="/deepsearch/images/code2.jpg" width="100%"></p>
-                            </div>
-                        </div>
-                        <div class="toolALL_info_box">
-                            <h5 class="toolALL_info_tit">3.填写商品链接以及关键词和备注，点击发布任务即可生成淘口令和二维码</h5>
-                            <div class="toolALL_info_text">
-                                <p><img src="/deepsearch/images/code3.jpg" width="100%"></p>
-                                <p><img src="/deepsearch/images/code4.jpg" width="100%"></p>
-                            </div>
+                            <h5 class="toolALL_info_tit">历史价格查询数据正在维护中！</h5>
+                            <#--<div class="toolALL_info_text">-->
+                                <#--<p>xxxxxx</p>-->
+                            <#--</div>-->
                         </div>
                     </div>
                 </div>

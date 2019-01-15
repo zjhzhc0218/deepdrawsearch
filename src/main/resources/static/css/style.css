@@ -526,9 +526,10 @@ a{
     text-align: center;
     font-size: 12px;
 }
-.footer a{
+.footer span{
     color:#fb6c0e;
     margin-left: 12px;
+    cursor: pointer;
 }
 .index_core{
     position: fixed;
@@ -2139,6 +2140,23 @@ a{
 }
 .index_his{
     cursor: pointer;
+}
+.all_bg{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: none;
+    background-color: rgba(0,0,0,0.5);
+}
+
+@media (max-width: 1200px){
+    .index_core{
+        left: auto!important;
+        right: 0px;
+    }
 }
 /********违禁词**********/
 

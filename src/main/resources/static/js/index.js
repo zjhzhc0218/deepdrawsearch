@@ -8,34 +8,49 @@ window.Url=function(){
 var Url = window.Url();
 
 function all(){
-	var leftWdith=($(window).width()-1200)/2+1215;
-    $(".index_core").css("left",leftWdith)
-    $(window).resize(function(){
-    	var leftWdith=($(window).width()-1200)/2+1215;
-    	$(".index_core").css("left",leftWdith)
-    })
+    if($(window).width()>1200){
+        var leftWdith=($(window).width()-1200)/2+1215;
+        $(".index_core").css("left",leftWdith)
+        $(window).resize(function(){
+            var leftWdith=($(window).width()-1200)/2+1215;
+            $(".index_core").css("left",leftWdith)
+        })
+    }
+
     $(".index_his").click(function () {
         alert("该功能正在维护中！")
     })
-    // $(".header_search_bt").click(function(){
-    //     var headerval=$(".header_center_search").val();
-    //     if(headerval==''){
-    //         alert("请输入宝贝链接或者id");
-    //         //location.reload();
-    //     }else{
-    //         window.location.href="show?name="+headerval;
-    //     }
-    //
-    // })
+    $(".footer_ab").click(function () {
+        $("#weModal").stop(true).fadeIn(500);
+        $("#weModal").addClass("in")
+        $(".all_bg").stop(true).fadeIn(500);
+    })
+    $(".footer_cont").click(function () {
+        $("#tellweModal").stop(true).fadeIn(500);
+        $("#tellweModal").addClass("in")
+        $(".all_bg").stop(true).fadeIn(500);
+    })
+    $(".button.close,.modal-footer button").click(function(){
+        $(".modal").stop(true).fadeOut(0);
+        $(".modal").removeClass("in")
+        $(".all_bg").stop(true).fadeOut(0);
+    })
 }
-//二维码位置
-var leftWdith=($(window).width()-1200)/2+1215;
-$(".index_core").css("left",leftWdith)
-$(window).resize(function(){
-    var leftWdith=($(window).width()-1200)/2+1215;
-    $(".index_core").css("left",leftWdith)
+all();
+$(".index_his").click(function () {
+    alert("该功能正在维护中！")
 })
+//二维码位置
+// var leftWdith=($(window).width()-1200)/2+1215;
+// $(".index_core").css("left",leftWdith)
+// $(window).resize(function(){
+//     var leftWdith=($(window).width()-1200)/2+1215;
+//     $(".index_core").css("left",leftWdith)
+// })
 console.log(sessionStorage.getItem("user"))
+
+
+
 
 //默认弹框样式
 window.alert = function (msg){
@@ -81,3 +96,4 @@ var dialog = {
         })
     }
 }
+//

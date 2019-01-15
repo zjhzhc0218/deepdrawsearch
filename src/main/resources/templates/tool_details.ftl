@@ -7,8 +7,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 	<meta name="format-detection" content="telephone=no" />
-	<link rel="shortcut icon" href="/deepsearch/images/dzlogo.ico" />
-	<title>index</title>
+    <link rel="shortcut icon" href="/codeimg/baima.ico" />
+    <title>白马查--电商在线查询工具</title>
 	<meta name="keywords" content=" " />
 	<meta name="description" content=" " />
 	<link rel="stylesheet" href="/deepsearch/css/bootstrap/bootstrap.css">
@@ -80,8 +80,8 @@
 						<a href="javascript:history.back(-1)">返回列表</a>
 					</div>
 					<div class="toolDetails_go">
-						<p>上一条：<a :href="'tool_details?id='+toolUp.serialNumber">{{toolUp.title}}</a></p>
-						<p>下一条：<a :href="'tool_details?id='+toolDown.serialNumber">{{toolDown.title}}</a></p>
+						<p v-if="toolUp!='null'">上一条：<a :href="'tool_details?id='+toolUp.serialNumber">{{toolUp.title}}</a></p>
+						<p v-if="toolDown!='null'">下一条：<a :href="'tool_details?id='+toolDown.serialNumber">{{toolDown.title}}</a></p>
 					</div>
 				</div>
 			</div>
