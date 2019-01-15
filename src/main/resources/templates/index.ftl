@@ -258,6 +258,15 @@
 		</div>
 	</div>
 </div>
+<div class="index_Tips wap_tanc">
+	<div class="wap_tanc_bg"></div>
+	<div class="wap_tanc_con">
+		<h5>是否消耗一次机会下载！(每日两次下载机会)</h5>
+		<div class="wap_tanc_btn clearfix">
+			<span style="border-right: 1px solid #EBEBEB;" @click="sureDown(alllink)">确认</span><span @click="surennoDown">取消</span>
+		</div>
+	</div>
+</div>
 <!--  / warpper  -->
 
 <div class="index_frame" v-show="codeType==1?false:true">
@@ -469,9 +478,8 @@
 								alert("请登陆之后再下载！")
 							}else{
                                 if(data.code==0){
-
-                                    location.href = '/deepsearch/File/downfile/'+fileId;
-
+                                    downshow()
+									_this.alllink=fileId;
 
                                 }else{
                                     alert("今日下载次数已用完！")
@@ -479,6 +487,15 @@
 							}
                         }
                     })
+				},
+				//确认下载
+                sureDown:function(id){
+                    location.href = '/deepsearch/File/downfile/'+id;
+                    downhide()
+				},
+				//取消下载
+                surennoDown:function(){
+                    downhide()
 				},
 			    //头部跳转
                 search:function(headerval){
@@ -564,6 +581,12 @@
 	        },
 
 		})
+		function downshow(){
+			$(".index_Tips").stop(true).fadeIn(300);
+		}
+        function downhide(){
+            $(".index_Tips").stop(true).fadeOut(0);
+        }
 
 		function index(){
             user = '${user!}';
