@@ -409,11 +409,10 @@
                 //头条
                 $.ajax({
                     type: 'POST',
-                    url:Url+ 'File/getAI',
+                    url:Url+ 'Announcement/selectAnnouncement',
                     dataType: 'json',
                     data:{
                         title:null,
-                        typeN:0
                     },
                     success: function (data) {
                         _this.retailers=data.data.list;
