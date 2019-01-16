@@ -393,13 +393,18 @@
             <#--第一行-->
             <#--<b style="font-size: 26px">资讯管理</b>-->
             <#--第二行-->
-            <div style="margin-top: 35px;font-size: 20px">
-                <div style="display: inline">
+            <div style="margin-top: 35px;font-size: 20px"></div>
+            <#--第三行-->
+            <div style="margin-top: 15px;">
+                <button class="btn btn-primary" style="display: inline;" ng-click="deleteAll();">批量删除</button>
+                <button class="btn btn-primary" style="display: inline;margin-left: 2%;" ng-click="showZxModal('zixun')">新增资讯</button>
+
+                <div style="display: inline;margin-left: 15%">
                     <span>标题：</span>
-                    <input style="width: 15%" ng-model="queryparam.title">
+                    <input style="width: 12%" ng-model="queryparam.title">
                 </div>
 
-                <div style="display: inline;margin-left: 4%">
+                <div style="display: inline;margin-left: 2%">
                     <span>资讯类型：</span>
                     <select style="" ng-model="queryparam.type">
                         <option value ="0">全部</option>
@@ -408,12 +413,8 @@
                     </select>
                 </div>
 
-                <div style="display: inline;margin-left: 4%"><button class="btn btn-primary" style="display: inline;width: 90px" ng-click="queryinfo();">查<span>&nbsp;&nbsp;&nbsp;</span>询</button></div>
-            </div>
-            <#--第三行-->
-            <div style="margin-top: 15px;">
-                <button class="btn btn-primary" style="display: inline;width: 120px;height: 40px;" ng-click="deleteAll();">批量删除</button>
-                <button class="btn btn-primary" style="display: inline;margin-left: 5%;width: 120px;height: 40px;" ng-click="showZxModal('zixun')">新增资讯</button>
+                <div style="display: inline;margin-left: 2%"><button class="btn btn-primary" style="display: inline;" ng-click="queryinfo();">查<span>&nbsp;&nbsp;&nbsp;</span>询</button></div>
+
             </div>
             <#--表格-->
             <table style="margin-top: 25px;width: 86%;text-align: center" class="table table-bordered table-hover">
@@ -449,18 +450,19 @@
         <!--  文档内容 开始-->
         <#--文档内容-->
         <div  role="tabpanel" class="tab-pane " id="wdgl" style="position: relative;margin-left: 13%">
-            <div style="margin-top: 35px;font-size: 20px">
-                <div style="display: inline">
-                    <span>标题：</span>
+            <#--<div style="margin-top: 35px;font-size: 20px">-->
+                <#--</div>-->
+            <div style="margin-top: 15px;">
+                <button class="btn btn-primary" style="display: inline;" ng-click="deleteAllWJ()">批量删除</button>
+                <button class="btn btn-primary" style="display: inline;margin-left: 5%;" ng-click="showZxModal('wendang')">新增文件</button>
+
+                <div style="display: inline;margin-left: 22%">
+                    <span style="">标题：</span>
                     <input style="width: 15%" >
                 </div>
 
                 <div style="display: inline;margin-left: 4%"><button class="btn btn-primary" style="display: inline;width: 90px" ng-click="queryinfoWJ()">查<span>&nbsp;&nbsp;&nbsp;</span>询</button></div>
-            </div>
-        <#--第三行-->
-            <div style="margin-top: 15px;">
-                <button class="btn btn-primary" style="display: inline;width: 120px;height: 40px;" ng-click="deleteAllWJ()">批量删除</button>
-                <button class="btn btn-primary" style="display: inline;margin-left: 5%;width: 120px;height: 40px;" ng-click="showZxModal('wendang')">新增文件</button>
+
             </div>
         <#--表格-->
             <table style="margin-top: 25px;width: 86%;text-align: center" class="table table-bordered table-hover">
@@ -503,7 +505,7 @@
                 <button class="btn btn-primary" style="display: inline;">批量删除</button>
                 <button class="btn btn-primary" style="display: inline;margin-left: 5%;" ng-click="showZxModal('gonggao1')">新增公告</button>
                 <div style="display: inline;margin-left: 20%">
-                    <span style="font-size: 22px">标题：</span>
+                    <span style="">标题：</span>
                     <input style="width: 15%">
                 </div>
                 <div style="display: inline;margin-left: 4%"><button class="btn btn-primary" style="display: inline;">查<span>&nbsp;&nbsp;&nbsp;</span>询</button></div>
