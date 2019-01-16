@@ -22,7 +22,7 @@
     select
     <include refid="Base_Column_List" />
     from file_download
-
+    order by file_id DESC
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
