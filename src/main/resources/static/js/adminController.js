@@ -19,6 +19,8 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         $scope.zhanxian = null;
         $scope.xialakuang = null;
 
+
+
         /**
          * 登陆信息
          * @type {string}
@@ -710,6 +712,109 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         };
 
         /**----------------  文件上传部分结束 -----------**/
+
+
+        /**----------------------公告部分开始--------------------------**/
+
+        $scope.gonggao = {
+            'title' : null,
+            'author' : null,
+            'synopsis':null,
+            'specificContent':null
+        }
+
+        $scope.infosumGG =function () {
+
+            if($scope.gonggao.title==null||$scope.gonggao.author==null||$scope.gonggao.synopsis==null||$scope.gonggao.specificContent==null){
+                alert('缺少内容');
+            }
+            var data = new FormData();
+            data.append("title", $scope.gonggao.title);
+            data.append("author", $scope.gonggao.author);
+            data.append("synopsis", $scope.gonggao.synopsis);
+            data.append("specificContent", $scope.gonggao.specificContent);
+
+            if($scope.page.id){
+                data.append("id", $scope.page.id);
+            }
+            $http({
+                method: "POST",
+                url: "/deepsearch/Announcement/addAnnouncement",
+                data: data,
+                headers: {
+                    'Content-Type': undefined
+                },
+                transformRequest: angular.identity
+
+            }).then(function successCallback(response) {
+                    // console.log(response.data)
+                    // alert("上传成功，请刷新页面")
+                    $('#gonggao1').modal('hide');
+                },
+                function errorCallback(response) {
+                    console.log("error");
+                    $('#gonggao1').modal('hide');
+                    // alert("上传成功，请刷新页面");
+                });
+
+        }
+
+        /**
+         * 查询公告
+         */
+        // $scope.queryparam = {
+        //     'title': null
+        // };
+        $scope.queryinfoGG = function () {
+            $.ajax({
+                url: '/deepsearch/Announcement/selectAnnouncement', data: {"title": $scope.queryparam.title},
+                dataType: 'json',
+                method: 'GET',
+                success: function (data) {
+                    $scope.gonggaorecord =  data.data.list;
+                    for (var i=0;i<$scope.gonggaorecord.length;i++) {
+                        $scope.gonggaorecord[i].checked = false;
+                        $scope.gonggaorecord[i]._creationTime = $filter('date')($scope.gonggaorecord[i].creationTime,'yyyy-MM-dd HH:mm:ss');
+                        $scope.$apply();
+                    }
+                }
+            })
+        }
+
+        /**
+         * 批量删除公告
+         * @param name
+         */
+        $scope.deleteAllGG = function() {
+            var list = [];
+            for (var i=0;i<$scope.gonggaorecord.length;i++)  {
+                if ($scope.gonggaorecord[i].checked) {
+                    list.push($scope.gonggaorecord[i].id);
+                }
+            }
+            $.ajax({
+                url: '/deepsearch/Announcement/delectAnnouncement', data: {"ids":angular.toJson(list)},
+                dataType: 'json',
+                method: 'GET',
+                success: function (data) {
+                    alert("删除成功");
+                }
+            })
+        };
+        $scope.deleteOneGG = function(id) {
+            var list = [];
+            list.push(id);
+            $.ajax({
+                url: '/deepsearch/Announcement/delectAnnouncement', data: {"ids":angular.toJson(list)},
+                dataType: 'json',
+                method: 'GET',
+                success: function (data) {
+                    alert("删除成功");
+                }
+            })
+        };
+
+        /**----------------------公告部分结束--------------------------**/
 
 
     $scope.showZxModal = function (name) {

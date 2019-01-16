@@ -3,9 +3,10 @@ package com.deepdraw.deepsearch.dao;
 
 import com.deepdraw.deepsearch.entity.Announcement;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public interface AnnouncementDao {
     /**
      *

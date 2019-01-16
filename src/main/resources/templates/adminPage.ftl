@@ -502,13 +502,13 @@
             <div style="margin-top: 35px;font-size: 20px"></div>
 
             <div style="margin-top: 15px;">
-                <button class="btn btn-primary" style="display: inline;">批量删除</button>
+                <button class="btn btn-primary" style="display: inline;" ng-click="deleteAllGG()" >批量删除</button>
                 <button class="btn btn-primary" style="display: inline;margin-left: 5%;" ng-click="showZxModal('gonggao1')">新增公告</button>
                 <div style="display: inline;margin-left: 20%">
                     <span style="">标题：</span>
-                    <input style="width: 15%">
+                    <input style="width: 15%" ng-model="queryparam.title">
                 </div>
-                <div style="display: inline;margin-left: 4%"><button class="btn btn-primary" style="display: inline;">查<span>&nbsp;&nbsp;&nbsp;</span>询</button></div>
+                <div style="display: inline;margin-left: 4%"><button class="btn btn-primary" style="display: inline;"  ng-click="queryinfoGG();">查<span>&nbsp;&nbsp;&nbsp;</span>询</button></div>
             </div>
 
             <table style="margin-top: 25px;width: 86%;text-align: center" class="table table-bordered table-hover">
@@ -524,13 +524,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="data in wenjianrecord">
-                    <td><input type="checkbox"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a ng-click="deleteOneWJ(data.fileId)">删除</a></td>
+                <tr ng-repeat="data in gonggaorecord">
+                    <td><input type="checkbox" ng-model="data.checked"></td>
+                    <td ng-bind="data.id"></td>
+                    <td ng-bind="data.title"></td>
+                    <td ng-bind="data.author"></td>
+                    <td ng-bind="data.synopsis"></td>
+                    <td ng-bind="data.specificContent"></td>
+                    <td><a ng-click="deleteOneGG(data.id)">删除</a></td>
                 </tr>
                 </tbody>
             </table>
@@ -618,16 +619,14 @@
 
             <div class="modal-body" style="">
                 <div role="tabpanel" class="tab-pane " style="margin-left: 10%">
-                    <form  method="POST"  style="font-size: 19px">
-                        <div style="margin-top: 20px;margin-bottom: 20px">标题：<input type="text"  style="display: inline;width: 80%"/></div>
-                        <div style="margin-bottom: 20px">作者：<input type="text"  style="display: inline;width: 80%"/></div>
-                        <div style="margin-bottom: 20px">简介：<input type="text"  style="display: inline;width: 80%"/></div>
-                        <div style="margin-bottom: 20px">内容：<textarea style="width: 80%;height: 30%"></textarea></div>
+                        <div style="margin-top: 20px;margin-bottom: 20px">标题：<input placeholder="请输入公告标题" type="text" style="display: inline;width: 77%" ng-model="gonggao.title" ></div>
+                        <div style="margin-bottom: 20px">作者：<input placeholder="请输入作者" type="text" style="display: inline;width: 77%" ng-model="gonggao.author" ></div>
+                        <div style="margin-bottom: 20px">简介：<input placeholder="请输入简介" type="text" style="display: inline;width: 77%" ng-model="gonggao.synopsis" ></div>
+                        <div style="margin-bottom: 20px">内容：<textarea placeholder="请输入内容" type="text" style="width: 80%;height: 30%" ng-model="gonggao.specificContent"></textarea></div>
                         <div style="margin-top: 50px;margin-left: 20%">
-                            <button class="btn btn-primary" style="display: inline;width: 150px" type="submit">提交</button>
+                            <button class="btn btn-primary" style="display: inline;width: 150px" ng-click="infosumGG();" >提交</button>
                             <button class="btn btn-primary" style="display: inline;width: 150px;margin-left: 5%">取消</button>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>

@@ -86,12 +86,12 @@ public class AnnouncementController {
      * @throws IOException
      */
     @RequestMapping(value = "selectAnnouncement")
-    public Object selectAnnouncement(HttpServletRequest request) throws IOException {
+    public String selectAnnouncement(HttpServletRequest request) throws IOException {
         String title = request.getParameter("title");
         Map<String,Object> maps = new HashMap<>();
       List<Announcement> list = announcementService.selectBytitleS(title);
-       maps.put("announcement",list);
-            return JsonUtil.object2Json(ResultUtil.success(maps));
+       maps.put("list",list);
+       return JsonUtil.object2Json(ResultUtil.success(maps));
 
     }
 
