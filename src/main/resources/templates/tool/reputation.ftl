@@ -56,15 +56,14 @@
                             <div style="width: 90%" ng-if="xinYu.msg == null " ng-show="xinYu.vm.value!=0&&xinYu.vm.value!=100">
                                 <div ng-class="{progress: true, 'progress-striped': xinYu.vm.striped}">
                                     <div ng-class="['progress-bar', xinYu.vm.style]" ng-style="{width: xinYu.vm.value + '%'}">
-                                        <div ng-if="xinYu.vm.showLabel">{{xinYu.vm.value}}%</div>
+                                        <div ng-if="xinYu.vm.showLabel" ng-bind="xinYu.vm.value+'%'"></div>
                                     </div>
                                 </div>
                             </div>
                             <#--    <div class="noViolation " ng-show="xinYu.hasNoViolation == true" style="color: red;font-size: 30px">
                                     该号不存在，请检测是否输入有误!
                                 </div>-->
-                                <div class="noViolation " ng-show="xinYu.msg != null" style="color: red;font-size: 30px">
-                                    {{xinYu.msg}}
+                                <div class="noViolation " ng-show="xinYu.msg != null" style="color: red;font-size: 30px" ng-bind="xinYu.msg">
                                 </div>
                             <#-- <a href="javascript:;"  ng-show="xinYu.examedContext != null"  class="info-item"  ng-repeat="d in xinYu.examedContext" >
                                  <div class="item-left" ng-if="d.id!=2&&d.id!=3">

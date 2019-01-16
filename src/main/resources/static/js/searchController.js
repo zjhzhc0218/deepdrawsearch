@@ -97,7 +97,7 @@ var app=angular.module('search',[])
             }}
         ).then(function successCallback(info) {
             if(info.data.data) {
-                var resultWjc = angular.fromJson(info.data.data);
+                var resultWjc = angular.fromJson(info.data.data.replace(/'/g, '"'));
              /*   if (resultWjc.indexOf('small') !=-1) {
                     $scope.app.hasNoViolation = false;
                     $scope.app.examedContext =  resultWjc;

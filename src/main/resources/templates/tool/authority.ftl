@@ -55,12 +55,11 @@
                             <div style="width: 100%" ng-if="jiangquan.msg == null " ng-show="jiangquan.vm.value!=0&&jiangquan.vm.value!=100">
                                 <div ng-class="{progress: true, 'progress-striped': jiangquan.vm.striped}">
                                     <div ng-class="['progress-bar', jiangquan.vm.style]" ng-style="{width: jiangquan.vm.value + '%'}">
-                                        <div ng-if="jiangquan.vm.showLabel">{{jiangquan.vm.value}}%</div>
+                                        <div ng-if="jiangquan.vm.showLabel"  ng-bind="jiangquan.vm.value+'%'"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="noViolation " ng-show="jiangquan.msg != null" style="color: red;font-size: 30px">
-                                {{jiangquan.msg}}
+                            <div class="noViolation " ng-show="jiangquan.msg != null" style="color: red;font-size: 30px" ng-bind="jiangquan.msg">
                             </div>
                             <div class="result-context" ng-show="jiangquan.examedContext != null&&jiangquan.examedContext.length>0" >
                                 <table class="all_table table  table-hover" style=" width:100%;margin-bottom: 0;">
