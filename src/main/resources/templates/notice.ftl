@@ -52,7 +52,7 @@
                 <div class="col-md-10">
                     <div class="notice_ccontent">
                         <div class="notice_ccontent_box" v-for="item in notice">
-                            <a :href="'tool_details?='+item.serialNumber">
+                            <a :href="'tool_details?='+item.id">
                                 <h5>{{item.title}}</h5>
                                 <p>{{item.describeN}}</p>
                                 <h6>{{item.creationTime}}</h6>
@@ -86,11 +86,10 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: Url + '/File/getAI',
+                    url:Url+ 'Announcement/selectAnnouncement',
                     dataType: 'json',
                     data:{
                         title:null,
-                        typeN:0
                     },
                     success: function (data) {
                         _this.$nextTick(function () {

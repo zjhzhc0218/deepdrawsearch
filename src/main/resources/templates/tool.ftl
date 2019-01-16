@@ -127,6 +127,7 @@
                 })
                 _this.$nextTick(function () {
                 	all()
+                    info()
 					console.log(_this.listType)
                 })
 
@@ -200,14 +201,17 @@
         function downhide(){
             $(".index_Tips").stop(true).fadeOut(0);
         }
-        function index() {
-            user = '${user!}';
-            if (user != '') {
-                app.userInfo = JSON.parse(user);
+		function info() {
+            if (sessionStorage.getItem("user") ==null || sessionStorage.getItem("user")=='null'){
 
-            }
-
+            }else{
+                app.userInfo=sessionStorage.getItem("user");
+			}
         }
+
+
+
+
 	})
 
 	

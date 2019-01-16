@@ -141,7 +141,7 @@
 					</div>
 					<div class="index_notice_list">
 						<ul>
-							<li v-for="(item,index) in retailers" v-if="index<4"><a :href="'tool_details?='+item.serialNumber">{{item.title}}</a></li>
+							<li v-for="(item,index) in retailers" v-if="index<4"><a :href="'tool_details?='+item.id">{{item.title}}</a></li>
 							<#--<li><a href="##">匹配人群标签，提升宝贝转化</a></li>-->
 							<#--<li><a href="##">流量捕手、白拿拿得到省商务厅厅长点赞</a></li>-->
 							<#--<li><a href="##">查排名使用教程</a></li>-->
