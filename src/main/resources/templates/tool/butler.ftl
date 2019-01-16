@@ -108,7 +108,7 @@
                                 </div>
                             </div>
                             <div class="butler1_right2">
-                                <img src="/deepsearch/images/codeImg.jpg">
+                                <img src="/codeimg/codeImg.jpg">
                                 <p>二维码<br><<<br>联系客服咨询</p>
                             </div>
                         </div>
@@ -174,7 +174,7 @@
                                 </div>
                             </div>
                             <div class="butler1_right2">
-                                <img src="/deepsearch/images/codeImg.jpg">
+                                <img src="/codeimg/codeImg.jpg">
                                 <p>二维码<br><<<br>联系客服咨询</p>
                             </div>
                         </div>
@@ -237,7 +237,7 @@
                                 </div>
                             </div>
                             <div class="butler1_right2">
-                                <img src="/deepsearch/images/codeImg.jpg">
+                                <img src="/codeimg/codeImg.jpg">
                                 <p>二维码<br><<<br>联系客服咨询</p>
                             </div>
                         </div>

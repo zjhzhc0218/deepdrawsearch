@@ -256,7 +256,7 @@
             <div class="seven_ser6 train_ser6 all_pad" style="background-image: url('/deepsearch/images/train6_bg.jpg')">
                 <div class="seven_ser6_box">
                     <img src="/deepsearch/images/train6.png">
-                    <div class="seven_ser6_code"><img src="/deepsearch/images/codeImg.jpg" width="100%"></div>
+                    <div class="seven_ser6_code"><img src="/codeimg/codeImg.jpg" width="100%"></div>
                     <div class="seven_ser6_text">
                         <h1 class="tit">看完有疑问？</h1>
                         <p class="text"><span>扫码</span>统统帮您解决</p>

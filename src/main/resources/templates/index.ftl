@@ -274,7 +274,7 @@
 	<div class="index_frame_box">
 		<div class="index_frame_close" @click="codeHide"><img src="/deepsearch/images/close.png"> </div>
 		<img src="/deepsearch/images/frame.png" width="100%">
-		<div class="index_frame_code"><img src="/deepsearch/images/codeImg.jpg"></div>
+		<div class="index_frame_code"><img src="/codeimg/codeImg.jpg"></div>
 		<div class="index_frame_input">
 			<input type="text" v-model="form.inviteCode">
 			<span @click="codeCheck"></span>
