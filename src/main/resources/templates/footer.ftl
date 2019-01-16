@@ -6,7 +6,7 @@
 <!-- 二维码 -->
 <div class="index_core">
 	<h5>白马哥，您的运营参谋</h5>
-	<img src="/deepsearch/images/codeImg.jpg" width="100%">
+	<img src="/codeimg/codeImg.jpg" width="100%">
 	<p>5分钟响应你的问题<br>不信您试试？</p>
 </div>
 <!-- 二维码 -->
