@@ -12,6 +12,7 @@
 	<meta name="keywords" content=" " />
 	<meta name="description" content=" " />
 	<link rel="stylesheet" href="/deepsearch/css/bootstrap/bootstrap.css">
+	<script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/deepsearch/css/common.css">
@@ -81,7 +82,7 @@
 <!--  / footer  -->
 
 </body>
-<script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
+
 <script src="/deepsearch/js/bootstrap/bootstrap.js"></script>
 <script src="/deepsearch/js/jquery-ui.min.js"></script>
 <script src="/deepsearch/js/index.js"></script>
