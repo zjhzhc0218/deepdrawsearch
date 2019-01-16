@@ -100,6 +100,7 @@
 				],
                 datamation:[],
                 alllink:'',
+                userInfo:''
 
 			},
 			created: function (){
@@ -144,6 +145,7 @@
 
                             if(_this.userInfo==''){
                                 alert("请登陆之后再下载！")
+                                setTimeout(function(){ window.location.href="sign"; },1000);
                             }else{
                                 if(data.code==0){
                                     downshow()
@@ -197,6 +199,14 @@
         }
         function downhide(){
             $(".index_Tips").stop(true).fadeOut(0);
+        }
+        function index() {
+            user = '${user!}';
+            if (user != '') {
+                app.userInfo = JSON.parse(user);
+
+            }
+
         }
 	})
 
