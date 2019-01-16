@@ -12,6 +12,7 @@
 	<meta name="keywords" content=" " />
 	<meta name="description" content=" " />
 	<link rel="stylesheet" href="/deepsearch/css/bootstrap/bootstrap.css">
+	<script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/deepsearch/css/common.css">
@@ -81,7 +82,7 @@
 <!--  / footer  -->
 
 </body>
-<script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
+
 <script src="/deepsearch/js/bootstrap/bootstrap.js"></script>
 <script src="/deepsearch/js/jquery-ui.min.js"></script>
 <script src="/deepsearch/js/index.js"></script>
@@ -99,6 +100,7 @@
 				],
                 datamation:[],
                 alllink:'',
+                userInfo:''
 
 			},
 			created: function (){
@@ -118,7 +120,7 @@
                         _this.datamation=data.data.list;
                         _this.$nextTick(function () {
                             for (var i=0;i < _this.datamation.length ;i++) {
-                                datamation[i].filePicture.replace('/home/deep/uploadfile', '/picture');
+                                _this.datamation[i].filePicture= _this.datamation[i].filePicture.replace('/home/deep/uploadfile', '/picture');
                             }
                         })
                     }
@@ -143,6 +145,7 @@
 
                             if(_this.userInfo==''){
                                 alert("请登陆之后再下载！")
+                                setTimeout(function(){ window.location.href="sign"; },1000);
                             }else{
                                 if(data.code==0){
                                     downshow()
@@ -196,6 +199,14 @@
         }
         function downhide(){
             $(".index_Tips").stop(true).fadeOut(0);
+        }
+        function index() {
+            user = '${user!}';
+            if (user != '') {
+                app.userInfo = JSON.parse(user);
+
+            }
+
         }
 	})
 

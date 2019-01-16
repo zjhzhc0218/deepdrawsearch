@@ -22,14 +22,14 @@ function all(){
         alert("该功能正在维护中！")
     })
     $(".footer_ab").click(function () {
-        $("#weModal").stop(true).fadeIn(500);
+        $("#weModal").css("display","block");
         $("#weModal").addClass("in")
-        $(".all_bg").stop(true).fadeIn(500);
+        $(".all_bg").css("display","block");
     })
     $(".footer_cont").click(function () {
-        $("#tellweModal").stop(true).fadeIn(500);
+        $("#tellweModal").css("display","block");
         $("#tellweModal").addClass("in")
-        $(".all_bg").stop(true).fadeIn(500);
+        $(".all_bg").css("display","block");
     })
     $("button.close,.modal-footer button").click(function(){
         $(".modal").stop(true).fadeOut(0);
