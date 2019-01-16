@@ -151,7 +151,7 @@ header .header-content{
 	background-color: #eeeeee;
 	border: 1px solid #dcdcdc;
 	outline: none;
-	width: 550px;
+	width: 567px;
 	padding: 0 10px;
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
@@ -541,7 +541,7 @@ header .header-content{
 	line-height: 23px;
 }
 .search-view input,.search-view textarea{
-	font-size:15px!important;
+	font-size:12px!important;
 }
 .search-view .search-btnN,.search-view .search-btn{
 	font-size:17px!important;
