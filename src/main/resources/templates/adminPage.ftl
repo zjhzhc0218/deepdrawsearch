@@ -125,6 +125,11 @@
             <div class="one">
                 <a  role="tab" data-toggle="tab" href="#erweima" style="font-size: 22px">二维码更换</a>
             </div>
+
+            <div class="one">
+                <a  role="tab" data-toggle="tab" href="#gonggao" style="font-size: 22px">公告管理</a>
+            </div>
+
         </div>
     </div>
 </header>
@@ -414,15 +419,15 @@
             <table style="margin-top: 25px;width: 86%;text-align: center" class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th style="text-align: center"></th>
-                        <th style="text-align: center">序号</th>
+                        <th style="text-align: center;width: 50px"></th>
+                        <th style="text-align: center;width: 50px">序号</th>
                         <th style="text-align: center">标题</th>
                         <th style="text-align: center">作者</th>
                         <th style="text-align: center">类型</th>
                         <th style="text-align: center">封面</th>
                         <th style="text-align: center">描述</th>
                         <th style="text-align: center">创建时间</th>
-                        <th style="text-align: center">操作</th>
+                        <th style="text-align: center;width: 50px">操作</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -444,23 +449,11 @@
         <!--  文档内容 开始-->
         <#--文档内容-->
         <div  role="tabpanel" class="tab-pane " id="wdgl" style="position: relative;margin-left: 13%">
-        <#--第一行-->
-        <#--<b style="font-size: 26px">资讯管理</b>-->
-        <#--第二行-->
             <div style="margin-top: 35px;font-size: 20px">
                 <div style="display: inline">
                     <span>标题：</span>
                     <input style="width: 15%" >
                 </div>
-
-                <#--<div style="display: inline;margin-left: 4%">-->
-                    <#--<span>资讯类型：</span>-->
-                    <#--<select style="" ng-model="queryparam.type">-->
-                        <#--<option value ="0">全部</option>-->
-                        <#--&lt;#&ndash;<option value ="1">电商实战宝箱</option>&ndash;&gt;-->
-                        <#--&lt;#&ndash;<option value ="2">电商头条</option>&ndash;&gt;-->
-                    <#--</select>-->
-                <#--</div>-->
 
                 <div style="display: inline;margin-left: 4%"><button class="btn btn-primary" style="display: inline;width: 90px" ng-click="queryinfoWJ()">查<span>&nbsp;&nbsp;&nbsp;</span>询</button></div>
             </div>
@@ -492,7 +485,6 @@
                 </tr>
                 </tbody>
             </table>
-
         </div>
         <!--  文档内容 结束-->
         <#--二维码更换-->
@@ -502,6 +494,46 @@
                 <div style="" class="glyphicon glyphicon-camera uploadpic-label">点击上传</div>
             </div>
             <button  ng-click="shopParams.editShop()" class="btn btn-primary btn-block btn-large" style="display: inline;width: 90px">确认上传</button>
+        </div>
+        <#--公告管理-->
+        <div  role="tabpanel" class="tab-pane " id="gonggao" style="position: relative;margin-left: 13%">
+            <div style="margin-top: 35px;font-size: 20px">
+                <div style="display: inline">
+                    <span>标题：</span>
+                    <input style="width: 15%" >
+                </div>
+
+                <div style="display: inline;margin-left: 4%"><button class="btn btn-primary" style="display: inline;width: 90px">查<span>&nbsp;&nbsp;&nbsp;</span>询</button></div>
+            </div>
+        <#--第三行-->
+            <div style="margin-top: 15px;">
+                <button class="btn btn-primary" style="display: inline;width: 120px;height: 40px;">批量删除</button>
+                <button class="btn btn-primary" style="display: inline;margin-left: 5%;width: 120px;height: 40px; " ng-click="showZxModal('gonggao1')">新增公告</button>
+            </div>
+        <#--表格-->
+            <table style="margin-top: 25px;width: 86%;text-align: center" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th style="text-align: center;width: 50px"></th>
+                    <th style="text-align: center;width: 50px">序号</th>
+                    <th style="text-align: center">标题</th>
+                    <th style="text-align: center">作者</th>
+                    <th style="text-align: center">简介</th>
+                    <th style="text-align: center;width: 50px">内容</th>
+                    <th style="text-align: center;width: 50px">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="data in wenjianrecord">
+                    <td><input type="checkbox"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><a ng-click="deleteOneWJ(data.fileId)">删除</a></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <!--内容-结束-->
@@ -557,61 +589,62 @@
     </div>
 </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="wendang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
-        <div class="modal-dialog" role="document" style="width: 60%">
-            <div class="modal-content" style="">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="font-size: 32px">&times;</span></button>
-                    <h3 class="modal-title" id="myModalLabel" style="color: #337ab7">文&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;档</h3>
-                </div>
+<!-- Modal -->
+<div class="modal fade" id="wendang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
+    <div class="modal-dialog" role="document" style="width: 60%">
+        <div class="modal-content" style="">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="font-size: 32px">&times;</span></button>
+                <h3 class="modal-title" id="myModalLabel" style="color: #337ab7">文&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;档</h3>
+            </div>
 
-                <div class="modal-body" style="">
-
-                    <div  role="tabpanel" class="tab-pane " id="wenzhang" style="margin-left: 10%">
-                        <form action="/deepsearch/File/uploadNew" method="POST" enctype="multipart/form-data" style="font-size: 19px">
-                            <div style="margin-top: 20px;margin-bottom: 20px">图片：<input type="file" name="testTu" style="display: inline"/></div>
-                            <div style="margin-bottom: 20px">文件：<input type="file" name="test" style="display: inline"/></div>
-                            <div style="margin-bottom: 20px"><button class="btn btn-primary" style="display: inline;width: 90px" type="submit">提交</button></div>
-                        </form>
-                        <#--<div style="margin-bottom: 24px;font-size: 19px;margin-top: 24px">标<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>题：<input placeholder="请输入文章标题" type="text" style="display: inline;width: 77%"  ></div>-->
-                        <#--&lt;#&ndash;<div style="margin-bottom: 24px;font-size: 19px">作<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>者：<input placeholder="请输入作者" type="text" style="display: inline;width: 77%" ></div>&ndash;&gt;-->
-
-                        <#--<div style="margin-bottom: 24px;font-size: 19px">-->
-                            <#--<span>上传封面：</span>-->
-                            <#--<div  class="upload-button" type="file" capture="camera" ngf-select="page.uploadFiles($file,$errorfile)" ng-model="page.file_picture" accept="image/jpg,image/JPG,image/jpeg,image/gif,image/png" ngf-max-height="2000" ngf-max-size="5MB" style="display: inline">-->
-                                <#--<img  style="height: 30px;width: 30px;display: inline;" class="uploadpic img-rounded" ng-src="{{page.imgSrc}}" ng-model="page.img"/>-->
-                                <#--<div style="" class="glyphicon glyphicon-camera uploadpic-label">点击上传</div>-->
-                            <#--</div>-->
-                        <#--</div>-->
-                    <#--<!-- 文件上传 &ndash;&gt;-->
-                        <#--<div style="margin-bottom: 24px;font-size: 19px">-->
-                            <#--<span>上传文件：</span>-->
-                            <#--<div  class="upload-button" type="file" ngf-select="page.uploadFiles($file,$errorfile)" ng-model="page.file_downloadPath"  ngf-max-height="2000" ngf-max-size="5MB" style="display: inline">-->
-                                <#--<div style="" class="glyphicon glyphicon-camera uploadpic-label">点击上传</div>-->
-                            <#--</div>-->
-                        <#--</div>-->
-                        <#--&lt;#&ndash;<div style="margin-bottom: 24px;font-size: 19px">描<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>述：<input placeholder="请输入描述内容" type="text" style="width: 77%" ng-model="page.words"></div>&ndash;&gt;-->
-                        <#--&lt;#&ndash;<p style="font-size: 19px">内<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>容：</p>&ndash;&gt;-->
-
-                        <#--<div style="margin-left: 20%">-->
-                            <#--<button class="btn btn-primary" style="display: inline;width: 150px" ng-click="">提交</button>-->
-                            <#--<button class="btn btn-primary" style="display: inline;width: 150px;margin-left: 5%">重置</button>-->
-                        <#--</div>-->
-                    </div>
-                <#--<div class="modal-footer">-->
-                <#--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
-                <#--<button type="button" class="btn btn-primary" ng-click="signLogin()">注册/登陆</button>-->
-                <#--</div>-->
+            <div class="modal-body" style="">
+                <div  role="tabpanel" class="tab-pane " id="wenzhang" style="margin-left: 10%">
+                    <form action="/deepsearch/File/uploadNew" method="POST" enctype="multipart/form-data" style="font-size: 19px">
+                        <div style="margin-top: 20px;margin-bottom: 20px">图片：<input type="file" name="testTu" style="display: inline"/></div>
+                        <div style="margin-bottom: 20px">文件：<input type="file" name="test" style="display: inline"/></div>
+                        <div style="margin-bottom: 20px"><button class="btn btn-primary" style="display: inline;width: 90px" type="submit">提交</button></div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
-<!--尾部-结束-->
+<!-- Modal -->
+<div class="modal fade" id="gonggao1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 12%;">
+    <div class="modal-dialog" role="document" style="width: 60%">
+        <div class="modal-content" style="">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="font-size: 32px">&times;</span></button>
+                <h3 class="modal-title" id="myModalLabel" style="color: #337ab7">新 增 公 告</h3>
+            </div>
+
+            <div class="modal-body" style="">
+                <div role="tabpanel" class="tab-pane " style="margin-left: 10%">
+                    <form  method="POST"  style="font-size: 19px">
+                        <div style="margin-top: 20px;margin-bottom: 20px">标题：<input type="text"  style="display: inline;width: 80%"/></div>
+                        <div style="margin-bottom: 20px">作者：<input type="text"  style="display: inline;width: 80%"/></div>
+                        <div style="margin-bottom: 20px">简介：<input type="text"  style="display: inline;width: 80%"/></div>
+                        <div style="margin-bottom: 20px">内容：<textarea style="width: 80%;height: 30%"></textarea></div>
+                        <div style="margin-top: 50px;margin-left: 20%">
+                            <button class="btn btn-primary" style="display: inline;width: 150px" type="submit">提交</button>
+                            <button class="btn btn-primary" style="display: inline;width: 150px;margin-left: 5%">取消</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!--尾部-结束-->
 
 <div class="footer" style="position:fixed;bottom:0;width:100%;background-color:#e5e5e5;height: 40px;line-height: 40px;text-align: center">
     <p>杭州兴淘网络科技有限公司  浙ICP备18047066号</p>
 </div>
+
+
 
 </body>
 
