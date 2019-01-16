@@ -161,7 +161,7 @@ public class AnnouncementController {
             maplistN.put("shang","null");
         }else{
             Map<String,String> maplistShang =  new HashMap<>();
-            maplistShang.put("serialNumber",maplist.get("shang").getId().toString());
+            maplistShang.put("id",maplist.get("shang").getId().toString());
             maplistShang.put("title",maplist.get("shang").getTitle());
             maplistN.put("shang",maplistShang);
         }
@@ -171,7 +171,7 @@ public class AnnouncementController {
             maplistN.put("xia","null");
         }else{
             Map<String,String> maplistXia =  new HashMap<>();
-            maplistXia.put("serialNumber",maplist.get("xia").getId().toString());
+            maplistXia.put("id",maplist.get("xia").getId().toString());
             maplistXia.put("title",maplist.get("xia").getTitle());
             maplistN.put("xia",maplistXia);
         }
