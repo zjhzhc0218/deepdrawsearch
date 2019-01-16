@@ -78,7 +78,7 @@
 <!--  / warpper  -->
 </div>
 <!--  / footer  -->
-	<#include "//footer.ftl">
+<#include "//footer.ftl">
 <!--  / footer  -->
 
 </body>
