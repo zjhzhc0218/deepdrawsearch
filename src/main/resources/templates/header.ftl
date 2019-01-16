@@ -97,25 +97,21 @@
                     id:'',
                     inviteCode:''
                 },
+                userInfo:'',
 
             },
             created:function () {
                 var _this=this;
-                // if(this.userInfo==''){
-                //     _this.codeType=0;
-                // }
-                // else{
-                //     if(this.userInfo.grade==2){
-                //         _this.codeType=0;
-                //     }
-                // }
+                
             },
             methods:{
                 //头部跳转
                 search:function(headerval){
+                    var _this=this;
                     if(headerval==''){
                         alert("请输入宝贝链接或者id");
                         //location.reload();
+
                     }else{
                         window.location.href="show?name="+headerval;
                     }
@@ -146,7 +142,7 @@
 
                     }else{
                         _this.form.id=_this.userInfo.id;
-                        console.log(_this.userInfo)
+
                         $.ajax({
                             type: 'POST',
                             url:Url+ 'User/updateGradeNow',
@@ -155,7 +151,28 @@
                             success: function (data) {
                                 alert(data.msg)
                                 if(data.code==0){
-                                    corehi()
+                                    corehi();
+                                    $.ajax({
+                                        type: 'POST',
+                                        url:Url+ 'User/selectGrade',
+                                        dataType: 'json',
+                                        data:{
+                                            id:_this.userInfo.id
+                                        },
+                                        success: function (data) {
+
+                                        }
+                                    })
+                                    _this.$nextTick(function () {
+                                        var user2=JSON.parse(sessionStorage.getItem("user"));
+                                        user2["grade"]=3;
+                                        user2=JSON.stringify(user2)
+                                        sessionStorage.setItem("user",user2)
+                                        console.log(sessionStorage.getItem("user"))
+                                        setTimeout(function () {
+                                            location.reload()
+                                        },1000)
+                                    })
                                 }
                             }
                         })
@@ -167,6 +184,7 @@
 			}
 
         })
+
         if (sessionStorage.getItem("user") ==null || sessionStorage.getItem("user")=='null'){
             coresh();
         }
@@ -174,6 +192,8 @@
             if(user["grade"]==2){
                 coresh();
             }
+            app1.userInfo=JSON.parse(sessionStorage.getItem("user"));
+            // console.log(app1.userInfo)
         }
         function coresh() {
             setTimeout(function () {

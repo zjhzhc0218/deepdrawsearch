@@ -89,6 +89,9 @@ var dialog = {
             // url();
             $('.close1').trigger("click");
         })
+
+
+
     }
 }
 //

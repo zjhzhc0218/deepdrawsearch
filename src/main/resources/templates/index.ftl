@@ -503,7 +503,7 @@
 
 					}else{
                         _this.form.id=_this.userInfo.id;
-                        console.log(_this.userInfo)
+                        // console.log(_this.userInfo)
                         $.ajax({
                             type: 'POST',
                             url:Url+ 'User/updateGradeNow',
@@ -513,6 +513,28 @@
                                 alert(data.msg)
                                 if(data.code==0){
                                     corehi();
+                                    $.ajax({
+                                        type: 'POST',
+                                        url:Url+ 'User/selectGrade',
+                                        dataType: 'json',
+                                        data:{
+                                            id:_this.userInfo.id
+										},
+                                        success: function (data) {
+
+                                        }
+                                    })
+                                    _this.$nextTick(function () {
+                                        var user2=JSON.parse(sessionStorage.getItem("user"));
+                                        user2["grade"]=3;
+                                        user2=JSON.stringify(user2)
+                                        sessionStorage.setItem("user",user2)
+                                        console.log(sessionStorage.getItem("user"))
+                                        setTimeout(function () {
+                                            location.reload()
+                                            // $(".index_frame").stop(true).fadeIn(300);
+                                        },1000)
+                                    })
                                 }
                             }
                         })
