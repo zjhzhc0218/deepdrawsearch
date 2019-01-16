@@ -497,20 +497,18 @@
         </div>
         <#--公告管理-->
         <div  role="tabpanel" class="tab-pane " id="gonggao" style="position: relative;margin-left: 13%">
-            <div style="margin-top: 35px;font-size: 20px">
-                <div style="display: inline">
-                    <span>标题：</span>
-                    <input style="width: 15%" >
-                </div>
+            <div style="margin-top: 35px;font-size: 20px"></div>
 
-                <div style="display: inline;margin-left: 4%"><button class="btn btn-primary" style="display: inline;width: 90px">查<span>&nbsp;&nbsp;&nbsp;</span>询</button></div>
-            </div>
-        <#--第三行-->
             <div style="margin-top: 15px;">
-                <button class="btn btn-primary" style="display: inline;width: 120px;height: 40px;">批量删除</button>
-                <button class="btn btn-primary" style="display: inline;margin-left: 5%;width: 120px;height: 40px; " ng-click="showZxModal('gonggao1')">新增公告</button>
+                <button class="btn btn-primary" style="display: inline;">批量删除</button>
+                <button class="btn btn-primary" style="display: inline;margin-left: 5%;" ng-click="showZxModal('gonggao1')">新增公告</button>
+                <div style="display: inline;margin-left: 20%">
+                    <span style="font-size: 22px">标题：</span>
+                    <input style="width: 15%">
+                </div>
+                <div style="display: inline;margin-left: 4%"><button class="btn btn-primary" style="display: inline;">查<span>&nbsp;&nbsp;&nbsp;</span>询</button></div>
             </div>
-        <#--表格-->
+
             <table style="margin-top: 25px;width: 86%;text-align: center" class="table table-bordered table-hover">
                 <thead>
                 <tr>
@@ -519,7 +517,7 @@
                     <th style="text-align: center">标题</th>
                     <th style="text-align: center">作者</th>
                     <th style="text-align: center">简介</th>
-                    <th style="text-align: center;width: 50px">内容</th>
+                    <th style="text-align: center;">内容</th>
                     <th style="text-align: center;width: 50px">操作</th>
                 </tr>
                 </thead>
@@ -536,10 +534,6 @@
             </table>
         </div>
     </div>
-    <!--内容-结束-->
-
-    <!--尾部-开始-->
-
 </div>
 
 
