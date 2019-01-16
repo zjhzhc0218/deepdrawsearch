@@ -79,7 +79,7 @@
                             <input type="password" ng-model="passwordAgain"  class="required password" name="p" placeholder="请重复输入密码" required="required" style="width: 310px"/>
                         </div>
 
-                        <div class="conta huakuai" style="margin-left: 70px;margin-bottom: 10px;height: 200px;width: 345px;">
+                        <div class="conta huakuai" style="margin-left: 86px;margin-bottom: 10px;height: 200px;width: 345px;">
                             <div id="captcha" style="position: relative;"></div>
                             <div id="msg" style=""></div>
                         </div>
