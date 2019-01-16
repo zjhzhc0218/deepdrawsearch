@@ -44,18 +44,7 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
     }
     settime();
 
-    // //生成验证码
-    // $scope.changeVerify = function () {//定义了一个点击事件，获取验证码
-    //     var authCode = "";
-    //     var authCodeLength = 4;//取几个随机数字
-    //     var randomArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'w', 'z'];
-    //     for (var i = 0; i < authCodeLength; i++) {
-    //         var index = Math.floor(Math.random() * 62);//随机取一位数
-    //         authCode += randomArray[index];//取四位数，并+相连
-    //     }
-    //     $scope.showAuthCode = authCode;//赋值
-    //     console.log($scope.showAuthCode);
-    // };
+
 
     //生成手机验证码
     $scope.changeVerify = function () {//定义了一个点击事件，获取验证码
@@ -222,53 +211,42 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
             return;
         }
 
-        // if($scope.signCode == null){
-        //     spop({template: '<strong>请输入邀请码!</strong>',
-        //         autoclose: 3000,
-        //         style:'error'
-        //     });
-        //     return;
-        // }
-
-            console.log('ok');
-        var url='/deepsearch/index?ON=N';
-        // var url='/deepsearch/changeName';
-        location.href = url;
 
 
-            // $http({
-            //     method: 'GET',
-            //     // url:'/deepsearch/registered',
-            //     url: '/deepsearch/login/userRegistered',
-            //     params: {
-            //         // 'name':$scope.name,
-            //         'id': $scope.name,
-            //         'password': $scope.password,
-            //         'mobileCode':$scope.showAuthCode,
-            //         'signCode':$scope.signCode
-            //     }
-            // }).success(function (data) {
-            //     if(data.code!=0){
-            //         spop({template: '<strong>' +data.msg+
-            //         '</strong>',
-            //             autoclose: 3000,
-            //             style:'error'
-            //         });
-            //         return;
-            //     }
-            //     //注册成功跳转到登录页面
-            //     // var url='/deepsearch/searchIndex?ON=N';
-            //     var url='/deepsearch/index?ON=N';
-            //     // var url='/deepsearch/changeName';
-            //     location.href = url;
-            // }).error(function (data) {
-            //     spop({template: '<strong>' +data.msg+
-            //     '</strong>',
-            //         autoclose: 3000,
-            //         style:'error'
-            //     });
-            //     return;
-            // });
+
+            $http({
+                method: 'GET',
+                // url:'/deepsearch/registered',
+                url: '/deepsearch/login/userRegistered',
+                params: {
+                    // 'name':$scope.name,
+                    'id': $scope.name,
+                    'password': $scope.password,
+                    'mobileCode':$scope.showAuthCode,
+                    'signCode':$scope.signCode
+                }
+            }).success(function (data) {
+                if(data.code!=0){
+                    spop({template: '<strong>' +data.msg+
+                    '</strong>',
+                        autoclose: 3000,
+                        style:'error'
+                    });
+                    return;
+                }
+                //注册成功跳转到登录页面
+                // var url='/deepsearch/searchIndex?ON=N';
+                var url='/deepsearch/index?ON=N';
+                // var url='/deepsearch/changeName';
+                location.href = url;
+            }).error(function (data) {
+                spop({template: '<strong>' +data.msg+
+                '</strong>',
+                    autoclose: 3000,
+                    style:'error'
+                });
+                return;
+            });
 
     }
 
