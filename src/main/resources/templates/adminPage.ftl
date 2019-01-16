@@ -119,7 +119,7 @@
             </div>
 
             <div class="one">
-                <a  role="tab" data-toggle="tab" href="#wdgl" style="font-size: 22px">文档管理</a>
+                <a  role="tab" data-toggle="tab" href="#wdgl" style="font-size: 22px">数据化运营</a>
             </div>
 
             <div class="one">
