@@ -86,6 +86,7 @@ public class AnnouncementController {
      * @throws IOException
      */
     @RequestMapping(value = "selectAnnouncement")
+    @ResponseBody
     public String selectAnnouncement(HttpServletRequest request) throws IOException {
         String title = request.getParameter("title");
         Map<String,Object> maps = new HashMap<>();
@@ -103,6 +104,7 @@ public class AnnouncementController {
      * @throws IOException
      */
     @RequestMapping(value = "getAnById")
+    @ResponseBody
     public Object getAnnouncementById(HttpServletRequest request,Integer id) throws IOException {
         Announcement announcement = announcementService.selectByPrimaryKey(id);
         return JsonUtil.object2Json(ResultUtil.success(announcement));
