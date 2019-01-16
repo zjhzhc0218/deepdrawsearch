@@ -56,12 +56,11 @@
                             <div style="width: 90%" ng-if="mulu.msg == null " ng-show="mulu.vm.value!=0&&mulu.vm.value!=100">
                                 <div ng-class="{progress: true, 'progress-striped': mulu.vm.striped}">
                                     <div ng-class="['progress-bar', mulu.vm.style]" ng-style="{width: mulu.vm.value + '%'}">
-                                        <div ng-if="mulu.vm.showLabel">{{mulu.vm.value}}%</div>
+                                        <div ng-if="mulu.vm.showLabel"  ng-bind="mulu.vm.value+'%'"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="noViolation " ng-show="mulu.msg != null" style="color: red;font-size: 30px">
-                                {{mulu.msg}}
+                            <div class="noViolation " ng-show="mulu.msg != null" style="color: red;font-size: 30px" ng-bind="mulu.msg">
                             </div>
 
                             <div href="javascript:;" ng-show="mulu.examedContext != null" class="info-item" style="display: block;text-align:center; color; black;font-size: 24px;margin-left: -200px">

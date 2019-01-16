@@ -57,12 +57,11 @@
                             <div style="width: 90%" ng-if="zhanxian.msg == null " ng-show="zhanxian.vm.value!=0&&zhanxian.vm.value!=100">
                                 <div ng-class="{progress: true, 'progress-striped': zhanxian.vm.striped}">
                                     <div ng-class="['progress-bar', zhanxian.vm.style]" ng-style="{width: zhanxian.vm.value + '%'}">
-                                        <div ng-if="zhanxian.vm.showLabel">{{zhanxian.vm.value}}%</div>
+                                        <div ng-if="zhanxian.vm.showLabel" ng-bind="zhanxian.vm.value+'%'" ></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="noViolation " ng-show="zhanxian.msg != null" style="color: red;font-size: 30px">
-                                {{zhanxian.msg}}
+                            <div class="noViolation " ng-show="zhanxian.msg != null" style="color: red;font-size: 30px" ng-bind="zhanxian.msg">
                             </div>
                             <div href="javascript:;" ng-show="zhanxian.examedContext != null" class="info-item">
                                 <div class="zhanxian_con">

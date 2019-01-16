@@ -85,7 +85,7 @@
                             <div style="width: 100%"  ng-show="app.vm.value!=0&&app.vm.value!=100">
                                 <div ng-class="{progress: true, 'progress-striped': app.vm.striped}">
                                     <div ng-class="['progress-bar', app.vm.style]" ng-style="{width: app.vm.value + '%'}">
-                                        <div ng-if="app.vm.showLabel">{{app.vm.value}}%</div>
+                                        <div ng-if="app.vm.showLabel" ng-bind="app.vm.value+'%'"></div>
                                     </div>
                                 </div>
                             </div>

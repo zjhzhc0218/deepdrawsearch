@@ -29,7 +29,6 @@
         <script src="/deepsearch/js/respond.min.js"></script>
         <script src="/deepsearch/js/html5shiv.js"></script>
         <![endif]-->
-
     </head>
 <body ng-app="search" ng-controller="searchController">
 <!--  / header  -->
@@ -56,12 +55,11 @@
                             <div style="width: 90%" ng-if="dtPingFeng.msg == null " ng-show="dtPingFeng.vm.value!=0&&dtPingFeng.vm.value!=100">
                                 <div ng-class="{progress: true, 'progress-striped': dtPingFeng.vm.striped}">
                                     <div ng-class="['progress-bar', dtPingFeng.vm.style]" ng-style="{width: dtPingFeng.vm.value + '%'}">
-                                        <div ng-if="dtPingFeng.vm.showLabel">{{dtPingFeng.vm.value}}%</div>
+                                        <div ng-if="dtPingFeng.vm.showLabel" ng-bind="dtPingFeng.vm.value+'%'"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="noViolation " ng-show="dtPingFeng.msg != null" style="color: red;font-size: 30px">
-                                {{dtPingFeng.msg}}
+                            <div class="noViolation " ng-show="dtPingFeng.msg != null" style="color: red;font-size: 30px" ng-bind="dtPingFeng.msg">
                             </div>
                             <div href="javascript:;" ng-show="dtPingFeng.examedContext != null" class="info-item" style=" margin-left: 234px;">
                                 <ul class="dsr-info" id="dsr" style="">

@@ -56,12 +56,11 @@
                             <div style="width: 90%" ng-if="shangxiajia.msg == null " ng-show="shangxiajia.vm.value!=0&&shangxiajia.vm.value!=100">
                                 <div ng-class="{progress: true, 'progress-striped': mulu.vm.striped}">
                                     <div ng-class="['progress-bar', shangxiajia.vm.style]" ng-style="{width: shangxiajia.vm.value + '%'}">
-                                        <div ng-if="shangxiajia.vm.showLabel">{{shangxiajia.vm.value}}%</div>
+                                        <div ng-if="shangxiajia.vm.showLabel"  ng-bind="shangxiajia.vm.value+'%'"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="noViolation " ng-show="shangxiajia.msg != null" style="color: red;font-size: 30px">
-                                {{shangxiajia.msg}}
+                            <div class="noViolation " ng-show="shangxiajia.msg != null" style="color: red;font-size: 30px" ng-bind="shangxiajia.msg">
                             </div>
 
                             <!-- 查询记录开始 -->

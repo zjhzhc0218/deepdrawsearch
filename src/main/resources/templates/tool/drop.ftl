@@ -57,12 +57,11 @@
                             <div style="width: 100%" ng-if="xialakuang.msg == null " ng-show="xialakuang.vm.value!=0&&xialakuang.vm.value!=100">
                                 <div ng-class="{progress: true, 'progress-striped': jiangquan.vm.striped}">
                                     <div ng-class="['progress-bar', xialakuang.vm.style]" ng-style="{width: xialakuang.vm.value + '%'}">
-                                        <div ng-if="xialakuang.vm.showLabel">{{xialakuang.vm.value}}%</div>
+                                        <div ng-if="xialakuang.vm.showLabel" ng-bind="xialakuang.vm.value+'%'"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="noViolation " ng-show="xialakuang.msg != null" style="color: red;font-size: 30px">
-                                {{xialakuang.msg}}
+                            <div class="noViolation " ng-show="xialakuang.msg != null" style="color: red;font-size: 30px" ng-bind="xialakuang.msg">
                             </div>
                             <div class="result-context" ng-show="xialakuang.examedContext != null&&xialakuang.examedContext.length>0" >
                                 <table class="table table-striped table-bordered table-hover table-condensed" style="  width:100%;margin-bottom: 0;">
