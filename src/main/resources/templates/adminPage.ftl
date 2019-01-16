@@ -107,7 +107,7 @@
             </div>
 
             <div class="one">
-                <a  role="tab" data-toggle="tab" href="#cishu" style="font-size: 22px">使用次数</a>
+                <a  role="tab" data-toggle="tab" href="#cishu" style="font-size: 22px">功能模块数据</a>
             </div>
 
          <#--   <div class="one">
