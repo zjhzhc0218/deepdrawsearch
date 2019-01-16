@@ -29,7 +29,7 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         if (user != '') {
             $scope.username = angular.fromJson(user);
         }else {
-            var url='/deepsearch/searchIndex';
+            var url='/deepsearch/index';
             // var url='/deepsearch/changeName';
             location.href = url;
         }
