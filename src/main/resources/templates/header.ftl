@@ -1,5 +1,5 @@
 <script src="/deepsearch/js/vue.min.js"></script>
-<div id="app1">
+<div id="app1" v-clock>
     <div class="header header_all">
 
         <div  class="header_gary">
@@ -102,7 +102,7 @@
             },
             created:function () {
                 var _this=this;
-                
+
             },
             methods:{
                 //头部跳转

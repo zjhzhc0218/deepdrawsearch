@@ -27,7 +27,7 @@
 </head>
 
 <body >
-<div id="app" >
+<div id="app" v-clock="">
 <!--  / header  -->
 <div class="header">
 	<div  class="header_gary">
