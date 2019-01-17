@@ -11,18 +11,14 @@
     <title>白马查--电商在线查询工具</title>
     <meta name="keywords" content=" " />
     <meta name="description" content=" " />
-    <link rel="stylesheet" href="/deepsearch/css/bootstrap/bootstrap.css">
-    <script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
-    <script src="/deepsearch/js/bootstrap/bootstrap.js"></script>
-    <script src="/deepsearch/js/jquery-ui.min.js"></script>
-    <script src="/deepsearch/js/index.js"></script>
-
+    <link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
     <link rel="stylesheet" type="text/css" href="/deepsearch/css/common.css">
     <link rel="stylesheet" href="/deepsearch/css/font/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="/deepsearch/css/swiper-3.4.1.min.css">
-    <script src="/deepsearch/js/swiper-3.4.1.min.js"></script>
-    <script src="/deepsearch/js/vue.min.js"></script>
+    <link rel="stylesheet" href="https://3.swiper.com.cn/dist/css/swiper.min.css">
+    <script src="https://3.swiper.com.cn/dist/js/swiper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <!--[if lte IE 9]>
     <script src="/deepsearch/js/respond.min.js"></script>
     <script src="/deepsearch/js/html5shiv.js"></script>
@@ -41,14 +37,14 @@
             </div>
         </div>
         <div class="twentyone_big">
-            <div class="twentyone_ser1" style="background-image: url('/deepsearch/images/twentyone1.jpg')">
+            <div class="twentyone_ser1" style="background-image: url('http://images-1257652487.file.myqcloud.com/images/twentyone1.jpg')">
                 <h4>打造2019精准流量人群标签+坑产</h4>
                 <h5>精准人群定位   提升单品权重</h5>
             </div>
             <div class="twentyone_ser2 all_pad">
                 <div class="twentyone_tit"><h1>淘宝运营----你是否经常会遇到以下情况</h1></div>
                 <div class="twentyone_ser2_box">
-                    <img src="/deepsearch/images/twentyone2.jpg">
+                    <img src="http://images-1257652487.file.myqcloud.com/images/twentyone2.jpg">
                     <div class="box one">
                         <h1 class="tit">1</h1>
                         <p class="text">新品无流量<br>不懂搜索规则</p>
@@ -94,7 +90,7 @@
             <div class="twentyone_ser3 all_pad">
                 <div class="twentyone_tit"><h1>为您量身定制运营方案</h1></div>
                 <div class="twentyone_ser3_con">
-                    <img class="twentyone_line" src="/deepsearch/images/twentyone3.png">
+                    <img class="twentyone_line" src="http://images-1257652487.file.myqcloud.com/images/twentyone3.png">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="twentyone_ser3_box">
@@ -204,7 +200,7 @@
             <div class="twentyone_ser5 all_pad">
                 <div class="twentyone_tit" style="margin-bottom: 20px;"><h1>套餐优化内容</h1><h5>一家店铺、一款宝贝  操作21天</h5></div>
                 <div class="twentyone_ser5_box">
-                    <img src="/deepsearch/images/twentyone5.png">
+                    <img src="http://images-1257652487.file.myqcloud.com/images/twentyone5.png">
                     <div class="seven_ser4_text">
                         <ul>
                             <li><span>1/</span>标题优化服务，流量诊断服务（需有流量纵横）主图、详情页诊断服务；</li>
@@ -221,7 +217,7 @@
             </div>
             <div class="seven_ser6 all_pad">
                 <div class="seven_ser6_box">
-                    <img src="/deepsearch/images/seven6.png">
+                    <img src="http://images-1257652487.file.myqcloud.com/images/seven6.png">
                     <div class="seven_ser6_code"><img src="/codeimg/codeImg.jpg" width="100%"></div>
                     <div class="seven_ser6_text">
                         <h1 class="tit">看完有疑问？</h1>
@@ -236,6 +232,8 @@
 <#include "//footer.ftl">
 <!--  / footer  -->
 </body>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/deepsearch/js/index.js"></script>
 <script>
 
 </script>

@@ -11,19 +11,16 @@
         <title>白马查--电商在线查询工具</title>
         <meta name="keywords" content=" " />
         <meta name="description" content=" " />
-        <link rel="stylesheet" href="/deepsearch/css/bootstrap/bootstrap.css">
-        <script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
-        <script src="/deepsearch/js/bootstrap/bootstrap.js"></script>
-        <script src="/deepsearch/js/jquery-ui.min.js"></script>
-
+        <link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/index.css">
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/common.css">
         <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
         <link rel="stylesheet" href="/deepsearch/css/font/font-awesome.css">
-        <link rel="stylesheet" type="text/css" href="/deepsearch/css/swiper-3.4.1.min.css">
-        <script src="/deepsearch/js/swiper-3.4.1.min.js"></script>
-        <#--<script src="/deepsearch/js/vue.min.js"></script>-->
+        <link rel="stylesheet" href="https://3.swiper.com.cn/dist/css/swiper.min.css">
+        <script src="https://3.swiper.com.cn/dist/js/swiper.min.js"></script>
+        <#--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
         <#--<script src="/deepsearch/js/pagination.js"></script>-->
         <!--[if lte IE 9]>
         <script src="/deepsearch/js/respond.min.js"></script>
@@ -73,6 +70,7 @@
 <#include "//footer.ftl">
 <!--  / footer  -->
 </body>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/deepsearch/js/angular/angular.min.js"></script>
 <script src="/deepsearch/js/spop/spop.min.js"></script>
 <script src="/deepsearch/js/loading/jquery.mloading.js"></script>

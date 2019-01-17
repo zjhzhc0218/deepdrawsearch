@@ -11,19 +11,17 @@
         <title>白马查--电商在线查询工具</title>
         <meta name="keywords" content=" " />
         <meta name="description" content=" " />
-        <link rel="stylesheet" href="/deepsearch/css/bootstrap/bootstrap.css">
-        <script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
-        <script src="/deepsearch/js/bootstrap/bootstrap.js"></script>
-        <script src="/deepsearch/js/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/index.css">
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/common.css">
         <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
         <link rel="stylesheet" href="/deepsearch/css/font/font-awesome.css">
-        <link rel="stylesheet" type="text/css" href="/deepsearch/css/swiper-3.4.1.min.css">
-        <script src="/deepsearch/js/swiper-3.4.1.min.js"></script>
-        <#--<script src="/deepsearch/js/vue.min.js"></script>-->
+        <link rel="stylesheet" href="https://3.swiper.com.cn/dist/css/swiper.min.css">
+        <script src="https://3.swiper.com.cn/dist/js/swiper.min.js"></script>
+        <#--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->f
         <#--<script src="/deepsearch/js/pagination.js"></script>-->
         <!--[if lte IE 9]>
         <script src="/deepsearch/js/respond.min.js"></script>
@@ -46,9 +44,9 @@
                     <p>白马单品管家</p>
                 </div>
                 <div class="toolALL_con">
-                    <div class="butler_banner"><img src="/deepsearch/images/butler_banner.jpg" width="100%"> </div>
+                    <div class="butler_banner"><img src="http://images-1257652487.file.myqcloud.com/images/butler_banner.jpg" width="100%"> </div>
                     <div class="butler_ser3">
-                        <div class="butler_ser3_img"><img src="/deepsearch/images/butler_banner2.jpg" ></div>
+                        <div class="butler_ser3_img"><img src="http://images-1257652487.file.myqcloud.com/images/butler_banner2.jpg" ></div>
                         <div class="butler_ser3_tit">
                             <h1 class="eng">how do we do it ?</h1>
                             <div class="text">我们是<span>怎么做的？</span></div>
@@ -82,7 +80,7 @@
                         </div>
                     </div>
                     <div class="butler_ser1">
-                        <div class="butler_ser1_bg" style="background-image: url(/deepsearch/images/butler1.jpg)"></div>
+                        <div class="butler_ser1_bg" style="background-image: url(http://images-1257652487.file.myqcloud.com/images/butler1.jpg)"></div>
                         <div class="butler_ser1_list">
                             <ul>
                                 <li>①标题优化、主图、详情页诊断（店铺诊断）</li>
@@ -97,7 +95,7 @@
                         <div class="butler_ser1_right">
                             <div class="butler1_right1">
                                 <div class="butler1_right1_text1">
-                                    <img src="/deepsearch/images/butler2.png">
+                                    <img src="http://images-1257652487.file.myqcloud.com/images/butler2.png">
                                     <h3>体验价：999元</h3>
                                     <h3>半价促销499元</h3>
                                     <h3>限每日前5名</h3>
@@ -114,9 +112,9 @@
                         </div>
                     </div>
                     <div class="butler_ser2 butler_serall">
-                        <img class="butler_serall_bg" src="/deepsearch/images/butler2.jpg" width="100%">
+                        <img class="butler_serall_bg" src="http://images-1257652487.file.myqcloud.com/images/butler2.jpg" width="100%">
                         <div class="butler_ser2_left">
-                            <div class="butler_ser2_left_box"><h1>案例展示</h1><h2>case</h2><img src="/deepsearch/images/butler3.png"></div>
+                            <div class="butler_ser2_left_box"><h1>案例展示</h1><h2>case</h2><img src="http://images-1257652487.file.myqcloud.com/images/butler3.png"></div>
                         </div>
                         <div class="butler_ser2_right">
                             <div class="swiper-container swiper_butler swiper_butler1">
@@ -148,7 +146,7 @@
                         <div class="text"><span>权重</span>加油包</div>
                     </div>
                     <div class="butler_ser1">
-                        <div class="butler_ser1_bg" style="background-image: url(/deepsearch/images/butler3.jpg)"></div>
+                        <div class="butler_ser1_bg" style="background-image: url(http://images-1257652487.file.myqcloud.com/images/butler3.jpg)"></div>
                         <div class="butler_ser1_list">
                             <ul>
                                 <li>①流量 手机流量</li>
@@ -162,7 +160,7 @@
                         <div class="butler_ser1_right">
                             <div class="butler1_right1">
                                 <div class="butler1_right1_text1">
-                                    <img src="/deepsearch/images/butler2.png">
+                                    <img src="http://images-1257652487.file.myqcloud.com/images/butler2.png">
                                     <h3 >价格：2999.00元</h3>
                                     <p>手机流量：12000条</p>
                                     <p>手机收藏加购：1500条</p>
@@ -180,9 +178,9 @@
                         </div>
                     </div>
                     <div class="butler_ser2 butler_serall">
-                        <img class="butler_serall_bg" src="/deepsearch/images/butler2.jpg" width="100%">
+                        <img class="butler_serall_bg" src="http://images-1257652487.file.myqcloud.com/images/butler2.jpg" width="100%">
                         <div class="butler_ser2_left">
-                            <div class="butler_ser2_left_box"><h1>案例展示</h1><h2>case</h2><img src="/deepsearch/images/butler3.png"></div>
+                            <div class="butler_ser2_left_box"><h1>案例展示</h1><h2>case</h2><img src="http://images-1257652487.file.myqcloud.com/images/butler3.png"></div>
                         </div>
                         <div class="butler_ser2_right">
                             <div class="swiper-container swiper_butler swiper_butler2" >
@@ -214,7 +212,7 @@
                         <div class="text"><span>21天</span>流量爆款</div>
                     </div>
                     <div class="butler_ser1 butler_ser113">
-                        <div class="butler_ser1_bg" style="background-image: url(/deepsearch/images/butler4.jpg)"></div>
+                        <div class="butler_ser1_bg" style="background-image: url(http://images-1257652487.file.myqcloud.com/images/butler4.jpg)"></div>
                         <div class="butler_ser1_list">
                             <ul>
                                 <li>①打造2018精准流量人群标签+打造坑产</li>
@@ -228,7 +226,7 @@
                         <div class="butler_ser1_right">
                             <div class="butler1_right1">
                                 <div class="butler1_right1_text1">
-                                    <img src="/deepsearch/images/butler2.png">
+                                    <img src="http://images-1257652487.file.myqcloud.com/images/butler2.png">
                                     <h3 >价格：6666.00元</h3>
                                     <h3>--精准人群标签+坑产</h3>
                                 </div>
@@ -243,9 +241,9 @@
                         </div>
                     </div>
                     <div class="butler_ser2 butler_serall">
-                        <img class="butler_serall_bg" src="/deepsearch/images/butler2.jpg" width="100%">
+                        <img class="butler_serall_bg" src="http://images-1257652487.file.myqcloud.com/images/butler2.jpg" width="100%">
                         <div class="butler_ser2_left">
-                            <div class="butler_ser2_left_box"><h1>案例展示</h1><h2>case</h2><img src="/deepsearch/images/butler3.png"></div>
+                            <div class="butler_ser2_left_box"><h1>案例展示</h1><h2>case</h2><img src="http://images-1257652487.file.myqcloud.com/images/butler3.png"></div>
                         </div>
                         <div class="butler_ser2_right">
                             <div class="swiper-container swiper_butler swiper_butler3" >
@@ -281,6 +279,8 @@
 <#include "//footer.ftl">
 <!--  / footer  -->
 </body>
+
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/deepsearch/js/angular/angular.min.js"></script>
 <script src="/deepsearch/js/spop/spop.min.js"></script>
 <script src="/deepsearch/js/loading/jquery.mloading.js"></script>

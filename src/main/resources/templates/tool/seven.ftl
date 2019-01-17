@@ -11,18 +11,14 @@
     <title>白马查--电商在线查询工具</title>
     <meta name="keywords" content=" " />
     <meta name="description" content=" " />
-    <link rel="stylesheet" href="/deepsearch/css/bootstrap/bootstrap.css">
-    <script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
-    <script src="/deepsearch/js/bootstrap/bootstrap.js"></script>
-    <script src="/deepsearch/js/jquery-ui.min.js"></script>
-    <script src="/deepsearch/js/index.js"></script>
-
+    <link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
     <link rel="stylesheet" type="text/css" href="/deepsearch/css/common.css">
     <link rel="stylesheet" href="/deepsearch/css/font/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="/deepsearch/css/swiper-3.4.1.min.css">
-    <script src="/deepsearch/js/swiper-3.4.1.min.js"></script>
-    <script src="/deepsearch/js/vue.min.js"></script>
+    <link rel="stylesheet" href="https://3.swiper.com.cn/dist/css/swiper.min.css">
+    <script src="https://3.swiper.com.cn/dist/js/swiper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <!--[if lte IE 9]>
     <script src="/deepsearch/js/respond.min.js"></script>
     <script src="/deepsearch/js/html5shiv.js"></script>
@@ -41,21 +37,21 @@
             </div>
         </div>
         <div class="seven_big">
-            <div class="seven_ser1" style="background-image: url('/deepsearch/images/seven1bg.jpg')">
+            <div class="seven_ser1" style="background-image: url('http://images-1257652487.file.myqcloud.com/images/seven1bg.jpg')">
                 <div class="seven_ser1_text">
-                    <h1 class="tit" style="background-image: url('/deepsearch/images/seven1bg2.png')">7天冲首页体验版-独家黑科技</h1>
-                    <h5 class="tit2" style="background-image: url('/deepsearch/images/seven1bg3.png')">7天暴力提升排名权重</h5>
+                    <h1 class="tit" style="background-image: url('http://images-1257652487.file.myqcloud.com/images/seven1bg2.png')">7天冲首页体验版-独家黑科技</h1>
+                    <h5 class="tit2" style="background-image: url('http://images-1257652487.file.myqcloud.com/images/seven1bg3.png')">7天暴力提升排名权重</h5>
                 </div>
             </div>
             <div class="seven_ser2 all_pad">
-                <img src="/deepsearch/images/seven2.png">
+                <img src="http://images-1257652487.file.myqcloud.com/images/seven2.png">
             </div>
             <div class="seven_ser3 all_pad">
-                <img src="/deepsearch/images/seven3.png">
+                <img src="http://images-1257652487.file.myqcloud.com/images/seven3.png">
             </div>
             <div class="seven_ser4 all_pad">
                 <div class="seven_ser4_box">
-                    <img src="/deepsearch/images/seven4.png">
+                    <img src="http://images-1257652487.file.myqcloud.com/images/seven4.png">
                     <div class="seven_ser4_text">
                         <ul>
                             <li><span>服务周期</span>：一家店铺    一款宝贝<span>操作8天</span>（1天基础服务+7天实操课程）</li>
@@ -72,7 +68,7 @@
                 </div>
             </div>
             <div class="seven_ser5 all_pad">
-                <div class="seven_ser5_tit"><img src="/deepsearch/images/seven5tit.png"></div>
+                <div class="seven_ser5_tit"><img src="http://images-1257652487.file.myqcloud.com/images/seven5tit.png"></div>
                 <div class="seven_ser5_con">
                     <div class="seven_ser5_box clearfix">
                         <div class="seven_ser5_box_left">
@@ -176,7 +172,7 @@
             </div>
             <div class="seven_ser6 all_pad">
                 <div class="seven_ser6_box">
-                    <img src="/deepsearch/images/seven6.png">
+                    <img src="http://images-1257652487.file.myqcloud.com/images/seven6.png">
                     <div class="seven_ser6_code"><img src="/codeimg/codeImg.jpg" width="100%"></div>
                     <div class="seven_ser6_text">
                         <h1 class="tit">看完有疑问？</h1>
@@ -191,6 +187,8 @@
 <#include "//footer.ftl">
 <!--  / footer  -->
 </body>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/deepsearch/js/index.js"></script>
 <script>
 
 </script>

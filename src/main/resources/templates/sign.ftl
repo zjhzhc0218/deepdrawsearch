@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
     <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
-    <script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 </head>
 <style type="text/css">

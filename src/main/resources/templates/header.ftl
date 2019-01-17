@@ -1,4 +1,4 @@
-<script src="/deepsearch/js/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <div id="app1" v-clock>
     <div class="header header_all">
 
@@ -75,7 +75,7 @@
     <div class="index_frame" v-show="codeType==1?false:true">
         <div class="index_frame_box">
             <div class="index_frame_close" @click="codeHide"><img src="/deepsearch/images/close.png"> </div>
-            <img src="/deepsearch/images/frame.png" width="100%">
+            <img src="/codeimg/frame.png" width="100%">
             <div class="index_frame_code"><img src="/codeimg/codeImg.jpg"></div>
             <div class="index_frame_input">
                 <input type="text" v-model="form.inviteCode">
@@ -217,7 +217,7 @@
         function coresh() {
             setTimeout(function () {
                 $(".index_frame").stop(true).fadeIn(300);
-            },1000)
+            },2000)
         }
         function corehi() {
             $(".index_frame").stop(true).fadeOut(0);

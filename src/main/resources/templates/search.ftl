@@ -936,7 +936,7 @@
 
 </body>
 
-<script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="/deepsearch/js/angular/angular.min.js"></script>
 <script src="/deepsearch/js/spop/spop.min.js"></script>
 <script src="/deepsearch/js/loading/jquery.mloading.js"></script>

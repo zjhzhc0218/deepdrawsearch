@@ -12,16 +12,12 @@
 	<meta name="keywords" content=" " />
 	<meta name="description" content=" " />
 	<link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-	<#--<link rel="stylesheet" href="/deepsearch/css/bootstrap/bootstrap.min.css">-->
 	<link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/deepsearch/css/common.css">
 	<link rel="stylesheet" href="/deepsearch/css/font/font-awesome.css">
 	<link rel="stylesheet" href="https://3.swiper.com.cn/dist/css/swiper.min.css">
-	<#--<link rel="stylesheet" type="text/css" href="/deepsearch/css/swiper-3.4.1.min.css">-->
 	<script src="https://3.swiper.com.cn/dist/js/swiper.min.js"></script>
-	<#--<script src="/deepsearch/js/swiper-3.4.1.min.js"></script>-->
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-	<#--<script src="/deepsearch/js/vue.min.js"></script>-->
 	<!--[if lte IE 9]>
 	<script src="/deepsearch/js/respond.min.js"></script>
 	<script src="/deepsearch/js/html5shiv.js"></script>
@@ -53,12 +49,12 @@
 		<div class="container clearfix">
 			<div class="header_center_left">
 				<a href="index">
-					<div class="header_logo"><img src="/deepsearch/images/logo.jpg"></div>
+					<div class="header_logo"><img src="http://images-1257652487.file.myqcloud.com/images/logo.jpg"></div>
 					<p class="header_center_text">电商在线查询工具</p>
 				</a>
 			</div>
 			<div class="header_center_search clearfix">
-				<span class="search_icon"><img src="/deepsearch/images/search.png"></span>
+				<span class="search_icon"><img src="http://images-1257652487.file.myqcloud.com/images/search.png"></span>
 				<input type="text" name="" v-model="inputVal" placeholder="输入宝贝链接或ID，即可查看该宝贝的展现关键词...">
 				<span class="header_search_bt" @click="search(inputVal)">展现查询</span>
 			</div>
@@ -120,13 +116,13 @@
 				<div class="swiper-container swiper_banner swiper-no-swiping">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
-							<a target="_blank"  href="sign" ><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner1.jpg);"></div></a>
+							<a target="_blank"  href="sign" ><div class="index_bannerBox" style="background-image: url(http://images-1257652487.file.myqcloud.com/images/banner1.jpg);"></div></a>
 						</div>
 						<div class="swiper-slide">
-							<a target="_blank" href="seven"><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner2.jpg);"></div></a>
+							<a target="_blank" href="seven"><div class="index_bannerBox" style="background-image: url(http://images-1257652487.file.myqcloud.com/images/banner2.jpg);"></div></a>
 						</div>
 						<div class="swiper-slide">
-							<a target="_blank" href="twentyone"><div class="index_bannerBox" style="background-image: url(/deepsearch/images/banner3.jpg);"></div></a>
+							<a target="_blank" href="twentyone"><div class="index_bannerBox" style="background-image: url(http://images-1257652487.file.myqcloud.com/images/banner3.jpg);"></div></a>
 						</div>
 					</div>
 				</div>
@@ -136,7 +132,7 @@
 			</div>
 			<div class="index_ser1_right">
 				<div class="index_login">
-					<div class="img"><img src="/deepsearch/images/login_hearder.jpg" width="100%"></div>
+					<div class="img"><img src="http://images-1257652487.file.myqcloud.com/images/login_hearder.jpg" width="100%"></div>
 					<h5 class="index_login_ttis" >HI, {{userInfo==""?"你还没有登录哦?":userInfo.id}}</h5>
 					<a href="signup" class="index_login_ttis2" v-if="userInfo==''">没有账号？免费注册</a>
                     <p class="index_login_ttis2" v-if="userInfo!=''">会员等级：{{userInfo.grade==2?'普通会员':'VIP会员'}}</p>
@@ -165,16 +161,16 @@
 			<div class="swiper-container swiper_list swiper-no-swiping">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<a target="_blank" href="reputation"><div class="index_ser2_box"><img src="/deepsearch/images/index2_1.jpg" width="100%"></div></a>
+						<a target="_blank" href="reputation"><div class="index_ser2_box"><img src="http://images-1257652487.file.myqcloud.com/images/index2_1.jpg" width="100%"></div></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="http://www.daoliuliang365.com" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_2.jpg" width="100%"></div></a>
+						<a href="http://www.daoliuliang365.com" target="_blank"><div class="index_ser2_box"><img src="http://images-1257652487.file.myqcloud.com/images/index2_2.jpg" width="100%"></div></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="train" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_3.jpg" width="100%"></div></a>
+						<a href="train" target="_blank"><div class="index_ser2_box"><img src="http://images-1257652487.file.myqcloud.com/images/index2_3.jpg" width="100%"></div></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="seven" target="_blank"><div class="index_ser2_box"><img src="/deepsearch/images/index2_4.jpg" width="100%"></div></a>
+						<a href="seven" target="_blank"><div class="index_ser2_box"><img src="http://images-1257652487.file.myqcloud.com/images/index2_4.jpg" width="100%"></div></a>
 					</div>
 				</div>
 			</div>
@@ -199,7 +195,7 @@
 				<span :class="index==listType?'active':''" v-for='(items,index) in listTit' @click="getList(index)">{{items}}</span>
 			</div>
 			<div class="index_ser4_more clearfix">	
-				<div class="index_ser4_left"><img src="/deepsearch/images/new.png"><span>最新上传资源</span></div>
+				<div class="index_ser4_left"><img src="http://images-1257652487.file.myqcloud.com/images/new.png"><span>最新上传资源</span></div>
 				<div class="index_ser4_right"><a :href="'tool?id='+listType" target="_blank">更多>></a></div>
 			</div>	
 			<div class="index_ser4_con1" v-show="listType==0?true:false">
@@ -283,8 +279,8 @@
 
 <div class="index_frame" v-show="codeType==1?false:true">
 	<div class="index_frame_box">
-		<div class="index_frame_close" @click="codeHide"><img src="/deepsearch/images/close.png"> </div>
-		<img src="/deepsearch/images/frame.png" width="100%">
+		<div class="index_frame_close" @click="codeHide"><img src="http://images-1257652487.file.myqcloud.com/images/close.png"> </div>
+		<img src="/codeimg/frame.png" width="100%">
 		<div class="index_frame_code"><img src="/codeimg/codeImg.jpg"></div>
 		<div class="index_frame_input">
 			<input type="text" v-model="form.inviteCode">
@@ -299,9 +295,7 @@
 
 </body>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<#--<script src="/deepsearch/js/jquery-2.1.4.min.js"></script>-->
-<script src="/deepsearch/js/bootstrap/bootstrap.js"></script>
-<#--<script src="/deepsearch/js/jquery-ui.min.js"></script>-->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/deepsearch/js/index.js"></script>
 <script>
 	$(function(){
@@ -326,60 +320,60 @@
 					{
 						link:'code',
 						title:'二维码卡首屏',
-						image:'/deepsearch/images/index3_1.jpg'
+						image:'http://images-1257652487.file.myqcloud.com/images/index3_1.jpg'
 					},
 					{
 						link:'code',
 						title:'淘口令卡首屏',
-						image:'/deepsearch/images/index3_2.jpg'
+						image:'http://images-1257652487.file.myqcloud.com/images/index3_2.jpg'
 					},
 					{
 						link:'http://www.daoliuliang365.com/douyin',
 						title:'抖音流量',
-						image:'/deepsearch/images/index3_3.jpg'
+						image:'http://images-1257652487.file.myqcloud.com/images/index3_3.jpg'
 					},
 					{
 						link:'spell',
 						title:'拼多多流量',
-						image:'/deepsearch/images/index3_4.jpg'
+						image:'http://images-1257652487.file.myqcloud.com/images/index3_4.jpg'
 					},
 					{
 						link:'http://www.daoliuliang365.com/',
 						title:'白马流量',
-						image:'/deepsearch/images/index3_5.jpg'
+						image:'http://images-1257652487.file.myqcloud.com/images/index3_5.jpg'
 					},
 					{
 						link:'reduction',
 						title:'淘宝指数还原',
-						image:'/deepsearch/images/index3_6.jpg'
+						image:'http://images-1257652487.file.myqcloud.com/images/index3_6.jpg'
 					},
 					{
 						link:'prohibited',
 						title:'违禁词查询',
-						image:'/deepsearch/images/index3_7.jpg'
+						image:'http://images-1257652487.file.myqcloud.com/images/index3_7.jpg'
 					},
 					{
 						link:'catalog',
 						title:'宝贝类目查询',
-						image:'/deepsearch/images/index3_8.jpg'
+						image:'http://images-1257652487.file.myqcloud.com/images/index3_8.jpg'
 					}
 
 				],
 				brand:[
-					'/deepsearch/images/index6_1.png',
-					'/deepsearch/images/index6_2.png',
-					'/deepsearch/images/index6_3.png',
-					'/deepsearch/images/index6_4.png',
-					'/deepsearch/images/index6_5.png',
-					'/deepsearch/images/index6_6.png',
-					'/deepsearch/images/index6_7.png',
-					'/deepsearch/images/index6_8.png',
-					'/deepsearch/images/index6_9.png',
-					'/deepsearch/images/index6_10.png',
-					'/deepsearch/images/index6_11.png',
-					'/deepsearch/images/index6_12.png',
-					'/deepsearch/images/index6_13.png',
-					'/deepsearch/images/index6_14.png',
+					'http://images-1257652487.file.myqcloud.com/images/index6_1.png',
+					'http://images-1257652487.file.myqcloud.com/images/index6_2.png',
+					'http://images-1257652487.file.myqcloud.com/images/index6_3.png',
+					'http://images-1257652487.file.myqcloud.com/images/index6_4.png',
+					'http://images-1257652487.file.myqcloud.com/images/index6_5.png',
+					'http://images-1257652487.file.myqcloud.com/images/index6_6.png',
+					'http://images-1257652487.file.myqcloud.com/images/index6_7.png',
+					'http://images-1257652487.file.myqcloud.com/images/index6_8.png',
+					'http://images-1257652487.file.myqcloud.com/images/index6_9.png',
+					'http://images-1257652487.file.myqcloud.com/images/index6_10.png',
+					'http://images-1257652487.file.myqcloud.com/images/index6_11.png',
+					'http://images-1257652487.file.myqcloud.com/images/index6_12.png',
+					'http://images-1257652487.file.myqcloud.com/images/index6_13.png',
+					'http://images-1257652487.file.myqcloud.com/images/index6_14.png',
 				],
                 retailers:[],
                 retailers2:[],
@@ -595,7 +589,7 @@
         function coresh() {
             setTimeout(function () {
                 $(".index_frame").stop(true).fadeIn(300);
-            },1000)
+            },2000)
         }
         function corehi() {
             $(".index_frame").stop(true).fadeOut(0);
