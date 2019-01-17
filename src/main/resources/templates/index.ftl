@@ -388,7 +388,7 @@
                 	all();
                     // console.log(_this.userInfo);
                     if(this.userInfo==''){
-                        coresh()
+                        // coresh()
                     }
                     else{
                         if(this.userInfo.grade==2){
