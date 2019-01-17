@@ -80,65 +80,65 @@
                                     <div class="item-left" style="background-color: #f4f7e4;top: 7px;">
                                         淘宝买家：
                                         <div  style="width:auto;color: #FE7738;position: relative">
-                                            <a ng-href="{{xinYu.examedContext[0].addr}}" target="_blank" style="font-size: 16px;color: red;float: left">
-                                                {{xinYu.examedContext[0].value}}&nbsp;&nbsp;
+                                            <a ng-href="{{xinYu.examedContext[0].addr}}" target="_blank" style="font-size: 16px;color: red;float: left" ng-bind="xinYu.examedContext[0].value">
+                                                &nbsp;&nbsp;
                                             </a>
                                             <a ng-href="{{xinYu.examedContext[0].addr}}" target="_blank" style="font-size: 16px;color: red;float: left">
                                                 <img ng-src="{{xinYu.examedContext[0].pic}}" >
-                                            </a>
-                                            <b style="float: left;margin-top: 3px">&nbsp;&nbsp;{{xinYu.examedContext[1].value}}</b>
+                                            </a>&nbsp;&nbsp;
+                                            <b style="float: left;margin-top: 3px" ng-bind="xinYu.examedContext[1].value"></b>
                                         </div>
                                     </div>
 
                                     <div class="item-right" style="background-color: #f4f7e4">
                                         实名认证：
-                                        <p style="color: red">{{xinYu.examedContext[2].value}}</p>
+                                        <p style="color: red" ng-bind="xinYu.examedContext[2].value"></p>
                                     </div>
                                 </div>
 
                                 <div href="javascript:;" ng-show="xinYu.examedContext != null" class="info-item">
                                     <div class="item-left">
                                         注册时间：
-                                        <p style="color: green">{{xinYu.examedContext[3].value}}</p>
+                                        <p style="color: green" ng-bind="xinYu.examedContext[3].value"></p>
                                     </div>
                                     <div class="item-right">
                                         最后登录：
-                                        <p style="color: green">{{xinYu.examedContext[4].value}}</p>
+                                        <p style="color: green" ng-bind="xinYu.examedContext[4].value"></p>
                                     </div>
                                 </div>
 
                                 <div href="javascript:;" ng-show="xinYu.examedContext != null" class="info-item">
                                     <div class="item-left">
                                         店铺信息：
-                                        <p>{{xinYu.examedContext[5].value}}</p>
+                                        <p ng-bind="xinYu.examedContext[5].value"></p>
                                     </div>
                                     <div class="item-right">
                                         所在地区：
-                                        <p style="color: green">{{xinYu.examedContext[6].value}}</p>
+                                        <p style="color: green" ng-bind="xinYu.examedContext[6].value"></p>
                                     </div>
                                 </div>
 
                                 <div href="javascript:;" ng-show="xinYu.examedContext != null" class="info-item">
                                     <div class="item-left">
-                                        买家信用：<b style="color: green">{{xinYu.examedContext[7].value}}</b>&nbsp;
-                                        每周平均：<b style="color: green">&nbsp;{{xinYu.examedContext[8].value}}</b>&nbsp;
+                                        买家信用：<b style="color: green" ng-bind="xinYu.examedContext[7].value"></b>&nbsp;
+                                        每周平均：<b style="color: green" ng-bind="xinYu.examedContext[8].value">&nbsp;</b>&nbsp;
                                         <img id="dd" ng-src="{{xinYu.examedContext[9].value}}">
-                                        &nbsp;<b style="color: red">{{xinYu.examedContext[10].value}}</b>
+                                        &nbsp;<b style="color: red" ng-bind="xinYu.examedContext[10].value"></b>
                                     </div>
                                     <div class="item-right">
-                                        卖家信用：<b style="color: green">{{xinYu.examedContext[11].value}}</b>
+                                        卖家信用：<b style="color: green" ng-bind="xinYu.examedContext[11].value"></b>
                                         &nbsp;<img ng-src="{{xinYu.examedContext[12].value}}">
-                                        <b style="color: red">&nbsp;{{xinYu.examedContext[13].value}}</b>
+                                        <b style="color: red" ng-bind="xinYu.examedContext[13].value">&nbsp;</b>
                                     </div>
                                 </div>
 
                                 <div href="javascript:;" ng-show="xinYu.examedContext != null" class="info-item">
                                     <div class="item-left">
-                                        男号女号：<b style="color: green">{{xinYu.examedContext[14].value}}</b>
-                                        &nbsp;&nbsp;账号热度：<b style="color: #FE7738">{{xinYu.examedContext[15].value}}</b>
+                                        男号女号：<b style="color: green" ng-bind="xinYu.examedContext[14].value"></b>
+                                        &nbsp;&nbsp;账号热度：<b style="color: #FE7738" ng-bind="xinYu.examedContext[15].value"></b>
                                     </div>
                                     <div class="item-right">
-                                        活  跃  度：<p style="color: green">{{xinYu.examedContext[16].value}}</p>
+                                        活  跃  度：<p style="color: green" ng-bind="xinYu.examedContext[16].value"></p>
                                     </div>
                                 </div>
 
