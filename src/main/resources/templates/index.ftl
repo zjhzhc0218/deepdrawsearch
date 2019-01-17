@@ -572,7 +572,7 @@
                     _this.$nextTick(function () {
                         sessionStorage.setItem("user",null);
                         alert("退出成功")
-                        setTimeout(function(){ window.location.href="sign"; },1000);
+                        // setTimeout(function(){ window.location.href="sign"; },1000);
 
                     })
 

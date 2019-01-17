@@ -25,7 +25,7 @@ a{
 [v-clock]{
     display: none;
 }
-.all_tipsf{
+.noViolation{
 
     color: #fb6c0e;
     font-size: 24px;
@@ -1262,6 +1262,7 @@ a{
     line-height:30px;
     text-align:center;
     font-size:14px;
+    color: #fe6b0c;
     font-weight:600 !important;
     letter-spacing:1px;
     border-bottom:1px solid #EBEBEB;
@@ -1276,7 +1277,8 @@ a{
     text-align:center;
     letter-spacing:1px;
     font-size:14px;
-    color:#006fff;
+    color: #333;
+    /*color:#006fff;*/
 }
 
 
