@@ -25,6 +25,16 @@ a{
 [v-clock]{
     display: none;
 }
+.all_tipsf{
+
+    color: #fb6c0e;
+    font-size: 24px;
+    text-align: center;
+    background-color: #fffcfa;
+    border: 1px solid #fb6c0e;
+    padding: 40px 20px;
+    border-radius: 5px;
+}
 /*****header*******/
 .header_on{
     display: none;
@@ -65,6 +75,9 @@ a{
     float: left;
 }
 .header_logo{display:  inline-block;}
+.header_logo img{
+    width: 154px;
+}
 .header_center_text{
     display: inline-block;
     vertical-align: middle;
@@ -99,6 +112,9 @@ a{
 .search_icon{
     float:left;
     margin: 6px 0px 0px 11px;
+}
+.search_icon img{
+    width: 16px;
 }
 .left_menu{
     float: left;
@@ -1153,6 +1169,7 @@ a{
     -ms-transform: translateY(-50%) translateX(-50%);
     -o-transform: translateY(-50%) translateX(-50%);
     transform: translateY(-50%) translateX(-50%);
+    height: 591px;
 }
 .index_frame_close{
     position: absolute;

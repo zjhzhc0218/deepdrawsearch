@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="noViolation " ng-show="zhanxian.msg != null" style="color: red;font-size: 30px" ng-bind="zhanxian.msg">
+                            <div class="noViolation all_tipsf" ng-show="zhanxian.msg != null"  ng-bind="zhanxian.msg">
                             </div>
                             <div href="javascript:;" ng-show="zhanxian.examedContext != null" class="info-item">
                                 <div class="zhanxian_con">
