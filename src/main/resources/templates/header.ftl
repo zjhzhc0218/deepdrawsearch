@@ -20,8 +20,8 @@
                 </div>
                 <div class="header_center_search clearfix">
                     <span class="search_icon"><img src="images/search.png"></span>
-                    <input type="text" name="" v-model="inputVal" placeholder="输入宝贝链接或ID，即可查看该宝贝的展现关键词...">
-                    <span class="header_search_bt" @click="search(inputVal)">展现查询</span>
+                    <input type="text" name="" v-model="inputVal" placeholder="输入产品核心词，查看搜索高转化率优质相关关键词...">
+                    <span class="header_search_bt" @click="search(inputVal)">下拉框选词</span>
                 </div>
             </div>
         </div>
@@ -115,23 +115,23 @@
                 //头部跳转
                 search:function(headerval){
                     var _this=this;
-                    var reg =  /^[0-9]+.?[0-9]*$/;
+                    // var reg =  /^[0-9]+.?[0-9]*$/;
                     if(headerval==''){
-                        alert("请输入宝贝链接或者id");
+                        alert("请输入产品核心词");
 
                     }else{
-                        var copy = headerval;
-                        var _headtext = copy.match(/id=(\d*)/);
-                        if (_headtext) {
-                            headerval = _headtext[1];
-                            console.log(headerval)
-                        }
-                        if (!reg.test(headerval)) {
-                            alert("宝贝ID或者宝贝链接输入不符合规则!")
-                        }
-                        else{
-                            window.location.href="show?name="+headerval;
-                        }
+                        // var copy = headerval;
+                        // var _headtext = copy.match(/id=(\d*)/);
+                        // if (_headtext) {
+                        //     headerval = _headtext[1];
+                        //     console.log(headerval)
+                        // }
+                        // if (!reg.test(headerval)) {
+                        //     alert("宝贝ID或者宝贝链接输入不符合规则!")
+                        // }
+                        // else{
+                        window.location.href="drop?name="+headerval;
+                        // }
 
                     }
                 },
@@ -148,6 +148,7 @@
                     _this.$nextTick(function () {
                         sessionStorage.setItem("user",null);
                         alert("退出成功")
+                        window.location.reload()
                         // setTimeout(function(){ window.location.href="sign"; },1000);
                     })
 
