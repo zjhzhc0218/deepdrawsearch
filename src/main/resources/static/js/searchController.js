@@ -1261,7 +1261,7 @@ var reg = /^[0-9]+.?[0-9]*$/;
     }
     var urlParams = getQueryString("name");
     if(urlParams) {
-        $scope.zhanxian.searchWordsXy =window.location.search.substr(1);
+        $scope.zhanxian.searchWordsXy =urlParams;
         // $scope.searchZhanxian();
     }
             init();

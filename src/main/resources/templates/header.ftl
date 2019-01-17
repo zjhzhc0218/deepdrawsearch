@@ -110,18 +110,29 @@
             },
             created:function () {
                 var _this=this;
-
             },
             methods:{
                 //头部跳转
                 search:function(headerval){
                     var _this=this;
+                    var reg =  /^[0-9]+.?[0-9]*$/;
                     if(headerval==''){
                         alert("请输入宝贝链接或者id");
-                        //location.reload();
 
                     }else{
-                        window.location.href="show?name="+headerval;
+                        var copy = headerval;
+                        var _headtext = copy.match(/id=(\d*)/);
+                        if (_headtext) {
+                            headerval = _headtext[1];
+                            console.log(headerval)
+                        }
+                        if (!reg.test(headerval)) {
+                            alert("宝贝ID或者宝贝链接输入不符合规则!")
+                        }
+                        else{
+                            window.location.href="show?name="+headerval;
+                        }
+
                     }
                 },
                 //退出登录

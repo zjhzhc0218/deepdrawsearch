@@ -80,7 +80,6 @@
                                     </div>
                                     <h5>交易指数： <span class="count" id="item_score" ng-bind="zhishu.searchWordsXy"></span></h5>-->
                                 <#--</div>-->
-
                             </div>
                         </div>
                     </div>
@@ -117,7 +116,6 @@
         var str3=str2;
         $("#showinput").val(str3)
     }*/
-
     // document.getElementById('#showinput').value=str2[1];
 </script>
 </html>

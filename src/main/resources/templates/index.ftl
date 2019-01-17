@@ -297,7 +297,7 @@
 </body>
 <script src="/deepsearch/js/jquery-2.1.4.min.js"></script>
 <script src="/deepsearch/js/bootstrap/bootstrap.js"></script>
-<script src="/deepsearch/js/jquery-ui.min.js"></script>
+<#--<script src="/deepsearch/js/jquery-ui.min.js"></script>-->
 <script src="/deepsearch/js/index.js"></script>
 <script>
 
@@ -465,11 +465,25 @@
 				},
 			    //头部跳转
                 search:function(headerval){
+                    var _this=this;
+                    var reg =  /^[0-9]+.?[0-9]*$/;
                     if(headerval==''){
                         alert("请输入宝贝链接或者id");
-                        //location.reload();
+
                     }else{
-                        window.location.href="show?name="+headerval;
+                        var copy = headerval;
+                        var _headtext = copy.match(/id=(\d*)/);
+                        if (_headtext) {
+                            headerval = _headtext[1];
+                            console.log(headerval)
+                        }
+                        if (!reg.test(headerval)) {
+                            alert("宝贝ID或者宝贝链接输入不符合规则!")
+                        }
+                        else{
+                            window.location.href="show?name="+headerval;
+                        }
+
                     }
                 },
 			    //tab切换点击事件
@@ -610,12 +624,7 @@
 		        speed: 1000,
 		        loop: true,
 		    });
-		    var leftWdith=($(window).width()-1200)/2+1200;
-		    $(".index_core").css("left",leftWdith)
-		    $(window).resize(function(){
-		    	var leftWdith=($(window).width()-1200)/2+1200;
-		    	$(".index_core").css("left",leftWdith)
-		    })
+
             //判断用户是否存在
         }
 	})
