@@ -80,8 +80,8 @@
                                     <tr ng-repeat="data in jiangquan.examedContext " >
                                         <td ng-repeat="node in data | orderBy:'id'"  style="text-align: center">
                                             <a href="{{node.href}}" target="_blank" style="text-decoration:none" ><img style="width: 100px;height: 100px;margin-top: 10px" ng-if="node.name=='img'" ng-src="{{node.value}}"></a>
-                                            <span style="font-size: 15px;" ng-if="node.name!='img'&&node.name!='title'">{{node.value}}</span>
-                                            <a ng-if="node.name ==  'title'"  href="{{node.href}}"  target="_blank">{{node.value}}</a>
+                                            <span style="font-size: 15px;" ng-if="node.name!='img'&&node.name!='title'" ng-bind="node.value"></span>
+                                            <a ng-if="node.name ==  'title'"  href="{{node.href}}"  target="_blank" ng-bind="node.value"></a>
                                         </td>
                                     </tr>
                                     </tbody>
