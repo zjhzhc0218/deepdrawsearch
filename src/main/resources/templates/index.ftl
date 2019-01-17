@@ -23,7 +23,15 @@
 	<script src="/deepsearch/js/respond.min.js"></script>
 	<script src="/deepsearch/js/html5shiv.js"></script>
 	<![endif]-->
-
+	<script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?a4870b68e468490bb90d07cd4e8cdc03";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+	</script>
 </head>
 
 <body >

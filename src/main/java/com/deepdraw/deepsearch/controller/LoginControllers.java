@@ -32,7 +32,7 @@ public class LoginControllers {
         }else {
             mv.addObject("user",JsonUtil.object2Json(shUser));
         }
-        mv.setViewName("search");
+        mv.setViewName("index");
         return mv;
     }
 
