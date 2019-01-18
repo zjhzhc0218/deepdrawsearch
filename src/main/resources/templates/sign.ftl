@@ -13,6 +13,8 @@
 	<script src="/deepsearch/js/extension.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 
+
+
 </head>
 <style type="text/css">
    .index_frame{
@@ -84,6 +86,7 @@
 <#include "//footer.ftl">
 <!--  / footer  -->
 </body>
+<script src="/deepsearch/js/layer/layer.js"></script>
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="/deepsearch/js/angular/angular.min.js"></script>
 <script src="/deepsearch/js/spop/spop.js"></script>

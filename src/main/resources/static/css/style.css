@@ -99,6 +99,7 @@ a{
     line-height:40px;
     padding: 0 11px;
     float:left;
+    outline: none;
 }
 .header_search_bt{
     background-color:#fb6c0e;

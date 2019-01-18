@@ -75,6 +75,12 @@ app.controller('signController',['$scope','$http', '$document','Md5','Base64','S
                 // var url='/deepsearch/searchIndex?ON=O';
                 var url='/deepsearch/index?ON=O';
                 // var url='/deepsearch/changeName';
+
+
+
+                var index = layer.load(1, {
+                    shade: [0.5,'#fff'] //0.1透明度的白色背景
+                });
                 location.href = url;
             }).error(function (data) {
                 spop({template: '<strong>' +data.msg+

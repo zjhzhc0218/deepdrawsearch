@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html >
 <head>
-	<meta charset="UTF-8">
-	<title>用户改密</title>
+    <meta charset="UTF-8">
+    <title>用户改密</title>
     <link rel="shortcut icon" href="/codeimg/baima.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="/deepsearch/css/tao/app.css"></head>
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
-    <link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
+<link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
+<link href="/deepsearch/css/bootstrap/bootstrap-theme.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
+<script src="/deepsearch/js/extension.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
 </head>
 <style type="text/css">
     /*body {*/
         /*color: black;*/
     /*}*/
 </style>
+<!--  / header  -->
+<#include "//header.ftl">
+<!--  / header  -->
 <body ng-app="signup" ng-controller="signupController">
 
-<div class="header" style="background-color: #3367ef">
-    <div class="header-wrapper" >
-        <a href="#" class="left"  href="http://www.baimacha.com"><div class="logo"></div></a>
-        <span class="header-title">用户中心</span>
-    </div>
-</div>
+<#--<div class="header" style="background-color: #3367ef">-->
+    <#--<div class="header-wrapper" >-->
+        <#--<a href="#" class="left"  href="http://www.baimacha.com"><div class="logo"></div></a>-->
+        <#--<span class="header-title">用户中心</span>-->
+    <#--</div>-->
+<#--</div>-->
 
 <div class="passport">
     <div class="bk20"></div>

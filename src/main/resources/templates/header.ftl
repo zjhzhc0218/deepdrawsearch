@@ -1,5 +1,5 @@
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<div id="app1" v-clock>
+<div id="app1">
     <div class="header header_all">
 
         <div  class="header_gary">
@@ -25,7 +25,6 @@
                 </div>
             </div>
         </div>
-
         <div class="header_bottom">
             <div class="container clearfix">
                 <div class="left_menu">
