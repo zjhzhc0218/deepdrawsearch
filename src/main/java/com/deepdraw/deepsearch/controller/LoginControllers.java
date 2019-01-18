@@ -18,23 +18,23 @@ public class LoginControllers {
     @Value("sign.url.cod")
     private String code;
 
-    /**
-     * 主界面
-     * @param mv
-     * @return
-     */
-    @RequestMapping("/searchIndex")
-    public ModelAndView searchIndex(ModelAndView mv) {
-        //mv.addObject("name", "测试1");
-        SHUser shUser = ContextHolder.getSessionSHUser();
-        if (shUser == null) {
-            mv.addObject("user",null);
-        }else {
-            mv.addObject("user",JsonUtil.object2Json(shUser));
-        }
-        mv.setViewName("index");
-        return mv;
-    }
+//    /**
+//     * 主界面
+//     * @param mv
+//     * @return
+//     */
+//    @RequestMapping("/searchIndex")
+//    public ModelAndView searchIndex(ModelAndView mv) {
+//        //mv.addObject("name", "测试1");
+//        SHUser shUser = ContextHolder.getSessionSHUser();
+//        if (shUser == null) {
+//            mv.addObject("user",null);
+//        }else {
+//            mv.addObject("user",JsonUtil.object2Json(shUser));
+//        }
+//        mv.setViewName("index");
+//        return mv;
+//    }
 
     /**
      * 登陆
