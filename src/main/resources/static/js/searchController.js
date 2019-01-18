@@ -17,7 +17,7 @@ var app=angular.module('search',[])
             // window.location.href = changeURLArg(window.location.href,'name',123)
 
     var updateGrage = function () {
-        if($scope.username.grade != 2){
+       /* if($scope.username.grade != 2){
             return;
         }
         $http({
@@ -30,7 +30,7 @@ var app=angular.module('search',[])
             $scope.username = angular.fromJson(info.data.data.shUser);
         },function errorCallback(info) {
         })
-        
+        */
     }
     //########################违禁词###############################//
     $scope.searchWordsWjc = null;//查询
@@ -57,7 +57,7 @@ var app=angular.module('search',[])
         //判断是否注册
         var fCount = getFTForUser();
         if($scope.username.grade == 2) {
-            $('#tixing').modal('show');
+            $(".index_frame").stop(true).fadeIn(300);
             return;
         }
         if( $scope.searchWordsWjc == null) {
@@ -151,7 +151,7 @@ var app=angular.module('search',[])
          //判断是否注册
          var fCount = getFTForUser();
          if($scope.username.grade == 2) {
-             $('#tixing').modal('show');
+             $(".index_frame").stop(true).fadeIn(300);
              return;
          }
          if( $scope.xinYu.searchWordsXy == null) {
@@ -269,7 +269,7 @@ var app=angular.module('search',[])
         //判断是否注册
         var fCount = getFTForUser();
         if($scope.username.grade == 2) {
-            $('#tixing').modal('show');
+            $(".index_frame").stop(true).fadeIn(300);
             return;
         }
         if( $scope.jiangquan.searchWordsJq == null) {
@@ -397,7 +397,7 @@ var app=angular.module('search',[])
         //判断是否注册
         var fCount = getFTForUser();
         if($scope.username.grade == 2) {
-            $('#tixing').modal('show');
+            $(".index_frame").stop(true).fadeIn(300);
             return;
         }
         if ($scope.bbPaiMing.keyWords == null || $scope.bbPaiMing.tbaoId == null) {
@@ -559,7 +559,7 @@ var app=angular.module('search',[])
         //判断是否注册
         var fCount = getFTForUser();
         if($scope.username.grade == 2) {
-            $('#tixing').modal('show');
+            $(".index_frame").stop(true).fadeIn(300);
             return;
         }*/ else  {
             window.open(url);
@@ -605,7 +605,7 @@ var app=angular.module('search',[])
                 //判断是否注册
                 var fCount = getFTForUser();
                 if($scope.username.grade == 2) {
-                    $('#tixing').modal('show');
+                    $(".index_frame").stop(true).fadeIn(300);
                     return;
                 }
                 if( $scope.dtPingFeng.searchWordsXy == null) {
@@ -703,7 +703,7 @@ var app=angular.module('search',[])
             //判断是否注册
             var fCount = getFTForUser();
             if($scope.username.grade == 2) {
-                $('#tixing').modal('show');
+                $(".index_frame").stop(true).fadeIn(300);
                 return;
             }
             if( $scope.searchWordsMulu == null) {
@@ -801,7 +801,7 @@ var app=angular.module('search',[])
                 //判断是否注册
                 var fCount = getFTForUser();
                 if($scope.username.grade == 2) {
-                    $('#tixing').modal('show');
+                    $(".index_frame").stop(true).fadeIn(300);
                     return;
                 }
                 if( $scope.zhishu.searchWordsXy == null) {
@@ -909,7 +909,7 @@ var reg = /^[0-9]+.?[0-9]*$/;
                 //判断是否注册
                 var fCount = getFTForUser();
                 if($scope.username.grade == 2) {
-                    $('#tixing').modal('show');
+                    $(".index_frame").stop(true).fadeIn(300);
                     return;
                 }
                 if( $scope.shangxiajia.searchWordsShangxiajia == null) {
@@ -1003,7 +1003,7 @@ var reg = /^[0-9]+.?[0-9]*$/;
                 //判断是否注册
                 var fCount = getFTForUser();
                 if($scope.username.grade == 2) {
-                    $('#tixing').modal('show');
+                    $(".index_frame").stop(true).fadeIn(300);
                     return;
                 }
                 if( $scope.xialakuang.searchWordsXialakuang == null) {
@@ -1106,7 +1106,7 @@ var reg = /^[0-9]+.?[0-9]*$/;
                 //判断是否注册
                 var fCount = getFTForUser();
                 if($scope.username.grade == 2) {
-                    $('#tixing').modal('show');
+                    $(".index_frame").stop(true).fadeIn(300);
                     return;
                 }
                 if( $scope.zhanxian.searchWordsXy == null) {
@@ -1256,12 +1256,13 @@ var reg = /^[0-9]+.?[0-9]*$/;
 
     var   getQueryString = function(name){
         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
+        // var r = window.location.search.substr(1).match(reg);
+        var r = decodeURI(decodeURI(window.location.search.substr(1))).match(reg);
         if(r!=null)return  unescape(r[2]); return null;
     }
     var urlParams = getQueryString("name");
     if(urlParams) {
-        $scope.zhanxian.searchWordsXy =urlParams;
+        $scope.xialakuang.searchWordsXialakuang =urlParams;
         // $scope.searchZhanxian();
     }
             init();
