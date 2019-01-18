@@ -236,9 +236,13 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
                 }
                 //注册成功跳转到登录页面
                 // var url='/deepsearch/searchIndex?ON=N';
-                var url='/deepsearch/index?ON=N';
+                //登陆成功出现缓冲遮罩
+                var index = layer.load(1, {
+                    shade: [0.5,'#fff'] //0.1透明度的白色背景
+                });
+                // var url='/deepsearch/index?ON=N';
                 // var url='/deepsearch/changeName';
-                location.href = url;
+                // location.href = url;
             }).error(function (data) {
                 spop({template: '<strong>' +data.msg+
                 '</strong>',

@@ -273,7 +273,7 @@
 <div class="index_frame" v-show="codeType==1?false:true">
 	<div class="index_frame_box">
 		<div class="index_frame_close" @click="codeHide"><img src="http://images-1257652487.file.myqcloud.com/images/close.png"> </div>
-		<img src="/codeimg/frame.png" width="100%">
+		<img src="http://images-1257652487.file.myqcloud.com/images/frame.png" width="100%">
 		<div class="index_frame_code"><img src="/codeimg/codeImg.jpg"></div>
 		<div class="index_frame_input">
 			<input type="text" v-model="form.inviteCode">
@@ -371,7 +371,6 @@
                 retailers:[],
                 retailers2:[],
                 datamation:[]
-
 			},
 			created: function (){
 				var _this=this;
@@ -428,7 +427,6 @@
                         url:Url+ 'File/getFDNumber',
                         dataType: 'json',
                         success: function (data) {
-
                             if(_this.userInfo==''){
 								alert("请登陆之后再下载！")
                                 setTimeout(function(){ window.location.href="sign"; },1000);
@@ -522,8 +520,11 @@
                             dataType: 'json',
                             data:_this.form,
                             success: function (data) {
-                                alert(data.msg)
-                                if(data.code==0){
+
+								if(data.code!=0){
+                                    alert(data.msg)
+								}
+                                else{
                                     corehi();
                                     $.ajax({
                                         type: 'POST',
@@ -545,7 +546,7 @@
                                         setTimeout(function () {
                                             location.reload()
                                             // $(".index_frame").stop(true).fadeIn(300);
-                                        },1000)
+                                        },500)
                                     })
                                 }
                             }

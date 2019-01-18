@@ -113,7 +113,7 @@
 </div>
 
 </body>
-
+<script src="/deepsearch/js/layer/layer.js"></script>
 <script src="/deepsearch/js/angular/angular.min.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="/deepsearch/js/angular/jquery.qrcode.min.js"></script>
