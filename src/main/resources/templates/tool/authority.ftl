@@ -16,6 +16,7 @@
 
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/index.css">
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
+	<script src="/deepsearch/js/extension.js"></script>
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/common.css">
         <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
         <link rel="stylesheet" href="/deepsearch/css/font/font-awesome.css">

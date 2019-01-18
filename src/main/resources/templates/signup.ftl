@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/deepsearch/css/loading/jquery.mloading.css">
     <link rel="stylesheet" href="/deepsearch/css/jigsaw.css">
     <link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
+	<script src="/deepsearch/js/extension.js"></script>
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <#--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
 <style>

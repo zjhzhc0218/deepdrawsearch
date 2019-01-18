@@ -14,10 +14,11 @@
         <link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="/deepsearch/js/jquery-ui.min.js"></script>
+        <#--<script src="/deepsearch/js/jquery-ui.min.js"></script>-->
 
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/index.css">
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
+	<script src="/deepsearch/js/extension.js"></script>
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/common.css">
         <link rel="stylesheet" href="/deepsearch/css/spop/spop.css">
         <link rel="stylesheet" href="/deepsearch/css/font/font-awesome.css">

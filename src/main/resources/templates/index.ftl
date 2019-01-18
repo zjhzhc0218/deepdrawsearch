@@ -13,6 +13,8 @@
 	<meta name="description" content=" " />
 	<link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
+	<script src="/deepsearch/js/extension.js"></script>
+	<script src="/deepsearch/js/extension.js"></script>
 	<link rel="stylesheet" type="text/css" href="/deepsearch/css/common.css">
 	<link rel="stylesheet" href="/deepsearch/css/font/font-awesome.css">
 	<link rel="stylesheet" href="https://3.swiper.com.cn/dist/css/swiper.min.css">
@@ -22,15 +24,6 @@
 	<script src="/deepsearch/js/respond.min.js"></script>
 	<script src="/deepsearch/js/html5shiv.js"></script>
 	<![endif]-->
-	<script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?a4870b68e468490bb90d07cd4e8cdc03";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-	</script>
 </head>
 
 <body >
@@ -572,8 +565,8 @@
                     _this.$nextTick(function () {
                         sessionStorage.setItem("user",null);
                         alert("退出成功");
-                        window.location.reload()
-                        // setTimeout(function(){ window.location.href="sign"; },1000);
+
+                        setTimeout(function(){window.location.reload()},1500);
 
                     })
 

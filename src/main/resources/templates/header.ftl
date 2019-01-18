@@ -85,15 +85,6 @@
     </div>
 </div>
 <script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?a4870b68e468490bb90d07cd4e8cdc03";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-<script>
 	$(function(){
         var app1=new Vue({
 
@@ -148,8 +139,8 @@
                     _this.$nextTick(function () {
                         sessionStorage.setItem("user",null);
                         alert("退出成功")
-                        window.location.reload()
-                        // setTimeout(function(){ window.location.href="sign"; },1000);
+                        // window.location.reload()
+                        setTimeout(function(){window.location.reload()},1500);
                     })
 
                 },
