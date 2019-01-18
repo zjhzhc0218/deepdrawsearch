@@ -597,11 +597,13 @@
 
             <div class="modal-body" style="">
                 <div  role="tabpanel" class="tab-pane " id="wenzhang" style="margin-left: 10%">
-                    <form action="/deepsearch/File/uploadNew" method="POST" enctype="multipart/form-data" style="font-size: 19px">
-                        <div style="margin-top: 20px;margin-bottom: 20px">图片：<input type="file" name="testTu" style="display: inline"/></div>
-                        <div style="margin-bottom: 20px">文件：<input type="file" name="test" style="display: inline"/></div>
-                        <div style="margin-bottom: 20px"><button class="btn btn-primary" style="display: inline;width: 90px" type="submit">提交</button></div>
-                    </form>
+                    <from  id = "myForm"><#-- 新增部分 -->
+                        <div style="margin-top: 20px;margin-bottom: 20px">图片：<input type="file" name="fileTu" style="display: inline"/></div>
+                        <div style="margin-bottom: 20px">文件：<input type="file" name="fileWj" style="display: inline"/></div>
+
+                        <button class="btn btn-primary" style="display: inline;width: 150px" ng-click="initPageWJ()">提交</button>
+                    </from><#-- 新增部分 -->
+                <#--</form>-->
                 </div>
             </div>
         </div>

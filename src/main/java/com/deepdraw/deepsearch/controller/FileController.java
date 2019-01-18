@@ -56,84 +56,21 @@ public class FileController {
     @Value("${file.uploadFolder}")
     private String uploadFolder;
 
-//    @RequestMapping("/greeting")
-//    public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
-//        model.addAttribute("name", name);
-//        return "greeting";
-//    }
-//    private static final Logger logger = LoggerFactory.getLogger(FileController.class);
 
-
-    //文件上传相关代码
-    @RequestMapping(value = "upload")
+    //文件上传相关代码 版本3.0
+    @RequestMapping(value = "uploadNewN")
     @ResponseBody
-    public String upload(@RequestParam("test") MultipartFile file)  {
-        if (file.isEmpty()) {
-            return "文件为空";
-        }
-        // 获取文件名
-        String fileName = file.getOriginalFilename();
-        System.out.println("上传的文件名为：" + fileName);
-        // 获取文件的后缀名
-        String suffixName = fileName.substring(fileName.lastIndexOf("."));
-        System.out.println("上传的后缀名为：" + suffixName);
-        // 文件上传后的路径
-//        String filePath = "E://test//";
-//        String filePath = uploadFolder;
-        String filePath = null;
-        try {
-            filePath = changeWJJ("wenjian");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public String uploadNewN(HttpServletRequest request)  {
+        List<MultipartFile> list = ((MultipartHttpServletRequest) request)
+                .getFiles("img");
+        List<MultipartFile> listF = ((MultipartHttpServletRequest) request)
+                .getFiles("file");
 
-        // 解决中文问题，liunx下中文路径，图片显示问题
-        // fileName = UUID.randomUUID() + suffixName;
-        File dest = new File(filePath + fileName);
-        // 检测是否存在目录
-        if (!dest.getParentFile().exists()) {
-            dest.getParentFile().mkdirs();
-        }
-        try {
-            file.transferTo(dest);
+        MultipartFile fileTu = list.get(0);//封面
 
-           /*这里应该把数据保存到数据库中*/
-            FileDownload fileDownload = new FileDownload();
-            fileDownload.setFileName(fileName);
-            /*对应数据后缀去划分对应内容  后续还要加TODO*/
-            switch (suffixName){
-                case ".txt":fileDownload.setFileType(1);
-                case ".pdf":fileDownload.setFileType(2);
-                case ".dox":fileDownload.setFileType(3);
-                case ".docx":fileDownload.setFileType(3);
-                case ".wps":fileDownload.setFileType(3);
-                case ".xlsx":fileDownload.setFileType(4);
-                case ".xls":fileDownload.setFileType(4);
-                case ".xlt":fileDownload.setFileType(4);
-                case ".ppt":fileDownload.setFileType(5);
-                case ".pptx":fileDownload.setFileType(5);
-                case ".jpg":fileDownload.setFileType(6);
-                case ".png":fileDownload.setFileType(6);
-                case ".html":fileDownload.setFileType(7);
-                case ".htm":fileDownload.setFileType(7);
-                default:fileDownload.setFileType(99);
-            }
-            fileDownload.setFileDownloadpath(fileName);
-            fileDownloadService.insertSelective(fileDownload);
+        MultipartFile file = listF.get(0);//文件
+//        return JsonUtil.object2Json(ResultUtil.error(2,"上传成功"));
 
-            return "上传成功";
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "上传失败";
-    }
-
-    //文件上传相关代码 版本2.0
-    @RequestMapping(value = "uploadNew")
-    @ResponseBody
-    public String upload(@RequestParam("test") MultipartFile file,@RequestParam("testTu") MultipartFile fileTu)  {
         if (fileTu.isEmpty()) {
             return "图片为空";
         }
@@ -160,8 +97,6 @@ public class FileController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
 
 
         if (file.isEmpty()) {
@@ -218,7 +153,8 @@ public class FileController {
             fileDownload.setFileDownloadpath(filePath + fileName);
             fileDownload.setFilePicture(filePathTu + fileNameT);
             fileDownloadService.insertSelective(fileDownload);
-
+//            String url = "/deepsearch/User/";
+//            response.sendRedirect(url);
             return JsonUtil.object2Json(ResultUtil.success("上传成功"));
         } catch (IllegalStateException e) {
             e.printStackTrace();

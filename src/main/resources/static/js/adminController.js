@@ -661,6 +661,36 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
 
         /**--------------- 文件上传部分开始  ----------------- **/
         /**
+         * 文件上传
+         */
+        $scope.initPageWJ = function () {
+            var dataWJ = new FormData();
+            var fileTu = document.querySelector('input[name="fileTu"]').files[0];
+            var file = document.querySelector('input[name="fileWj"]').files[0];
+            dataWJ.append("img", fileTu);
+            dataWJ.append("file", file);
+            $http({
+                method: "POST",
+                url: "/deepsearch/File/uploadNewN",
+                data: dataWJ,
+                headers: {
+                    'Content-Type': undefined
+                },
+                transformRequest: angular.identity
+
+            }).then(function successCallback(response) {
+                    // console.log(response.data)
+                    // alert("上传成功，请刷新页面")
+                    $('#wendang').modal('hide');
+                },
+                function errorCallback(response) {
+                    console.log("error");
+                    $('#wendang').modal('hide');
+                    // alert("上传成功，请刷新页面");
+                });
+        }
+
+        /**
          * 查询资讯
          */
         $scope.queryinfoWJ = function () {
