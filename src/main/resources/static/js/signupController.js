@@ -240,9 +240,9 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
                 var index = layer.load(1, {
                     shade: [0.5,'#fff'] //0.1透明度的白色背景
                 });
-                // var url='/deepsearch/index?ON=N';
+                var url='/deepsearch/index?ON=N';
                 // var url='/deepsearch/changeName';
-                // location.href = url;
+                location.href = url;
             }).error(function (data) {
                 spop({template: '<strong>' +data.msg+
                 '</strong>',
