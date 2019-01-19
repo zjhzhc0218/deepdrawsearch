@@ -65,6 +65,7 @@
                         <li><a href="drop">下拉框选词</a></li>
                         <li><a href="butler">单品管家</a></li>
                         <li><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a></li>
+                        <li><a href="reduction">生意参谋指数还原</a><img class="header_hotIcon" src="/codeimg/hot.gif"></li>
                     </ul>
                 </div>
             </div>

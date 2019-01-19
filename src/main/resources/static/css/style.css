@@ -176,6 +176,7 @@ a{
 .right_menu li{
     float: left;
     list-style: none;
+    position: relative;
 }
 .right_menu li a{
     display: inline-block;
@@ -2227,7 +2228,11 @@ a{
 .index_Tips .wap_tanc_con h5{
     color: #fb6c0e;
 }
-
+.header_hotIcon{
+    position: absolute;
+    top: -8px;
+    left: 44%;
+}
 
 
 
