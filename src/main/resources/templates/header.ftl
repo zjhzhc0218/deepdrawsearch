@@ -1,5 +1,5 @@
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<div id="app1" v-clock>
+<div id="app1">
     <div class="header header_all">
 
         <div  class="header_gary">
@@ -25,7 +25,6 @@
                 </div>
             </div>
         </div>
-
         <div class="header_bottom">
             <div class="container clearfix">
                 <div class="left_menu">
@@ -66,6 +65,7 @@
                         <li><a href="drop">下拉框选词</a></li>
                         <li><a href="butler">单品管家</a></li>
                         <li><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a></li>
+                        <li><a href="reduction">生意参谋指数还原</a><img class="header_hotIcon" src="/codeimg/hot.gif"></li>
                     </ul>
                 </div>
             </div>
@@ -75,7 +75,7 @@
     <div class="index_frame" v-show="codeType==1?false:true">
         <div class="index_frame_box">
             <div class="index_frame_close" @click="codeHide"><img src="/deepsearch/images/close.png"> </div>
-            <img src="/codeimg/frame.png" width="100%">
+            <img src="http://images-1257652487.file.myqcloud.com/images/frame.png" width="100%">
             <div class="index_frame_code"><img src="/codeimg/codeImg.jpg"></div>
             <div class="index_frame_input">
                 <input type="text" v-model="form.inviteCode">
@@ -160,8 +160,10 @@
                             dataType: 'json',
                             data:_this.form,
                             success: function (data) {
-                                alert(data.msg)
-                                if(data.code==0){
+                                if(data.code!=0){
+                                    alert(data.msg)
+                                }
+                                else{
                                     corehi();
                                     $.ajax({
                                         type: 'POST',
@@ -182,7 +184,7 @@
                                         console.log(sessionStorage.getItem("user"))
                                         setTimeout(function () {
                                             location.reload()
-                                        },1000)
+                                        },500)
                                     })
                                 }
                             }
@@ -209,7 +211,7 @@
         function coresh() {
             setTimeout(function () {
                 $(".index_frame").stop(true).fadeIn(300);
-            },2000)
+            },1500)
         }
         function corehi() {
             $(".index_frame").stop(true).fadeOut(0);
