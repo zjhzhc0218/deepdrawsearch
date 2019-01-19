@@ -25,6 +25,20 @@
     order by file_id DESC
   </select>
 
+  <select id="selectCount" resultType = "java.lang.Integer">
+    select
+    count(*)
+    from file_download
+  </select>
+
+  <select id="selectFDbyLimit"  resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from file_download
+    order by file_id DESC
+    LIMIT #{number1,jdbcType=INTEGER},#{number2,jdbcType=INTEGER}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from file_download
     where file_id = #{fileId,jdbcType=INTEGER}
