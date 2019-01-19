@@ -165,6 +165,25 @@ public class FileController {
     }
 
 
+    /**
+     * 提供给对应分页内容
+     * @param request
+     * @param p  对应页数
+     * @param num  每页数量
+     * @return
+     */
+    @RequestMapping(value = "selectPageForWords")
+    @ResponseBody
+    public Object selectPageForWords(HttpServletRequest request,Integer p ,Integer num){
+        Map<String,Object> maps = new HashMap<>();
+        Map<String,Integer> map = fileDownloadService.page(num);
+        List<FileDownload> list =fileDownloadService.selectPage(p,num);
+        maps.put("page",map);
+        maps.put("info",list);
+        return JsonUtil.object2Json(ResultUtil.success(maps));
+    }
+
+
 //    文章资讯删除相关代码
     @RequestMapping(value = "deleteWords")
 public Object deleteWords(HttpServletRequest request) throws IOException {
