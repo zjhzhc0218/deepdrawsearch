@@ -51,7 +51,7 @@
                         <div class="left_menu_box">
                             <h5 class="title"><img src="images/menu4.png"><span>卖家实用工具</span></h5>
                             <div class="left_menu_link">
-                                <a href="catalog">宝贝类目查询 </a><a href="hotwords">20w热词</a><a href="reduction">淘宝指数还原 </a><a href="prohibited">违禁词查询  </a>
+                                <a href="catalog">宝贝类目查询 </a><a href="hotwords">20w热词</a><a href="reduction">生意参谋指数还原 </a><a href="prohibited">违禁词查询  </a>
                             </div>
                         </div>
                     </div>
