@@ -49,4 +49,19 @@ public interface AnnouncementDao {
      * @mbggenerated 2019-01-16
      */
     List<Announcement> selectBytitleS(@Param("title")String title);
+
+
+    /**
+     * 查询对应文件的数量 （公告）
+     * @return
+     */
+    int selectCount();
+
+    /**
+     *查询排序第几到第几的数据 用于分页 （公告）
+     * @param number1
+     * @param number2
+     * @return
+     */
+    List<Announcement> selectANbyLimit(@Param("number1")Integer number1, @Param("number2")Integer number2);
 }

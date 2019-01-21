@@ -111,4 +111,18 @@
     order by id DESC
   </select>
 
+  <select id="selectCount" resultType = "java.lang.Integer">
+    select
+    count(*)
+    from announcement
+  </select>
+
+  <select id="selectANbyLimit"  resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from announcement
+    order by id DESC
+    LIMIT #{number1,jdbcType=INTEGER},#{number2,jdbcType=INTEGER}
+  </select>
+
 </mapper>
