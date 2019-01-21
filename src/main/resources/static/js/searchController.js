@@ -10,9 +10,9 @@ var app=angular.module('search',[])
         $scope.username = angular.fromJson(user);
     }
     var init = function() {
-            if($scope.username!=null&& $scope.username.grade == 2) {
+           /* if($scope.username!=null&& $scope.username.grade == 2) {
                 $('#tixing').modal('show');
-            }
+            }*/
     }
             // window.location.href = changeURLArg(window.location.href,'name',123)
 
