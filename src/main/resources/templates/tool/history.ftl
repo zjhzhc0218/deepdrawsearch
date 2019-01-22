@@ -29,7 +29,7 @@
         <![endif]-->
 
     </head>
-<body ng-app="search" ng-controller="searchController">
+<body ng-app="history" ng-controller="historyController">
 <!--  / header  -->
 <#include "//header.ftl">
 <!--  / header  -->
@@ -47,12 +47,23 @@
                     <!-- 历史价格查询 -->
                     <div role="tabpanel" class="tab-pane" class="content">
                         <div class="search-view" style="margin-top: 30px">
-                            <input type="text"   ng-model="zhanxian.searchWordsXy" id="showinput"  placeholder="请输入需要查询的商品ID或是商品链接 &quot;查询&quot; 按钮"/>
-                            <button class="btn  index_his search-btnN"  >查询</button>
+                            <input type="text"   ng-model="searchWordsHistory" id="showinput"  placeholder="请输入需要查询的商品ID或是商品链接 &quot;查询&quot; 按钮"/>
+                            <button class="btn search-btnN"  ng-click="searchHistory()" >查询</button>
                         </div>
 
 
                     </div>
+
+                    <div class="search-info" id="jqrs" >
+                        <div style="width: 100%" ng-if="history.msg == null " ng-show="history.vm.value!=0&&history.vm.value!=100">
+                            <div ng-class="{progress: true, 'progress-striped': history.vm.striped}">
+                                <div ng-class="['progress-bar', history.vm.style]" ng-style="{width: history.vm.value + '%'}">
+                                    <div ng-if="history.vm.showLabel"  ng-bind="history.vm.value+'%'"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- 历史价格查询 -->
                     <div class="toolALL_info">
                         <div class="toolALL_info_box">
@@ -76,7 +87,7 @@
 <script src="/deepsearch/js/spop/spop.min.js"></script>
 <script src="/deepsearch/js/loading/jquery.mloading.js"></script>
 <script src="/deepsearch/js/loading/jquery.mloading.js"></script>
-<script src="/deepsearch/js/searchController.js"></script>
+<script src="/deepsearch/js/historyController.js"></script>
 <script src="/deepsearch/js/jquery.scrollstop.min.js"></script>
 <script src="/deepsearch/js/index.js"></script>
 <script>

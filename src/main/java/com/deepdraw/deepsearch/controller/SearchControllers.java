@@ -227,6 +227,24 @@ public class SearchControllers {
         return JsonUtil.object2Json(ResultUtil.success(result));
     }
 
+    /**
+     * 调用python返回历史查询数据
+     * @param request
+     * @return
+     */
+    @GetMapping(value="/getSearchhistory")
+    public String  getSearchhistory(HttpServletRequest request){
+        String word =  request.getParameter("searchWords");
+        String[]  args = new String[] { "python", pythonPath+"/lishi_pirce.py", word};
+        String result = JavaToPython.getPython(args);
+        if (result == null)
+            throw new GlobalException(CodeMsg.SERVER_ERROR);
+//        functionUsingService.addFT(10);
+        if (result!=null && result.equals("001"))
+            return JsonUtil.object2Json(ResultUtil.error(1,"暂未查询到该宝贝有信息，请继续优化哦。"));
+        return JsonUtil.object2Json(ResultUtil.success(result));
+    }
+
 
 
 }

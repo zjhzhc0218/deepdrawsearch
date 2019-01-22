@@ -55,7 +55,7 @@ var app=angular.module('search',[])
         /*判断权限是否改变*/
         updateGrage();
         //判断是否注册
-        var fCount = getFTForUser();
+        //var fCount = getFTForUser();
         if($scope.username.grade == 2) {
             $(".index_frame").stop(true).fadeIn(300);
             return;
@@ -149,7 +149,7 @@ var app=angular.module('search',[])
          /*判断权限是否改变*/
          updateGrage();
          //判断是否注册
-         var fCount = getFTForUser();
+         //var fCount = getFTForUser();
          if($scope.username.grade == 2) {
              $(".index_frame").stop(true).fadeIn(300);
              return;
@@ -267,7 +267,7 @@ var app=angular.module('search',[])
         /*判断权限是否改变*/
         updateGrage();
         //判断是否注册
-        var fCount = getFTForUser();
+        //var fCount = getFTForUser();
         if($scope.username.grade == 2) {
             $(".index_frame").stop(true).fadeIn(300);
             return;
@@ -395,7 +395,7 @@ var app=angular.module('search',[])
         /*判断权限是否改变*/
         updateGrage();
         //判断是否注册
-        var fCount = getFTForUser();
+        //var fCount = getFTForUser();
         if($scope.username.grade == 2) {
             $(".index_frame").stop(true).fadeIn(300);
             return;
@@ -557,7 +557,7 @@ var app=angular.module('search',[])
 
         /*
         //判断是否注册
-        var fCount = getFTForUser();
+        //var fCount = getFTForUser();
         if($scope.username.grade == 2) {
             $(".index_frame").stop(true).fadeIn(300);
             return;
@@ -603,7 +603,7 @@ var app=angular.module('search',[])
                 /*判断权限是否改变*/
                 updateGrage();
                 //判断是否注册
-                var fCount = getFTForUser();
+                //////var fCount = getFTForUser();
                 if($scope.username.grade == 2) {
                     $(".index_frame").stop(true).fadeIn(300);
                     return;
@@ -701,7 +701,7 @@ var app=angular.module('search',[])
             /*判断权限是否改变*/
             updateGrage();
             //判断是否注册
-            var fCount = getFTForUser();
+            //var fCount = getFTForUser();
             if($scope.username.grade == 2) {
                 $(".index_frame").stop(true).fadeIn(300);
                 return;
@@ -799,7 +799,7 @@ var app=angular.module('search',[])
                 /*判断权限是否改变*/
                 updateGrage();
                 //判断是否注册
-                var fCount = getFTForUser();
+                //var fCount = getFTForUser();
                 if($scope.username.grade == 2) {
                     $(".index_frame").stop(true).fadeIn(300);
                     return;
@@ -907,7 +907,7 @@ var reg = /^[0-9]+.?[0-9]*$/;
                 /*判断权限是否改变*/
                 updateGrage();
                 //判断是否注册
-                var fCount = getFTForUser();
+                //var fCount = getFTForUser();
                 if($scope.username.grade == 2) {
                     $(".index_frame").stop(true).fadeIn(300);
                     return;
@@ -1001,7 +1001,7 @@ var reg = /^[0-9]+.?[0-9]*$/;
                 /*判断权限是否改变*/
                 updateGrage();
                 //判断是否注册
-                var fCount = getFTForUser();
+                //var fCount = getFTForUser();
                 if($scope.username.grade == 2) {
                     $(".index_frame").stop(true).fadeIn(300);
                     return;
@@ -1104,7 +1104,7 @@ var reg = /^[0-9]+.?[0-9]*$/;
                 /*判断权限是否改变*/
                 updateGrage();
                 //判断是否注册
-                var fCount = getFTForUser();
+                //var fCount = getFTForUser();
                 if($scope.username.grade == 2) {
                     $(".index_frame").stop(true).fadeIn(300);
                     return;
