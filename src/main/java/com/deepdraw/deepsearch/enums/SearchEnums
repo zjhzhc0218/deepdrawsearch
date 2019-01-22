@@ -13,7 +13,7 @@ public enum SearchEnums {
     ZHANXIAN("展现", 10),
     XIALAKUANG("下拉框", 11),
 
-    SHUJUXIAZAI("数据运营下载"，99);
+    SHUJUXIAZAI("数据运营下载",99);
     // 成员变量
     private String name;
     private int type;
@@ -47,6 +47,7 @@ public enum SearchEnums {
         }
         return null;
     }
+
 
 
 }
