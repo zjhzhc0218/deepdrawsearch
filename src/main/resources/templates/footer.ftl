@@ -61,7 +61,7 @@
 			</div>
 			<div class="modal-body" style="text-align: center">
 				<p>联系方式：杭州市江干区艮山支三路5号4幢104室</p>
-				<p>联系电话：13858154498（电话/微信）</p>
+				<p>联系电话：0571-88983115</p>
 				<p>联系时间：工作日9:00—18:00</p>
 			</div>
 			<div class="modal-footer">

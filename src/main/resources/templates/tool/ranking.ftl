@@ -80,20 +80,20 @@
                             <div class="noViolation " ng-if="bbPaiMing.msg != null"  ng-bind="bbPaiMing.msg">
                             </div>
                             <div class="result-context" ng-if="bbPaiMing.examedContext != null" >
-                                <table class="table table-hover" ng-show="bbPaiMing.examedContext != null" style="  display: block;width:100%;height: 95%;overflow-y: hidden;">
+                                <table class="table table-hover up_table " ng-show="bbPaiMing.examedContext != null">
                                     <thead>
                                     <tr ng-cloak>
-                                        <td style="width: 60px;text-align: center"><label ng-bind="'图片链接'"></label></td>
-                                        <td style="width: 80px;text-align: center"><label ng-bind="'标题'"></label></td>
-                                        <td style="width: 228px;text-align: center"><label ng-bind="'宝贝坐标'"></label></td>
+                                        <td><label ng-bind="'图片链接'"></label></td>
+                                        <td><label ng-bind="'标题'"></label></td>
+                                        <td><label ng-bind="'宝贝坐标'"></label></td>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr ng-repeat="data in bbPaiMing.examedContext " >
                                         <td ng-repeat="(x,y) in data ">
-                                            <img ng-if="x == 'pic'" ng-src="{{y}}">
-                                            <span style="font-size: 22px" ng-if="x == 'title'" ng-bind="y"></span>
-                                            <span style="font-size: 22px;color: green" ng-if="x == 'zoom'"  ng-bind="y"></span>
+                                            <img class="up_img" ng-if="x == 'pic'" ng-src="{{y}}">
+                                            <span ng-if="x == 'title'" ng-bind="y"></span>
+                                            <span style="color: green" ng-if="x == 'zoom'"  ng-bind="y"></span>
                                         </td>
                                     </tr>
                                     </tbody>

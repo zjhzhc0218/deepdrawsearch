@@ -138,6 +138,11 @@ $(document).ready(function() {
 
                             })
                         }
+						_this.$nextTick(function () {
+							for (var i=0;i < _this.datamation.length ;i++) {
+								_this.datamation[i].filePicture= _this.datamation[i].filePicture.replace('/home/deep/uploadfile', '/picture');
+							}
+						})
                     }
                 })
                 _this.$nextTick(function () {
@@ -171,6 +176,11 @@ $(document).ready(function() {
 
                                 })
                             }
+							_this.$nextTick(function () {
+								for (var i=0;i < _this.datamation.length ;i++) {
+									_this.datamation[i].filePicture= _this.datamation[i].filePicture.replace('/home/deep/uploadfile', '/picture');
+								}
+							})
                         }
                     });
 

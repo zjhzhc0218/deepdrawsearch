@@ -2246,6 +2246,10 @@ nav.page ul{
     top: -8px;
     left: 44%;
 }
+table.table_reputation tr td{
+    padding: 10px 15px;
+    text-align: left;
+}
 
 
 
