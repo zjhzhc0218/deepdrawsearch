@@ -383,6 +383,14 @@
                             <td>{{time.endTime}}</td>
                             <td>{{xialakuang}}</td>
                         </tr>
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{qixian}}</td>
+                            <td>数据运营下载</td>
+                            <td>{{time.startTime}}</td>
+                            <td>{{time.endTime}}</td>
+                            <td>{{shujuxiazai}}</td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>

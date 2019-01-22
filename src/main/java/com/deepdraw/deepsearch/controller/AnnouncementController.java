@@ -4,6 +4,7 @@ package com.deepdraw.deepsearch.controller;/**
 
 import com.deepdraw.deepsearch.entity.Announcement;
 import com.deepdraw.deepsearch.entity.ArticleInformation;
+import com.deepdraw.deepsearch.entity.FileDownload;
 import com.deepdraw.deepsearch.service.AnnouncementService;
 import com.deepdraw.deepsearch.service.FileDownloadService;
 import com.deepdraw.deepsearch.util.JsonUtil;
@@ -176,6 +177,25 @@ public class AnnouncementController {
             maplistN.put("xia",maplistXia);
         }
         return JsonUtil.object2Json(ResultUtil.success(maplistN));
+    }
+
+
+    /**
+     * 提供给对应分页内容 （公告）
+     * @param request
+     * @param p  对应页数
+     * @param num  每页数量
+     * @return
+     */
+    @RequestMapping(value = "selectPageForWords")
+    @ResponseBody
+    public Object selectPageForWords(HttpServletRequest request,Integer p ,Integer num){
+        Map<String,Object> maps = new HashMap<>();
+        Map<String,Integer> map = announcementService.page(num);
+        List<Announcement> list =announcementService.selectPage(p,num);
+        maps.put("page",map);
+        maps.put("info",list);
+        return JsonUtil.object2Json(ResultUtil.success(maps));
     }
 
 }

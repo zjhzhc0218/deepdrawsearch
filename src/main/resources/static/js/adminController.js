@@ -19,6 +19,7 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         $scope.zhanxian = null;
         $scope.xialakuang = null;
 
+        $scope.shujuxiazai = null;
 
 
         /**
@@ -336,7 +337,7 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
             }
 
             $scope.paiming = data.data.paiming;
-            $scope.weijinci = data.data.weijinci;
+            $scope.weijinci = data.data.wjc;
             $scope.xinyu = data.data.xinyu;
             $scope.reci = data.data.reci;
             $scope.jiangquan = data.data.jiangquan;
@@ -347,7 +348,7 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
             $scope.zhishu = data.data.zhishu;
             $scope.zhanxian = data.data.zhanxian;
             $scope.xialakuang = data.data.xialakuang;
-
+            $scope.shujuxiazai = data.data.shujuxiazai;
             $scope.dianjiliang =$scope.dianjiliang+"点击量为"+ data.data.count;
             });
 
