@@ -3,10 +3,10 @@ package com.deepdraw.deepsearch.service;/**
  */
 
 import com.deepdraw.deepsearch.entity.Announcement;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author
@@ -55,4 +55,23 @@ public interface AnnouncementService {
      * @mbggenerated 2019-01-16
      */
     List<Announcement> selectBytitleS(String title);
+
+
+    /**
+     * 查询对应的page分页信息
+     （count   总条数
+     pageCount  页数
+     pin 1/有分页  0/没分页）
+     * @param num
+     * @return
+     */
+    Map<String,Integer> page(Integer num);
+
+    /**
+     * 查询对应page数据的内容
+     * @param p
+     * @param num
+     * @return
+     */
+    List<Announcement> selectPage(Integer p, Integer num);
 }

@@ -11,7 +11,9 @@ public enum SearchEnums {
     SHANGXIAJIA("上下架", 8),
     ZHISHU("指数", 9),
     ZHANXIAN("展现", 10),
-    XIALAKUANG("下拉框", 11);
+    XIALAKUANG("下拉框", 11),
+
+    SHUJUXIAZAI("数据运营下载"，99);
     // 成员变量
     private String name;
     private int type;

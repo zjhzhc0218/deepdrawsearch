@@ -9,6 +9,7 @@ import com.deepdraw.deepsearch.handler.ContextHolder;
 import com.deepdraw.deepsearch.service.ArticleInformationService;
 import com.deepdraw.deepsearch.service.DownloadsService;
 import com.deepdraw.deepsearch.service.FileDownloadService;
+import com.deepdraw.deepsearch.service.FunctionUsingService;
 import com.deepdraw.deepsearch.util.*;
 import jnr.ffi.annotations.In;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,9 @@ public class FileController {
 
     @Autowired
     private DownloadsService downloadsService;
+
+    @Autowired
+    private FunctionUsingService functionUsingService;
 
     /**
      * 文章资讯
@@ -469,6 +473,7 @@ public Object deleteWords(HttpServletRequest request) throws IOException {
                      /*判断是否可以下载*/
                     Long useId = ContextHolder.getSessionSHUser().getId();
                     downloadsService.judeeByid(useId);
+                    functionUsingService.addFT(99);
                     return JsonUtil.object2Json(ResultUtil.success("下载成功"));
                 } catch (Exception e) {
                     e.printStackTrace();
