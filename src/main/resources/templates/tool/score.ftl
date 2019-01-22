@@ -59,34 +59,48 @@
                             </div>
                             <div class="noViolation " ng-show="dtPingFeng.msg != null" style="color: red;font-size: 30px" ng-bind="dtPingFeng.msg">
                             </div>
-                            <div href="javascript:;" ng-show="dtPingFeng.examedContext != null" class="info-item" style=" margin-left: 234px;">
-                                <ul class="dsr-info" id="dsr" style="">
-                                    <li class="J_RateInfoTrigger dsr-item selected">
-                                        <div class="item-scrib">
-                                            <span class="title" style="">宝贝与描述相符：</span>
-                                            <em class="count" id="item_score" ng-bind="dtPingFeng.examedContext[0].value"></em>分
-                                            <em title="计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分)"><strong class="percent over" id="">比同行业平均水平{{dtPingFeng.examedContext[15].value}} <b style="color:#f60" ng-bind="dtPingFeng.examedContext[1].value"></b></strong></em>
-                                        </div>
-                                        <div style="position:relative;left:100px;" class="avg" ng-show="dtPingFeng.examedContext[2].value!= ''"> 行业平均得分约：<b style="color:#f60" ng-bind="dtPingFeng.examedContext[2].value"></b>，抵挡<b style="color:#f60" ng-bind="dtPingFeng.examedContext[3].value"></b>单<b style="color:#f60" ng-bind="dtPingFeng.examedContext[4].value"></b>分后飘绿</div>
 
-                                    </li>
-                                    <li class="J_RateInfoTrigger dsr-item selected">
-                                        <div class="item-scrib">
-                                            <span class="title">卖家的服务态度：</span>
-                                            <em class="count" id="service_score"  ng-bind="dtPingFeng.examedContext[5].value"></em>分
-                                            <em title="计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分)"><strong class="percent over" id="">比同行业平均水平{{dtPingFeng.examedContext[16].value}} <b style="color:#f60"  ng-bind="dtPingFeng.examedContext[6].value"></b></strong></em>
+                            <div href="javascript:;" ng-show="dtPingFeng.examedContext != null" class="info-item">
+                                <div class="score_con">
+                                    <div class="score_box clearfix">
+                                        <h4 class="score_tit">宝贝与描述相符：</h4>
+                                        <div class="score_text">
+                                            <h5>
+                                                <em class="count" id="item_score" ng-bind="dtPingFeng.examedContext[0].value"></em>分
+                                                <em title="计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分)"><strong class="percent over" id="">比同行业平均水平{{dtPingFeng.examedContext[15].value}} <b style="color:#f60" ng-bind="dtPingFeng.examedContext[1].value"></b></strong></em>
+                                            </h5>
+                                            <h4 ng-show="dtPingFeng.examedContext[2].value!= ''">
+                                                行业平均得分约：<b style="color:#f60" ng-bind="dtPingFeng.examedContext[2].value"></b>，抵挡<b style="color:#f60" ng-bind="dtPingFeng.examedContext[3].value"></b>单
+                                                <b style="color:#f60" ng-bind="dtPingFeng.examedContext[4].value"></b>分后飘绿
+                                            </h4>
                                         </div>
-                                        <div style="position:relative;left:100px;" class="avg" ng-show="dtPingFeng.examedContext[7].value!= ''"> 行业平均得分约：<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[7].value"></b>，抵挡<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[8].value"></b>单<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[9].value"></b>分后飘绿</div>
-                                    </li>
-                                    <li class="J_RateInfoTrigger dsr-item selected">
-                                        <div class="item-scrib">
-                                            <span class="title">卖家发货的速度：</span>
-                                            <em class="count" id="delivery_score"  ng-bind="dtPingFeng.examedContext[10].value"></em>分
-                                            <em title="计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分)"><strong class="percent over" id="">比同行业平均水平{{dtPingFeng.examedContext[17].value}} <b style="color:#f60"  ng-bind="dtPingFeng.examedContext[11].value"></b></strong></em>
+                                    </div>
+                                    <div class="score_box clearfix">
+                                        <h4 class="score_tit">卖家的服务态度：</h4>
+                                        <div class="score_text">
+                                            <h5>
+                                                <em class="count" id="service_score"  ng-bind="dtPingFeng.examedContext[5].value"></em>分
+                                                <em title="计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分)"><strong class="percent over" id="">比同行业平均水平{{dtPingFeng.examedContext[16].value}} <b style="color:#f60"  ng-bind="dtPingFeng.examedContext[6].value"></b></strong></em>
+                                            </h5>
+                                            <h4 ng-show="dtPingFeng.examedContext[7].value!= ''">
+                                                行业平均得分约：<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[7].value"></b>，抵挡<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[8].value"></b>单<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[9].value"></b>分后飘绿
+                                            </h4>
                                         </div>
-                                        <div style="position:relative;left:100px;" class="avg" ng-show="dtPingFeng.examedContext[12].value!=''"> 行业平均得分约：<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[12].value"></b>，抵挡<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[13].value"></b>单<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[14].value"></b>分后飘绿</div>
-                                    </li>
-                                </ul>
+                                    </div>
+                                    <div class="score_box clearfix">
+                                        <h4 class="score_tit">卖家的服务态度：</h4>
+                                        <div class="score_text">
+                                            <h5>
+                                                <em class="count" id="delivery_score"  ng-bind="dtPingFeng.examedContext[10].value"></em>分
+                                                <em title="计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分)"><strong class="percent over" id="">比同行业平均水平{{dtPingFeng.examedContext[17].value}} <b style="color:#f60"  ng-bind="dtPingFeng.examedContext[11].value"></b></strong></em>
+                                            </h5>
+                                            <h4 ng-show="dtPingFeng.examedContext[12].value!=''">
+                                                行业平均得分约：<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[12].value"></b>，抵挡<b style="color:#f60"  ng-bind="dtPingFeng.examedContext[13].value"></b>单
+                                                <b style="color:#f60"  ng-bind="dtPingFeng.examedContext[14].value"></b>分后飘绿
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>

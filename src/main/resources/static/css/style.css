@@ -48,7 +48,7 @@ nav.page ul{
 .pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover,.pagination>li>a, .pagination>li>span {
     color: #fb6c0e;
 }
-    /*****header*******/
+/*****header*******/
 .header_on{
     display: none;
 }
@@ -1242,7 +1242,7 @@ nav.page ul{
     top:0;
     left:0;
     z-index:99999;
-     display:none;
+    display:none;
 }
 .wap_tanc_bg{
     width:100%;
@@ -2188,6 +2188,7 @@ nav.page ul{
 .prohibited_box_son{
     height: 100%;
     background-color: #f5f5f5;
+    padding: 10px;
 }
 .prohibited_left_tit{
     height:40px;
@@ -2250,8 +2251,38 @@ table.table_reputation tr td{
     padding: 10px 15px;
     text-align: left;
 }
-
-
+.score_con{
+    border: 1px solid #ffc19b;
+    background-color: #fff9f5;
+    padding: 0 30px;
+    width:70%;
+    margin:0 auto;
+    border-radius: 5px;
+}
+#his_result{
+    width: 80%;
+    margin: 0 auto;
+    height: 400px;
+}
+.score_box{
+    padding: 16px 0;
+    border-bottom: 1px solid #ffd7bf;
+}
+.score_box:last-child{
+    border:0px;
+}
+.score_tit{
+    float: left;
+    font-size:15px;
+    padding-right:15px;
+}
+.score_text{
+    float: left;
+}
+.score_text h4{
+    font-size:14px;
+    margin-top: 11px;
+}
 
 
 
