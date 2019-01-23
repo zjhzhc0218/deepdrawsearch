@@ -1,3 +1,39 @@
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('his_result'));
+// 指定图表的配置项和数据
+var option = {
+
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['销量']
+    },
+    xAxis: {
+        type: 'category',
+        axisLabel :{
+            interval:30
+        },
+        // data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+    },
+    yAxis: {
+        scale: true,
+
+    },
+    series: [{
+        name:"价格",
+        type: 'line',
+        markPoint: {
+            data: [
+                {type: 'max', name: '最高价格'},
+                {type: 'min', name: '最低价格'}
+            ]
+        },
+    }]
+};
+// 使用刚指定的配置项和数据显示图表。
+myChart.setOption(option);
+
 var app=angular.module('history',[])
     .controller('historyController',['$scope','$http','$sce','$filter', function ($scope,$http,$sce,$filter) {
 
@@ -25,6 +61,12 @@ var app=angular.module('history',[])
             historyvm.style = 'progress-bar-info';
             historyvm.showLabel = true;
             historyvm.striped = true;
+            var data = null;
+            var series=null;
+            var seriesX=new Array();
+            var seriesY=new Array()
+            $scope.high=null;
+            $scope.low=null;
         $scope.searchHistory = function () {
 
             if ($scope.username == null){
@@ -94,10 +136,38 @@ var app=angular.module('history',[])
                     $scope.history.msg = info.data.msg;
                     $scope.history.hasNoViolation = true;
                 }else if(info.data.code == 0){
-                    $scope.history.examedContext = angular.fromJson(info.data.data);
+                    data = angular.fromJson(info.data.data);
+                    $scope.history.examedContext = data;
                     $scope.history.hideDetail = true;
                     $scope.history.working = false;
                     historyvm.value = 100;
+                    //最低价格current_price
+                    //最高价格last_price
+
+                    //x轴 y轴
+                    series=$scope.history.examedContext.series['180'];
+                    //最高和最低价格
+                    var str1=series.max.toString()
+                    str1=str1.substring(0,str1.length-2);
+                    $scope.high=parseInt(str1)
+                    var str2=series.min.toString()
+                    str2=str2.substring(0,str2.length-2);
+                    $scope.low=parseInt(str2)
+                    Transformation(series.data,seriesX,seriesY);
+                    myChart.setOption({
+                        title: {
+                            //标题
+                            // text:$scope.history.examedContext.dp_info.title
+                        },
+                        xAxis: {
+                            //x轴
+                            data:seriesX,
+                        },
+                        series: [{
+                            // 根据名字对应到相应的系列
+                            data: seriesY
+                        }]
+                    });
                     clearInterval(interval);
                 }
             },function errorCallback(info) {
@@ -112,7 +182,42 @@ var app=angular.module('history',[])
        /* $scope.hideDetail = function () {
             $scope.history.hideDetail = false;
         }*/
+       //点击不同的天数进行切换
+        $scope.switchDay = function (key) {
+            if(key==1){
+                series=data.series['360']
+            }
+            else if(key==2){
+                series=data.series['180']
 
+            }
+            else if(key==3){
+                series=data.series['30']
+            }
+            else if(key==4){
+                series=data.series['5']
+            }
+            seriesX=[];
+            seriesY=[];
+            var str1=series.max.toString()
+            str1=str1.substring(0,str1.length-2);
+            $scope.high=parseInt(str1)
+            var str2=series.min.toString()
+            str2=str2.substring(0,str2.length-2);
+            $scope.low=parseInt(str2)
+            Transformation(series.data,seriesX,seriesY);
+            myChart.setOption({
+                xAxis: {
+                    //x轴
+                    data:seriesX,
+                },
+                series: [{
+                    // 根据名字对应到相应的系列
+                    data: seriesY
+                }]
+            });
+
+        }
 
     $scope.searchLogin = function () {
         if ($scope.username == null){
@@ -120,7 +225,21 @@ var app=angular.module('history',[])
             return;
         }
     }
+    var Transformation=function(a,b,c){
+        for(var i=0;i<a.length;i++){
 
+            //时间戳转换
+            var date=new Date(a[i].x * 1000);
+            var Y = date.getFullYear() + '-';
+            var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+            var D = date.getDate() + ' ';
+            b[i] =Y+M+D;
+            //去掉y轴后面两位小数点
+            var str=a[i].y.toString()
+            str=str.substring(0,str.length-2);
+            c[i]=parseInt(str)
+        }
+    }
     //注销
     $scope.signLogin = function() {
         if($scope.username) {

@@ -48,7 +48,7 @@ nav.page ul{
 .pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover,.pagination>li>a, .pagination>li>span {
     color: #fb6c0e;
 }
-    /*****header*******/
+/*****header*******/
 .header_on{
     display: none;
 }
@@ -176,6 +176,7 @@ nav.page ul{
     margin-right: 24px;
     line-height: 25px;
     display:  inline-block;
+    cursor: pointer;
 }
 .left_menu_link a:hover{
     color: #fff;
@@ -194,6 +195,7 @@ nav.page ul{
 .right_menu li a{
     display: inline-block;
     padding: 0 25px;
+    cursor: pointer;
 }
 .right_menu li a:hover{
     color:#fb6c0e;
@@ -789,7 +791,9 @@ nav.page ul{
     font-size:12px;
 }
 .hot_tool_box{
+    margin: 0 -8px;
     margin-bottom: 13px;
+
 }
 .hot_news ul b.numFir{
     background-color:#f34646;
@@ -1242,7 +1246,7 @@ nav.page ul{
     top:0;
     left:0;
     z-index:99999;
-     display:none;
+    display:none;
 }
 .wap_tanc_bg{
     width:100%;
@@ -2188,6 +2192,7 @@ nav.page ul{
 .prohibited_box_son{
     height: 100%;
     background-color: #f5f5f5;
+    padding: 10px;
 }
 .prohibited_left_tit{
     height:40px;
@@ -2250,9 +2255,96 @@ table.table_reputation tr td{
     padding: 10px 15px;
     text-align: left;
 }
-
-
-
+.score_con{
+    border: 1px solid #ffc19b;
+    background-color: #fff9f5;
+    padding: 0 30px;
+    width:70%;
+    margin:0 auto;
+    border-radius: 5px;
+}
+#his_result{
+    width: 100%;
+    margin: 0 auto;
+    height: 400px;
+}
+.score_box{
+    padding: 16px 0;
+    border-bottom: 1px solid #ffd7bf;
+}
+.score_box:last-child{
+    border:0px;
+}
+.score_tit{
+    float: left;
+    font-size:15px;
+    padding-right:15px;
+}
+.score_text{
+    float: left;
+}
+.score_text h4{
+    font-size:14px;
+    margin-top: 11px;
+}
+.history_result_tit2,.history_result_tit,.history_result_tit3{
+    width: 84%;
+    margin:0 auto;
+}
+.history_result_tit .tit{
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+}
+.history_result_right{
+    float: right;
+}
+.history_result_right span{
+    display: inline-block;
+    color: #999;
+    margin-left: 21px;
+    cursor: pointer;
+}
+.history_result_right span.active{
+    color: #fa7b00;
+    font-weight: bold;
+}
+.history_result_tit2{
+    margin:20px auto;
+}
+.history_result_tit2 span{
+    display:inline-block;
+    margin-left:10px;
+    font-weight:bold
+}
+.history_result_tit2 span.high{
+    color: #E4393C;
+}
+.history_result_tit3_tit{
+    border-left: 3px solid #fe8034;
+    color: #f96300;
+    padding-left: 15px;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.history_result_box3{
+    background-color: #fff2ea;
+    padding: 15px 30px;
+    margin-bottom: 30px;
+}
+.history_result3_img{
+    width: 70px;
+    float: left;
+    margin-right: 30px;
+}
+.history_result3_text{
+    float: left;
+    line-height: 70px;
+}
+.history_result_tit2 span.low{
+    color: #35BD68;
+}
 
 
 
