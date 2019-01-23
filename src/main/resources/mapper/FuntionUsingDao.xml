@@ -25,7 +25,7 @@
         </if>
     </select>
 
-    <select id="selectFTByTime" resultType="Integer">
+    <select id="selectFTByTime" resultType="com.deepdraw.deepsearch.entity.FunctionUsing">
         SELECT id,module,userId,usingTime
         FROM function_using
         WHERE usingTime &gt; #{timeStart}
@@ -35,6 +35,31 @@
         </if>
         <if test = "userId!=null">
         AND    userId = #{userId}
+        </if>
+    </select>
+
+    <select id="selectFTByTimeCount" resultType="Integer">
+        SELECT COUNT(id)
+        FROM function_using
+        WHERE usingTime &gt; #{timeStart}
+        AND usingTime &lt; #{timeEnd}
+        <if test = "module!=null">
+            AND    module = #{module}
+        </if>
+        <if test = "userId!=null">
+            AND    userId = #{userId}
+        </if>
+    </select>
+
+    <select id="selectFTByModuleCount" resultType="Integer">
+        SELECT COUNT(id)
+        FROM function_using
+        WHERE 1=1
+        <if test = "module!=null">
+            AND    module = #{module}
+        </if>
+        <if test = "userId!=null">
+            AND    userId = #{userId}
         </if>
     </select>
 

@@ -106,4 +106,54 @@ public class FunctionUsingServiceImpl implements FunctionUsingService {
 
         return functionUsings;
     }
+
+    /**
+     * 仅仅提供给查询模块对应使用次数
+     * @param id
+     * @param type 类型(1.前端传起始时间跟截止时间，2.当天，3.当周，4.当月，5.当年)
+     * @param module 对应模块
+     * @param timeStart 起始时间
+     * @param timeEnd 截止时间
+     * @return
+     */
+    @Override
+    public Integer selectFTByTimeCount(Long id, Integer type, Integer module, Date timeStart, Date timeEnd) {
+        Integer count = 0;
+        switch(type){
+//            1表示前端传值，自己传起始时间跟截止时间
+            case 1:
+                count = functionUsingDao.selectFTByTimeCount(id, module, timeStart, timeEnd);
+                break;
+//                2.表示当天的
+            case 2:
+                Timestamp timeStartD = new java.sql.Timestamp(DateUtils.getDayBegin().getTime());
+                Timestamp timeEndD = new java.sql.Timestamp(DateUtils.getDayEnd().getTime());
+                count = functionUsingDao.selectFTByTimeCount(id, module, timeStartD, timeEndD);
+                break;
+//                3.表示当周的
+            case 3:
+                Timestamp timeStartW = new java.sql.Timestamp(DateUtils.getBeginDayOfWeek().getTime());
+                Timestamp timeEndW = new java.sql.Timestamp(DateUtils.getEndDayOfWeek().getTime());
+                count = functionUsingDao.selectFTByTimeCount(id, module, timeStartW, timeEndW);
+                break;
+//                4.表示当月的
+            case 4:
+                Timestamp timeStartM = new java.sql.Timestamp(DateUtils.getBeginDayOfMonth().getTime());
+                Timestamp timeEndM = new java.sql.Timestamp(DateUtils.getEndDayOfMonth().getTime());
+                count = functionUsingDao.selectFTByTimeCount(id, module, timeStartM, timeEndM);
+                break;
+//                5.表示当年的
+            case 5:
+                Timestamp timeStartY = new java.sql.Timestamp(DateUtils.getBeginDayOfYear().getTime());
+                Timestamp timeEndY = new java.sql.Timestamp(DateUtils.getEndDayOfYear().getTime());
+                count = functionUsingDao.selectFTByTimeCount(id, module, timeStartY, timeEndY);
+                break;
+            default:
+                count = functionUsingDao.selectFTByModuleCount(id,module);
+                break;
+        }
+
+
+        return count;
+    }
 }

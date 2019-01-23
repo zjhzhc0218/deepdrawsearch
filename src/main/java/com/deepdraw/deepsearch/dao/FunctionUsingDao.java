@@ -45,7 +45,7 @@ public interface FunctionUsingDao {
 
 
     /**
-     * 统计某个时间段的用户模块使用数据，当天，几天内，某个时间段都按照这个接口来实现
+     * 统计某个时间段的用户模块使用数据，当天，几天内，某个时间段都按照这个接口来实现（详细）
      * @param userId 用户id
      * @param module 用户使用的模块
      * @param timeStart 起始时间
@@ -53,5 +53,24 @@ public interface FunctionUsingDao {
      * @return
      */
     List<FunctionUsing> selectFTByTime(@Param("userId") Long userId,@Param("module") Integer module,@Param("timeStart") Date timeStart, @Param("timeEnd") Date timeEnd);
+
+
+    /**
+     * 统计某个时间段的用户模块使用数据，当天，几天内，某个时间段都按照这个接口来实现（仅仅统计对应的数量）
+     * @param userId 用户id
+     * @param module 用户使用的模块
+     * @param timeStart 起始时间
+     * @param timeEnd 结束时间
+     * @return
+     */
+    Integer selectFTByTimeCount(@Param("userId") Long userId,@Param("module") Integer module,@Param("timeStart") Date timeStart, @Param("timeEnd") Date timeEnd);
+
+    /**
+     * 统计用户模块使用数据都按照这个接口来实现（仅仅统计对应的数量）
+     * @param userId 对应用户
+     * @param module 对应模块
+     * @return
+     */
+    Integer selectFTByModuleCount(@Param("userId") Long userId,@Param("module") Integer module);
 
 }
