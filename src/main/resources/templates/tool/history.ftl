@@ -95,14 +95,17 @@
                     </div>
                     <!-- 历史价格结果界面 -->
                     <!-- 历史价格查询 -->
-                    <#--<div class="toolALL_info">-->
-                        <#--<div class="toolALL_info_box">-->
-                            <#--<h5 class="toolALL_info_tit">历史价格查询数据正在维护中！</h5>-->
-                            <#--<div class="toolALL_info_text">-->
-                                <#--<p>xxxxxx</p>-->
-                            <#--</div>-->
-                        <#--</div>-->
-                    <#--</div>-->
+                    <div class="toolALL_info">
+                        <div class="toolALL_info_box">
+                            <h5 class="toolALL_info_tit">历史价格查询数据使用说明：</h5>
+                            <div class="toolALL_info_text">
+                                <p>历史价格查询目前支持淘宝，天猫等商城的绝大多数商品</p>
+                                <p><font class="text_protant">初衷</font>是希望自已及身边的朋友看真假降价，不被商家的各类促销活动给忽悠
+                                </p>
+                                <p> 通过查询商品历史价格，能更清晰了解商家的活动是否为虚假促销以及促销的力度。</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
