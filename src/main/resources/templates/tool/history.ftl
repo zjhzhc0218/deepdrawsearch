@@ -62,17 +62,47 @@
                                 </div>
                             </div>
                         </div>
+
+                    </div>
+                    <div class="search-info" >
+                        <div class="noViolation " ng-show="history.msg != null" style="color: red;font-size: 30px" ng-bind="history.msg">
+                        </div>
                     </div>
 
+                    <!-- 历史价格结果界面 -->
+
+                    <div class="history_result" ng-show="history.examedContext != null">
+                        <div class="history_result_tit3">
+                            <div class="history_result_tit3_tit">查询结果</div>
+                            <div class="history_result_box3 clearfix">
+                                <div class="history_result3_img"><img ng-src="{{history.examedContext.dp_info.img}}" width="100%"></div>
+                                <div class="history_result3_text" ng-bind="history.examedContext.dp_info.title"></div>
+                            </div>
+                        </div>
+
+                        <div class="history_result_tit clearfix">
+                            <h2 class="tit">历史最低</h2>
+                            <div class="history_result_right">
+                                <span ng-click="switchDay(1)">全部</span><span class="active" ng-click="switchDay(2)">180天</span><span ng-click="switchDay(3)">60天</span><span ng-click="switchDay(4)">30天</span>
+                            </div>
+                        </div>
+                        <div class="history_result_tit2">
+                            价格：<span class="high">最高<font ng-bind="high"></font></span><span class="low">最低<font ng-bind="low"></font></span>
+                        </div>
+                        <div id="his_result">
+
+                        </div>
+                    </div>
+                    <!-- 历史价格结果界面 -->
                     <!-- 历史价格查询 -->
-                    <div class="toolALL_info">
-                        <div class="toolALL_info_box">
-                            <h5 class="toolALL_info_tit">历史价格查询数据正在维护中！</h5>
+                    <#--<div class="toolALL_info">-->
+                        <#--<div class="toolALL_info_box">-->
+                            <#--<h5 class="toolALL_info_tit">历史价格查询数据正在维护中！</h5>-->
                             <#--<div class="toolALL_info_text">-->
                                 <#--<p>xxxxxx</p>-->
                             <#--</div>-->
-                        </div>
-                    </div>
+                        <#--</div>-->
+                    <#--</div>-->
                 </div>
             </div>
         </div>
@@ -82,6 +112,7 @@
 <#include "//footer.ftl">
 <!--  / footer  -->
 </body>
+<script src="/deepsearch/js/echarts.common.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/deepsearch/js/angular/angular.min.js"></script>
 <script src="/deepsearch/js/spop/spop.min.js"></script>
@@ -91,6 +122,10 @@
 <script src="/deepsearch/js/jquery.scrollstop.min.js"></script>
 <script src="/deepsearch/js/index.js"></script>
 <script>
-
+    $(function () {
+        $(".history_result_right span").click(function () {
+            $(this).addClass("active").siblings().removeClass("active");
+        })
+    })
 </script>
 </html>

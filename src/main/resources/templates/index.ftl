@@ -73,7 +73,7 @@
 					<div class="left_menu_box">
 						<h5 class="title"><img src="images/menu3.png"><span>流量提升工具</span></h5>
 						<div class="left_menu_link">
-							<a href="butler">白马单品管家  </a><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a>
+							<a href="butler">白马单品管家 </a><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a>
 						</div>
 					</div>
 					<div class="left_menu_box">
@@ -92,7 +92,7 @@
 					<li><a href="reputation">查信誉</a></li>
 					<li><a href="drop">下拉框选词</a></li>
 					<li><a href="butler">单品管家</a></li>
-					<li><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a></li>
+					<li><a v-if="userInfo!=''" href="http://www.daoliuliang365.com" target="_blank">白马流量</a></li>
                     <li><a href="reduction">生意参谋指数还原</a><img class="header_hotIcon" src="/codeimg/hot.gif"></li>
 				</ul>
 			</div>
@@ -174,7 +174,7 @@
 		<div class="index_ser3 all_mar">
 			<div class="index_ser3_son clearfix">
 				<div class="index_ser3_box" v-for="(item,index) in tool">
-					<a :href="item.link" target="_blank">
+					<a  @click="toolin(item.link,index)">
 						<div class="img">
 							<img :src="item.image">
 						</div>
@@ -312,33 +312,18 @@
                 alllink:'',
 				tool:[
 					{
-						link:'code',
-						title:'二维码卡首屏',
-						image:'http://images-1257652487.file.myqcloud.com/images/index3_1.jpg'
-					},
-					{
-						link:'code',
-						title:'淘口令卡首屏',
+						link:'show',
+						title:'关键词展现查询',
 						image:'http://images-1257652487.file.myqcloud.com/images/index3_2.jpg'
 					},
 					{
-						link:'http://www.daoliuliang365.com/douyin',
-						title:'抖音流量',
-						image:'http://images-1257652487.file.myqcloud.com/images/index3_3.jpg'
-					},
-					{
-						link:'spell',
-						title:'拼多多流量',
-						image:'http://images-1257652487.file.myqcloud.com/images/index3_4.jpg'
-					},
-					{
-						link:'http://www.daoliuliang365.com/',
-						title:'白马流量',
+						link:'updown',
+						title:'上下架查询',
 						image:'http://images-1257652487.file.myqcloud.com/images/index3_5.jpg'
 					},
 					{
 						link:'reduction',
-						title:'淘宝指数还原',
+						title:'生意参谋指数还原',
 						image:'http://images-1257652487.file.myqcloud.com/images/index3_6.jpg'
 					},
 					{
@@ -350,6 +335,21 @@
 						link:'catalog',
 						title:'宝贝类目查询',
 						image:'http://images-1257652487.file.myqcloud.com/images/index3_8.jpg'
+					},
+					{
+						link:'code',
+						title:'二维码卡首屏',
+						image:'http://images-1257652487.file.myqcloud.com/images/index3_1.jpg'
+					},
+					{
+						link:'http://www.daoliuliang365.com/douyin',
+						title:'抖音流量',
+						image:'http://images-1257652487.file.myqcloud.com/images/index3_3.jpg'
+					},
+					{
+						link:'spell',
+						title:'拼多多流量',
+						image:'http://images-1257652487.file.myqcloud.com/images/index3_4.jpg'
 					}
 
 				],
@@ -420,6 +420,26 @@
 			mounted: function () { //页面渲染完成后执行，不包括需要请求的数据
 	        },
 	        methods: { //专用于定义方法
+
+				//未登录点白马流量显示弹框
+				toolin:function(link,key){
+					var _this=this;
+					if(key<5){
+						window.open(link);
+					}
+					else{
+						if(_this.userInfo==""){
+							_this.$nextTick(function () {
+								alert("登陆之后即可访问~")
+								setTimeout(function(){ window.location.href="sign"; },1000);
+							})
+						}
+						else{
+							window.open(link);
+						}
+					}
+
+				},
 			    //判断是否可以下载
                 downTy:function(downlink,fileId){
                     var _this=this;

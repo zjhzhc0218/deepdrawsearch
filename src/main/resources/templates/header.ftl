@@ -64,7 +64,7 @@
                         <li><a href="reputation">查信誉</a></li>
                         <li><a href="drop">下拉框选词</a></li>
                         <li><a href="butler">单品管家</a></li>
-                        <li><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a></li>
+                        <li><a class="header_on" href="http://www.daoliuliang365.com" target="_blank">白马流量</a></li>
                         <li><a href="reduction">生意参谋指数还原</a><img class="header_hotIcon" src="/codeimg/hot.gif"></li>
                     </ul>
                 </div>
@@ -103,6 +103,7 @@
                 var _this=this;
             },
             methods:{
+
                 //头部跳转
                 search:function(headerval){
                     var _this=this;
@@ -197,7 +198,6 @@
 			}
 
         })
-
         if (sessionStorage.getItem("user") ==null || sessionStorage.getItem("user")=='null'){
             // coresh();
         }
