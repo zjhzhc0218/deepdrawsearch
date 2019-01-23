@@ -2,6 +2,7 @@ package com.deepdraw.deepsearch.controller;
 
 import com.deepdraw.deepsearch.entity.FunctionUsing;
 import com.deepdraw.deepsearch.entity.SHUser;
+import com.deepdraw.deepsearch.enums.SearchEnums;
 import com.deepdraw.deepsearch.service.FunctionUsingService;
 import com.deepdraw.deepsearch.service.SHUserService;
 import com.deepdraw.deepsearch.util.JsonUtil;
@@ -61,48 +62,16 @@ public class FunctionUsingControllers {
             }
         }
         Map<String,Object> maps = new HashMap<>();
-
-        List<FunctionUsing> functionUsingsOne = functionUsingService.selectFTByTime(id,type,1,timeStartN,timeEndN);
-        List<FunctionUsing> functionUsingsTwo = functionUsingService.selectFTByTime(id,type,2,timeStartN,timeEndN);
-        List<FunctionUsing> functionUsingsTree = functionUsingService.selectFTByTime(id,type,3,timeStartN,timeEndN);
-        List<FunctionUsing> functionUsingsFour = functionUsingService.selectFTByTime(id,type,4,timeStartN,timeEndN);
-        List<FunctionUsing> functionUsingsFive = functionUsingService.selectFTByTime(id,type,5,timeStartN,timeEndN);
-
-        List<FunctionUsing> functionUsingsSix = functionUsingService.selectFTByTime(id,type,6,timeStartN,timeEndN);
-        List<FunctionUsing> functionUsingsSeven = functionUsingService.selectFTByTime(id,type,7,timeStartN,timeEndN);
-        List<FunctionUsing> functionUsingsEight = functionUsingService.selectFTByTime(id,type,8,timeStartN,timeEndN);
-        List<FunctionUsing> functionUsingsNine = functionUsingService.selectFTByTime(id,type,9,timeStartN,timeEndN);
-        List<FunctionUsing> functionUsingsTen = functionUsingService.selectFTByTime(id,type,10,timeStartN,timeEndN);
-        List<FunctionUsing> functionUsingsEleven = functionUsingService.selectFTByTime(id,type,11,timeStartN,timeEndN);
-
-        maps.put("paiming",functionUsingsOne==null?0:functionUsingsOne.size());
-        maps.put("weijinci",functionUsingsTwo==null?0:functionUsingsTwo.size());
-        maps.put("xinyu",functionUsingsTree==null?0:functionUsingsTree.size());
-        maps.put("reci",functionUsingsFour==null?0:functionUsingsFour.size());
-        maps.put("jiangquan",functionUsingsFive==null?0:functionUsingsFive.size());
-
-        maps.put("dongtaipingfen",functionUsingsSix==null?0:functionUsingsSix.size());
-        maps.put("mulu",functionUsingsSeven==null?0:functionUsingsSeven.size());
-        maps.put("shangxiajia",functionUsingsEight==null?0:functionUsingsEight.size());
-        maps.put("zhishu",functionUsingsNine==null?0:functionUsingsNine.size());
-        maps.put("zhanxian",functionUsingsTen==null?0:functionUsingsTen.size());
-        maps.put("xialakuang",functionUsingsEleven==null?0:functionUsingsEleven.size());
+        Integer zongshuN = 0;
+        Map<Integer,String> map = SearchEnums.getMaps();
+        for(Integer in:map.keySet()){
+            List<FunctionUsing> functionUsings = functionUsingService.selectFTByTime(id,type,in,timeStartN,timeEndN);
+            maps.put(map.get(in),functionUsings==null?0:functionUsings.size());
+            zongshuN = zongshuN + ((functionUsings==null?0:functionUsings.size()));
+        }
 
 
-        Integer zongshu = (functionUsingsOne==null?0:functionUsingsOne.size())                  + (functionUsingsTwo==null?0:functionUsingsTwo.size())
-                +(functionUsingsTree==null?0:functionUsingsTree.size())
-                +(functionUsingsFour==null?0:functionUsingsFour.size())
-                +(functionUsingsFive==null?0:functionUsingsFive.size())
-
-                +(functionUsingsSix==null?0:functionUsingsSix.size())
-                +(functionUsingsSeven==null?0:functionUsingsSeven.size())
-                +(functionUsingsEight==null?0:functionUsingsEight.size())
-                +(functionUsingsNine==null?0:functionUsingsNine.size())
-                +(functionUsingsTen==null?0:functionUsingsTen.size())
-                +(functionUsingsEleven==null?0:functionUsingsEleven.size())
-                ;
-
-        message = zongshu+"次";
+        message = zongshuN+"次";
         maps.put("count",message);
         return JsonUtil.object2Json(ResultUtil.success(maps));
     }
