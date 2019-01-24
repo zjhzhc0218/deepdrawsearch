@@ -263,10 +263,10 @@ header .header-content{
 	padding-bottom:50px;
 }
 .info-item{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	cursor: pointer;
+	/*display: flex;*/
+	/*justify-content: space-between;*/
+	/*align-items: center;*/
+	/*cursor: pointer;*/
 }
 .item-left, .item-right{
 	height: 6%;
@@ -555,7 +555,7 @@ table.up_table,.all_table{
 }
 table.up_table  tr td,.all_table tr td{
 	text-align:  center;
-	border:1px solid #ffc19b;
+	border:1px solid #ffc19b!important;
 	font-size:14px;
 	vertical-align: middle!important;
 }

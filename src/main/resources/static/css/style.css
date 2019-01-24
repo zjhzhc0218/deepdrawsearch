@@ -2345,8 +2345,74 @@ table.table_reputation tr td{
 .history_result_tit2 span.low{
     color: #35BD68;
 }
-
-
+.dictionRe_one{
+    color: #999;
+    margin-bottom: 10px;
+}
+.dictionRe_menu{
+    border:1px solid #dcdcdc;
+    padding: 10px;
+    font-size: 13px;
+}
+.dictionRe_menu_tit{
+    float: left;
+    width: 80px;
+    line-height: 24px;
+    font-weight: bold;
+}
+.dictionRe_menu_list{
+    padding-left: 80px;
+}
+.dictionRe_menu_list li{
+    display: inline-block;
+    margin-right: 20px;
+    line-height: 24px;
+    cursor: pointer;
+}
+.dictionRe_menu_list li:hover{
+    color: #fb6c0e;
+}
+.dictionRe_tit{
+    margin-bottom: 20px;
+}
+.diction_line{
+    width: 80px;
+    height: 10px;
+    border:1px solid #3bac8a;
+    display: block;
+    margin: 0 auto;
+}
+.diction_line b{
+    display: block;
+    background-color:#3bac8a ;
+    height: 100%;
+}
+.diction_result_box table tr td{
+    text-align: left;
+}
+.diction_result_box table thead td{
+    padding: 5px 10px;
+    font-weight: bold;
+}
+.diction_result_box table tbody td{
+    padding: 10px!important;
+    color: #666;
+}
+.diction_table_tit{
+    color: #fb6c0e;
+    display: inline-block;
+    margin-left: 10px;
+}
+table tr.diction_one_tr td{
+    padding-top: 15px!important;
+    padding-bottom: 15px!important;
+}
+.diction_line.up{
+    border-color: #da4242;
+}
+.diction_line.up b{
+    background-color: #da4242;
+}
 
 
 

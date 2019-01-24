@@ -392,4 +392,15 @@ public class LoginControllers {
         mv.setViewName("tool/history");
         return mv;
     }
+    /**
+     * 直通车选词
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/diction")
+    public ModelAndView diction(ModelAndView mv) {
+        //mv.addObject("name", "测试1");
+        mv.setViewName("tool/diction");
+        return mv;
+    }
 }

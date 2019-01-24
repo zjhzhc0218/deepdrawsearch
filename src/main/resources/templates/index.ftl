@@ -14,7 +14,6 @@
 	<link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
 	<script src="/deepsearch/js/extension.js"></script>
-	<script src="/deepsearch/js/extension.js"></script>
 	<link rel="stylesheet" type="text/css" href="/deepsearch/css/common.css">
 	<link rel="stylesheet" href="/deepsearch/css/font/font-awesome.css">
 	<link rel="stylesheet" href="https://3.swiper.com.cn/dist/css/swiper.min.css">
