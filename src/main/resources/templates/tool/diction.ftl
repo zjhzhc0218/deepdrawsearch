@@ -48,8 +48,8 @@
                     <!-- 历史价格查询 -->
                     <div role="tabpanel" class="tab-pane" class="content">
                         <div class="search-view" style="margin-top: 30px">
-                            <input type="text"id="showinput"  placeholder="请输入产品核心词 &quot;点击“查询” 按钮进行淘词"/>
-                            <button class="btn search-btnN" >查询</button>
+                            <input type="text"id="showinput"  placeholder="请输入产品核心词 &quot;点击“查询” 按钮进行淘词" v-model="dictionText" />
+                            <button class="btn search-btnN" @click="search(dictionText)">查询</button>
                         </div>
 
 
@@ -149,6 +149,44 @@
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/deepsearch/js/index.js"></script>
 <script>
+    $(function () {
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                dictionText:'',
+            },
+            created:function () {
+                var _this=this;
 
+            },
+            mounted: function () { //页面渲染完成后执行，不包括需要请求的数据
+            },
+            methods: { //专用于定义方法
+                search:function (name) {
+                    if(name==""){
+                        alert("请输入产品关键字")
+                    }
+                    else{
+                        //直通车
+                        $.ajax({
+                            type: 'get',
+                            url:Url+ 'getZtongCar',
+                            dataType: 'json',
+                            data:{
+                                searchWords:name
+                            },
+                            success: function (data) {
+                                _this.$nextTick(function () {
+
+                                })
+
+                            }
+                        })
+                    }
+
+                }
+            }
+        })
+    })
 </script>
 </html>
