@@ -39,7 +39,7 @@ public interface FunctionUsingService {
     String addFT(Integer module);
 
     /**
-     * 统计某个时间段的用户注册数据，当天，几天内，某个时间段都按照这个接口来实现
+     * 统计某个时间段的用户注册数据，当天，几天内，某个时间段都按照这个接口来实现(详细)
      * @param type 类型(1.前端传起始时间跟截止时间，2.当天，3.当周，4.当月，5.当年)
      *  @param module 对应模块
      * @param timeStart 起始时间
@@ -47,5 +47,15 @@ public interface FunctionUsingService {
      * @return
      */
     List<FunctionUsing> selectFTByTime(Long id, Integer type,Integer module , Date timeStart, Date timeEnd);
+
+    /**
+     * 统计某个时间段的用户注册数据，当天，几天内，某个时间段都按照这个接口来实现(简单查询到对应数据)
+     * @param type 类型(1.前端传起始时间跟截止时间，2.当天，3.当周，4.当月，5.当年)
+     *  @param module 对应模块
+     * @param timeStart 起始时间
+     * @param timeEnd 截止时间
+     * @return
+     */
+    Integer selectFTByTimeCount(Long id, Integer type,Integer module , Date timeStart, Date timeEnd);
 
 }
