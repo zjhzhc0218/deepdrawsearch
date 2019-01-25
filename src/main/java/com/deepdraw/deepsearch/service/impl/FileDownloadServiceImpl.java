@@ -79,7 +79,7 @@ public class FileDownloadServiceImpl implements FileDownloadService{
     @Override
     public List<FileDownload> selectPage(Integer p, Integer num) {
         Integer number1 = num*(p-1);
-        Integer number2 = num*p;
+        Integer number2 = num;
         return fileDownloadDao.selectFDbyLimit(number1,number2);
     }
 }
