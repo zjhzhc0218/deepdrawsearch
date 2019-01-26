@@ -81,7 +81,7 @@ public class AnnouncementServiceImpl implements AnnouncementService {
     @Override
     public List<Announcement> selectPage(Integer p, Integer num) {
         Integer number1 = num*(p-1);
-        Integer number2 = num*p;
+        Integer number2 = num;
         return announcementDao.selectANbyLimit(number1,number2);
     }
 }
