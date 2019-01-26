@@ -1,24 +1,17 @@
 package com.deepdraw.deepsearch.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.deepdraw.deepsearch.entity.ZtongChe;
 import com.deepdraw.deepsearch.exception.GlobalException;
 import com.deepdraw.deepsearch.service.FunctionUsingService;
 import com.deepdraw.deepsearch.util.CodeMsg;
 import com.deepdraw.deepsearch.util.JavaToPython;
 import com.deepdraw.deepsearch.util.JsonUtil;
 import com.deepdraw.deepsearch.util.ResultUtil;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 查询控制器
