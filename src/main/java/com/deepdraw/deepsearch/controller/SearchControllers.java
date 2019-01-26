@@ -1,17 +1,24 @@
 package com.deepdraw.deepsearch.controller;
 
+import com.alibaba.fastjson.JSONObject;
+import com.deepdraw.deepsearch.entity.ZtongChe;
 import com.deepdraw.deepsearch.exception.GlobalException;
 import com.deepdraw.deepsearch.service.FunctionUsingService;
 import com.deepdraw.deepsearch.util.CodeMsg;
 import com.deepdraw.deepsearch.util.JavaToPython;
 import com.deepdraw.deepsearch.util.JsonUtil;
 import com.deepdraw.deepsearch.util.ResultUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 查询控制器
@@ -258,6 +265,43 @@ public class SearchControllers {
         if (result == null)
             throw new GlobalException(CodeMsg.SERVER_ERROR);
 //        functionUsingService.addFT(12);
+        if (result!=null && result.equals("001"))
+            return JsonUtil.object2Json(ResultUtil.error(1,"暂未查询到该宝贝有信息，请继续优化哦。"));
+        return JsonUtil.object2Json(ResultUtil.success(result));
+      /*  Map<String, List<ZtongChe>> map = new HashMap<>();
+        String regexp = "\'";
+        String res = result.replaceAll(regexp, "\"");
+        List<ZtongChe> list = JsonUtil.jsonToObject(res, List.class,ZtongChe.class);
+        ZtongChe iot = null;
+        for (int j = 0; j < list.size(); j++) {
+            iot = (ZtongChe)list.get(j);
+            //System.out.println();
+            if (map.containsKey(iot.getTuijian())) {
+                List<ZtongChe> li = map.get(iot.getTuijian());
+                li.add(iot);
+                map.put(iot.getTuijian(),li);
+            }else {
+                List<ZtongChe> li = new ArrayList<ZtongChe>();
+                li.add(iot);
+                map.put(iot.getTuijian(),li);
+            }
+        }*/
+
+    }
+
+    /**
+     * 调用python返回标题诊断查询数据
+     * @param request
+     * @return
+     */
+    @GetMapping(value="/getTitleYH")
+    public String  getTitleYH(HttpServletRequest request){
+        String word =  request.getParameter("searchWords");
+        String[]  args = new String[] { "python", pythonPath+"/title_youhua.py", word};
+        String result = JavaToPython.getPython(args);
+        if (result == null)
+            throw new GlobalException(CodeMsg.SERVER_ERROR);
+//        functionUsingService.addFT(13);
         if (result!=null && result.equals("001"))
             return JsonUtil.object2Json(ResultUtil.error(1,"暂未查询到该宝贝有信息，请继续优化哦。"));
         return JsonUtil.object2Json(ResultUtil.success(result));
