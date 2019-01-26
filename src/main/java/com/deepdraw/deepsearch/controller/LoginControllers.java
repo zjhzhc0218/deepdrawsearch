@@ -403,4 +403,15 @@ public class LoginControllers {
         mv.setViewName("tool/diction");
         return mv;
     }
+    /**
+     * 标题优化
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/title")
+    public ModelAndView title(ModelAndView mv) {
+        //mv.addObject("name", "测试1");
+        mv.setViewName("tool/title");
+        return mv;
+    }
 }

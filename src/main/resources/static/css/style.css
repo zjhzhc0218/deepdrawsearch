@@ -2437,10 +2437,98 @@ table tr.diction_one_tr td{
 .holidayBox_text span{
     color: #fff;
 }
-
-
-
-
+.titleResult_con1{
+    border:1px solid #ffd49c;
+    padding:30px;
+}
+.titleResult_con1_img{
+    float: left;
+    width: 130px;
+    margin-right: 20px;
+}
+.titleResult_con1_text{
+    float: left;
+}
+.titleResult_con1_text p{
+    font-size: 17px;
+    color: #666;
+    margin-bottom: 14px;
+}
+.titleResult_con1_text p span{
+    color: #333;
+    font-weight: bold;
+}
+.titleResult_con1_text p font{
+    color: #e60012;
+    font-weight: bold;
+}
+.titleResult_con1_score{
+    float: right;
+}
+.titleResult_con1_score h3{
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.titleResult_con1_score h5{
+    font-size: 40px;
+    font-family: Arial;
+    color: #fb6c0e;
+}
+.titleResult_con1_score h5 font{
+    font-size: 14px;
+    color: #666;
+}
+.titleResult_con1_box{
+    margin-bottom: 20px;
+}
+.titleResult_con1_box2 .tit{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.titleResult_con1_box2 .tit span{
+    color: #e60012;
+}
+.titleResult_lable span{
+    display: inline-block;
+    height: 24px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #555;
+    border: 1px solid #ffcaa9;
+    background-color: #fff2e9;
+    padding:0 10px;
+    border-radius: 1px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.titleResult_con2_box{
+    width: 50%;
+    float: left;
+}
+.titleResult_con2_box{
+    font-size: 17px;
+    margin: 10px 0;
+}
+.titleResult_con2_box .tit{
+    color: #333;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 0px;
+}
+.titleResult_con2_box .img{
+    margin-right: 5px;
+    width: 16px;
+}
+.titleResult_con2_box .text{
+    color: #666;
+    font-size: 16px;
+}
+.titleResult_con2{
+    background-color: #ffe8d9;
+    padding: 20px 30px;
+    margin: 30px 0;
+}
 
 
 
