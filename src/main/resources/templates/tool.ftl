@@ -193,19 +193,18 @@ $(document).ready(function() {
                         url: Url + 'File/getFDNumber',
                         dataType: 'json',
                         success: function (data) {
-
                             if (_this.userInfo == '') {
                                 alert("请登陆之后再下载！")
                                 setTimeout(function () {
                                     window.location.href = "sign";
                                 }, 1000);
                             } else {
-                                if (data.code == 0) {
-                                    downshow()
-                                    _this.alllink = fileId;
-                                } else {
-                                    alert("今日下载次数已用完！")
-                                }
+								if (data.code == 0) {
+									downshow()
+									_this.alllink = fileId;
+								} else {
+									alert("今日下载次数已用完！")
+								}
                             }
                         }
                     })

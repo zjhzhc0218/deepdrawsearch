@@ -71,3 +71,42 @@
 	</div>
 </div>
 <div class="all_bg"></div>
+<script>
+
+
+		var last=document.referrer;
+		var typeInfo=0;
+		// console.log(last)
+		if(window.location.href !=last){
+			if(last.indexOf("baidu.com") != -1){
+				// window.location.href = changeURLArg(window.location.href,'id','b')
+				typeInfo=1;
+				sessionStorage.setItem("entrance",typeInfo);
+			}
+			else if(last.indexOf("so.com") != -1){
+				// window.location.href = changeURLArg(window.location.href,'id',"o")
+				typeInfo=2;
+				sessionStorage.setItem("entrance",typeInfo);
+			}
+			// console.log(sessionStorage.getItem("entrance"))
+
+		}
+
+		function changeURLArg(url,arg,arg_val){
+			var pattern=arg+'=([^&]*)';
+			var replaceText=arg+'='+arg_val;
+			if(url.match(pattern)){
+				var tmp='/('+ arg+'=)([^&]*)/gi';
+				tmp=url.replace(eval(tmp),replaceText);
+				return tmp;
+			}else{
+				if(url.match('[\?]')){
+					return url+'&'+replaceText;
+				}else{
+					return url+'?'+replaceText;
+				}
+			}
+		}
+
+
+</script>

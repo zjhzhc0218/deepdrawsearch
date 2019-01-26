@@ -234,14 +234,22 @@ app.controller('signupController', ['$scope', '$http','$interval' ,'$document', 
                     });
                     return;
                 }
-                //注册成功跳转到登录页面
-                // var url='/deepsearch/searchIndex?ON=N';
+
                 //登陆成功出现缓冲遮罩
                 var index = layer.load(1, {
                     shade: [0.5,'#fff'] //0.1透明度的白色背景
                 });
-                var url='/deepsearch/index?ON=N';
-                // var url='/deepsearch/changeName';
+                //注册成功跳转到登录页面
+                var url;
+                if(sessionStorage.getItem("entrance")==1){
+                    url='/deepsearch/index?id=b=ON=N';
+                }
+                else if(sessionStorage.getItem("entrance")==2){
+                    url='/deepsearch/index?id=o=ON=N';
+                }
+                else{
+                    url='/deepsearch/index?ON=N';
+                }
                 location.href = url;
             }).error(function (data) {
                 spop({template: '<strong>' +data.msg+

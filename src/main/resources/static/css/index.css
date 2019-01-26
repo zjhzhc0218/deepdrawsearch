@@ -492,6 +492,9 @@ header .header-content{
 	text-align:  center;
 	line-height: 33px!important;
 }
+#reci table td a{
+	color:#fb6c0e;
+}
 #reci table tr th,#xialakuang table tr td{
 	line-height: 37px!important;
 	text-align:center;

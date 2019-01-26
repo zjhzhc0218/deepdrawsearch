@@ -2413,8 +2413,30 @@ table tr.diction_one_tr td{
 .diction_line.up b{
     background-color: #da4242;
 }
-
-
+.holidayBox{
+    position: fixed;
+    top:0px;
+    left: 0px;
+    width: 415px;
+    z-index: 999;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 6px 20px 2px rgba(167, 1, 3,0.3);
+}
+.holidayBox_text{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 30px 43px 30px 53px;
+    color: #ff9911;
+    font-size: 15px;
+    line-height: 26px;
+    text-align:justify; text-justify:distribute-all-lines; text-align-last:justify;
+}
+.holidayBox_text span{
+    color: #fff;
+}
 
 
 

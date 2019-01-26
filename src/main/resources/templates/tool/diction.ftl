@@ -154,6 +154,7 @@
             el:'#app',
             data:{
                 dictionText:'',
+                dictionInfo:[],
             },
             created:function () {
                 var _this=this;
@@ -163,6 +164,7 @@
             },
             methods: { //专用于定义方法
                 search:function (name) {
+                    var _this=this;
                     if(name==""){
                         alert("请输入产品关键字")
                     }
@@ -176,6 +178,8 @@
                                 searchWords:name
                             },
                             success: function (data) {
+                                _this.dictionInfo=data.data
+                                console.log(_this.dictionInfo)
                                 _this.$nextTick(function () {
 
                                 })
