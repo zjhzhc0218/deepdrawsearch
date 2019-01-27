@@ -184,7 +184,7 @@
                             },
                             success: function (data) {
                                 _this.titleInfo=data.data
-                                console.log(_this.dictionInfo)
+                                console.log(_this.titleInfo)
                                 _this.$nextTick(function () {
 
                                 })

@@ -55,16 +55,16 @@
 
                     </div>
 
-                    <#--<div class="search-info" id="jqrs" >-->
-                        <#--<div style="width: 100%" ng-if="history.msg == null " ng-show="history.vm.value!=0&&history.vm.value!=100">-->
-                            <#--<div ng-class="{progress: true, 'progress-striped': history.vm.striped}">-->
-                                <#--<div ng-class="['progress-bar', history.vm.style]" ng-style="{width: history.vm.value + '%'}">-->
-                                    <#--<div ng-if="history.vm.showLabel"  ng-bind="history.vm.value+'%'"></div>-->
-                                <#--</div>-->
-                            <#--</div>-->
-                        <#--</div>-->
+                    <div class="search-info" id="jqrs" >
+                        <div style="width: 100%" ng-if="history.msg == null " ng-show="history.vm.value!=0&&history.vm.value!=100">
+                            <div ng-class="{progress: true, 'progress-striped': history.vm.striped}">
+                                <div ng-class="['progress-bar', history.vm.style]" ng-style="{width: history.vm.value + '%'}">
+                                    <div ng-if="history.vm.showLabel"  ng-bind="history.vm.value+'%'"></div>
+                                </div>
+                            </div>
+                        </div>
 
-                    <#--</div>-->
+                    </div>
                     <#--<div class="search-info" >-->
                         <#--<div class="noViolation " ng-show="history.msg != null" style="color: red;font-size: 30px" ng-bind="history.msg">-->
                         <#--</div>-->
@@ -72,14 +72,14 @@
 
                     <!-- 历史价格结果界面 -->
 
-                    <div class="diction_result" >
+                    <div class="diction_result" v-show="dictionInfo!=''">
                         <div class="dictionRe_tit">
                             <h6 class="dictionRe_one">通过过滤后，查到关键词数量为1414个</h6>
                             <div class="dictionRe_menu clearfix">
                                 <h5 class="dictionRe_menu_tit">类目筛选：</h5>
                                 <div class="dictionRe_menu_list">
                                     <ul>
-                                        <li>女装/女士精品>>卫衣/绒衫</li><li>男装>>卫衣</li><li>运动服/休闲服装>>运动卫衣/套头衫</li><li>男装</li><li>女装/女士精品</li><li>童装/婴儿装/亲子装>>卫衣/绒衫</li>
+                                        <li v-for="(item,index) in dictionMenu">{{item.title}}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -93,34 +93,34 @@
                                         <td>点击指数</td>
                                         <td>点击率</td>
                                         <td>转化率</td>
-                                        <td>市场均价</td>
                                         <td>竞争度</td>
                                         <td>搜索趋势</td>
                                         <td>推荐类目</td>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="diction_one_tr">
-                                        <td><span class="diction_table_tit">卫衣</span></td>
-                                        <td>278	</td>
-                                        <td>3	</td>
-                                        <td>0.96%</td>
-                                        <td>0.00%</td>
-                                        <td>¥0.64</td>
-                                        <td>11</td>
-                                        <td><span class="diction_line up"><b style="width: 10%;"></b></span></td>
-                                        <td>运动服/休闲服装>>运动卫衣/套头衫</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1.<span class="diction_table_tit">曼联卫衣</span></td>
-                                        <td>278	</td>
-                                        <td>3	</td>
-                                        <td>0.96%</td>
-                                        <td>0.00%</td>
-                                        <td>¥0.64</td>
-                                        <td>11</td>
-                                        <td><span class="diction_line"><b style="width: 10%;"></b></span></td>
-                                        <td>运动服/休闲服装>>运动卫衣/套头衫</td>
+                                    <#--<tr class="diction_one_tr">-->
+                                        <#--<td><span class="diction_table_tit">卫衣</span></td>-->
+                                        <#--<td>278	</td>-->
+                                        <#--<td>3	</td>-->
+                                        <#--<td>0.96%</td>-->
+                                        <#--<td>0.00%</td>-->
+                                        <#--<td>11</td>-->
+                                        <#--<td><span class="diction_line up"><b style="width: 10%;"></b></span></td>-->
+                                        <#--<td>运动服/休闲服装>>运动卫衣/套头衫</td>-->
+                                    <#--</tr>-->
+                                    <tr v-for="(item1,index) in dictionInfo2">
+                                        <td>{{index+1}}.<span class="diction_table_tit">{{item1.a_text}}</span></td>
+                                        <td>{{item1.zhanxian}}</td>
+                                        <td>{{item1.dianji}}</td>
+                                        <td>{{item1.dianjilv}}</td>
+                                        <td>{{item1.zhuanhua}}</td>
+                                        <td>{{item1.jingzheng}}</td>
+                                        <td>
+                                            <span class="diction_line" v-show="item1.type==1"><b :style="{'width':item1.qushi+'%'}"></b></span>
+                                            <span class="diction_line up " v-show="item1.type==2"><b :style="{'width':item1.qushi+'%'}"></b></span>
+                                        </td>
+                                        <td>{{item1.leimu}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -155,6 +155,14 @@
             data:{
                 dictionText:'',
                 dictionInfo:[],
+                dictionInfo2:[],
+                dictionMenu:[],
+                dictionQs:[]
+                time:{
+                    value:0,
+                    msg:'',
+                    working:true,
+                }
             },
             created:function () {
                 var _this=this;
@@ -169,6 +177,15 @@
                         alert("请输入产品关键字")
                     }
                     else{
+                        var interval = setInterval(function(){
+                            _this.time.value++;
+                            if (_this.time.value == 100) {
+                                _this.time.msg = "查询超时！请重新查询";
+                                _this.time.working = false;
+                                clearInterval(interval);
+                            }
+                        }, 90);
+
                         //直通车
                         $.ajax({
                             type: 'get',
@@ -178,10 +195,38 @@
                                 searchWords:name
                             },
                             success: function (data) {
-                                _this.dictionInfo=data.data
-                                console.log(_this.dictionInfo)
+                                _this.dictionInfo=data.data.replace(/'/g, '"')
+                                _this.dictionInfo=eval('(' + _this.dictionInfo + ')');
+                                _this.dictionInfo2=_this.dictionInfo[0];
+
+                                //转化成类目数组
+                                var res = _this.dictionInfo[1]
+                                list = []
+                                for (var i=0;i<res.length;i++) {
+                                    for (var d in res[i]) {
+                                        var cc = {};
+                                        cc.title = d;
+                                        cc.data =  res[i][d];
+                                        list.push(cc)
+                                    }
+                                }
+                                _this.dictionMenu=list;
+                                // console.log(list);
+                                // console.log( _this.dictionInfo)
                                 _this.$nextTick(function () {
 
+                                    //趋势转化为百分比
+                                    for (var i=0;i<_this.dictionInfo2.length;i++) {
+
+                                        _this.dictionInfo2[i].qushi=parseFloat(this.dictionInfo2[i].qushi)*100
+                                        if(_this.dictionInfo2[i].qushi>=0){
+                                            _this.dictionInfo2[i]['type']=1;
+                                        }else{
+                                            _this.dictionInfo2[i].qushi=Math.abs(_this.dictionInfo2[i].qushi)
+                                            _this.dictionInfo2[i]['type']=2;
+                                        }
+                                    }
+                                    console.log(_this.dictionInfo2);
                                 })
 
                             }
