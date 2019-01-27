@@ -71,60 +71,60 @@
 
                     <!-- 历史价格结果界面 -->
 
-                    <div class="titleResult clearfix" >
+                    <div class="titleResult clearfix" v-show="titleInfo!=''">
                         <div class="history_result_tit3_tit">诊断报告</div>
                         <div class="titleResult_con1">
                             <div class="titleResult_con1_box clearfix">
                                 <div class="titleResult_con1_img">
-                                    <img src="//img.alicdn.com/imgextra/i2/2620545230/TB22wgZz8yWBuNkSmFPXXXguVXa_!!2620545230-0-item_pic.jpg" width="100%">
+                                    <img :src="titleInfo.img" width="100%">
                                 </div>
                                 <div class="titleResult_con1_text">
-                                    <p><span>宝贝所属类目： </span>手表>>欧美腕表</p>
-                                    <p><span>市场竞争度：  </span><font>3</font>个同款宝贝</p>
-                                    <p><span>商家旺旺： </span>emporioarmani腕表旗舰店</p>
+                                    <p><span>宝贝所属类目： </span>{{titleInfo.leimu}}</p>
+                                    <p><span>市场竞争度：  </span><font>{{titleInfo.jingzheng}}</font>个同款宝贝</p>
+                                    <p><span>商家旺旺： </span>{{titleInfo.wwid}}</p>
                                 </div>
                                 <div class="titleResult_con1_score">
                                     <h3>标题分数</h3>
-                                    <h5>83<font>分</font></h5>
+                                    <h5>{{titleInfo.score}}<font>分</font></h5>
                                 </div>
                             </div>
                             <div class="titleResult_con1_box2">
-                                <div class="tit">标题拆分词组：<span>15</span> 个</div>
+                                <div class="tit">标题拆分词组：<span>{{titleInfo.split_title_num}}</span> 个</div>
                                 <div class="titleResult_lable">
-                                    <span>Armani</span><span>阿玛尼</span><span>2018</span><span>新款</span><span>皮带</span><span>商务</span><span>风</span>
+                                    <span v-for="item in titleInfo.split_title">{{item}}</span>
                                 </div>
                             </div>
                         </div>
                         <div class="titleResult_con2 clearfix">
                             <div class="titleResult_con2_box">
                                 <span class="tit">标题长度：</span>
-                                <img src="/deepsearch/images/ok.png" class="img">
-                                <span class="text">标题长度30个汉字</span>
+                                <img :src="titleInfo.specialSymbol_judge==2?'/deepsearch/images/ok.png':'/deepsearch/images/warning_icon.png'" class="img">
+                                <span class="text">{{titleInfo.specialSymbol}}</span>
                             </div>
                             <div class="titleResult_con2_box">
                                 <span class="tit">营 销 词：</span>
-                                <img src="/deepsearch/images/warning_icon.png" class="img">
-                                <span class="text">包含营销词【新款】，建议去除</span>
+                                <img :src="titleInfo.salesWords_judge==2?'/deepsearch/images/ok.png':'/deepsearch/images/warning_icon.png'" class="img">
+                                <span class="text">{{titleInfo.salesWords}}</span>
                             </div>
                             <div class="titleResult_con2_box">
                                 <span class="tit">特殊字符：</span>
-                                <img src="/deepsearch/images/ok.png" class="img">
-                                <span class="text">标题不含特殊字符</span>
+                                <img :src="titleInfo.specialSymbol_judge==2?'/deepsearch/images/ok.png':'/deepsearch/images/warning_icon.png'" class="img">
+                                <span class="text">{{titleInfo.specialSymbol}}</span>
                             </div>
                             <div class="titleResult_con2_box">
                                 <span class="tit">重 复 词：</span>
-                                <img src="/deepsearch/images/ok.png" class="img">
-                                <span class="text">无重复关键词</span>
+                                <img :src="titleInfo.duplicateWords_judge==2?'/deepsearch/images/ok.png':'/deepsearch/images/warning_icon.png'" class="img">
+                                <span class="text">{{titleInfo.duplicateWords}}</span>
                             </div>
                             <div class="titleResult_con2_box">
                                 <span class="tit">标题热词：</span>
-                                <img src="/deepsearch/images/ok.png" class="img">
-                                <span class="text">标题包含相关热搜词【手表】【表】【手表男】等</span>
+                                <img :src="titleInfo.hotWords_judge==2?'/deepsearch/images/ok.png':'/deepsearch/images/warning_icon.png'" class="img">
+                                <span class="text">{{titleInfo.hotWords}}</span>
                             </div>
                             <div class="titleResult_con2_box">
                                 <span class="tit">违 禁 词：</span>
-                                <img src="/deepsearch/images/ok.png" class="img">
-                                <span class="text">无违禁词，请继续保持</span>
+                                <img :src="titleInfo.duplicateWords_judge==2?'/deepsearch/images/ok.png':'/deepsearch/images/warning_icon.png'" class="img">
+                                <span class="text">{{titleInfo.forbiddenWOrds}}</span>
                             </div>
                         </div>
                     </div>
@@ -174,6 +174,7 @@
                         alert("请输入产品关键字")
                     }
                     else{
+                        buttonOff()
                         //直通车
                         $.ajax({
                             type: 'get',
@@ -183,8 +184,11 @@
                                 searchWords:name
                             },
                             success: function (data) {
-                                _this.titleInfo=data.data
-                                console.log(_this.dictionInfo)
+
+                                _this.titleInfo=data.data.replace(/'/g, '"');
+                                _this.titleInfo=eval('(' + _this.titleInfo + ')');
+                                console.log(_this.titleInfo)
+                                buttonON()
                                 _this.$nextTick(function () {
 
                                 })
@@ -195,6 +199,12 @@
                 }
             }
         })
+        function buttonOff(){
+            $(".search-btnN").attr("disabled",true);
+        }
+        function buttonON(){
+            $(".search-btnN").attr("disabled",false);
+        }
     })
 </script>
 </html>
