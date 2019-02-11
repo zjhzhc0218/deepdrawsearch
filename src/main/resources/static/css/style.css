@@ -2365,9 +2365,11 @@ table.table_reputation tr td{
 }
 .dictionRe_menu_list li{
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 40px;
     line-height: 24px;
     cursor: pointer;
+    color: #666;
+    margin-bottom: 5px;
 }
 .dictionRe_menu_list li:hover{
     color: #fb6c0e;
@@ -2528,6 +2530,9 @@ table tr.diction_one_tr td{
     background-color: #ffe8d9;
     padding: 20px 30px;
     margin: 30px 0;
+}
+.diction_result_box thead tr td{
+    min-width: 100px;
 }
 
 

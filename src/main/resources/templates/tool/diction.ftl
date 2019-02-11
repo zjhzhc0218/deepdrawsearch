@@ -38,7 +38,7 @@
     <div class="warpper">
         <div class="container">
             <div class="all_nav">
-                您当前的位置：<a href="index">白马查</a>><a>直通车选词</a>
+                您当前的位置：<a href="index">白马查</a>><a>历史价格查询</a>
             </div>
             <div class="toolALL">
                 <div class="toolALL_nav">
@@ -56,19 +56,20 @@
                     </div>
 
                     <div class="search-info" id="jqrs" >
-                        <div style="width: 100%" ng-if="history.msg == null " ng-show="history.vm.value!=0&&history.vm.value!=100">
-                            <div ng-class="{progress: true, 'progress-striped': history.vm.striped}">
-                                <div ng-class="['progress-bar', history.vm.style]" ng-style="{width: history.vm.value + '%'}">
-                                    <div ng-if="history.vm.showLabel"  ng-bind="history.vm.value+'%'"></div>
+                        <div style="width: 100%" v-if="time.working" v-show="time.vm.value!=0&&time.vm.value!=100">
+                            <div class="progress progress-striped" :class="time.vm.striped">
+                                <div class="progress-bar" :class="time.vm.style" :style="{width: time.vm.value + '%'}">
+                                    <div v-if="time.vm.showLabel" >{{time.vm.value}}%</div>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    <#--<div class="search-info" >-->
-                        <#--<div class="noViolation " ng-show="history.msg != null" style="color: red;font-size: 30px" ng-bind="history.msg">-->
-                        <#--</div>-->
-                    <#--</div>-->
+                    <div class="search-info" >
+                        <div class="noViolation " v-show="time.msg != null" style="color: red;font-size: 30px">
+                            {{time.msg}}
+                        </div>
+                    </div>
 
                     <!-- 历史价格结果界面 -->
 
@@ -157,11 +158,18 @@
                 dictionInfo:[],
                 dictionInfo2:[],
                 dictionMenu:[],
-                dictionQs:[]
+                dictionQs:[],
                 time:{
-                    value:0,
-                    msg:'',
+                    msg:null,
                     working:true,
+                    vm:{
+                        value:0,
+                        style:'progress-bar-info',
+                        showLabel:true,
+                        striped:true
+
+                    }
+
                 }
             },
             created:function () {
@@ -173,18 +181,27 @@
             methods: { //专用于定义方法
                 search:function (name) {
                     var _this=this;
+                    //初始化进度条
+                    _this.time.msg=null
+                    _this.time.vm.value=0
+                    _this.time.working=true
+                    _this.dictionInfo=''
+
                     if(name==""){
                         alert("请输入产品关键字")
                     }
                     else{
+                        btoff();
+
                         var interval = setInterval(function(){
-                            _this.time.value++;
-                            if (_this.time.value == 100) {
+                            _this.time.vm.value++;
+                            if (_this.time.vm.value == 100) {
                                 _this.time.msg = "查询超时！请重新查询";
                                 _this.time.working = false;
                                 clearInterval(interval);
+                                bton();
                             }
-                        }, 90);
+                        }, 200);
 
                         //直通车
                         $.ajax({
@@ -228,7 +245,10 @@
                                     }
                                     console.log(_this.dictionInfo2);
                                 })
-
+                                //数据出现隐藏进度条
+                                clearInterval(interval);
+                                _this.time.working=false;
+                                bton();
                             }
                         })
                     }
@@ -236,6 +256,13 @@
                 }
             }
         })
+
+        function btoff() {
+              $(".btn.search-btnN").attr('disabled',true);
+        }
+        function bton() {
+            $(".btn.search-btnN").attr('disabled',false);
+        }
     })
 </script>
 </html>
