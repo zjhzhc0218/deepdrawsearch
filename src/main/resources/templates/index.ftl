@@ -73,7 +73,7 @@
 						<h5 class="title"><img src="images/menu3.png"><span>流量提升工具</span></h5>
 						<div class="left_menu_link">
 							<a href="butler">白马单品管家 </a><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a>
-							<a href="diction">直播车选词 </a><a href="title">标题诊断 </a>
+							<a href="diction">直通车选词 </a><a href="title">标题诊断 </a>
 						</div>
 					</div>
 					<div class="left_menu_box">
