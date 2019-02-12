@@ -17,6 +17,9 @@ public enum SearchEnums {
     ZHISHU("指数", 9,"zhishu"),
     ZHANXIAN("展现", 10,"zhanxian"),
     XIALAKUANG("下拉框", 11,"xialakuang"),
+    ZHITONGCHE("直通车", 12,"zhitongche"),
+    BIAOTIYOUHUA("标题优化", 13,"biaotiyouhua"),
+    LISHIJIAGE("历史价格", 14,"lishijiage"),
 
     SHUJUXIAZAI("数据运营下载",99,"shujuxiazai");
     // 成员变量

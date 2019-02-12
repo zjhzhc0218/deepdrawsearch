@@ -23,7 +23,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-				<button type="button" class="btn btn-primary" ng-click="signLogin()">注册/登陆</button>
+				<button type="button" class="btn btn-primary" onclick="signLogin()">注册/登陆</button>
 			</div>
 		</div>
 	</div>

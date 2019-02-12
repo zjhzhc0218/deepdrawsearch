@@ -159,7 +159,7 @@ public class SearchControllers {
             throw new GlobalException(CodeMsg.SERVER_ERROR);
         functionUsingService.addFT(7);
         if (result!=null && result.equals("001"))
-            return JsonUtil.object2Json(ResultUtil.error(1,"可能您查询的暂无数据！"));
+            return JsonUtil.object2Json(ResultUtil.error(1,"未查询到该宝贝的类目信息！"));
         return JsonUtil.object2Json(ResultUtil.success(result));
     }
 
@@ -239,7 +239,7 @@ public class SearchControllers {
         String result = JavaToPython.getPython(args);
         if (result == null)
             throw new GlobalException(CodeMsg.SERVER_ERROR);
-//        functionUsingService.addFT(12);
+        functionUsingService.addFT(14);
         if (result!=null && result.equals("001"))
             return JsonUtil.object2Json(ResultUtil.error(1,"暂未查询到该宝贝有信息，请继续优化哦。"));
         return JsonUtil.object2Json(ResultUtil.success(result));
@@ -257,7 +257,7 @@ public class SearchControllers {
         String result = JavaToPython.getPython(args);
         if (result == null)
             throw new GlobalException(CodeMsg.SERVER_ERROR);
-//        functionUsingService.addFT(12);
+        functionUsingService.addFT(12);
         if (result!=null && result.equals("001"))
             return JsonUtil.object2Json(ResultUtil.error(1,"暂未查询到该宝贝有信息，请继续优化哦。"));
         return JsonUtil.object2Json(ResultUtil.success(result));
@@ -294,7 +294,7 @@ public class SearchControllers {
         String result = JavaToPython.getPython(args);
         if (result == null)
             throw new GlobalException(CodeMsg.SERVER_ERROR);
-//        functionUsingService.addFT(13);
+        functionUsingService.addFT(13);
         if (result!=null && result.equals("001"))
             return JsonUtil.object2Json(ResultUtil.error(1,"暂未查询到该宝贝有信息，请继续优化哦。"));
         return JsonUtil.object2Json(ResultUtil.success(result));
