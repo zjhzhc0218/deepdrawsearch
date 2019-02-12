@@ -108,11 +108,11 @@
 	<div class="container">
 		<div class="index_ser1 all_mar clearfix">
 			<#--开工大吉-->
-			<div class="nyear_box">
-				<img src="http://images-1257652487.file.myqcloud.com/images/NY2.jpg" class="nyear_img2">
-				<img src="http://images-1257652487.file.myqcloud.com/images/NY1.png" class="nyear_img1">
-			</div>
-			<img src="http://images-1257652487.file.myqcloud.com/images/NY3.png" class="nyear_img3">
+			<#--<div class="nyear_box">-->
+				<#--<img src="http://images-1257652487.file.myqcloud.com/images/NY2.jpg" class="nyear_img2">-->
+				<#--<img src="http://images-1257652487.file.myqcloud.com/images/NY1.png" class="nyear_img1">-->
+			<#--</div>-->
+			<#--<img src="http://images-1257652487.file.myqcloud.com/images/NY3.png" class="nyear_img3">-->
 			<div class="index_banner">
 				<div class="swiper-container swiper_banner swiper-no-swiping">
 					<div class="swiper-wrapper">
@@ -120,7 +120,7 @@
 							<a target="_blank"  href="sign" ><div class="index_bannerBox" style="background-image: url(http://images-1257652487.file.myqcloud.com/images/banner1.jpg);"></div></a>
 						</div>
 						<div class="swiper-slide">
-							<a target="_blank" href="seven"><div class="index_bannerBox" style="background-image: url(http://images-1257652487.file.myqcloud.com/images/banner2.jpg);"></div></a>
+							<a target="_blank" href="seven"><div class="index_bannerBox" style="background-image: url(http://images-1257652487.file.myqcloud.com/images/banner2n.jpg);"></div></a>
 						</div>
 						<div class="swiper-slide">
 							<a target="_blank" href="twentyone"><div class="index_bannerBox" style="background-image: url(http://images-1257652487.file.myqcloud.com/images/banner3.jpg);"></div></a>

@@ -175,6 +175,7 @@ nav.page ul{
     font-size:12px;
     margin-right: 24px;
     line-height: 22px;
+    line-height: 22px;
     display:  inline-block;
     cursor: pointer;
 }
@@ -2273,7 +2274,7 @@ nav.page ul{
 .header_hotIcon{
     position: absolute;
     top: -8px;
-    left: 44%;
+    left: 38%;
 }
 table.table_reputation tr td{
     padding: 10px 15px;
