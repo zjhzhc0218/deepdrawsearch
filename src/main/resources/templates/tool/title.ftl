@@ -38,11 +38,11 @@
     <div class="warpper">
         <div class="container">
             <div class="all_nav">
-                您当前的位置：<a href="index">白马查</a>><a>标题优化</a>
+                您当前的位置：<a href="index">白马查</a>><a>标题诊断</a>
             </div>
             <div class="toolALL">
                 <div class="toolALL_nav">
-                    <p>标题优化</p>
+                    <p>标题诊断</p>
                 </div>
                 <div class="toolALL_con">
                     <!-- 标题优化 -->
@@ -54,20 +54,21 @@
 
                     </div>
 
-                    <#--<div class="search-info" id="jqrs" >-->
-                        <#--<div style="width: 100%" ng-if="history.msg == null " ng-show="history.vm.value!=0&&history.vm.value!=100">-->
-                            <#--<div ng-class="{progress: true, 'progress-striped': history.vm.striped}">-->
-                                <#--<div ng-class="['progress-bar', history.vm.style]" ng-style="{width: history.vm.value + '%'}">-->
-                                    <#--<div ng-if="history.vm.showLabel"  ng-bind="history.vm.value+'%'"></div>-->
-                                <#--</div>-->
-                            <#--</div>-->
-                        <#--</div>-->
+                    <div class="search-info" id="jqrs" >
+                        <div style="width: 100%" v-if="time.working" v-show="time.vm.value!=0&&time.vm.value!=100">
+                            <div class="progress progress-striped" >
+                                <div class="progress-bar" :class="time.vm.style" :style="{width: time.vm.value + '%'}">
+                                    <div v-if="time.vm.showLabel" >{{time.vm.value}}%</div>
+                                </div>
+                            </div>
+                        </div>
 
-                    <#--</div>-->
-                    <#--<div class="search-info" >-->
-                        <#--<div class="noViolation " ng-show="history.msg != null" style="color: red;font-size: 30px" ng-bind="history.msg">-->
-                        <#--</div>-->
-                    <#--</div>-->
+                    </div>
+                    <div class="search-info"  v-show="time.msg != null">
+                        <div class="noViolation " style="color: red;font-size: 30px">
+                            {{time.msg}}
+                        </div>
+                    </div>
 
                     <!-- 历史价格结果界面 -->
 
@@ -159,6 +160,18 @@
             data:{
                 titleText:'',
                 titleInfo:[],
+                time:{
+                    msg:null,
+                    working:true,
+                    vm:{
+                        value:0,
+                        style:'progress-bar-info',
+                        showLabel:true,
+                        striped:true
+
+                    }
+
+                }
 
             },
             created:function () {
@@ -170,11 +183,25 @@
             methods: { //专用于定义方法
                 search:function(name){
                     var _this=this;
+                    //初始化进度条
+                    _this.time.msg=null
+                    _this.time.vm.value=0
+                    _this.time.working=true
+                    _this.titleInfo='';
                     if(name==""){
                         alert("请输入产品关键字")
                     }
                     else{
                         buttonOff()
+                        var interval = setInterval(function(){
+                            _this.time.vm.value++;
+                            if (_this.time.vm.value == 100) {
+                                _this.time.msg = "查询超时！请重新查询";
+                                _this.time.working = false;
+                                clearInterval(interval);
+                                bton();
+                            }
+                        }, 200);
                         //直通车
                         $.ajax({
                             type: 'get',
@@ -188,6 +215,9 @@
                                 _this.titleInfo=data.data.replace(/'/g, '"');
                                 _this.titleInfo=eval('(' + _this.titleInfo + ')');
                                 console.log(_this.titleInfo)
+                                //数据出现隐藏进度条
+                                clearInterval(interval);
+                                _this.time.working=false;
                                 buttonON()
                                 _this.$nextTick(function () {
 

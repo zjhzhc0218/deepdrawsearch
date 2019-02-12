@@ -15,7 +15,7 @@
         <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/index.css">
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/style.css">
-	<script src="/deepsearch/js/extension.js"></script>
+	    <script src="/deepsearch/js/extension.js"></script>
         <link rel="stylesheet" type="text/css" href="/deepsearch/css/common.css">
         <#--<link rel="stylesheet" href="/deepsearch/css/spop/spop.css">-->
         <link rel="stylesheet" href="/deepsearch/css/font/font-awesome.css">
@@ -38,11 +38,11 @@
     <div class="warpper">
         <div class="container">
             <div class="all_nav">
-                您当前的位置：<a href="index">白马查</a>><a>历史价格查询</a>
+                您当前的位置：<a href="index">白马查</a>><a>直通车选词</a>
             </div>
             <div class="toolALL">
                 <div class="toolALL_nav">
-                    <p>历史价格查询</p>
+                    <p>直通车选词</p>
                 </div>
                 <div class="toolALL_con">
                     <!-- 历史价格查询 -->
@@ -57,7 +57,7 @@
 
                     <div class="search-info" id="jqrs" >
                         <div style="width: 100%" v-if="time.working" v-show="time.vm.value!=0&&time.vm.value!=100">
-                            <div class="progress progress-striped" :class="time.vm.striped">
+                            <div class="progress progress-striped" >
                                 <div class="progress-bar" :class="time.vm.style" :style="{width: time.vm.value + '%'}">
                                     <div v-if="time.vm.showLabel" >{{time.vm.value}}%</div>
                                 </div>
@@ -65,8 +65,8 @@
                         </div>
 
                     </div>
-                    <div class="search-info" >
-                        <div class="noViolation " v-show="time.msg != null" style="color: red;font-size: 30px">
+                    <div class="search-info"  v-show="time.msg != null">
+                        <div class="noViolation " style="color: red;font-size: 30px">
                             {{time.msg}}
                         </div>
                     </div>
@@ -75,12 +75,12 @@
 
                     <div class="diction_result" v-show="dictionInfo!=''">
                         <div class="dictionRe_tit">
-                            <h6 class="dictionRe_one">通过过滤后，查到关键词数量为1414个</h6>
+                            <h6 class="dictionRe_one">通过过滤后，查到关键词数量为{{dictionle}}个</h6>
                             <div class="dictionRe_menu clearfix">
                                 <h5 class="dictionRe_menu_tit">类目筛选：</h5>
                                 <div class="dictionRe_menu_list">
                                     <ul>
-                                        <li v-for="(item,index) in dictionMenu">{{item.title}}</li>
+                                        <li v-for="(item,index) in dictionMenu" @click="menuSelect(item.data)">{{item.title}}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -110,8 +110,8 @@
                                         <#--<td><span class="diction_line up"><b style="width: 10%;"></b></span></td>-->
                                         <#--<td>运动服/休闲服装>>运动卫衣/套头衫</td>-->
                                     <#--</tr>-->
-                                    <tr v-for="(item1,index) in dictionInfo2">
-                                        <td>{{index+1}}.<span class="diction_table_tit">{{item1.a_text}}</span></td>
+                                    <tr v-for="(item1,index) in currentPageData">
+                                        <td>{{item1.id}}.<span class="diction_table_tit">{{item1.a_text}}</span></td>
                                         <td>{{item1.zhanxian}}</td>
                                         <td>{{item1.dianji}}</td>
                                         <td>{{item1.dianjilv}}</td>
@@ -125,13 +125,23 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <div class="pageN_box" v-show="totalPage>1">
+                                <button @click="prevPage()" class="pageNud">
+                                    上一页
+                                </button>
+                                <div class="pageN_num">第<input type="text" v-model="currentPage2" onkeyup="value=value.replace(/[^\d]/g,'')" /><span class="pageN_jump pageNud" @click="pageN_jump">跳转</span>/共{{totalPage}}页</div>
+
+                                <button @click="nextPage()" class="pageNud">
+                                    下一页
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- 历史价格结果界面 -->
                     <!-- 历史价格查询 -->
                     <div class="toolALL_info">
                         <div class="toolALL_info_box">
-                            <h5 class="toolALL_info_tit">直通车选词使用说明：</h5>
+                            <h5 class="toolALL_info_tit">直通车选词使用说明</h5>
                             <div class="toolALL_info_text">
                                 <#--<p>历史价格查询目前支持淘宝，天猫等商城的绝大多数商品</p>-->
                             </div>
@@ -156,9 +166,10 @@
             data:{
                 dictionText:'',
                 dictionInfo:[],
-                dictionInfo2:[],
+                dictionInfo2:[], //所有数据
                 dictionMenu:[],
                 dictionQs:[],
+                dictionle:0,
                 time:{
                     msg:null,
                     working:true,
@@ -170,13 +181,20 @@
 
                     }
 
-                }
+                },
+                totalPage: 1, // 统共页数，默认为1
+                currentPage: 1, //当前页数 ，默认为1
+                currentPage2:1,
+                pageSize:30, // 每页显示数量
+                currentPageData: [] //当前页显示内容
             },
             created:function () {
                 var _this=this;
 
             },
-            mounted: function () { //页面渲染完成后执行，不包括需要请求的数据
+            mounted() {
+                var _this=this;
+
             },
             methods: { //专用于定义方法
                 search:function (name) {
@@ -215,7 +233,7 @@
                                 _this.dictionInfo=data.data.replace(/'/g, '"')
                                 _this.dictionInfo=eval('(' + _this.dictionInfo + ')');
                                 _this.dictionInfo2=_this.dictionInfo[0];
-
+                                _this.dictionle=_this.dictionInfo2.length;
                                 //转化成类目数组
                                 var res = _this.dictionInfo[1]
                                 list = []
@@ -228,13 +246,12 @@
                                     }
                                 }
                                 _this.dictionMenu=list;
-                                // console.log(list);
+                                console.log(_this.dictionMenu);
                                 // console.log( _this.dictionInfo)
                                 _this.$nextTick(function () {
 
                                     //趋势转化为百分比
                                     for (var i=0;i<_this.dictionInfo2.length;i++) {
-
                                         _this.dictionInfo2[i].qushi=parseFloat(this.dictionInfo2[i].qushi)*100
                                         if(_this.dictionInfo2[i].qushi>=0){
                                             _this.dictionInfo2[i]['type']=1;
@@ -242,19 +259,107 @@
                                             _this.dictionInfo2[i].qushi=Math.abs(_this.dictionInfo2[i].qushi)
                                             _this.dictionInfo2[i]['type']=2;
                                         }
+                                        _this.dictionInfo2[i]['id']=i+1;
                                     }
                                     console.log(_this.dictionInfo2);
+                                    // 计算一共有几页
+                                    _this.totalPage = Math.ceil(_this.dictionInfo2.length / _this.pageSize);
+                                    // 计算得0时设置为1
+                                    _this.totalPage = _this.totalPage == 0 ? 1 : _this.totalPage;
+                                    _this.getCurrentPageData();
                                 })
                                 //数据出现隐藏进度条
                                 clearInterval(interval);
                                 _this.time.working=false;
                                 bton();
+
                             }
                         })
-                    }
 
+                    }
+                },
+                // 设置当前页面数据，对数组操作的截取规则为[0~9],[10~20]...,
+                // 当currentPage为1时，我们显示(0*pageSize+1)-1*pageSize，当currentPage为2时，我们显示(1*pageSize+1)-2*pageSize...
+                getCurrentPageData:function() {
+                    var _this=this;
+                    var begin = (_this.currentPage - 1) * _this.pageSize;
+                    var end = _this.currentPage * _this.pageSize;
+                    _this.currentPageData = _this.dictionInfo2.slice(
+                        begin,
+                        end
+                    );
+                },
+                //上一页
+                prevPage:function() {
+                    console.log(this.currentPage);
+                    if (this.currentPage == 1) {
+                        return false;
+                    } else {
+                        this.currentPage--;
+                        this.getCurrentPageData();
+                    }
+                    this.currentPage2=this.currentPage
+                },
+                // 下一页
+                nextPage:function() {
+
+                    if (this.currentPage == this.totalPage) {
+                        return false;
+                    } else {
+                        this.currentPage++;
+                        this.getCurrentPageData();
+                    }
+                    this.currentPage2=this.currentPage
+                },
+                //跳转页面
+                pageN_jump:function(){
+                    var _this=this;
+                    if(_this.currentPage>_this.totalPage || _this.currentPage<=0){
+                        alert("请输入正确的页数")
+                    }
+                    else{
+
+                        this.currentPage=this.currentPage2
+                        this.getCurrentPageData();
+
+                    }
+                },
+                //根据类目选择
+                menuSelect:function (arr) {
+                    var _this=this;
+                    _this.currentPage=1;
+                    _this.currentPage2=1;
+                    //趋势转化为百分比
+                    for (var i=0;i<arr.length;i++) {
+                        var sf=arr[i].qushi=parseFloat(arr[i].qushi)
+                        if(sf>1){
+                        }else{
+                            arr[i].qushi=parseFloat(arr[i].qushi)*100
+                            if(arr[i].qushi>=0){
+                                arr[i]['type']=1;
+                            }else{
+                                arr[i].qushi=Math.abs(arr[i].qushi)
+                                arr[i]['type']=2;
+                            }
+                            arr[i]['id']=i+1;
+                        }
+
+
+                    }
+                    _this.dictionInfo2=[];
+                    _this.dictionInfo2=arr;
+                    console.log(_this.dictionInfo2);
+                    console.log(_this.currentPage);
+                    // 计算一共有几页
+                    _this.totalPage = Math.ceil(_this.dictionInfo2.length / _this.pageSize);
+                    // 计算得0时设置为1
+                    _this.totalPage = _this.totalPage == 0 ? 1 : _this.totalPage;
+                    _this.getCurrentPageData();
                 }
+                
             }
+
+
         })
 
         function btoff() {

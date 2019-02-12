@@ -73,6 +73,7 @@
 						<h5 class="title"><img src="images/menu3.png"><span>流量提升工具</span></h5>
 						<div class="left_menu_link">
 							<a href="butler">白马单品管家 </a><a href="http://www.daoliuliang365.com" target="_blank">白马流量</a>
+							<a href="diction">直播车选词 </a><a href="title">标题诊断 </a>
 						</div>
 					</div>
 					<div class="left_menu_box">
@@ -89,9 +90,10 @@
 					<li><a href="ranking">查排名</a></li>
 					<li><a href="authority">查降权</a></li>
 					<li><a href="reputation">查信誉</a></li>
-					<li><a href="drop">下拉框选词</a></li>
+					<li><a href="diction">直通车选词<img class="header_hotIcon" src="/codeimg/hot.gif"></a></li>
 					<li><a href="butler">单品管家</a></li>
-					<li><a v-if="userInfo!=''" href="http://www.daoliuliang365.com" target="_blank">白马流量</a></li>
+					<li><a href="title">标题诊断<img class="header_hotIcon" src="/codeimg/hot.gif"></a></li>
+					<#--<li><a v-if="userInfo!=''" href="http://www.daoliuliang365.com" target="_blank">白马流量</a></li>-->
                     <li><a href="reduction">生意参谋指数还原</a><img class="header_hotIcon" src="/codeimg/hot.gif"></li>
 				</ul>
 			</div>
@@ -105,6 +107,12 @@
 <div class="warpper">
 	<div class="container">
 		<div class="index_ser1 all_mar clearfix">
+			<#--开工大吉-->
+			<div class="nyear_box">
+				<img src="http://images-1257652487.file.myqcloud.com/images/NY2.jpg" class="nyear_img2">
+				<img src="http://images-1257652487.file.myqcloud.com/images/NY1.png" class="nyear_img1">
+			</div>
+			<img src="http://images-1257652487.file.myqcloud.com/images/NY3.png" class="nyear_img3">
 			<div class="index_banner">
 				<div class="swiper-container swiper_banner swiper-no-swiping">
 					<div class="swiper-wrapper">
@@ -291,6 +299,7 @@
 		<#--最后白马查祝大家新春快乐，2019大卖特卖！！-->
 	<#--</div>-->
 <#--</div>-->
+
 <!--  / footer  -->
 	<#include "//footer.ftl">
 <!--  / footer  -->

@@ -145,7 +145,7 @@ nav.page ul{
     width: 100%;
     background-color:#fe9f53;
     padding: 0 15px;
-    padding-bottom: 5px;
+    padding-bottom: 4px;
 }
 .left_menu_box{
     padding: 15px 0 9px 0;
@@ -174,7 +174,7 @@ nav.page ul{
     color: #ffeddf;
     font-size:12px;
     margin-right: 24px;
-    line-height: 25px;
+    line-height: 22px;
     display:  inline-block;
     cursor: pointer;
 }
@@ -204,6 +204,30 @@ nav.page ul{
 .index_ser1{
     padding-left: 240px;
     padding-top: 10px;
+    position: relative;
+}
+.nyear_box{
+    position: absolute;
+    top: 0px;
+    width: 170px;
+    left: -168px;
+}
+.nyear_img2{
+    width: 153px;
+}
+.nyear_img1{
+    position: absolute;
+    width: 190px;
+    top: -194px;
+    left: -24px;
+    z-index: 9;
+}
+.nyear_img3{
+    position: absolute;
+    right: -114px;
+    height: 156px;
+    top: -163px;
+    z-index: 9;
 }
 .index_banner{
     padding:0 10px;
@@ -2402,7 +2426,6 @@ table.table_reputation tr td{
 }
 .diction_table_tit{
     color: #fb6c0e;
-    display: inline-block;
     margin-left: 10px;
 }
 table tr.diction_one_tr td{
@@ -2534,6 +2557,38 @@ table tr.diction_one_tr td{
 .diction_result_box thead tr td{
     min-width: 100px;
 }
-
+.pageN_num{
+    display: inline-block;
+}
+.pageN_jump{
+    display: inline-block;
+    margin-right: 9px;
+}
+.pageN_box{
+    text-align: right;
+    margin-bottom:40px;
+}
+.pageNud{
+    background-color: #fb6c0e;
+    border: 0px;
+    box-shadow: none;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    margin-left: 5px;
+    padding: 0 10px;
+    line-height: 25px;
+    vertical-align:top;
+    cursor:pointer;
+    display:inline-block;
+    outline: none;
+}
+.pageN_box input{
+    width:50px;
+    text-align:center;
+    margin-left:5px;
+    height:25px;
+    line-height:25px;
+}
 
 
