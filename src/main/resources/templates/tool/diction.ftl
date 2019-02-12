@@ -170,6 +170,7 @@
                 dictionMenu:[],
                 dictionQs:[],
                 dictionle:0,
+                userInfo:'',
                 time:{
                     msg:null,
                     working:true,
@@ -190,7 +191,6 @@
             },
             created:function () {
                 var _this=this;
-
             },
             mounted() {
                 var _this=this;
@@ -199,83 +199,88 @@
             methods: { //专用于定义方法
                 search:function (name) {
                     var _this=this;
-                    //初始化进度条
-                    _this.time.msg=null
-                    _this.time.vm.value=0
-                    _this.time.working=true
-                    _this.dictionInfo=''
-
-                    if(name==""){
-                        alert("请输入产品关键字")
+                    if(sessionStorage.getItem("user") ==null || sessionStorage.getItem("user")=='null'){
+                        $('#myModal').modal('show');
                     }
                     else{
-                        btoff();
+                        //初始化进度条
+                        _this.time.msg=null
+                        _this.time.vm.value=0
+                        _this.time.working=true
+                        _this.dictionInfo=''
 
-                        var interval = setInterval(function(){
-                            _this.time.vm.value++;
-                            if (_this.time.vm.value == 100) {
-                                _this.time.msg = "查询超时！请重新查询";
-                                _this.time.working = false;
-                                clearInterval(interval);
-                                bton();
-                            }
-                        }, 200);
+                        if(name==""){
+                            alert("请输入产品关键字")
+                        }
+                        else{
+                            btoff();
 
-                        //直通车
-                        $.ajax({
-                            type: 'get',
-                            url:Url+ 'getZtongCar',
-                            dataType: 'json',
-                            data:{
-                                searchWords:name
-                            },
-                            success: function (data) {
-                                _this.dictionInfo=data.data.replace(/'/g, '"')
-                                _this.dictionInfo=eval('(' + _this.dictionInfo + ')');
-                                _this.dictionInfo2=_this.dictionInfo[0];
-                                _this.dictionle=_this.dictionInfo2.length;
-                                //转化成类目数组
-                                var res = _this.dictionInfo[1]
-                                list = []
-                                for (var i=0;i<res.length;i++) {
-                                    for (var d in res[i]) {
-                                        var cc = {};
-                                        cc.title = d;
-                                        cc.data =  res[i][d];
-                                        list.push(cc)
-                                    }
+                            var interval = setInterval(function(){
+                                _this.time.vm.value++;
+                                if (_this.time.vm.value == 100) {
+                                    _this.time.msg = "查询超时！请重新查询";
+                                    _this.time.working = false;
+                                    clearInterval(interval);
+                                    bton();
                                 }
-                                _this.dictionMenu=list;
-                                console.log(_this.dictionMenu);
-                                // console.log( _this.dictionInfo)
-                                _this.$nextTick(function () {
+                            }, 600);
 
-                                    //趋势转化为百分比
-                                    for (var i=0;i<_this.dictionInfo2.length;i++) {
-                                        _this.dictionInfo2[i].qushi=parseFloat(this.dictionInfo2[i].qushi)*100
-                                        if(_this.dictionInfo2[i].qushi>=0){
-                                            _this.dictionInfo2[i]['type']=1;
-                                        }else{
-                                            _this.dictionInfo2[i].qushi=Math.abs(_this.dictionInfo2[i].qushi)
-                                            _this.dictionInfo2[i]['type']=2;
+                            //直通车
+                            $.ajax({
+                                type: 'get',
+                                url:Url+ 'getZtongCar',
+                                dataType: 'json',
+                                data:{
+                                    searchWords:name
+                                },
+                                success: function (data) {
+                                    _this.dictionInfo=data.data.replace(/'/g, '"')
+                                    _this.dictionInfo=eval('(' + _this.dictionInfo + ')');
+                                    _this.dictionInfo2=_this.dictionInfo[0];
+                                    _this.dictionle=_this.dictionInfo2.length;
+                                    //转化成类目数组
+                                    var res = _this.dictionInfo[1]
+                                    list = []
+                                    for (var i=0;i<res.length;i++) {
+                                        for (var d in res[i]) {
+                                            var cc = {};
+                                            cc.title = d;
+                                            cc.data =  res[i][d];
+                                            list.push(cc)
                                         }
-                                        _this.dictionInfo2[i]['id']=i+1;
                                     }
-                                    console.log(_this.dictionInfo2);
-                                    // 计算一共有几页
-                                    _this.totalPage = Math.ceil(_this.dictionInfo2.length / _this.pageSize);
-                                    // 计算得0时设置为1
-                                    _this.totalPage = _this.totalPage == 0 ? 1 : _this.totalPage;
-                                    _this.getCurrentPageData();
-                                })
-                                //数据出现隐藏进度条
-                                clearInterval(interval);
-                                _this.time.working=false;
-                                bton();
+                                    _this.dictionMenu=list;
+                                    console.log(_this.dictionMenu);
+                                    // console.log( _this.dictionInfo)
+                                    _this.$nextTick(function () {
 
-                            }
-                        })
+                                        //趋势转化为百分比
+                                        for (var i=0;i<_this.dictionInfo2.length;i++) {
+                                            _this.dictionInfo2[i].qushi=parseFloat(this.dictionInfo2[i].qushi)*100
+                                            if(_this.dictionInfo2[i].qushi>=0){
+                                                _this.dictionInfo2[i]['type']=1;
+                                            }else{
+                                                _this.dictionInfo2[i].qushi=Math.abs(_this.dictionInfo2[i].qushi)
+                                                _this.dictionInfo2[i]['type']=2;
+                                            }
+                                            _this.dictionInfo2[i]['id']=i+1;
+                                        }
+                                        console.log(_this.dictionInfo2);
+                                        // 计算一共有几页
+                                        _this.totalPage = Math.ceil(_this.dictionInfo2.length / _this.pageSize);
+                                        // 计算得0时设置为1
+                                        _this.totalPage = _this.totalPage == 0 ? 1 : _this.totalPage;
+                                        _this.getCurrentPageData();
+                                    })
+                                    //数据出现隐藏进度条
+                                    clearInterval(interval);
+                                    _this.time.working=false;
+                                    bton();
 
+                                }
+                            })
+
+                        }
                     }
                 },
                 // 设置当前页面数据，对数组操作的截取规则为[0~9],[10~20]...,
@@ -361,6 +366,7 @@
 
 
         })
+
 
         function btoff() {
               $(".btn.search-btnN").attr('disabled',true);

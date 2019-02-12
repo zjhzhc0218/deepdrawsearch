@@ -183,48 +183,52 @@
             methods: { //专用于定义方法
                 search:function(name){
                     var _this=this;
-                    //初始化进度条
-                    _this.time.msg=null
-                    _this.time.vm.value=0
-                    _this.time.working=true
-                    _this.titleInfo='';
-                    if(name==""){
-                        alert("请输入产品关键字")
+                    if(sessionStorage.getItem("user") ==null || sessionStorage.getItem("user")=='null'){
+                        $('#myModal').modal('show');
                     }
-                    else{
-                        buttonOff()
-                        var interval = setInterval(function(){
-                            _this.time.vm.value++;
-                            if (_this.time.vm.value == 100) {
-                                _this.time.msg = "查询超时！请重新查询";
-                                _this.time.working = false;
-                                clearInterval(interval);
-                                bton();
-                            }
-                        }, 200);
-                        //直通车
-                        $.ajax({
-                            type: 'get',
-                            url:Url+ 'getTitleYH',
-                            dataType: 'json',
-                            data:{
-                                searchWords:name
-                            },
-                            success: function (data) {
+                    else {
+                        //初始化进度条
+                        _this.time.msg = null
+                        _this.time.vm.value = 0
+                        _this.time.working = true
+                        _this.titleInfo = '';
+                        if (name == "") {
+                            alert("请输入产品关键字")
+                        } else {
+                            buttonOff()
+                            var interval = setInterval(function () {
+                                _this.time.vm.value++;
+                                if (_this.time.vm.value == 100) {
+                                    _this.time.msg = "查询超时！请重新查询";
+                                    _this.time.working = false;
+                                    clearInterval(interval);
+                                    bton();
+                                }
+                            }, 200);
+                            //直通车
+                            $.ajax({
+                                type: 'get',
+                                url: Url + 'getTitleYH',
+                                dataType: 'json',
+                                data: {
+                                    searchWords: name
+                                },
+                                success: function (data) {
 
-                                _this.titleInfo=data.data.replace(/'/g, '"');
-                                _this.titleInfo=eval('(' + _this.titleInfo + ')');
-                                console.log(_this.titleInfo)
-                                //数据出现隐藏进度条
-                                clearInterval(interval);
-                                _this.time.working=false;
-                                buttonON()
-                                _this.$nextTick(function () {
+                                    _this.titleInfo = data.data.replace(/'/g, '"');
+                                    _this.titleInfo = eval('(' + _this.titleInfo + ')');
+                                    console.log(_this.titleInfo)
+                                    //数据出现隐藏进度条
+                                    clearInterval(interval);
+                                    _this.time.working = false;
+                                    buttonON()
+                                    _this.$nextTick(function () {
 
-                                })
+                                    })
 
-                            }
-                        })
+                                }
+                            })
+                        }
                     }
                 }
             }
