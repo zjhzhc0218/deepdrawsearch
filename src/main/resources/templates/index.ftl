@@ -282,15 +282,15 @@
 	</div>
 </div>
 </div>
-<div class="holidayBox">
-	<img src="http://images-1257652487.file.myqcloud.com/images/holiday_bg.jpg" width="100%">
-	<div class="holidayBox_text">
-		放假通知：本公司于2019年1月25号开始放春节假
-		期，2019年2月11号（初七）正常上班，期间如有
-		问题请联系下面客服：<span>微信号：dzspzxt，电话：18069407730，</span>
-		最后白马查祝大家新春快乐，2019大卖特卖！！
-	</div>
-</div>
+<#--<div class="holidayBox">-->
+	<#--<img src="http://images-1257652487.file.myqcloud.com/images/holiday_bg.jpg" width="100%">-->
+	<#--<div class="holidayBox_text">-->
+		<#--放假通知：本公司于2019年1月25号开始放春节假-->
+		<#--期，2019年2月11号（初七）正常上班，期间如有-->
+		<#--问题请联系下面客服：<span>微信号：dzspzxt，电话：18069407730，</span>-->
+		<#--最后白马查祝大家新春快乐，2019大卖特卖！！-->
+	<#--</div>-->
+<#--</div>-->
 <!--  / footer  -->
 	<#include "//footer.ftl">
 <!--  / footer  -->
@@ -299,7 +299,7 @@
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/deepsearch/js/index.js"></script>
-<script src="/deepsearch/js/move_port.js"></script>
+<#--<script src="/deepsearch/js/move_port.js"></script>-->
 <script>
 	$(function(){
 		var app=new Vue({
@@ -621,7 +621,7 @@
         }
 		function index(){
 
-			move_obj(".holidayBox");
+			// move_obj(".holidayBox");
             user = '${user!}';
             if(user!=''){
                 app.userInfo=JSON.parse(user);
