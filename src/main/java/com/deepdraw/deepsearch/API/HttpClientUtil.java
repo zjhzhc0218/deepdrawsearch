@@ -155,7 +155,7 @@ public class HttpClientUtil {
         System.out.println(val);
         String valKey = val+key;
         System.out.println(valKey);
-        String sign = MD5Util.getMD5(valKey).toUpperCase();
+        String sign = MD5Util.md5(valKey).toUpperCase();
         System.out.println(sign);
         params.put("sign",sign); //签名秘钥，即文档开头签名规则所生成的字符串
 
