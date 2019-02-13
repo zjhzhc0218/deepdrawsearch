@@ -104,6 +104,16 @@
             <artifactId>commons-net</artifactId>
             <version>3.6</version>
         </dependency>
+
+        <!-- 结合上面阿里巴巴的序列化使用，调用对应地址  httpclient-->
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+
+
     </dependencies>
 
     <build>
