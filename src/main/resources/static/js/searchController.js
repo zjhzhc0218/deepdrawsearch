@@ -955,7 +955,7 @@ var reg = /^[0-9]+.?[0-9]*$/;
                     }else if(info.data.code == 0){
                         var result = info.data.data;
                         var rec = angular.fromJson(result.replace(/'/g, '"'));
-                        var list = [];
+                      /*  var list = [];
                         for (var d in rec) {
                             var c = rec[d].split('~');
                             var node ={
@@ -965,8 +965,17 @@ var reg = /^[0-9]+.?[0-9]*$/;
                             };
                             list.push(node);
                         }
-                        var dList = $filter('orderBy')( list ,'id');
-                        $scope.shangxiajia.examedContext = dList;
+                        var dList = $filter('orderBy')( list ,'id');*/
+                      rec._start_time = $filter('date')( rec.start_time * 1000,'yyyy-MM-dd HH:mm:ss');
+                      rec._end_time = $filter('date')( rec.end_time * 1000,'yyyy-MM-dd HH:mm:ss');
+                        var totalTime =  rec.end_time * 1000 -new Date().getTime();
+                        rec.days = parseInt(totalTime / parseInt(1000 * 60 * 60 * 24));
+                        totalTime = totalTime % parseInt(1000 * 60 * 60 * 24);
+                        rec.hours = parseInt(totalTime / parseInt(1000 * 60 * 60));
+                        totalTime = totalTime % parseInt(1000 * 60 * 60);
+                        rec.minutes = parseInt(totalTime / parseInt(1000 * 60));
+                        totalTime = totalTime % parseInt(1000 * 60);
+                      $scope.shangxiajia.examedContext = rec;
                     }
                     sxjvm.value = 100;
                     clearInterval(interval);
