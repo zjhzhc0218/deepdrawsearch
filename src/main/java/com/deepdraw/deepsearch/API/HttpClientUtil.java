@@ -11,12 +11,11 @@ import java.util.Map;
 //import net.sf.json.JSONArray;
 //import net.sf.json.JSONObject;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 
-import com.deepdraw.deepsearch.util.CreateMD5;
 import com.deepdraw.deepsearch.util.MD5Util;
+import com.deepdraw.deepsearch.util.MD5Utils;
 import com.deepdraw.deepsearch.util.SortUtils;
 import org.apache.commons.httpclient.*;
 import org.apache.commons.httpclient.methods.GetMethod;
@@ -151,11 +150,12 @@ public class HttpClientUtil {
 //        1095566084726415360L   --取消测试
         params.put("task_id","1095566084726415360");
         String key = "XqCJKeRaUqSMGBB6fj8uX52tIy34Y7WKOBSMoIPePCstPtZd65HVpzCupWhIp1h8";
+        System.out.println(key);
         String val = SortUtils.formatUrlParam(params,"utf-8",true);
         System.out.println(val);
         String valKey = val+key;
         System.out.println(valKey);
-        String sign = MD5Util.md5(valKey).toUpperCase();
+        String sign = MD5Utils.encodeMD5UpperCase32(valKey).toUpperCase();
         System.out.println(sign);
         params.put("sign",sign); //签名秘钥，即文档开头签名规则所生成的字符串
 

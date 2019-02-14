@@ -96,4 +96,11 @@
         WHERE id = #{id}
     </update>
 
+    <select id="selectCountByLastTime" resultType="Integer">
+        SELECT  COUNT(id)
+        FROM shenhui_user
+        WHERE last_login_date &gt; CURDATE()
+    </select>
+
+
 </mapper>
