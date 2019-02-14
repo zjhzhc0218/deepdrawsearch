@@ -69,6 +69,7 @@ public class FunctionUsingControllers {
             maps.put(map.get(in),functionUsings==null?0:functionUsings.size());
             zongshuN = zongshuN + ((functionUsings==null?0:functionUsings.size()));
         }
+
         message = zongshuN+"次";
         maps.put("count",message);
         return JsonUtil.object2Json(ResultUtil.success(maps));
