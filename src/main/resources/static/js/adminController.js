@@ -18,9 +18,16 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
         $scope.zhishu = null;
         $scope.zhanxian = null;
         $scope.xialakuang = null;
+        $scope.zhitongche = null;
+        $scope.biaotiyouhua = null;
+        $scope.lishijiage = null;
 
         $scope.shujuxiazai = null;
 
+        $scope.time = {
+            'endTime' : null,
+            'startTime' : null
+        }
 
         /**
          * 登陆信息
@@ -277,10 +284,7 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
             };
         }
 
-        $scope.time = {
-        'endTime' : null,
-        'startTime' : null
-    }
+
         /*另一个主要功能：查询模块使用情况*/
         $scope.selectFT  = function () {
                 if ($scope.time.startTime > $scope.time.endTime) {
@@ -348,6 +352,11 @@ app.controller('adminController',['$scope','$http','$sce','$document','$filter',
             $scope.zhishu = data.data.zhishu;
             $scope.zhanxian = data.data.zhanxian;
             $scope.xialakuang = data.data.xialakuang;
+
+            $scope.zhitongche = data.data.zhitongche;
+            $scope.biaotiyouhua = data.data.biaotiyouhua;
+            $scope.lishijiage = data.data.lishijiage;
+
             $scope.shujuxiazai = data.data.shujuxiazai;
             $scope.dianjiliang =$scope.dianjiliang+"点击量为"+ data.data.count;
             });

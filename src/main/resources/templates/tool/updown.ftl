@@ -62,7 +62,7 @@
                             </div>
 
                             <!-- 查询记录开始 -->
-                            <div class="result-context" ng-show="shangxiajia.examedContext != null&&shangxiajia.examedContext.length>0" >
+                            <div class="result-context" ng-show="shangxiajia.examedContext != null" >
                                 <table class="table table-hover up_table " style="  display: block;width:100%;margin-bottom: 0px;">
                                     <thead>
                                     <tr style="width:100%">
@@ -76,13 +76,13 @@
                                     <tbody>
                                     <tr style="width:100%" >
                                         <td>
-                                            <img class="up_img" ng-src="{{shangxiajia.examedContext[0].value}}">
-                                            <#--<b style="color:#f60"  ng-bind="shangxiajia.examedContext[0].value"></b>-->
+                                            <a href="{{shangxiajia.examedContext.url}}" target="_blank"><img class="up_img" ng-src="{{shangxiajia.examedContext.img}}"></a>
+                                        <#--<b style="color:#f60"  ng-bind="shangxiajia.examedContext[0].value"></b>-->
                                         </td>
-                                        <td ><b   ng-bind="shangxiajia.examedContext[1].value"></b></td>
-                                        <td><b   ng-bind="shangxiajia.examedContext[2].value"></b></td>
-                                        <td><b  ng-bind="shangxiajia.examedContext[3].value"></b></td>
-                                        <td ><b  ng-bind="shangxiajia.examedContext[4].value"></b>天<b ng-bind="shangxiajia.examedContext[5].value"></b>小时</td>
+                                        <td ><b   ng-bind="shangxiajia.examedContext.title"></b></td>
+                                        <td><b   ng-bind="shangxiajia.examedContext._start_time"></b></td>
+                                        <td><b  ng-bind="shangxiajia.examedContext._end_time"></b></td>
+                                        <td ><b  ng-bind="shangxiajia.examedContext.days"></b>天<b ng-bind="shangxiajia.examedContext.hours"></b>小时<b ng-bind="shangxiajia.examedContext.minutes"></b>分钟</td>
                                     </tr>
                                     </tbody>
                                 </table>

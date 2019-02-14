@@ -79,4 +79,11 @@ public interface SHUserDao {
     Integer gradeChange(@Param("id") Long id,@Param("type") Integer type);
 
 
+    /**
+     *  根据最后登录时间进行统计用户数量
+     * @return
+     */
+    Integer selectCountByLastTime();
+
+
 }

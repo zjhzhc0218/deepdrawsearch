@@ -3,6 +3,7 @@ package com.deepdraw.deepsearch.util;/**
  */
 
 import com.deepdraw.deepsearch.dao.DownloadsDao;
+import com.deepdraw.deepsearch.service.ActiveService;
 import com.deepdraw.deepsearch.service.DownloadsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -20,17 +21,21 @@ public class Scheduler {
     @Autowired
     private DownloadsService downloadsService;
 
-    @Scheduled(cron="0 0 0 * * ?") //每分钟执行一次
+    @Autowired
+    private ActiveService activeService;
+
+    @Scheduled(cron="0 0 0 * * ?") //每天凌晨执行一次
     public void statusCheck() {
        System.out.println("------123----");
         downloadsService.updateByNumber();
+        activeService.insertNewDay();
         System.out.println("------321----");
     }
 
 //    @Scheduled(fixedRate=20000)
 //    public void testTasks() {
 //        System.out.println("每20秒执行一次。开始……");
-//        //statusTask.healthCheck();
+//        activeService.insertNewDay();
 //        System.out.println("每20秒执行一次。结束。");
 //    }
 

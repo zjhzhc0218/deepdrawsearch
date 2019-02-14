@@ -48,7 +48,7 @@ public class FunctionUsingControllers {
         Date timeStartN = null;
         Date timeEndN = null;
 
-        if(type==1) {
+        if(type==99) {
             if (timeStart != null && timeEnd != null) {
                 if (timeStart.length() != 0 && timeEnd.length() != 0) {
                     type = 1;
@@ -69,6 +69,7 @@ public class FunctionUsingControllers {
             maps.put(map.get(in),functionUsings==null?0:functionUsings.size());
             zongshuN = zongshuN + ((functionUsings==null?0:functionUsings.size()));
         }
+
         message = zongshuN+"次";
         maps.put("count",message);
         return JsonUtil.object2Json(ResultUtil.success(maps));
@@ -85,7 +86,7 @@ public class FunctionUsingControllers {
         Date timeStartN = null;
         Date timeEndN = null;
 
-        if(type==1) {
+        if(type==99) {
             if (timeStart != null && timeEnd != null) {
                 if (timeStart.length() != 0 && timeEnd.length() != 0) {
                     type = 1;
@@ -102,12 +103,10 @@ public class FunctionUsingControllers {
         Integer zongshuN = 0;
         Map<Integer,String> map = SearchEnums.getMaps();
         for(Integer in:map.keySet()){
-            Integer functionUsings = functionUsingService.selectFTByTimeCount(id,type,in,timeStartN,timeStartN);
+            Integer functionUsings = functionUsingService.selectFTByTimeCount(id,type,in,timeStartN,timeEndN);
             maps.put(map.get(in),functionUsings);
             zongshuN = zongshuN + ((functionUsings));
         }
-
-
         message = zongshuN+"次";
         maps.put("count",message);
         return JsonUtil.object2Json(ResultUtil.success(maps));

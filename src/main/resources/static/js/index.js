@@ -95,3 +95,23 @@ var dialog = {
     }
 }
 //
+
+var signLogin = function() {
+    /*if($scope.username) {
+        $http({
+                method: 'post',
+                url: '/deepsearch/removeSession',
+                params: {},
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                transformRequest: function (data) {
+                    var str = '';
+                    for (var i in data) {
+                        str += i + '=' + data[i] + '&';
+                    }
+                }
+            }
+        )
+    }*/
+    var url='/deepsearch/sign';
+    location.href = url;
+};
