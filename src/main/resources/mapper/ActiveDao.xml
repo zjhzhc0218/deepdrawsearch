@@ -22,7 +22,7 @@
   <insert id="insert" parameterType="com.deepdraw.deepsearch.entity.Active" >
     insert into active (id, time, numer
       )
-    values (#{id,jdbcType=INTEGER}, CURDATE(), #{numer,jdbcType=INTEGER}
+    values (#{id,jdbcType=INTEGER}, DATE_SUB(NOW(), interval 1 DAY), #{numer,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.deepdraw.deepsearch.entity.Active" >

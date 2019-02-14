@@ -383,6 +383,32 @@
                             <td>{{time.endTime}}</td>
                             <td>{{xialakuang}}</td>
                         </tr>
+
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{qixian}}</td>
+                            <td>直通车</td>
+                            <td>{{time.startTime}}</td>
+                            <td>{{time.endTime}}</td>
+                            <td>{{zhitongche}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{qixian}}</td>
+                            <td>标题优化</td>
+                            <td>{{time.startTime}}</td>
+                            <td>{{time.endTime}}</td>
+                            <td>{{biaotiyouhua}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{qixian}}</td>
+                            <td>历史价格</td>
+                            <td>{{time.startTime}}</td>
+                            <td>{{time.endTime}}</td>
+                            <td>{{lishijiage}}</td>
+                        </tr>
+
                         <tr>
                             <td>{{id}}</td>
                             <td>{{qixian}}</td>
