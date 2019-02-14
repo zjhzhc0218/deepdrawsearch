@@ -99,8 +99,8 @@
                         <div class="titleResult_con2 clearfix">
                             <div class="titleResult_con2_box">
                                 <span class="tit">标题长度：</span>
-                                <img :src="titleInfo.specialSymbol_judge==2?'/deepsearch/images/ok.png':'/deepsearch/images/warning_icon.png'" class="img">
-                                <span class="text">{{titleInfo.specialSymbol}}</span>
+                                <img :src="titleInfo.titleLengths_judge==2?'/deepsearch/images/ok.png':'/deepsearch/images/warning_icon.png'" class="img">
+                                <span class="text">{{titleInfo.titleLengths}}</span>
                             </div>
                             <div class="titleResult_con2_box">
                                 <span class="tit">营 销 词：</span>
@@ -204,7 +204,7 @@
                                     clearInterval(interval);
                                     bton();
                                 }
-                            }, 200);
+                            }, 600);
                             //直通车
                             $.ajax({
                                 type: 'get',
@@ -217,7 +217,7 @@
 
                                     _this.titleInfo = data.data.replace(/'/g, '"');
                                     _this.titleInfo = eval('(' + _this.titleInfo + ')');
-                                    console.log(_this.titleInfo)
+                                    // console.log(_this.titleInfo)
                                     //数据出现隐藏进度条
                                     clearInterval(interval);
                                     _this.time.working = false;

@@ -1,6 +1,6 @@
 <!--  / footer  -->
 <div class="footer">
-	<p>Copyright  2018-2019  杭州兴淘网络科技有限公司 白马查 www.baiamcha.com   浙ICP备18047066号  <span class="footer_ab" >关于我们</span>   <span class="footer_cont">联系我们 </span>   </p>
+	<p>Copyright  2018-2019  杭州兴淘网络科技有限公司 白马查 www.baimacha.com   浙ICP备18047066号  <span class="footer_ab" >关于我们</span>   <span class="footer_cont">联系我们 </span>   </p>
 </div>
 <!--  / footer  -->
 <!-- 二维码 -->

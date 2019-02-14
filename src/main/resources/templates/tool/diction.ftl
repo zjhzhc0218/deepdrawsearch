@@ -250,7 +250,7 @@
                                         }
                                     }
                                     _this.dictionMenu=list;
-                                    console.log(_this.dictionMenu);
+                                    // console.log(_this.dictionMenu);
                                     // console.log( _this.dictionInfo)
                                     _this.$nextTick(function () {
 
@@ -265,7 +265,7 @@
                                             }
                                             _this.dictionInfo2[i]['id']=i+1;
                                         }
-                                        console.log(_this.dictionInfo2);
+                                        // console.log(_this.dictionInfo2);
                                         // 计算一共有几页
                                         _this.totalPage = Math.ceil(_this.dictionInfo2.length / _this.pageSize);
                                         // 计算得0时设置为1
@@ -296,7 +296,7 @@
                 },
                 //上一页
                 prevPage:function() {
-                    console.log(this.currentPage);
+                    // console.log(this.currentPage);
                     if (this.currentPage == 1) {
                         return false;
                     } else {
@@ -353,8 +353,8 @@
                     }
                     _this.dictionInfo2=[];
                     _this.dictionInfo2=arr;
-                    console.log(_this.dictionInfo2);
-                    console.log(_this.currentPage);
+                    // console.log(_this.dictionInfo2);
+                    // console.log(_this.currentPage);
                     // 计算一共有几页
                     _this.totalPage = Math.ceil(_this.dictionInfo2.length / _this.pageSize);
                     // 计算得0时设置为1
