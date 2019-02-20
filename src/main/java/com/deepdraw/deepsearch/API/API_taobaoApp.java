@@ -217,16 +217,10 @@ public class API_taobaoApp {
         String val = SortUtils.formatUrlParam(params,"UTF-8",false);
         System.out.println(val);
         String sign = (MD5Util.md5(val+key)).toUpperCase();
-
         System.out.println(sign);
-
         params.put("sign",sign); //签名秘钥，即文档开头签名规则所生成的字符串
-
         System.out.println(params);
-
         /*这里的部分需要对于参数进行排序*/
-
-
 
         //调用httpRequest方法，这个方法主要用于请求地址，并加上请求参数
         String string = httpRequest(requestUrl,params);

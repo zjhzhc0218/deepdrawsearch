@@ -84,6 +84,15 @@
                                     </tr>
 
                                     <tr>
+                                        <td>2019-02-12 </td>
+                                        <td><a ng-click="reciRecord('https://pan.baidu.com/s/1n3afmiedndlH7MJ7UGW7QQ')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
+                                        <td><a ng-click="reciRecord('https://pan.baidu.com/s/1wTa2Vs6cY4FLs753vtNVSg')" target="_blank" href="javascript:void(0)">无线端TOP 20W</a> </td>
+                                        <td><a ng-click="reciRecord(' https://pan.baidu.com/s/1atasmW1mEb5e76qiTCoY0A')" target="_blank" href="javascript:void(0)" >潜力词表PC</a>
+                                            | <a ng-click="reciRecord('https://pan.baidu.com/s/1EEru_apXg0d2A9kXU_ay9w')" target="_blank" href="javascript:void(0)">潜力词表无线端</a></td>
+                                    </tr>
+
+
+                                    <tr>
                                         <td>2019-01-30 </td>
                                         <td><a ng-click="reciRecord('https://pan.baidu.com/s/1Sr4rCVAKqxr6yjrmxjP9Bw')" target="_blank" href="javascript:void(0)" >PC端TOP 20W</a> </td>
                                         <td><a ng-click="reciRecord('https://pan.baidu.com/s/1sZQZc58jOclu9vfy3IYMhQ')" target="_blank" href="javascript:void(0)">无线端TOP 20W</a> </td>

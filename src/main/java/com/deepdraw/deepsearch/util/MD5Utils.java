@@ -9,6 +9,7 @@ import java.security.NoSuchAlgorithmException;
  * 何川
  */
 public class MD5Utils {
+
     /*
      * 加密算法
      */
@@ -18,10 +19,9 @@ public class MD5Utils {
             MessageDigest digest = MessageDigest.getInstance("MD5");
 
             // 使用指定的字节更新摘要  --补充
-//            digest.update(text.getBytes("utf-8"));
+//            digest.update(text.getBytes("GBK"));
 //            digest.update(text.getBytes("GBK"));
             System.out.println(text.getBytes());
-
             byte[] result = digest.digest(text.getBytes());
             StringBuilder sb =new StringBuilder();
             for(byte b:result){
@@ -44,13 +44,6 @@ public class MD5Utils {
 
     public static void main(String[] args) {
 
-        String key = "XqCJKeRaUqSMGBB6fj8uX52tIy34Y7WKOBSMoIPePCstPtZd65HVpzCupWhIp1h8";
-        String val = "task_id1095566084726415360username1087911481117597696";
-        String bb = encodeMD5UpperCase32(val+key);
-        System.out.println(bb);
-
-        String aa = encodeMD5UpperCase32("task_id1095566084726415360username1087911481117597696XqCJKeRaUqSMGBB6fj8uX52tIy34Y7WKOBSMoIPePCstPtZd65HVpzCupWhIp1h8");
-        System.out.println(aa.toUpperCase());
     }
 
 }
