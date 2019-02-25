@@ -124,7 +124,7 @@
                             </div>
                             <div class="titleResult_con2_box">
                                 <span class="tit">违 禁 词：</span>
-                                <img :src="titleInfo.duplicateWords_judge==2?'/deepsearch/images/ok.png':'/deepsearch/images/warning_icon.png'" class="img">
+                                <img :src="titleInfo.forbiddenWords_judge==2?'/deepsearch/images/ok.png':'/deepsearch/images/warning_icon.png'" class="img">
                                 <span class="text">{{titleInfo.forbiddenWOrds}}</span>
                             </div>
                         </div>
@@ -204,7 +204,7 @@
                                     clearInterval(interval);
                                     bton();
                                 }
-                            }, 600);
+                            }, 200);
                             //直通车
                             $.ajax({
                                 type: 'get',
@@ -214,18 +214,22 @@
                                     searchWords: name
                                 },
                                 success: function (data) {
+                                    if(data.code==0){
+                                        _this.titleInfo = data.data.replace(/'/g, '"');
+                                        _this.titleInfo = eval('(' + _this.titleInfo + ')');
+                                        // console.log(_this.titleInfo)
 
-                                    _this.titleInfo = data.data.replace(/'/g, '"');
-                                    _this.titleInfo = eval('(' + _this.titleInfo + ')');
-                                    // console.log(_this.titleInfo)
+
+                                    }else{
+                                        _this.time.msg =data.msg;
+                                    }
+                                    _this.$nextTick(function () {
+
+                                    })
                                     //数据出现隐藏进度条
                                     clearInterval(interval);
                                     _this.time.working = false;
                                     buttonON()
-                                    _this.$nextTick(function () {
-
-                                    })
-
                                 }
                             })
                         }

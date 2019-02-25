@@ -143,7 +143,12 @@
                         <div class="toolALL_info_box">
                             <h5 class="toolALL_info_tit">直通车选词使用说明</h5>
                             <div class="toolALL_info_text">
-                                <#--<p>历史价格查询目前支持淘宝，天猫等商城的绝大多数商品</p>-->
+                                <p>1、直通车关键词查询工具让你了解竞争对手如何投放直通车,知己知彼,快速提升你的投入产出比。</p>
+                                <p>2、直通车关键词查询主要用于查询直通车排名位置，分析淘宝直通车的竞争对手投放情况、准确显示页码、位置，提升直通车技巧</p>
+                                <p>3、直通车关键词查询可以查看自己或他人店铺宝贝商品信息，包括上下架时间、收藏、评价、浏览量（商城无浏览量），是淘宝直通车优化的得力工具。
+                                </p>
+                                <p>4、直通车排名根据淘宝规则排序，更新频率较快，每隔几分钟查询结果不同是正常情况；关键字排名数据更新较快，而且卖家做了定向投放等，结果仅供参考。
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -250,7 +255,7 @@
                                         }
                                     }
                                     _this.dictionMenu=list;
-                                    // console.log(_this.dictionMenu);
+                                    console.log(_this.dictionMenu);
                                     // console.log( _this.dictionInfo)
                                     _this.$nextTick(function () {
 
@@ -265,7 +270,7 @@
                                             }
                                             _this.dictionInfo2[i]['id']=i+1;
                                         }
-                                        // console.log(_this.dictionInfo2);
+                                        console.log(_this.dictionInfo2);
                                         // 计算一共有几页
                                         _this.totalPage = Math.ceil(_this.dictionInfo2.length / _this.pageSize);
                                         // 计算得0时设置为1
@@ -296,7 +301,7 @@
                 },
                 //上一页
                 prevPage:function() {
-                    // console.log(this.currentPage);
+                    console.log(this.currentPage);
                     if (this.currentPage == 1) {
                         return false;
                     } else {
@@ -353,8 +358,8 @@
                     }
                     _this.dictionInfo2=[];
                     _this.dictionInfo2=arr;
-                    // console.log(_this.dictionInfo2);
-                    // console.log(_this.currentPage);
+                    console.log(_this.dictionInfo2);
+                    console.log(_this.currentPage);
                     // 计算一共有几页
                     _this.totalPage = Math.ceil(_this.dictionInfo2.length / _this.pageSize);
                     // 计算得0时设置为1
